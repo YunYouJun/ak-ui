@@ -38,6 +38,7 @@
   },
   "devDependencies": {
     "@vuepress/plugin-back-to-top": "^1.2.0",
+    "@vuepress/plugin-google-analytics": "^1.2.0",
     "gulp": "^4.0.2",
     "gulp-clean-css": "^4.2.0",
     "gulp-concat": "^2.6.1",

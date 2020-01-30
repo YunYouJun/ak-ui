@@ -1,6 +1,7 @@
 # Custom
 .DS_Store
 .vscode
+ref
 
 # Build
 dist
