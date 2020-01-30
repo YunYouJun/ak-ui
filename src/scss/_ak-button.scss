@@ -1,0 +1,98 @@
+.ak-button {
+  font-family: $font-family-serif;
+  outline: none;
+  border: none;
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
+  height: 50px;
+  width: 150px;
+  color: white;
+  background-color: gray;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2), 0 5px 10px rgba(0, 0, 0, 0.5);
+  transition: 0.2s;
+
+  &:active {
+    color: lightgray;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1), 0 5px 12px rgba(0, 0, 0, 0.5);
+  }
+
+  &--outlined {
+    border: 2px solid #fff;
+    font-family: $font-family-sans-serif;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+
+    &:active {
+      background-color: scale-color($color: gray, $lightness: -10%);
+      border-color: lightgray;
+    }
+  }
+
+  &--action {
+    font-family: $font-family-sans-serif;
+    text-align: right;
+    background-color: map-get($colors, "blue");
+    padding-right: 20px;
+    box-shadow: 2px 5px 50px -10px rgba(0, 0, 0, 0.5);
+
+    &:active {
+      background-color: map-get($colors, "dark-blue");
+    }
+  }
+}
+
+.ak-button--start {
+  width: 38px;
+  height: 38px;
+  background-color: transparent;
+  border: 5px solid map-get($colors, "yellow");
+  color: map-get($colors, "yellow");
+  font-style: italic;
+  font-size: xx-small;
+  font-weight: bold;
+  margin: 10px;
+  transform: rotate(-45deg);
+  float: left;
+
+  .icon {
+    color: map-get($colors, "yellow");
+    transform: rotate(45deg) translate(22px, -10px);
+  }
+
+  .label {
+    transform: rotate(45deg) translateY(5px);
+    text-align: center;
+  }
+
+  text-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3), inset 0 0 50px rgba(0, 0, 0, 0.3);
+
+  &__glow {
+    width: 38px;
+    height: 38px;
+    background-color: transparent;
+    border: 5px solid map-get($colors, "yellow");
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation-name: bounce;
+    animation-duration: 0.7s;
+    animation-timing-function: ease-out;
+    animation-iteration-count: infinite;
+  }
+}
+
+@keyframes bounce {
+  from {
+    width: 38px;
+    height: 38px;
+    opacity: 1;
+  }
+
+  to {
+    width: 90px;
+    height: 90px;
+    opacity: 0;
+  }
+}

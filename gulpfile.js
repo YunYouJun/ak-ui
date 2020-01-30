@@ -1,7 +1,5 @@
-const pkg = require("./package.json");
 const gulp = require("gulp");
 const sass = require("gulp-sass");
-const concat = require("gulp-concat");
 const cleanCSS = require("gulp-clean-css");
 const rename = require("gulp-rename");
 const del = require("del");
@@ -24,8 +22,7 @@ function clean() {
 
 function scss() {
   return gulp
-    .src(dir.scss + "/**/*.scss")
-    .pipe(concat(pkg.name + ".scss"))
+    .src(dir.scss + "/ak-ui.scss")
     .pipe(sass(sassOptions).on("error", sass.logError))
     .pipe(gulp.dest(dir.dist))
     .pipe(

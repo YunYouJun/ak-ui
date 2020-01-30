@@ -1,0 +1,22 @@
+.ak-card {
+  background-color: transparent;
+  transition: 0.2s;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+
+  &:hover {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  }
+
+  &--stripe {
+    width: 200px;
+    height: 200px;
+    background-image:
+      repeating-linear-gradient(
+        -45deg,
+        transparent,
+        transparent 5px,
+        rgba(255, 255, 255, 1) 10px,
+        rgba(255, 255, 255, 1) 15px
+      );
+  }
+}

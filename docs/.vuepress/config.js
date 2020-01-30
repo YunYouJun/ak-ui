@@ -18,13 +18,13 @@ module.exports = {
       { text: "Components", link: "/components/" }
     ],
     sidebar: {
-      "/components/": ["", "ak-button"]
+      "/components/": ["", "ak-button", "ak-card"]
     },
     lastUpdated: "Last Updated",
     repo: "YunYouJun/ak-ui",
     docsDir: "docs",
     editLinks: true,
-    editLinkText: "帮助我们改善此页面！",
+    editLinkText: "帮助改善此页面！( ￣□￣)/",
     smoothScroll: true
   },
   plugins: [

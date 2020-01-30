@@ -1,5 +1,19 @@
-$colors: (
-  "blue": #0098dc,
-  // "blue": #00b3fd,
-  "light-blue": #3ff7ff
+// "blue": #00b3fd,
+$colors: () !default;
+$colors: map-merge(
+  (
+    "blue": #00b3fd,
+    "dark-blue": #0098dc,
+    "light-blue": #3ff7ff,
+    "yellow": #ffd802
+  ),
+  $colors
 );
+
+// Typography
+$font-family-serif: 'Noto Serif SC', serif !default;
+$font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+  "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
+  "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
+$font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas,
+  "Liberation Mono", "Courier New", monospace !default;
