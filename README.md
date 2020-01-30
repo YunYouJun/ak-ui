@@ -14,7 +14,10 @@ Web Components
 ## Todo
 
 - [ ] ak-button
+  - [ ] block
+  - [ ] glow
 - [ ] ak-card
+  - [ ] 3d
 - [ ] ak-badge
 - [ ] ak-progress
 
