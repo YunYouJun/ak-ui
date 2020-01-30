@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "description": "UI components for arknights.",
   "scripts": {
+    "build": "gulp build",
     "dev": "npm-run-all --parallel watch docs:dev",
     "lint": "stylelint src/scss/**/*.scss --fix",
     "watch": "gulp watch",
