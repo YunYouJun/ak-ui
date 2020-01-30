@@ -3,7 +3,7 @@ home: true
 heroImage: /gun.svg
 heroText: ak-ui
 tagline: Arknights UI Framework
-actionText: Todo →
+actionText: START
 actionLink: /guide/
 features:
   - title: 组件

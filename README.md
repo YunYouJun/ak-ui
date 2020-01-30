@@ -1,5 +1,7 @@
 # ak-ui
 
+[![Build Status](https://travis-ci.com/YunYouJun/ak-ui.svg?branch=master)](https://travis-ci.com/YunYouJun/ak-ui)
+
 UI components for [arknights](https://ak.hypergryph.com/).
 
 [![npm](https://img.shields.io/npm/v/ak-ui.svg?style=for-the-badge)](https://www.npmjs.com/package/ak-ui)

@@ -27,5 +27,13 @@ module.exports = {
     editLinkText: "帮助我们改善此页面！",
     smoothScroll: true
   },
-  plugins: ["@vuepress/back-to-top"]
+  plugins: [
+    "@vuepress/back-to-top",
+    [
+      "@vuepress/google-analytics",
+      {
+        ga: "UA-121354150-11"
+      }
+    ]
+  ]
 };
