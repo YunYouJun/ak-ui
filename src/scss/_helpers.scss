@@ -1,3 +1,5 @@
-.rotate-45 {
-  transform: rotate(45deg);
+@each $color, $value in $ak-colors {
+  .bg-#{$color} {
+    background-color: $value;
+  }
 }

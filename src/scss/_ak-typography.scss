@@ -1,3 +1,14 @@
-.ak-font {
+.ak-font-serif {
   font-family: $font-family-serif;
+}
+
+.ak-font-sans-serif {
+  font-family: $font-family-sans-serif;
+}
+
+.ak-text {
+  &--title {
+    font-weight: 900;
+    font-size: 3rem;
+  }
 }
