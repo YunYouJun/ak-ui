@@ -29,6 +29,7 @@ module.exports = {
   },
   plugins: [
     "@vuepress/back-to-top",
+    '@vuepress/medium-zoom',
     [
       "@vuepress/google-analytics",
       {

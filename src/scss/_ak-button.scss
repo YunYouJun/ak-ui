@@ -1,10 +1,12 @@
 .ak-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   font-family: $font-family-serif;
   outline: none;
   border: none;
   font-size: 1rem;
   font-weight: bold;
-  text-align: center;
   height: 50px;
   width: 150px;
   color: white;
@@ -17,10 +19,51 @@
     box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1), 0 5px 12px rgba(0, 0, 0, 0.5);
   }
 
+  &__icon {
+    display: inline-block;
+    width: 48px;
+    height: 48px;
+  }
+
+  &__label {
+    display: inline-block;
+    font-family: $font-family-sans-serif;
+    line-height: 1;
+    top: 0;
+  }
+
+  &--block {
+    display: block;
+    width: 100%;
+
+    + .ak-button-block {
+      margin-top: 20px;
+    }
+  }
+
+  // floating action button
+  &--fab {
+    width: 64px;
+    height: 64px;
+    background-color: rgba(0, 0, 0, 0.5);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.8);
+    padding: 0;
+
+    &:active {
+      background-color: rgba(0, 0, 0, 0.6);
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.8);
+    }
+
+    .ak-button__icon {
+      width: 36px;
+      height: 36px;
+    }
+  }
+
   &--outlined {
     border: 2px solid #fff;
     font-family: $font-family-sans-serif;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.5);
 
     &:active {
       background-color: scale-color($color: gray, $lightness: -10%);
@@ -32,12 +75,17 @@
     font-family: $font-family-sans-serif;
     text-align: right;
     background-color: map-get($colors, "blue");
-    padding-right: 20px;
     box-shadow: 2px 5px 50px -10px rgba(0, 0, 0, 0.5);
 
     &:active {
       background-color: map-get($colors, "dark-blue");
     }
+  }
+
+  &--glow {
+    animation-name: glowing-low;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
   }
 }
 
@@ -94,5 +142,17 @@
     width: 90px;
     height: 90px;
     opacity: 0;
+  }
+}
+
+@each $color, $value in $ak-colors {
+  .ak-glow-#{$color} {
+    animation-name: glowing-#{$color};
+  }
+
+  @keyframes glowing-#{$color} {
+    from { box-shadow: 0 0 0 rgba($value, 0.3); }
+    50% { box-shadow: 0 0 25px rgba($value, 0.8); }
+    to { box-shadow: 0 0 0 rgba($value, 0.3); }
   }
 }

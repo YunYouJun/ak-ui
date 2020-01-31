@@ -3,17 +3,38 @@ $colors: () !default;
 $colors: map-merge(
   (
     "blue": #00b3fd,
-    "dark-blue": #0098dc,
+    "dark-blue": #0075a8,
     "light-blue": #3ff7ff,
-    "yellow": #ffd802
+    "yellow": #ffd802,
+    "gray": #313131,
+    "dark": #222
   ),
   $colors
 );
 
+$color-low: #9c9c9c;
+$color-basic: #d8dd5a;
+$color-primary: #4aabea;
+$color-secondary: #cfc2d1;
+$color-advanced: #f1c644;
+
+$ak-colors: () !default;
+$ak-colors: map-merge(
+  (
+    "white": white,
+    "black": black,
+    "low": $color-low,
+    "basic": $color-basic,
+    "primary": $color-primary,
+    "secondary": $color-secondary,
+    "advanced": $color-advanced,
+  ),
+  $ak-colors
+);
+
 // Typography
-$font-family-serif: 'Noto Serif SC', serif !default;
-$font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-  "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
-  "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
-$font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas,
-  "Liberation Mono", "Courier New", monospace !default;
+$font-family-serif: Noto Serif SC, serif !default;
+$font-family-sans-serif: Roboto, Noto Sans, Arial, sans-serif !default;
+$font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, monospace !default;
+
+$text-color: #0098dc;
