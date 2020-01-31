@@ -12,7 +12,7 @@ sidebar: auto
 
 ```bash
 # 安装
-yarn add -D ak-ui
+yarn add -D @yunyoujun/ak-ui
 # or:
 # npm install ak-ui --save-dev
 ```
