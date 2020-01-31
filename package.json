@@ -1,5 +1,5 @@
 {
-  "name": "ak-ui",
+  "name": "@yunyoujun/ak-ui",
   "version": "0.0.1",
   "description": "UI components for arknights.",
   "scripts": {
@@ -8,11 +8,12 @@
     "lint": "stylelint src/scss/**/*.scss --fix",
     "watch": "gulp watch",
     "docs:dev": "vuepress dev docs --no-clear-screen",
-    "docs:build": "vuepress build docs"
+    "docs:build": "vuepress build docs",
+    "prepublish": "yarn build"
   },
-  "style": "dist/css/ak-ui.css",
+  "style": "dist/ak-ui.min.css",
   "sass": "src/scss/ak-ui.scss",
-  "main": "dist/js/ak-ui.js",
+  "main": "dist/ak-ui.min.css",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/YunYouJun/ak-ui.git"
@@ -28,7 +29,7 @@
   "bugs": {
     "url": "https://github.com/YunYouJun/ak-ui/issues"
   },
-  "homepage": "https://github.com/YunYouJun/ak-ui#readme",
+  "homepage": "https://ak-ui.yunyoujun.cn",
   "lint-staged": {
     "src/scss/**/*.scss": "yarn lint"
   },
@@ -58,6 +59,9 @@
   },
   "files": [
     "dist/*.{css,js,map}",
-    "scss/**/*.scss"
-  ]
+    "src/scss/**/*.scss"
+  ],
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  }
 }
