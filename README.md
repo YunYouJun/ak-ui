@@ -1,17 +1,32 @@
 # ak-ui
 
 [![Build Status](https://travis-ci.com/YunYouJun/ak-ui.svg?branch=master)](https://travis-ci.com/YunYouJun/ak-ui)
+[![jsdelivr cdn](https://data.jsdelivr.com/v1/package/npm/@yunyoujun/ak-ui/badge)](https://www.jsdelivr.com/package/npm/@yunyoujun/ak-ui)
 
 UI components for [arknights](https://ak.hypergryph.com/).
 
-[![npm](https://img.shields.io/npm/v/ak-ui.svg?style=for-the-badge)](https://www.npmjs.com/package/ak-ui)
-![npm](https://img.shields.io/npm/dt/ak-ui.svg?style=for-the-badge)
-![npm](https://img.shields.io/npm/l/ak-ui.svg?style=for-the-badge)
-![npm bundle size (minified + gzip)](https://img.shields.io/bundlephobia/minzip/ak-ui.svg?style=for-the-badge)
+[![npm](https://img.shields.io/npm/v/@yunyoujun/ak-ui.svg?style=flat-square)](https://www.npmjs.com/package/@yunyoujun/ak-ui)
+![npm](https://img.shields.io/npm/dt/@yunyoujun/ak-ui.svg?style=flat-square)
+![npm bundle size (minified + gzip)](https://img.shields.io/bundlephobia/minzip/@yunyoujun/ak-ui.svg?style=flat-square)
+![npm](https://img.shields.io/npm/l/@yunyoujun/ak-ui.svg?style=flat-square)
 
-Web Components
+## How to use
 
-## Todo
+### CDN
+
+```html
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@yunyoujun/ak-ui">
+```
+
+### NPM or YARN
+
+```sh
+npm install @yunyoujun/ak-ui
+# or
+yarn add @yunyoujun/ak-ui
+```
+
+## Components
 
 - [ ] ak-button
   - [ ] block
@@ -33,7 +48,6 @@ Web Components
 - [Material Design](https://material.io/develop/web/): <https://github.com/material-components/material-components-web>
 - [Milligram](https://milligram.io/): <https://github.com/milligram/milligram>
 - [Pure.css](https://purecss.io/): <https://github.com/pure-css/pure/>
-- [xy-ui](https://xy-ui.codelabo.cn/docs): <https://github.com/XboxYan/xy-ui>
 - [arknights-ui](https://ak.2heng.xin/): <https://github.com/mashirozx/arknights-ui>
 
 If you want to achieve parallax effect, please see [parallax](https://github.com/wagerfield/parallax).

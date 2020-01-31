@@ -60,8 +60,5 @@
   "files": [
     "dist/*.{css,js,map}",
     "src/scss/**/*.scss"
-  ],
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
-  }
+  ]
 }
