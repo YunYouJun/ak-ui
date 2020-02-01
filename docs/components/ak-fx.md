@@ -7,11 +7,11 @@
 ### glow 辉光按钮
 
 <button class="ak-button ak-fx--glow">放弃行动</button>
-<button class="ak-button ak-button--action ak-fx--glow ak-fx--glow__primary">开始行动</button>
+<button class="ak-button ak-button--action ak-fx--glow" style="--ak-fx-glow-color: var(--ak-color-primary);">开始行动</button>
 
 ```html
 <button class="ak-button ak-fx--glow">放弃行动</button>
-<button class="ak-button ak-button--action ak-fx--glow ak-fx--glow__primary">开始行动</button>
+<button class="ak-button ak-button--action ak-fx--glow" style="--ak-fx-glow-color: var(--ak-color-primary);">开始行动</button>
 ```
 
 ## radio 辐射按钮
