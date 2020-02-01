@@ -1,7 +1,7 @@
 const pkg = require("../../package.json");
 
 module.exports = {
-  title: pkg.name,
+  title: "ak-ui",
   description: pkg.description,
   head: [
     ["link", { rel: "icon", href: "/ak.png" }],
@@ -18,7 +18,13 @@ module.exports = {
       { text: "Components", link: "/components/" }
     ],
     sidebar: {
-      "/components/": ["", "ak-button", "ak-card"]
+      "/components/": [
+        "",
+        "ak-button",
+        "ak-card",
+        "ak-fx",
+        "ak-loading"
+      ]
     },
     lastUpdated: "Last Updated",
     repo: "YunYouJun/ak-ui",
@@ -29,7 +35,7 @@ module.exports = {
   },
   plugins: [
     "@vuepress/back-to-top",
-    '@vuepress/medium-zoom',
+    "@vuepress/medium-zoom",
     [
       "@vuepress/google-analytics",
       {

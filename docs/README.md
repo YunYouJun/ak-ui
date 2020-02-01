@@ -25,7 +25,7 @@ title: 主页
 # 安装
 yarn add -D @yunyoujun/ak-ui
 # or:
-# npm install ak-ui --save-dev
+# npm install @yunyoujun/ak-ui --save-dev
 ```
 
 <div>
@@ -33,8 +33,6 @@ yarn add -D @yunyoujun/ak-ui
     <div class="ak-button--start">
       <div class="icon triangle-right"></div>
       <div class="label">START</div>
-      <div class="ak-button--start__glow"></div>
     </div>
   </a>
-  
 </div>

@@ -48,14 +48,4 @@
 <button class="ak-button ak-button--fab"></button>
 ```
 
-## glow 辉光按钮
-
-<button class="ak-button ak-button--glow">放弃行动</button>
-<button class="ak-button ak-button--action ak-button--glow ak-glow-primary">开始行动</button>
-
-更多色擦参见 [色彩](/components/#color-色彩)。
-
-```html
-<button class="ak-button ak-button--glow">放弃行动</button>
-<button class="ak-button ak-button--action ak-button--glow ak-glow-primary">开始行动</button>
-```
+> 如想要添加更多效果参见 [ak-fx](/components/ak-fx)。

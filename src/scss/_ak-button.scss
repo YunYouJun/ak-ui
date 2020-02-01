@@ -81,20 +81,14 @@
       background-color: map-get($colors, "dark-blue");
     }
   }
-
-  &--glow {
-    animation-name: glowing-low;
-    animation-duration: 3s;
-    animation-iteration-count: infinite;
-  }
 }
 
 .ak-button--start {
   width: 38px;
   height: 38px;
   background-color: transparent;
-  border: 5px solid map-get($colors, "yellow");
-  color: map-get($colors, "yellow");
+  border: 5px solid $yellow;
+  color: $yellow;
   font-style: italic;
   font-size: xx-small;
   font-weight: bold;
@@ -103,7 +97,7 @@
   float: left;
 
   .icon {
-    color: map-get($colors, "yellow");
+    color: $yellow;
     transform: rotate(45deg) translate(22px, -10px);
   }
 
@@ -115,44 +109,20 @@
   text-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.3), inset 0 0 50px rgba(0, 0, 0, 0.3);
 
-  &__glow {
+  &::after {
+    content: "";
+    display: inline-block;
     width: 38px;
     height: 38px;
     background-color: transparent;
-    border: 5px solid map-get($colors, "yellow");
+    border: 5px solid var(--ak-loading-color, $yellow);
     position: absolute;
-    top: 50%;
     left: 50%;
+    top: 50%;
     transform: translate(-50%, -50%);
-    animation-name: bounce;
+    animation-name: ak-radio;
     animation-duration: 0.7s;
     animation-timing-function: ease-out;
     animation-iteration-count: infinite;
-  }
-}
-
-@keyframes bounce {
-  from {
-    width: 38px;
-    height: 38px;
-    opacity: 1;
-  }
-
-  to {
-    width: 90px;
-    height: 90px;
-    opacity: 0;
-  }
-}
-
-@each $color, $value in $ak-colors {
-  .ak-glow-#{$color} {
-    animation-name: glowing-#{$color};
-  }
-
-  @keyframes glowing-#{$color} {
-    from { box-shadow: 0 0 0 rgba($value, 0.3); }
-    50% { box-shadow: 0 0 25px rgba($value, 0.8); }
-    to { box-shadow: 0 0 0 rgba($value, 0.3); }
   }
 }

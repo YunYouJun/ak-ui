@@ -1,0 +1,26 @@
+.ak-loading {
+  width: 38px;
+  height: 38px;
+  background-color: transparent;
+  border: 5px solid var(--ak-loading-color, white);
+  transform: rotate(-45deg);
+  display: inline-block;
+  margin: 66px;
+
+  &::after {
+    content: "";
+    display: inline-block;
+    width: 38px;
+    height: 38px;
+    background-color: transparent;
+    border: 5px solid var(--ak-loading-color, white);
+    position: relative;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    animation-name: ak-radio;
+    animation-duration: 0.7s;
+    animation-timing-function: ease-out;
+    animation-iteration-count: infinite;
+  }
+}
