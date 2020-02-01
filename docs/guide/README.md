@@ -14,7 +14,7 @@ sidebar: auto
 # 安装
 yarn add -D @yunyoujun/ak-ui
 # or:
-# npm install ak-ui --save-dev
+# npm install @yunyoujun/ak-ui --save-dev
 ```
 
 ### Sample

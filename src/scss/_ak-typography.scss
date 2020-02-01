@@ -1,3 +1,9 @@
+:root {
+  @each $color, $value in $ak-colors {
+    --ak-color-#{$color}: #{$value};
+  }
+}
+
 .ak-font-serif {
   font-family: $font-family-serif;
 }
