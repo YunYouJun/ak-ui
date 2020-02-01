@@ -25,6 +25,7 @@ function scss() {
     .src(dir.scss + "/ak-ui.scss")
     .pipe(sass(sassOptions).on("error", sass.logError))
     .pipe(gulp.dest(dir.dist))
+    .pipe(gulp.dest(dir.vuepress))
     .pipe(
       cleanCSS({ debug: true }, details => {
         console.log(`${details.name}: ${details.stats.originalSize} B`);
