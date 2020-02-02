@@ -5,7 +5,7 @@
 ## 普通按钮
 
 <button class="ak-button">开始唤醒</button>
-<button class="ak-button ak-button--outlined">开始唤醒</button>
+<button class="ak-button ak-button--outline">开始唤醒</button>
 <button class="ak-button ak-button--action">开始行动</button>
 
 <button class="ak-button">
@@ -17,7 +17,7 @@
 
 ```html
 <button class="ak-button">开始唤醒</button>
-<button class="ak-button ak-button--outlined">开始唤醒</button>
+<button class="ak-button ak-button--outline">开始唤醒</button>
 <button class="ak-button ak-button--action">开始行动</button>
 
 <button class="ak-button">

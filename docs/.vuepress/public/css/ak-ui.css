@@ -51,8 +51,11 @@
 }
 
 .ak-button {
+  display: -webkit-inline-box;
   display: inline-flex;
+  -webkit-box-align: center;
   align-items: center;
+  -webkit-box-pack: center;
   justify-content: center;
   font-family: Noto Serif SC, serif;
   outline: none;
@@ -64,6 +67,7 @@
   color: white;
   background-color: gray;
   box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2), 0 5px 10px rgba(0, 0, 0, 0.5);
+  -webkit-transition: 0.2s;
   transition: 0.2s;
 }
 .ak-button:active {
@@ -103,12 +107,12 @@
   width: 36px;
   height: 36px;
 }
-.ak-button--outlined {
+.ak-button--outline {
   border: 2px solid #fff;
   font-family: Roboto, Noto Sans, Arial, sans-serif;
   box-shadow: 0 10px 15px rgba(0, 0, 0, 0.5);
 }
-.ak-button--outlined:active {
+.ak-button--outline:active {
   background-color: #737373;
   border-color: lightgray;
 }
@@ -132,6 +136,7 @@
   font-size: xx-small;
   font-weight: bold;
   margin: 10px;
+  -webkit-transform: rotate(-45deg);
   transform: rotate(-45deg);
   float: left;
   text-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
@@ -139,9 +144,11 @@
 }
 .ak-button--start .icon {
   color: #ffd802;
+  -webkit-transform: rotate(45deg) translate(22px, -10px);
   transform: rotate(45deg) translate(22px, -10px);
 }
 .ak-button--start .label {
+  -webkit-transform: rotate(45deg) translateY(5px);
   transform: rotate(45deg) translateY(5px);
   text-align: center;
 }
@@ -155,23 +162,48 @@
   position: absolute;
   left: 50%;
   top: 50%;
+  -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
+  -webkit-animation-name: ak-radio;
   animation-name: ak-radio;
+  -webkit-animation-duration: 0.7s;
   animation-duration: 0.7s;
+  -webkit-animation-timing-function: ease-out;
   animation-timing-function: ease-out;
+  -webkit-animation-iteration-count: infinite;
   animation-iteration-count: infinite;
 }
 
 .ak-card {
   background-color: transparent;
+  -webkit-transition: 0.2s;
   transition: 0.2s;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   outline: none;
   display: inline-block;
+  margin: 1rem 0;
+  padding: 0.1rem 1.5rem;
+}
+.ak-card--outline {
+  display: block;
+  min-height: 100px;
+  border: 0.5rem solid white;
+  background-color: transparent;
+}
+.ak-card--outline .title {
+  font-weight: bold;
+  font-size: large;
+  margin: 0.2rem 0;
+  border-bottom: 2px solid white;
+}
+.ak-card--outline:hover {
+  -webkit-filter: drop-shadow(15px 15px 2px rgba(0, 0, 0, 0.3));
+  filter: drop-shadow(15px 15px 2px rgba(0, 0, 0, 0.3));
 }
 .ak-card--stripe {
   width: 200px;
   height: 200px;
+  padding: 0;
   background-image: repeating-linear-gradient(-45deg, transparent, transparent 5px, white 10px, white 15px);
 }
 .ak-card--stripe:hover {
@@ -183,37 +215,129 @@
   height: 100px;
   box-shadow: inset 0 0 20px white;
   border-bottom: 4px solid var(--ak-card-place-color, white);
+  padding: 0;
 }
 .ak-card--place:active, .ak-card--place:focus {
   border-top: 1px solid #fff;
   border-left: 1px solid #fff;
   border-right: 1px solid #fff;
   box-shadow: inset 0 0 20px white, 0 5px 10px rgba(0, 0, 0, 0.1);
+  -webkit-transform: translateY(-10px);
   transform: translateY(-10px);
 }
 
 .ak-fx--glow {
+  -webkit-animation-name: ak-glow;
   animation-name: ak-glow;
-  animation-duration: 3s;
-  animation-timing-function: ease-in-out;
+  -webkit-animation-duration: 1.5s;
+  animation-duration: 1.5s;
+  -webkit-animation-timing-function: ease-out;
+  animation-timing-function: ease-out;
+  -webkit-animation-iteration-count: infinite;
   animation-iteration-count: infinite;
+  -webkit-animation-direction: alternate;
+  animation-direction: alternate;
 }
 .ak-fx--radio {
+  -webkit-animation-name: ak-radio;
   animation-name: ak-radio;
+  -webkit-animation-duration: 0.7s;
   animation-duration: 0.7s;
+  -webkit-animation-timing-function: ease-out;
   animation-timing-function: ease-out;
+  -webkit-animation-iteration-count: infinite;
   animation-iteration-count: infinite;
+}
+.ak-fx--outline {
+  -webkit-animation-name: ak-outline-white;
+  animation-name: ak-outline-white;
+  -webkit-animation-duration: 0.7s;
+  animation-duration: 0.7s;
+  -webkit-animation-timing-function: ease-out;
+  animation-timing-function: ease-out;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+}
+.ak-fx--outline__white {
+  -webkit-animation-name: ak-outline-white;
+  animation-name: ak-outline-white;
+}
+.ak-fx--outline__black {
+  -webkit-animation-name: ak-outline-black;
+  animation-name: ak-outline-black;
+}
+.ak-fx--outline__low {
+  -webkit-animation-name: ak-outline-low;
+  animation-name: ak-outline-low;
+}
+.ak-fx--outline__basic {
+  -webkit-animation-name: ak-outline-basic;
+  animation-name: ak-outline-basic;
+}
+.ak-fx--outline__primary {
+  -webkit-animation-name: ak-outline-primary;
+  animation-name: ak-outline-primary;
+}
+.ak-fx--outline__secondary {
+  -webkit-animation-name: ak-outline-secondary;
+  animation-name: ak-outline-secondary;
+}
+.ak-fx--outline__advanced {
+  -webkit-animation-name: ak-outline-advanced;
+  animation-name: ak-outline-advanced;
+}
+.ak-fx--outline__blue {
+  -webkit-animation-name: ak-outline-blue;
+  animation-name: ak-outline-blue;
+}
+.ak-fx--outline__yellow {
+  -webkit-animation-name: ak-outline-yellow;
+  animation-name: ak-outline-yellow;
+}
+.ak-fx--outline__dark-blue {
+  -webkit-animation-name: ak-outline-dark-blue;
+  animation-name: ak-outline-dark-blue;
+}
+.ak-fx--outline__light-blue {
+  -webkit-animation-name: ak-outline-light-blue;
+  animation-name: ak-outline-light-blue;
+}
+.ak-fx--outline__gray {
+  -webkit-animation-name: ak-outline-gray;
+  animation-name: ak-outline-gray;
+}
+.ak-fx--outline__dark {
+  -webkit-animation-name: ak-outline-dark;
+  animation-name: ak-outline-dark;
+}
+
+@-webkit-keyframes ak-glow {
+  from {
+    box-shadow: 0 0 0 var(--ak-fx-glow-color, white);
+  }
+  to {
+    box-shadow: 0 0 20px var(--ak-fx-glow-color, white);
+  }
 }
 
 @keyframes ak-glow {
   from {
     box-shadow: 0 0 0 var(--ak-fx-glow-color, white);
   }
-  50% {
+  to {
     box-shadow: 0 0 20px var(--ak-fx-glow-color, white);
   }
+}
+@-webkit-keyframes ak-radio {
+  from {
+    width: 38px;
+    height: 38px;
+    opacity: 1;
+  }
   to {
-    box-shadow: 0 0 0 var(--ak-fx-glow-color, white);
+    width: 90px;
+    height: 90px;
+    opacity: 0;
   }
 }
 @keyframes ak-radio {
@@ -226,6 +350,240 @@
     width: 90px;
     height: 90px;
     opacity: 0;
+  }
+}
+@-webkit-keyframes ak-outline-white {
+  from {
+    outline: 0.35rem solid white;
+  }
+  to {
+    outline: 0.35rem solid rgba(255, 255, 255, 0);
+    outline-offset: 1.5rem;
+  }
+}
+@keyframes ak-outline-white {
+  from {
+    outline: 0.35rem solid white;
+  }
+  to {
+    outline: 0.35rem solid rgba(255, 255, 255, 0);
+    outline-offset: 1.5rem;
+  }
+}
+@-webkit-keyframes ak-outline-black {
+  from {
+    outline: 0.35rem solid black;
+  }
+  to {
+    outline: 0.35rem solid rgba(0, 0, 0, 0);
+    outline-offset: 1.5rem;
+  }
+}
+@keyframes ak-outline-black {
+  from {
+    outline: 0.35rem solid black;
+  }
+  to {
+    outline: 0.35rem solid rgba(0, 0, 0, 0);
+    outline-offset: 1.5rem;
+  }
+}
+@-webkit-keyframes ak-outline-low {
+  from {
+    outline: 0.35rem solid #9c9c9c;
+  }
+  to {
+    outline: 0.35rem solid rgba(156, 156, 156, 0);
+    outline-offset: 1.5rem;
+  }
+}
+@keyframes ak-outline-low {
+  from {
+    outline: 0.35rem solid #9c9c9c;
+  }
+  to {
+    outline: 0.35rem solid rgba(156, 156, 156, 0);
+    outline-offset: 1.5rem;
+  }
+}
+@-webkit-keyframes ak-outline-basic {
+  from {
+    outline: 0.35rem solid #d8dd5a;
+  }
+  to {
+    outline: 0.35rem solid rgba(216, 221, 90, 0);
+    outline-offset: 1.5rem;
+  }
+}
+@keyframes ak-outline-basic {
+  from {
+    outline: 0.35rem solid #d8dd5a;
+  }
+  to {
+    outline: 0.35rem solid rgba(216, 221, 90, 0);
+    outline-offset: 1.5rem;
+  }
+}
+@-webkit-keyframes ak-outline-primary {
+  from {
+    outline: 0.35rem solid #4aabea;
+  }
+  to {
+    outline: 0.35rem solid rgba(74, 171, 234, 0);
+    outline-offset: 1.5rem;
+  }
+}
+@keyframes ak-outline-primary {
+  from {
+    outline: 0.35rem solid #4aabea;
+  }
+  to {
+    outline: 0.35rem solid rgba(74, 171, 234, 0);
+    outline-offset: 1.5rem;
+  }
+}
+@-webkit-keyframes ak-outline-secondary {
+  from {
+    outline: 0.35rem solid #cfc2d1;
+  }
+  to {
+    outline: 0.35rem solid rgba(207, 194, 209, 0);
+    outline-offset: 1.5rem;
+  }
+}
+@keyframes ak-outline-secondary {
+  from {
+    outline: 0.35rem solid #cfc2d1;
+  }
+  to {
+    outline: 0.35rem solid rgba(207, 194, 209, 0);
+    outline-offset: 1.5rem;
+  }
+}
+@-webkit-keyframes ak-outline-advanced {
+  from {
+    outline: 0.35rem solid #f1c644;
+  }
+  to {
+    outline: 0.35rem solid rgba(241, 198, 68, 0);
+    outline-offset: 1.5rem;
+  }
+}
+@keyframes ak-outline-advanced {
+  from {
+    outline: 0.35rem solid #f1c644;
+  }
+  to {
+    outline: 0.35rem solid rgba(241, 198, 68, 0);
+    outline-offset: 1.5rem;
+  }
+}
+@-webkit-keyframes ak-outline-blue {
+  from {
+    outline: 0.35rem solid #22bbff;
+  }
+  to {
+    outline: 0.35rem solid rgba(34, 187, 255, 0);
+    outline-offset: 1.5rem;
+  }
+}
+@keyframes ak-outline-blue {
+  from {
+    outline: 0.35rem solid #22bbff;
+  }
+  to {
+    outline: 0.35rem solid rgba(34, 187, 255, 0);
+    outline-offset: 1.5rem;
+  }
+}
+@-webkit-keyframes ak-outline-yellow {
+  from {
+    outline: 0.35rem solid #ffd802;
+  }
+  to {
+    outline: 0.35rem solid rgba(255, 216, 2, 0);
+    outline-offset: 1.5rem;
+  }
+}
+@keyframes ak-outline-yellow {
+  from {
+    outline: 0.35rem solid #ffd802;
+  }
+  to {
+    outline: 0.35rem solid rgba(255, 216, 2, 0);
+    outline-offset: 1.5rem;
+  }
+}
+@-webkit-keyframes ak-outline-dark-blue {
+  from {
+    outline: 0.35rem solid #0075a8;
+  }
+  to {
+    outline: 0.35rem solid rgba(0, 117, 168, 0);
+    outline-offset: 1.5rem;
+  }
+}
+@keyframes ak-outline-dark-blue {
+  from {
+    outline: 0.35rem solid #0075a8;
+  }
+  to {
+    outline: 0.35rem solid rgba(0, 117, 168, 0);
+    outline-offset: 1.5rem;
+  }
+}
+@-webkit-keyframes ak-outline-light-blue {
+  from {
+    outline: 0.35rem solid #3ff7ff;
+  }
+  to {
+    outline: 0.35rem solid rgba(63, 247, 255, 0);
+    outline-offset: 1.5rem;
+  }
+}
+@keyframes ak-outline-light-blue {
+  from {
+    outline: 0.35rem solid #3ff7ff;
+  }
+  to {
+    outline: 0.35rem solid rgba(63, 247, 255, 0);
+    outline-offset: 1.5rem;
+  }
+}
+@-webkit-keyframes ak-outline-gray {
+  from {
+    outline: 0.35rem solid #313131;
+  }
+  to {
+    outline: 0.35rem solid rgba(49, 49, 49, 0);
+    outline-offset: 1.5rem;
+  }
+}
+@keyframes ak-outline-gray {
+  from {
+    outline: 0.35rem solid #313131;
+  }
+  to {
+    outline: 0.35rem solid rgba(49, 49, 49, 0);
+    outline-offset: 1.5rem;
+  }
+}
+@-webkit-keyframes ak-outline-dark {
+  from {
+    outline: 0.35rem solid #222222;
+  }
+  to {
+    outline: 0.35rem solid rgba(34, 34, 34, 0);
+    outline-offset: 1.5rem;
+  }
+}
+@keyframes ak-outline-dark {
+  from {
+    outline: 0.35rem solid #222222;
+  }
+  to {
+    outline: 0.35rem solid rgba(34, 34, 34, 0);
+    outline-offset: 1.5rem;
   }
 }
 .ak-icon {
@@ -249,6 +607,7 @@
   height: 38px;
   background-color: transparent;
   border: 5px solid var(--ak-loading-color, white);
+  -webkit-transform: rotate(-45deg);
   transform: rotate(-45deg);
   display: inline-block;
   margin: 66px;
@@ -263,10 +622,15 @@
   position: relative;
   left: 50%;
   top: 50%;
+  -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
+  -webkit-animation-name: ak-radio;
   animation-name: ak-radio;
+  -webkit-animation-duration: 0.7s;
   animation-duration: 0.7s;
+  -webkit-animation-timing-function: ease-out;
   animation-timing-function: ease-out;
+  -webkit-animation-iteration-count: infinite;
   animation-iteration-count: infinite;
 }
 

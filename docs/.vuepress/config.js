@@ -1,4 +1,5 @@
 const pkg = require("../../package.json");
+const md = require("markdown-it")();
 
 module.exports = ctx => {
   return {
@@ -41,6 +42,15 @@ module.exports = ctx => {
         "@vuepress/google-analytics",
         {
           ga: "UA-121354150-11"
+        }
+      ],
+      [
+        "vuepress-plugin-container",
+        {
+          type: "demo",
+          defaultTitle: "示例",
+          before: info => `<demo-block><template v-slot:title>${info}</template>`,
+          after: "</demo-block>"
         }
       ]
     ]

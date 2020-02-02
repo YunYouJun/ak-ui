@@ -1,9 +1,10 @@
 .ak-fx- {
   &-glow {
     animation-name: ak-glow;
-    animation-duration: 3s;
-    animation-timing-function: ease-in-out;
+    animation-duration: 1.5s;
+    animation-timing-function: ease-out;
     animation-iteration-count: infinite;
+    animation-direction: alternate;
   }
 
   &-radio {
@@ -12,6 +13,19 @@
     animation-timing-function: ease-out;
     animation-iteration-count: infinite;
   }
+
+  &-outline {
+    animation-name: ak-outline-white;
+    animation-duration: 0.7s;
+    animation-timing-function: ease-out;
+    animation-iteration-count: infinite;
+
+    @each $color, $value in $ak-colors {
+      &__#{$color} {
+        animation-name: ak-outline-#{$color};
+      }
+    }
+  }
 }
 
 @keyframes ak-glow {
@@ -19,12 +33,8 @@
     box-shadow: 0 0 0 var(--ak-fx-glow-color, white);
   }
 
-  50% {
-    box-shadow: 0 0 20px var(--ak-fx-glow-color, white);
-  }
-
   to {
-    box-shadow: 0 0 0 var(--ak-fx-glow-color, white);
+    box-shadow: 0 0 20px var(--ak-fx-glow-color, white);
   }
 }
 
@@ -39,5 +49,18 @@
     width: 90px;
     height: 90px;
     opacity: 0;
+  }
+}
+
+@each $color, $value in $ak-colors {
+  @keyframes ak-outline-#{$color} {
+    from {
+      outline: 0.35rem solid rgba($color: $value, $alpha: 1);
+    }
+
+    to {
+      outline: 0.35rem solid rgba($color: $value, $alpha: 0);
+      outline-offset: 1.5rem;
+    }
   }
 }
