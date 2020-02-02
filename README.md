@@ -12,6 +12,8 @@ UI components for [arknights](https://ak.hypergryph.com/).
 
 ## How to use
 
+You can find dist in [docs/.vuepress/public/css](docs/.vuepress/public/css).
+
 ### CDN
 
 ```html
@@ -41,6 +43,13 @@ yarn add @yunyoujun/ak-ui
   - [ ] right
 - [ ] ak-checkbox
 - [ ] ak-carousel
+
+## Todo
+
+I want to implement a demo type container to display demo easily.
+But I cannot get rendered markdown about code from vuepress-plugin-container.
+
+> https://github.com/vuepress/vuepress-community/issues/20
 
 ## Ref
 

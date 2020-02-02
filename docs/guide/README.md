@@ -4,7 +4,7 @@ sidebar: auto
 
 # 使用指南
 
-<span style="font-size: 88px; font-weight:bold;font-style: italic">明日方舟</span>
+<img src="/img/mrfz-logo.png" style="filter: drop-shadow(2px 5px 10px black);">
 
 非官方 - 兴趣使然的 UI 组件
 
@@ -19,7 +19,7 @@ yarn add -D @yunyoujun/ak-ui
 
 ### Sample
 
-<button class="ak-button">开始唤醒</button>
+<button class="ak-button" style="outline: 2px solid rgba(0, 0, 0, 0.1);outline-offset: 5px;">开始唤醒</button>
 
 ```html
 <button class="ak-button">开始唤醒</button>

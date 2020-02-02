@@ -3,6 +3,7 @@ const sass = require("gulp-sass");
 const cleanCSS = require("gulp-clean-css");
 const rename = require("gulp-rename");
 const del = require("del");
+const autoprefixer = require("gulp-autoprefixer");
 
 sass.compiler = require("sass");
 
@@ -24,6 +25,11 @@ function scss() {
   return gulp
     .src(dir.scss + "/ak-ui.scss")
     .pipe(sass(sassOptions).on("error", sass.logError))
+    .pipe(
+      autoprefixer({
+        cascade: false
+      })
+    )
     .pipe(gulp.dest(dir.dist))
     .pipe(gulp.dest(dir.vuepress))
     .pipe(
