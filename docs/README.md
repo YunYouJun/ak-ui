@@ -1,6 +1,6 @@
 ---
 home: true
-heroImage: /gun.svg
+heroImage: /ak.svg
 heroText: ak-ui
 tagline: Arknights UI Framework
 # actionText: START
