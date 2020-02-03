@@ -4,8 +4,7 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   outline: none;
   display: inline-block;
-  margin: 1rem 0;
-  padding: 0.1rem 1.5rem;
+  padding: 0.5rem 1rem;
 
   &--outline {
     display: block;
@@ -15,7 +14,7 @@
     // box-shadow: 20px 10px 5px rgba(0, 0, 0, 0.3);
 
     .title {
-      font-weight: bold;
+      font-weight: 900;
       font-size: large;
       margin: 0.2rem 0;
       border-bottom: 2px solid white;

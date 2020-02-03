@@ -3,8 +3,17 @@
     <p class="title">
       <slot name="title"></slot>
     </p>
-    <div class="demo-example">
+    <p class="demo-example">
       <slot></slot>
-    </div>
+    </p>
   </div>
 </template>
+
+<style>
+.demo-block {
+  padding: 0 1rem;
+}
+.demo-example {
+  line-height: 1;
+}
+</style>

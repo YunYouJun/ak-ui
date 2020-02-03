@@ -36,7 +36,14 @@ module.exports = ctx => {
         { text: "Components", link: "/components/" }
       ],
       sidebar: {
-        "/components/": ["", "ak-button", "ak-card", "ak-fx", "ak-loading"]
+        "/components/": [
+          "",
+          "ak-button",
+          "ak-card",
+          "ak-fx",
+          "ak-loading",
+          "ak-media"
+        ]
       },
       lastUpdated: "Last Updated",
       repo: "YunYouJun/ak-ui",

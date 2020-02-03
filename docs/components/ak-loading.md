@@ -1,8 +1,10 @@
 # ak-loading 加载
 
+::: demo
 <div class="ak-loading"></div>
 <div class="ak-loading" style="--ak-loading-color: black;"></div>
 <div class="ak-loading" style="--ak-loading-color: var(--ak-color-advanced);"></div>
+:::
 
 ```html
 <div class="ak-loading"></div>
