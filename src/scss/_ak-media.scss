@@ -1,0 +1,31 @@
+.ak-media {
+  &--album {
+    position: relative;
+    display: inline-block;
+    border: 0.5rem solid white;
+    box-shadow: 0 8px 10px rgba($color: #000000, $alpha: 0.5);
+    padding: 0;
+    margin: 10px;
+    transform-style: preserve-3d;
+    transform: rotate(2deg);
+    max-width: 100%;
+    max-height: 100%;
+
+    img {
+      vertical-align: bottom;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 5px;
+      left: -10px;
+      width: 100%;
+      height: var(--ak-media-album-heiht, 98%);
+      border: 0.4rem solid white;
+      background-color: var(--ak-media-album-bgcolor, #333);
+      box-shadow: 0 5px 10px rgba($color: #000000, $alpha: 0.5);
+      transform: rotate(-5deg) translateZ(-1px);
+    }
+  }
+}

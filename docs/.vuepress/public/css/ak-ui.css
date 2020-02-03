@@ -69,13 +69,15 @@
   box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2), 0 5px 10px rgba(0, 0, 0, 0.5);
   -webkit-transition: 0.2s;
   transition: 0.2s;
+  padding: 0;
 }
 .ak-button:active {
   color: lightgray;
   box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1), 0 5px 12px rgba(0, 0, 0, 0.5);
 }
 .ak-button__icon {
-  display: inline-block;
+  display: -webkit-inline-box;
+  display: inline-flex;
   width: 48px;
   height: 48px;
 }
@@ -181,8 +183,7 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   outline: none;
   display: inline-block;
-  margin: 1rem 0;
-  padding: 0.1rem 1.5rem;
+  padding: 0.5rem 1rem;
 }
 .ak-card--outline {
   display: block;
@@ -191,7 +192,7 @@
   background-color: transparent;
 }
 .ak-card--outline .title {
-  font-weight: bold;
+  font-weight: 900;
   font-size: large;
   margin: 0.2rem 0;
   border-bottom: 2px solid white;
@@ -632,6 +633,37 @@
   animation-timing-function: ease-out;
   -webkit-animation-iteration-count: infinite;
   animation-iteration-count: infinite;
+}
+
+.ak-media--album {
+  position: relative;
+  display: inline-block;
+  border: 0.5rem solid white;
+  box-shadow: 0 8px 10px rgba(0, 0, 0, 0.5);
+  padding: 0;
+  margin: 10px;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-transform: rotate(2deg);
+  transform: rotate(2deg);
+  max-width: 100%;
+  max-height: 100%;
+}
+.ak-media--album img {
+  vertical-align: bottom;
+}
+.ak-media--album::before {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: -10px;
+  width: 100%;
+  height: var(--ak-media-album-heiht, 98%);
+  border: 0.4rem solid white;
+  background-color: var(--ak-media-album-bgcolor, #333);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+  -webkit-transform: rotate(-5deg) translateZ(-1px);
+  transform: rotate(-5deg) translateZ(-1px);
 }
 
 :root {

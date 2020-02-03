@@ -13,6 +13,7 @@
   background-color: gray;
   box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2), 0 5px 10px rgba(0, 0, 0, 0.5);
   transition: 0.2s;
+  padding: 0;
 
   &:active {
     color: lightgray;
@@ -20,7 +21,7 @@
   }
 
   &__icon {
-    display: inline-block;
+    display: inline-flex;
     width: 48px;
     height: 48px;
   }
