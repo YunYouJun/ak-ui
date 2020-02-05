@@ -7,6 +7,7 @@ script:
   - yarn build
   - yarn docs:build
 deploy:
+  edge: true
   provider: pages
   local_dir: docs/.vuepress/dist
   token: $GITHUB_TOKEN
