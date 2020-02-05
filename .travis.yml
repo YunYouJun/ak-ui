@@ -1,8 +1,6 @@
 language: node_js
 node_js:
   - lts/*
-before_install: 
-  - export TZ='Asia/Shanghai'
 install:
   - yarn install
 script:
@@ -10,9 +8,8 @@ script:
   - yarn docs:build
 deploy:
   provider: pages
-  skip_cleanup: true
   local_dir: docs/.vuepress/dist
-  github_token: $GITHUB_TOKEN
+  token: $GITHUB_TOKEN
   # keep_history: true
   on:
     branch: master
