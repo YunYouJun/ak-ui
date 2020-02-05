@@ -4,6 +4,11 @@ module.exports = ctx => {
   return {
     title: "ak-ui",
     description: pkg.description,
+    locales: {
+      "/": {
+        lang: "zh-CN"
+      }
+    },
     head: [
       ["link", { rel: "icon", href: "/ak.png" }],
       ["link", { rel: "manifest", href: "/manifest.json" }],
@@ -45,7 +50,7 @@ module.exports = ctx => {
           "ak-media"
         ]
       },
-      lastUpdated: "Last Updated",
+      lastUpdated: "上次更新",
       repo: "YunYouJun/ak-ui",
       docsDir: "docs",
       editLinks: true,
