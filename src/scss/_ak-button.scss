@@ -95,7 +95,8 @@
   font-weight: bold;
   margin: 10px;
   transform: rotate(-45deg);
-  float: left;
+  text-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3), inset 0 0 50px rgba(0, 0, 0, 0.3);
 
   .icon {
     color: $yellow;
@@ -106,9 +107,6 @@
     transform: rotate(45deg) translateY(5px);
     text-align: center;
   }
-
-  text-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3), inset 0 0 50px rgba(0, 0, 0, 0.3);
 
   &::after {
     content: "";
@@ -125,5 +123,19 @@
     animation-duration: 0.7s;
     animation-timing-function: ease-out;
     animation-iteration-count: infinite;
+  }
+}
+
+@keyframes ak-radio {
+  from {
+    width: 38px;
+    height: 38px;
+    opacity: 1;
+  }
+
+  to {
+    width: 90px;
+    height: 90px;
+    opacity: 0;
   }
 }

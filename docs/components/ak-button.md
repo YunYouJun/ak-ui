@@ -30,17 +30,17 @@
 
 ::: demo
 <button class="ak-button">
-  <i class="ak-button__icon">
-    <img src="/img/icon/finger-click.svg">
-  </i>
-  <span class="ak-button__label">接管作战</span>
+<i class="ak-button__icon">
+<img src="/img/icon/finger-click.svg">
+</i>
+<span class="ak-button__label">接管作战</span>
 </button>
 :::
 
 ```html
 <button class="ak-button">
   <i class="ak-button__icon">
-    <img src="/img/icon/finger-click.svg">
+    <img src="/img/icon/finger-click.svg" />
   </i>
   <span class="ak-button__label">接管作战</span>
 </button>
@@ -50,14 +50,31 @@
 
 ::: demo
 <button class="ak-button ak-button--fab">
-  <i class="ak-button__icon">
-    <img src="/img/icon/pause.svg">
-  </i>
+<i class="ak-button__icon">
+<img src="/img/icon/pause.svg">
+</i>
 </button>
 :::
 
 ```html
 <button class="ak-button ak-button--fab"></button>
+```
+
+## 开始按钮
+
+::: demo
+
+<div class="ak-button--start">
+  <div class="icon triangle-right"></div>
+  <div class="label">START</div>
+</div>
+:::
+
+```html
+<div class="ak-button--start">
+  <div class="icon triangle-right"></div>
+  <div class="label">START</div>
+</div>
 ```
 
 > 如想要添加更多效果参见 [ak-fx](/components/ak-fx)。
