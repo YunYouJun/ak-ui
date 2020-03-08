@@ -1,6 +1,6 @@
 body {
   font-family: 'Noto Serif SC', serif;
-  background-image: url(/img/bk.jpg);
+  background-image: url('/img/bk.jpg');
   background-size: cover;
 }
 
@@ -13,11 +13,48 @@ body {
 }
 
 .navbar, .sidebar, .page {
-  background-color: rgba(#fff, 0.7);
+  background-color: rgba(#fff, 0.9);
 }
 
 .navbar {
   .links {
     background-color: transparent !important;
   }
+}
+
+// color layout
+.ak-color-box {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  height: 22rem;
+}
+
+.ak-color-item {
+  width: 100%;
+  height: 4rem;
+  font-family: sans-serif;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+  transition: 0.2s;
+  border-radius: 0.2rem;
+
+  &:hover {
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
+  }
+}
+
+.color-code {
+  text-transform: uppercase;
+}
+
+.ak-ref img {
+  width: 64px;
 }

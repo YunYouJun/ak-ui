@@ -7,24 +7,11 @@
     animation-direction: alternate;
   }
 
-  &-radio {
-    animation-name: ak-radio;
-    animation-duration: 0.7s;
-    animation-timing-function: ease-out;
-    animation-iteration-count: infinite;
-  }
-
   &-outline {
-    animation-name: ak-outline-white;
+    animation-name: ak-outline-fade;
     animation-duration: 0.7s;
     animation-timing-function: ease-out;
     animation-iteration-count: infinite;
-
-    @each $color, $value in $ak-colors {
-      &__#{$color} {
-        animation-name: ak-outline-#{$color};
-      }
-    }
   }
 }
 
@@ -38,29 +25,15 @@
   }
 }
 
-@keyframes ak-radio {
+@keyframes ak-outline-fade {
   from {
-    width: 38px;
-    height: 38px;
-    opacity: 1;
+    outline: 0.35rem solid var(--ak-outline-color, black);
+    outline-width: 0.35rem;
   }
 
   to {
-    width: 90px;
-    height: 90px;
-    opacity: 0;
-  }
-}
-
-@each $color, $value in $ak-colors {
-  @keyframes ak-outline-#{$color} {
-    from {
-      outline: 0.35rem solid rgba($color: $value, $alpha: 1);
-    }
-
-    to {
-      outline: 0.35rem solid rgba($color: $value, $alpha: 0);
-      outline-offset: 1.5rem;
-    }
+    outline: 0.35rem solid transparent;
+    outline-width: 0.2rem;
+    outline-offset: 1.5rem;
   }
 }
