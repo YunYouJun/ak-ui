@@ -6,18 +6,27 @@ tagline: Arknights UI Framework
 # actionText: START
 # actionLink: /guide/
 # features:
-#   - title: 组件
-#     details: 明日方舟 UI 组件
-#   - title: 开发中
-#     details: 填（天）坑...
+#   - title: 易用
+#     details: 复制粘贴，一气呵成。
+#   - title: 定制
+#     details: 色彩变量，任意覆盖。
 #   - title: 文档
 #     details: 编写...
 footer: MIT Licensed | Copyright © YunYouJun
 title: 主页
 ---
 
-<br>
-<br>
+<div style="text-align:center">
+  <a class="ak-button--start" href="/guide/">
+    <div class="icon triangle-right"></div>
+    <div class="label">START</div>
+  </a>
+</div>
+
+<p class="ak-card ak-card--outline">
+- 易用：复制粘贴，一气呵成。
+- 定制：色彩变量，任意覆盖。
+</p>
 
 ## How to use
 
@@ -28,11 +37,8 @@ yarn add -D @yunyoujun/ak-ui
 # npm install @yunyoujun/ak-ui --save-dev
 ```
 
-<div>
-  <a href="/guide/" style="margin: 0;position: absolute; top: 70%; left: 50%; transform: translate(-50%, -50%);">
-    <div class="ak-button--start">
-      <div class="icon triangle-right"></div>
-      <div class="label">START</div>
-    </div>
-  </a>
-</div>
+Or just:
+
+```html
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@yunyoujun/ak-ui" />
+```

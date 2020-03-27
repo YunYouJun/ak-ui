@@ -21,16 +21,7 @@
 </button>
 ```
 
-## radio 辐射按钮
-
-::: demo
-<button class="ak-button ak-fx--radio">放弃行动</button>
-:::
-
 ## outline 轮廓效果
-
-此处没有使用上文类似设置变量方法，主要是因为颜色变量采用的都是 16 进制代码，而边框消失的动画效果使用了 rgba 的 alpha 数值变化来实现。
-rgba 不支持十六进制代码，暂时没有想到更好的方法。
 
 :::demo
 <button class="ak-button ak-fx--outline">放弃行动</button>
@@ -48,5 +39,35 @@ rgba 不支持十六进制代码，暂时没有想到更好的方法。
   style="--ak-outline-color: var(--ak-color-primary)"
 >
   放弃行动
+</button>
+```
+
+## skew 斜交效果
+
+::: demo
+<button class="ak-button ak-button--fab ak-fx--skew-left">
+<svg class="ak-button__icon ak-icon" aria-hidden="true">
+<use xlink:href="#icon-gear"></use>
+</svg>
+</button>
+
+<button class="ak-button ak-button--fab ak-fx--skew-right" style="float:right">
+<svg class="ak-button__icon ak-icon" aria-hidden="true">
+<use xlink:href="#icon-pause"></use>
+</svg>
+</button>
+:::
+
+```html
+<button class="ak-button ak-button--fab ak-fx--skew-left">
+  <svg class="ak-button__icon ak-icon" aria-hidden="true">
+    <use xlink:href="#icon-gear"></use>
+  </svg>
+</button>
+
+<button class="ak-button ak-button--fab ak-fx--skew-right" style="float:right">
+  <svg class="ak-button__icon ak-icon" aria-hidden="true">
+    <use xlink:href="#icon-pause"></use>
+  </svg>
 </button>
 ```
