@@ -28,6 +28,13 @@ module.exports = ctx => {
           rel: "stylesheet",
           href: ctx.isProd ? "/css/ak-ui.min.css" : "/css/ak-ui.css"
         }
+      ],
+      [
+        "script",
+        {
+          async: true,
+          src: "//at.alicdn.com/t/font_1623879_hjd6i2wj43w.js"
+        }
       ]
     ],
     extraWatchFiles: [

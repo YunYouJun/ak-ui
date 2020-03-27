@@ -13,6 +13,16 @@
     animation-timing-function: ease-out;
     animation-iteration-count: infinite;
   }
+
+  &-skew {
+    &-left {
+      transform: skewX(-10deg);
+    }
+
+    &-right {
+      transform: skewX(10deg);
+    }
+  }
 }
 
 @keyframes ak-glow {
