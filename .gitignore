@@ -5,6 +5,7 @@ ref
 
 # Build
 dist
+docs/.vuepress/public/css
 
 # Logs
 logs
