@@ -7,7 +7,7 @@ $colors: () !default;
 $colors: map-merge(
   (
     // "blue": #00b3fd,
-    "blue": $blue,
+      "blue": $blue,
     "yellow": $yellow,
     "dark-blue": #0075a8,
     "light-blue": #3ff7ff,
@@ -33,7 +33,7 @@ $ak-colors: map-merge(
     "basic": $color-basic,
     "primary": $color-primary,
     "secondary": $color-secondary,
-    "advanced": $color-advanced,
+    "advanced": $color-advanced
   ),
   $ak-colors
 );
@@ -44,3 +44,6 @@ $font-family-sans-serif: Roboto, Noto Sans, Arial, sans-serif !default;
 $font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, monospace !default;
 
 $text-color: #0098dc;
+// object
+$cube-size: 100px;
+$cube-border-width: 0.2rem;

@@ -33,7 +33,7 @@ module.exports = ctx => {
         "script",
         {
           async: true,
-          src: "//at.alicdn.com/t/font_1623879_hjd6i2wj43w.js"
+          src: "//at.alicdn.com/t/font_1623879_cg9oq8zefyj.js"
         }
       ]
     ],
@@ -54,7 +54,8 @@ module.exports = ctx => {
           "ak-card",
           "ak-fx",
           "ak-loading",
-          "ak-media"
+          "ak-media",
+          "ak-object"
         ]
       },
       lastUpdated: "上次更新",

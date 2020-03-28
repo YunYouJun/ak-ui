@@ -385,6 +385,90 @@
   transform: rotate(-5deg) translateZ(-1px);
 }
 
+.ak-cube {
+  display: inline-block;
+  width: var(--cube-size, 100px);
+  height: var(--cube-size, 100px);
+  -webkit-backface-visibility: visible;
+  backface-visibility: visible;
+  transform-style: preserve-3d;
+}
+.ak-face {
+  display: block;
+  position: absolute;
+  width: var(--cube-size, 100px);
+  height: var(--cube-size, 100px);
+  line-height: 2;
+  font-family: sans-serif;
+  font-size: calc(var(--cube-size, 100px) / 2);
+  text-align: center;
+  color: var(--cube-color, rgba(34, 187, 255, 0.5));
+  background-color: transparent;
+  border: var(--cube-border-width, 0.2rem) solid var(--cube-color, rgba(34, 187, 255, 0.5));
+  border-radius: 0.2rem;
+}
+.ak-face.front {
+  transform: translateZ(calc(var(--cube-size, 100px) / 2));
+}
+.ak-face.back {
+  transform: rotateY(180deg) translateZ(calc(var(--cube-size, 100px) / 2));
+}
+.ak-face.right {
+  transform: rotateY(90deg) translateZ(calc(var(--cube-size, 100px) / 2));
+}
+.ak-face.left {
+  transform: rotateY(-90deg) translateZ(calc(var(--cube-size, 100px) / 2));
+}
+.ak-face.top {
+  transform: rotateX(90deg) translateZ(calc(var(--cube-size, 100px) / 2));
+}
+.ak-face.bottom {
+  transform: rotateX(-90deg) translateZ(calc(var(--cube-size, 100px) / 2));
+}
+.ak-face__lines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: var(--cube-size, 100px);
+  height: var(--cube-size, 100px);
+  box-sizing: content-box;
+}
+.ak-face__line--tl, .ak-face__line--br, .ak-face__line--tr, .ak-face__line--bl {
+  position: absolute;
+  left: 0.2rem;
+  top: 0.2rem;
+  right: 0.2rem;
+  bottom: 0.2rem;
+  display: inline-block;
+}
+.ak-face__line--tl::before, .ak-face__line--br::before, .ak-face__line--tr::before, .ak-face__line--bl::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: inline-block;
+  width: calc(var(--cube-size, 100px) / 4);
+  height: calc(var(--cube-border-width, 0.2rem) / 2);
+  background-color: currentColor;
+  transform: rotate(45deg);
+  transform-origin: top left;
+}
+.ak-face__line--br {
+  transform: rotate(90deg);
+}
+.ak-face__line--tr {
+  transform: rotate(180deg);
+}
+.ak-face__line--bl {
+  transform: rotate(270deg);
+}
+
+.perspective {
+  display: block;
+  perspective: 100rem;
+  perspective-origin: 50% 125%;
+}
+
 :root {
   --ak-color-white: white;
   --ak-color-black: black;
