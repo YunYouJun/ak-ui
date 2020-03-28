@@ -38,7 +38,7 @@ module.exports = ctx => {
       ]
     ],
     extraWatchFiles: [
-      ".vuepress/public/css/ak-ui.min.css" // 使用相对路径
+      ".vuepress/public/css/ak-ui.css" // 使用相对路径
     ],
     themeConfig: {
       logo: "/ak.svg",
