@@ -33,7 +33,16 @@ module.exports = ctx => {
         "script",
         {
           async: true,
-          src: "//at.alicdn.com/t/font_1623879_cg9oq8zefyj.js"
+          src: "//at.alicdn.com/t/font_1623879_novmau54n.js"
+        }
+      ],
+      // font
+      [
+        "link",
+        {
+          rel: "stylesheet",
+          href:
+            "https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap"
         }
       ]
     ],
@@ -53,6 +62,7 @@ module.exports = ctx => {
           "ak-button",
           "ak-card",
           "ak-fx",
+          "ak-form",
           "ak-loading",
           "ak-media",
           "ak-object"

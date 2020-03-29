@@ -66,7 +66,7 @@
 ```
 
 > 如果你想实现明日方舟中按钮的斜切效果，你可以为其加上 `ak-fx--skew-left` or `ak-fx--skew-right`。  
-> 可参考 [ak-fx 斜切效果](/components/ak-fx.html#skew-斜交效果)
+> 可参考 [ak-fx 斜切效果](/components/ak-fx.html#skew-倾斜效果)
 
 ## 开始按钮
 

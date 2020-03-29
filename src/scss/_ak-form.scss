@@ -1,0 +1,68 @@
+.ak {
+  &-input {
+    &-number {
+      position: relative;
+      display: inline-block;
+      height: 40px;
+      padding: 0;
+
+      &__inner {
+        font-family: "Roboto Mono", monospace;
+        font-size: 1rem;
+        text-align: center;
+        background-color: lightgray;
+        color: #333;
+        outline: none;
+        padding: 0 120px;
+        width: 150px;
+        height: 100%;
+        border: none;
+      }
+
+      &__max,
+      &__min,
+      &__increase,
+      &__decrease {
+        position: absolute;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        width: 60px;
+        height: 100%;
+        color: lightgray;
+      }
+
+      &__max,
+      &__min {
+        background-color: #444;
+        font-family: Roboto, sans-serif;
+        box-shadow: 0 0 2px rgba(black, 0.3);
+      }
+
+      &__increase,
+      &__decrease {
+        background-color: #333;
+        .ak-icon {
+          width: 1.5rem;
+          height: 1.5rem;
+        }
+      }
+
+      &__max {
+        right: 0;
+      }
+
+      &__min {
+        left: 0;
+      }
+
+      &__increase {
+        right: 60px;
+      }
+
+      &__decrease {
+        left: 60px;
+      }
+    }
+  }
+}

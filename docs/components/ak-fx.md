@@ -42,7 +42,7 @@
 </button>
 ```
 
-## skew 斜交效果
+## skew 倾斜效果
 
 ::: demo
 <button class="ak-button ak-button--fab ak-fx--skew-left">
