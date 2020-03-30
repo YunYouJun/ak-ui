@@ -2,10 +2,10 @@
 
 明日方舟按钮样式
 
-## 普通按钮
+## base 普通按钮
 
-::: demo
-<button class="ak-button">开始唤醒</button>
+::: demo-dark
+<button class="ak-button font-serif">开始唤醒</button>
 <button class="ak-button ak-button--outline">开始唤醒</button>
 <button class="ak-button ak-button--action">开始行动</button>
 :::
@@ -18,7 +18,7 @@
 
 ## block 块状按钮
 
-::: demo
+::: demo-dark
 <button class="ak-button ak-button--block">放弃行动</button>
 :::
 
@@ -28,7 +28,7 @@
 
 ### icon 带图标的按钮
 
-::: demo
+::: demo-dark
 <button class="ak-button">
 <svg class="ak-button__icon" aria-hidden="true">
 <use xlink:href="#icon-finger-click"></use>
@@ -48,7 +48,7 @@
 
 ## fab 浮动动作按钮
 
-::: demo
+::: demo-dark
 <button class="ak-button ak-button--fab">
 <svg class="ak-button__icon ak-icon" aria-hidden="true">
 <use xlink:href="#icon-pause"></use>
@@ -68,9 +68,9 @@
 > 如果你想实现明日方舟中按钮的斜切效果，你可以为其加上 `ak-fx--skew-left` or `ak-fx--skew-right`。  
 > 可参考 [ak-fx 斜切效果](/components/ak-fx.html#skew-倾斜效果)
 
-## 开始按钮
+## start 开始按钮
 
-::: demo
+::: demo-dark
 
 <div class="ak-button--start">
   <div class="icon triangle-right"></div>
@@ -86,3 +86,11 @@
 ```
 
 > 如想要添加更多效果参见 [ak-fx](/components/ak-fx)。
+
+## group 按钮组
+
+::: demo-color
+<demo-button-group></demo-button-group>
+:::
+
+<<< @/docs/.vuepress/components/demo/button-group.vue

@@ -4,7 +4,7 @@
 
 ## Cube 立方体
 
-::: demo
+::: demo-dark
 
 <div class="perspective">
   <template v-for="num in 30">

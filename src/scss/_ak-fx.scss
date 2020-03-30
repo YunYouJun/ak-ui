@@ -27,11 +27,11 @@
 
 @keyframes ak-glow {
   from {
-    box-shadow: 0 0 0 var(--ak-fx-glow-color, white);
+    box-shadow: 0 0 0 var(--ak-fx-glow-color, rgba(white, 0.3));
   }
 
   to {
-    box-shadow: 0 0 20px var(--ak-fx-glow-color, white);
+    box-shadow: 0 0 20px var(--ak-fx-glow-color, rgba(white, 0.3));
   }
 }
 

@@ -1,6 +1,6 @@
 # ak-loading 加载
 
-::: demo
+::: demo-dark
 
 <div class="ak-loading"></div>
 <div class="ak-loading" style="--ak-loading-color: black;"></div>
