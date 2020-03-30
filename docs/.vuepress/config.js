@@ -33,7 +33,7 @@ module.exports = ctx => {
         "script",
         {
           async: true,
-          src: "//at.alicdn.com/t/font_1623879_novmau54n.js"
+          src: "//at.alicdn.com/t/font_1623879_4njg5dmq8m3.js"
         }
       ],
       // font
@@ -57,6 +57,7 @@ module.exports = ctx => {
         { text: "Components", link: "/components/" }
       ],
       sidebar: {
+        "/guide/": ["", "style"],
         "/components/": [
           "",
           "ak-button",
@@ -98,6 +99,26 @@ module.exports = ctx => {
           before: info =>
             `<demo-block><template v-slot:title>${info}</template>`,
           after: "</demo-block>"
+        }
+      ],
+      [
+        "vuepress-plugin-container",
+        {
+          type: "demo-dark",
+          defaultTitle: "示例（暗色）",
+          before: info =>
+            `<demo-block-dark><template v-slot:title>${info}</template>`,
+          after: "</demo-block-dark>"
+        }
+      ],
+      [
+        "vuepress-plugin-container",
+        {
+          type: "demo-color",
+          defaultTitle: "示例（彩色）",
+          before: info =>
+            `<demo-block-color><template v-slot:title>${info}</template>`,
+          after: "</demo-block-color>"
         }
       ]
     ]

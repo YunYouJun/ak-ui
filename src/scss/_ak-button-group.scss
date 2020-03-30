@@ -1,0 +1,10 @@
+.ak-button-group {
+  width: 300px;
+  display: flex;
+  .ak-button {
+    color: black;
+    box-shadow: 0 2px 10px rgba(black, 0.1);
+    font-family: $font-sans-serif;
+    font-size: x-large;
+  }
+}

@@ -24,21 +24,12 @@ title: 主页
 </div>
 
 <p class="ak-card ak-card--outline">
-- 易用：复制粘贴，一气呵成。
+- 易用：复制粘贴，一气呵成。（无需任何框架）
 - 定制：色彩变量，任意覆盖。
+- 原生：HTML 为父，CSS 为母。
+
+等我之后再写这里的样式，咕咕咕。
+
 </p>
 
-## How to use
-
-```bash
-# 安装
-yarn add -D @yunyoujun/ak-ui
-# or:
-# npm install @yunyoujun/ak-ui --save-dev
-```
-
-Or just:
-
-```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@yunyoujun/ak-ui" />
-```
+> Doctor，您还有许多事情需要处理。现在还不能休息哦。

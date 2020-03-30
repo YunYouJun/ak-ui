@@ -13,7 +13,7 @@
 
 ## stripe 条纹卡片
 
-::: demo
+::: demo-dark
 
 <div class="ak-card ak-card--stripe"></div>
 :::
@@ -26,7 +26,7 @@
 
 如果想要保持 `focus` 状态，请增加 `tabindex` 属性。
 
-::: demo
+::: demo-color
 
 <div class="ak-card ak-card--place"></div>
 <div class="ak-card ak-card--place" style="--ak-card-place-color: var(--ak-color-yellow);"></div>

@@ -2,7 +2,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-family: $font-family-serif;
+  font-family: $font-sans-serif;
   outline: none;
   border: none;
   font-size: 1rem;
@@ -10,7 +10,7 @@
   height: 50px;
   width: 150px;
   color: white;
-  background-color: gray;
+  background-color: rgba(gray, 0.95);
   box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2), 0 5px 10px rgba(0, 0, 0, 0.5);
   transition: 0.2s;
   padding: 0;
@@ -29,7 +29,7 @@
 
   &__label {
     display: inline-block;
-    font-family: $font-family-sans-serif;
+    font-family: $font-sans-serif;
     line-height: 1;
     top: 0;
   }
@@ -48,12 +48,12 @@
     display: inline-block;
     width: 4rem;
     height: 3.5rem;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(gray, 0.6);
     box-shadow: 0 8px 10px rgba(0, 0, 0, 0.8);
     padding: 0;
 
     &:active {
-      background-color: rgba(0, 0, 0, 0.6);
+      background-color: rgba(gray, 0.5);
       box-shadow: 0 5px 10px rgba(0, 0, 0, 0.8);
     }
 
@@ -65,7 +65,7 @@
 
   &--outline {
     border: 2px solid #fff;
-    font-family: $font-family-sans-serif;
+    font-family: $font-sans-serif;
     box-shadow: 0 10px 15px rgba(0, 0, 0, 0.5);
 
     &:active {
@@ -75,13 +75,40 @@
   }
 
   &--action {
-    font-family: $font-family-sans-serif;
+    font-family: $font-sans-serif;
     text-align: right;
     background-color: map-get($colors, "blue");
     box-shadow: 2px 5px 50px -10px rgba(0, 0, 0, 0.5);
 
     &:active {
       background-color: map-get($colors, "dark-blue");
+    }
+  }
+
+  &--advanced {
+    background-color: rgba(map-get($colors, "yellow"), 0.85);
+  }
+
+  &--light {
+    background-color: rgba(#eee, 0.85);
+  }
+
+  // &--with-info {}
+
+  &__info {
+    height: 30px;
+    background-color: rgba($color: #000000, $alpha: 0.6);
+    color: white;
+    font-family: $font-sans-serif;
+    display: flex;
+    align-items: center;
+    font-size: 1.2rem;
+
+    .ak-icon {
+      width: 3rem;
+      height: 3rem;
+      filter: drop-shadow(0 10px 15px black);
+      margin-top: -0.5rem;
     }
   }
 }
