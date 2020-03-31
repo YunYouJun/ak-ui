@@ -1,0 +1,41 @@
+.ak-counter {
+  display: inline-flex;
+  align-items: center;
+  color: white;
+  margin: 0 0.5rem;
+
+  &__prefix {
+    .ak-icon {
+      width: 2.8rem;
+      height: 2.8rem;
+      filter: drop-shadow(1px 1px 4px rgba(black, 0.6));
+    }
+  }
+  &__content {
+    font-family: $font-sans-serif;
+    font-size: 1.8rem;
+    text-shadow: 1px 1px 4px rgba(black, 0.6);
+    margin-left: 0.4rem;
+    vertical-align: text-bottom;
+  }
+  &__suffix {
+    .ak-icon {
+      width: 2rem;
+      height: 2rem;
+      filter: drop-shadow(1px 1px 4px rgba(black, 0.6));
+      transition: 0.2s;
+
+      &:active {
+        color: rgba(white, 0.8);
+      }
+    }
+  }
+
+  &-group {
+    background-color: rgba(black, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 2rem;
+  }
+}

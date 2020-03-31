@@ -1,4 +1,5 @@
 .ak-button {
+  position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -15,9 +16,24 @@
   transition: 0.2s;
   padding: 0;
 
+  &::before {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: transparent;
+    transition: background-color 0.2s;
+  }
+
   &:active {
     color: lightgray;
     box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1), 0 6px 12px rgba(0, 0, 0, 0.5);
+    &::before {
+      content: "";
+      background-color: rgba(black, 0.1);
+    }
   }
 
   &__icon {
@@ -67,22 +83,12 @@
     border: 2px solid #fff;
     font-family: $font-sans-serif;
     box-shadow: 0 10px 15px rgba(0, 0, 0, 0.5);
-
-    &:active {
-      background-color: scale-color($color: gray, $lightness: -10%);
-      border-color: lightgray;
-    }
   }
 
   &--action {
-    font-family: $font-sans-serif;
     text-align: right;
     background-color: map-get($colors, "blue");
     box-shadow: 2px 5px 50px -10px rgba(0, 0, 0, 0.5);
-
-    &:active {
-      background-color: map-get($colors, "dark-blue");
-    }
   }
 
   &--advanced {

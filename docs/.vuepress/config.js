@@ -33,7 +33,7 @@ module.exports = ctx => {
         "script",
         {
           async: true,
-          src: "//at.alicdn.com/t/font_1623879_4njg5dmq8m3.js"
+          src: "//at.alicdn.com/t/font_1623879_r2xi8otctqg.js"
         }
       ],
       // font
@@ -42,7 +42,7 @@ module.exports = ctx => {
         {
           rel: "stylesheet",
           href:
-            "https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap"
+            "https://fonts.googleapis.com/css?family=Noto+Sans+SC:400,500,700,900|Noto+Serif+SC:400,500,700,900&display=swap"
         }
       ]
     ],
@@ -62,11 +62,14 @@ module.exports = ctx => {
           "",
           "ak-button",
           "ak-card",
+          "ak-counter",
+          "ak-divider",
           "ak-fx",
           "ak-form",
           "ak-loading",
           "ak-media",
-          "ak-object"
+          "ak-object",
+          "ak-panel"
         ]
       },
       lastUpdated: "上次更新",
@@ -104,6 +107,16 @@ module.exports = ctx => {
       [
         "vuepress-plugin-container",
         {
+          type: "demo-color",
+          defaultTitle: "示例（彩色）",
+          before: info =>
+            `<demo-block-color><template v-slot:title>${info}</template>`,
+          after: "</demo-block-color>"
+        }
+      ],
+      [
+        "vuepress-plugin-container",
+        {
           type: "demo-dark",
           defaultTitle: "示例（暗色）",
           before: info =>
@@ -114,11 +127,11 @@ module.exports = ctx => {
       [
         "vuepress-plugin-container",
         {
-          type: "demo-color",
-          defaultTitle: "示例（彩色）",
+          type: "demo-dust",
+          defaultTitle: "示例（尘）",
           before: info =>
-            `<demo-block-color><template v-slot:title>${info}</template>`,
-          after: "</demo-block-color>"
+            `<demo-block-dust><template v-slot:title>${info}</template>`,
+          after: "</demo-block-dust>"
         }
       ]
     ]

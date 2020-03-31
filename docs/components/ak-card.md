@@ -33,6 +33,9 @@
 <div tabindex="0" class="ak-card ak-card--place" style="--ak-card-place-color: var(--ak-color-advanced);"></div>
 :::
 
+> 值为 0 、非法值、或者没有 tabindex 值的元素应该放置在 tabindex 值为正值的元素后面。  
+> [tabindex - MDN](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Global_attributes/tabindex)
+
 ```html
 <div class="ak-card ak-card--place"></div>
 <div
