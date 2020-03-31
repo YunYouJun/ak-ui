@@ -2,12 +2,12 @@
   <div class="ak-input-number">
     <span role="button" class="ak-input-number__increase">
       <svg class="ak-icon" aria-hidden="true">
-        <use xlink:href="#icon-add"></use>
+        <use xlink:href="#icon-add-line"></use>
       </svg>
     </span>
     <span role="button" class="ak-input-number__decrease">
       <svg class="ak-icon" aria-hidden="true">
-        <use xlink:href="#icon-subtract"></use>
+        <use xlink:href="#icon-subtract-line"></use>
       </svg>
     </span>
     <span role="button" class="ak-input-number__max">最多</span>

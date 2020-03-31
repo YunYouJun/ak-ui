@@ -1,0 +1,9 @@
+.ak-panel {
+  &-right {
+    padding: 2rem;
+    min-height: 30rem;
+    text-align: center;
+    transform: perspective(50rem) rotateY(-10deg);
+    transform-origin: center right;
+  }
+}

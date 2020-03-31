@@ -39,7 +39,7 @@ yarn add -D @yunyoujun/ak-ui
 
 ### Sample
 
-<button class="ak-button font-serif" onclick="window.location='/components/'">开始唤醒</button>
+<button class="ak-button ak-font-serif" onclick="window.location='/components/'">开始唤醒</button>
 
 ```html
 <button class="ak-button">开始唤醒</button>

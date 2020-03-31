@@ -1,0 +1,30 @@
+.ak-divider {
+  display: flex;
+  align-items: center;
+  margin: 0.5rem 3rem;
+
+  &::before {
+    content: "";
+    height: 3px;
+    width: 15%;
+    background-color: rgba(white, 0.8);
+  }
+  span {
+    width: 35%;
+    text-align: center;
+    color: rgba(white, 0.8);
+    font-size: 1rem;
+    font-family: $font-sans-serif;
+    filter: drop-shadow(2px 2px 1px rgba(black, 0.3));
+    .ak-icon {
+      width: 1rem;
+      height: 1rem;
+    }
+  }
+  &::after {
+    content: "";
+    height: 3px;
+    width: 50%;
+    background-color: rgba(white, 0.8);
+  }
+}

@@ -18,6 +18,14 @@
 
 </div>
 
+| Var                  | Value   |
+| -------------------- | ------- |
+| --ak-color-low       | #9C9C9C |
+| --ak-color-basic     | #D8DD5A |
+| --ak-color-primary   | #4AABEA |
+| --ak-color-secondary | #CFC2D1 |
+| --ak-color-advaned   | #F1C644 |
+
 ## Typography 字体
 
 ### 衬线字体

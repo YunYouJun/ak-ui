@@ -5,7 +5,7 @@
 ## base 普通按钮
 
 ::: demo-dark
-<button class="ak-button font-serif">开始唤醒</button>
+<button class="ak-button ak-font-serif">开始唤醒</button>
 <button class="ak-button ak-button--outline">开始唤醒</button>
 <button class="ak-button ak-button--action">开始行动</button>
 :::
@@ -88,6 +88,8 @@
 > 如想要添加更多效果参见 [ak-fx](/components/ak-fx)。
 
 ## group 按钮组
+
+没有合成玉图标，所以随便找个图标代替了。
 
 ::: demo-color
 <demo-button-group></demo-button-group>
