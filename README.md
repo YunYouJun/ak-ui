@@ -1,6 +1,6 @@
 # ak-ui
 
-[![Build Status](https://travis-ci.com/YunYouJun/ak-ui.svg?branch=master)](https://travis-ci.com/YunYouJun/ak-ui)
+![Docs](https://github.com/YunYouJun/ak-ui/workflows/Docs/badge.svg)
 [![jsdelivr cdn](https://data.jsdelivr.com/v1/package/npm/@yunyoujun/ak-ui/badge)](https://www.jsdelivr.com/package/npm/@yunyoujun/ak-ui)
 
 UI components for [arknights](https://ak.hypergryph.com/). Deving...
@@ -12,12 +12,14 @@ UI components for [arknights](https://ak.hypergryph.com/). Deving...
 
 ## How to use
 
-You can find dist in [docs/.vuepress/public/css](docs/.vuepress/public/css).
+尚未正式发布，敬请期待。
+
+You can find dist in <https://cdn.jsdelivr.net/gh/YunYouJun/ak-ui@gh-pages/css/ak-ui.min.css>.
 
 ### CDN
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@yunyoujun/ak-ui">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@yunyoujun/ak-ui" />
 ```
 
 ### NPM or YARN
