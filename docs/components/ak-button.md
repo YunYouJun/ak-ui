@@ -26,7 +26,7 @@
 <button class="ak-button ak-button--block">放弃行动</button>
 ```
 
-### icon 带图标的按钮
+## icon 带图标的按钮
 
 ::: demo-dark
 <button class="ak-button">
@@ -45,6 +45,8 @@
   <span class="ak-button__label">接管作战</span>
 </button>
 ```
+
+## bg 图标背景的按钮
 
 ## fab 浮动动作按钮
 
@@ -86,13 +88,3 @@
 ```
 
 > 如想要添加更多效果参见 [ak-fx](/components/ak-fx)。
-
-## group 按钮组
-
-没有合成玉图标，所以随便找个图标代替了。
-
-::: demo-color
-<demo-button-group></demo-button-group>
-:::
-
-<<< @/docs/.vuepress/components/demo/button-group.vue

@@ -7,4 +7,46 @@
     font-family: $font-sans-serif;
     font-size: x-large;
   }
+
+  &--action {
+    background-color: var(--button-group-bgcolor, rgba(#05a6dc, 1));
+    padding: 0.2rem;
+    .ak-icon {
+      margin: 0 0.2rem;
+      color: gray;
+    }
+    .info {
+      display: flex;
+      background-color: #444;
+      color: white;
+      height: 2rem;
+      font-size: 1.2rem;
+      align-items: center;
+    }
+
+    .button-group {
+      display: flex;
+      .ak-icon {
+        position: absolute;
+        left: 0;
+        width: 3.5rem;
+        height: 3.5rem;
+        color: rgba(white, 0.2);
+      }
+      .ak-button {
+        display: inline-flex;
+        flex-grow: 1;
+        background-color: transparent;
+        box-shadow: inset 0 0 2px rgba(black, 0.6);
+        height: 4rem;
+        align-items: center;
+
+        &__label {
+          font-family: $font-serif;
+          font-size: 1.8rem;
+          font-weight: 900;
+        }
+      }
+    }
+  }
 }
