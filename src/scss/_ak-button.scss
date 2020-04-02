@@ -45,10 +45,9 @@
   }
 
   &__label {
-    display: inline-block;
+    display: inline-flex;
     font-family: $font-sans-serif;
     line-height: 1;
-    top: 0;
   }
 
   &--block {
