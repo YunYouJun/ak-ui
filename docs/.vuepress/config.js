@@ -33,7 +33,7 @@ module.exports = ctx => {
         "script",
         {
           async: true,
-          src: "//at.alicdn.com/t/font_1623879_y1uvvl3e7qr.js"
+          src: "//at.alicdn.com/t/font_1623879_y7waibdxbtl.js"
         }
       ],
       // font
@@ -70,7 +70,8 @@ module.exports = ctx => {
           "ak-loading",
           "ak-media",
           "ak-object",
-          "ak-panel"
+          "ak-panel",
+          "ak-pagination"
         ]
       },
       lastUpdated: "上次更新",
