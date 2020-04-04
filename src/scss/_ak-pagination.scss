@@ -6,6 +6,7 @@
   color: white;
   .prev,
   .next {
+    position: relative;
     background-color: #333;
     height: 100%;
     width: 4rem;
@@ -14,11 +15,14 @@
     flex-direction: column;
     align-items: center;
     box-shadow: 0 5px 10px rgba(black, 0.6);
+    cursor: pointer;
 
     .ak-icon {
       width: 2rem;
       height: 2rem;
     }
+
+    @include active-darken;
   }
 
   .cur {

@@ -4,6 +4,27 @@
   vertical-align: -0.15em;
   fill: currentColor;
   overflow: hidden;
+
+  &--stuff {
+    box-sizing: border-box;
+    display: inline-flex;
+    border: 4px solid var(--icon-border-color, #d8dd5a);
+    border-radius: 50%;
+    padding: 0.2rem;
+    width: 5rem;
+    height: 5rem;
+    background-color: lightgray;
+    box-shadow: inset 0 0 0 3px black, 0 0 5px var(--icon-border-color, #d8dd5a);
+    justify-content: center;
+    align-items: center;
+
+    .ak-icon {
+      width: 5rem;
+      height: 5rem;
+      transform: scale(1.2);
+      filter: drop-shadow(0 2px 5px rgba(black, 0.6));
+    }
+  }
 }
 
 .triangle-right {
