@@ -1,0 +1,43 @@
+.ak-level {
+  position: relative;
+  display: inline-block;
+  width: 120px;
+  text-align: center;
+  font-family: $font-sans-serif;
+  box-shadow: 0 2px 20px rgba(black, 0.6);
+  .label {
+    background-color: var(--level-label-bgcolor, black);
+    width: 100%;
+    &::before {
+      display: block;
+      content: var(--level-label-text, "OPERATION");
+      color: white;
+      font-size: small;
+      line-height: 0.6;
+      transform: scale(0.5);
+    }
+  }
+  .content {
+    background-color: white;
+    color: black;
+    font-size: 1.2rem;
+    font-weight: 500;
+    padding: 0.2rem 0 0.3rem 0;
+  }
+  .prefix-icon .ak-icon {
+    position: absolute;
+    color: var(--level-prefix-icon-color, $blue);
+    left: -1rem;
+    top: 0.2rem;
+    width: 2rem;
+    height: 2rem;
+    filter: drop-shadow(0 0 5px rgba(black, 0.3));
+  }
+  .suffix-icon {
+    position: absolute;
+    top: -0.7rem;
+    right: -1.7rem;
+    width: 3.4rem;
+    height: 3.4rem;
+  }
+}
