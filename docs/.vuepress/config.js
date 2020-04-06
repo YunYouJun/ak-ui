@@ -33,7 +33,7 @@ module.exports = (ctx) => {
         "script",
         {
           async: true,
-          src: "//at.alicdn.com/t/font_1623879_myr0tlc1ayp.js",
+          src: "//at.alicdn.com/t/font_1623879_9d03264w9w.js",
         },
       ],
       // font
@@ -42,7 +42,7 @@ module.exports = (ctx) => {
         {
           rel: "stylesheet",
           href:
-            "https://fonts.googleapis.com/css?family=Noto+Sans+SC:400,500,700,900|Noto+Serif+SC:400,500,700,900&display=swap",
+            "https://fonts.googleapis.com/css?family=Noto+Sans+SC:400,500,700,900|Noto+Serif+SC:400,500,700,900|Syncopate:700&display=swap",
         },
       ],
     ],

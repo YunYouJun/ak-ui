@@ -19,3 +19,11 @@
 :::
 
 <<< @/docs/.vuepress/components/demo/button-group-action.vue
+
+## 基建
+
+::: demo-color
+<demo-button-group-with-small></demo-button-group-with-small>
+:::
+
+<<< @/docs/.vuepress/components/demo/button-group/with-small.vue

@@ -83,4 +83,48 @@
       z-index: 1;
     }
   }
+
+  &.with-small {
+    position: relative;
+    background: #444;
+    width: 17.5rem;
+    .ak-button--card {
+      margin: 0;
+      .ak-icon {
+        width: 6rem;
+        height: 6rem;
+      }
+    }
+    .subtitle {
+      color: map-get($ak-colors, "accent");
+      position: absolute;
+      top: 56px;
+      left: 10px;
+      font-size: 12px;
+      font-weight: 700;
+      font-family: "Syncopate", sans-serif;
+    }
+    .small {
+      position: absolute;
+      width: 4.5rem;
+      height: 100%;
+      right: 0;
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 0.8rem;
+      .label {
+        font-family: $font-serif;
+        color: white;
+        font-size: 2rem;
+        font-weight: 900;
+      }
+
+      .ak-icon {
+        width: 3.2rem;
+        height: 3.2rem;
+        color: gray;
+      }
+    }
+  }
 }
