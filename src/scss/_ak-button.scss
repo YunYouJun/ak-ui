@@ -99,6 +99,41 @@
       margin-top: -0.5rem;
     }
   }
+
+  &--card {
+    position: relative;
+    background-color: #eee;
+    box-shadow: 0 2px 8px rgba(black, 0.6);
+    width: 12.5rem;
+    height: 6rem;
+    color: black;
+
+    &::before {
+      position: absolute;
+      content: "";
+      top: -2px;
+      width: 10rem;
+      height: 5px;
+      background-color: #f6540e;
+    }
+
+    .ak-icon {
+      position: absolute;
+      right: 0;
+      width: 5rem;
+      height: 5rem;
+      color: lightgray;
+    }
+
+    .label {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      font-family: $font-serif;
+      font-size: 2.8rem;
+      font-weight: 900;
+    }
+  }
 }
 
 .ak-button--start {
