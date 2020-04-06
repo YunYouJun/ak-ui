@@ -88,3 +88,9 @@
 ```
 
 > 如想要添加更多效果参见 [ak-fx](/components/ak-fx)。
+
+## card 卡片按钮
+
+::: demo-dust
+<demo-button-card></demo-button-card>
+:::

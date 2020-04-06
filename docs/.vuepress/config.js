@@ -1,13 +1,13 @@
 const pkg = require("../../package.json");
 
-module.exports = ctx => {
+module.exports = (ctx) => {
   return {
     title: "ak-ui",
     description: pkg.description,
     locales: {
       "/": {
-        lang: "zh-CN"
-      }
+        lang: "zh-CN",
+      },
     },
     head: [
       ["link", { rel: "icon", href: "/ak.png" }],
@@ -16,7 +16,7 @@ module.exports = ctx => {
       ["meta", { name: "apple-mobile-web-app-capable", content: "yes" }],
       [
         "meta",
-        { name: "apple-mobile-web-app-status-bar-style", content: "black" }
+        { name: "apple-mobile-web-app-status-bar-style", content: "black" },
       ],
       ["link", { rel: "apple-touch-icon", href: "/ak.png" }],
       ["link", { rel: "mask-icon", href: "/ak.svg", color: "#3eaf7c" }],
@@ -26,15 +26,15 @@ module.exports = ctx => {
         "link",
         {
           rel: "stylesheet",
-          href: ctx.isProd ? "/css/ak-ui.min.css" : "/css/ak-ui.css"
-        }
+          href: ctx.isProd ? "/css/ak-ui.min.css" : "/css/ak-ui.css",
+        },
       ],
       [
         "script",
         {
           async: true,
-          src: "//at.alicdn.com/t/font_1623879_a03x3er7qur.js"
-        }
+          src: "//at.alicdn.com/t/font_1623879_myr0tlc1ayp.js",
+        },
       ],
       // font
       [
@@ -42,19 +42,19 @@ module.exports = ctx => {
         {
           rel: "stylesheet",
           href:
-            "https://fonts.googleapis.com/css?family=Noto+Sans+SC:400,500,700,900|Noto+Serif+SC:400,500,700,900&display=swap"
-        }
-      ]
+            "https://fonts.googleapis.com/css?family=Noto+Sans+SC:400,500,700,900|Noto+Serif+SC:400,500,700,900&display=swap",
+        },
+      ],
     ],
     extraWatchFiles: [
-      ".vuepress/public/css/ak-ui.css" // 使用相对路径
+      ".vuepress/public/css/ak-ui.css", // 使用相对路径
     ],
     themeConfig: {
       logo: "/ak.svg",
       nav: [
         { text: "Home", link: "/" },
         { text: "Guide", link: "/guide/" },
-        { text: "Components", link: "/components/" }
+        { text: "Components", link: "/components/" },
       ],
       sidebar: {
         "/guide/": ["", "style"],
@@ -73,71 +73,71 @@ module.exports = ctx => {
           "ak-media",
           "ak-object",
           "ak-panel",
-          "ak-pagination"
-        ]
+          "ak-pagination",
+        ],
       },
       lastUpdated: "上次更新",
       repo: "YunYouJun/ak-ui",
       docsDir: "docs",
       editLinks: true,
       editLinkText: "帮助改善此页面！( ￣□￣)/",
-      smoothScroll: true
+      smoothScroll: true,
     },
     plugins: [
       "@vuepress/back-to-top",
       [
         "@vuepress/google-analytics",
         {
-          ga: "UA-121354150-11"
-        }
+          ga: "UA-121354150-11",
+        },
       ],
       [
         "@vuepress/pwa",
         {
           serviceWorker: true,
-          updatePopup: true
-        }
+          updatePopup: true,
+        },
       ],
       [
         "vuepress-plugin-container",
         {
           type: "demo",
           defaultTitle: "示例",
-          before: info =>
+          before: (info) =>
             `<demo-block><template v-slot:title>${info}</template>`,
-          after: "</demo-block>"
-        }
+          after: "</demo-block>",
+        },
       ],
       [
         "vuepress-plugin-container",
         {
           type: "demo-color",
           defaultTitle: "示例（彩色）",
-          before: info =>
+          before: (info) =>
             `<demo-block-color><template v-slot:title>${info}</template>`,
-          after: "</demo-block-color>"
-        }
+          after: "</demo-block-color>",
+        },
       ],
       [
         "vuepress-plugin-container",
         {
           type: "demo-dark",
           defaultTitle: "示例（暗色）",
-          before: info =>
+          before: (info) =>
             `<demo-block-dark><template v-slot:title>${info}</template>`,
-          after: "</demo-block-dark>"
-        }
+          after: "</demo-block-dark>",
+        },
       ],
       [
         "vuepress-plugin-container",
         {
           type: "demo-dust",
           defaultTitle: "示例（尘）",
-          before: info =>
+          before: (info) =>
             `<demo-block-dust><template v-slot:title>${info}</template>`,
-          after: "</demo-block-dust>"
-        }
-      ]
-    ]
+          after: "</demo-block-dust>",
+        },
+      ],
+    ],
   };
 };
