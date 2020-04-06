@@ -107,19 +107,11 @@
     width: 12.5rem;
     height: 6rem;
     color: black;
-
-    &::before {
-      position: absolute;
-      content: "";
-      top: -2px;
-      width: 10rem;
-      height: 5px;
-      background-color: #f6540e;
-    }
+    margin: 0.3rem;
 
     .ak-icon {
       position: absolute;
-      right: 0;
+      right: 0.2rem;
       width: 5rem;
       height: 5rem;
       color: lightgray;
@@ -132,6 +124,17 @@
       font-family: $font-serif;
       font-size: 2.8rem;
       font-weight: 900;
+    }
+
+    &.with-line {
+      &::before {
+        position: absolute;
+        content: "";
+        top: -2px;
+        width: 10rem;
+        height: 5px;
+        background-color: map-get($ak-colors, "accent");
+      }
     }
   }
 }

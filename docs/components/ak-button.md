@@ -94,3 +94,5 @@
 ::: demo-dust
 <demo-button-card></demo-button-card>
 :::
+
+<<< @/docs/.vuepress/components/demo/button-card.vue
