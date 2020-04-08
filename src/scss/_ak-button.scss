@@ -126,6 +126,14 @@
       font-weight: 900;
     }
 
+    .subtitle {
+      color: #999;
+      font-size: 21px;
+      position: absolute;
+      left: 14px;
+      top: 58px;
+    }
+
     &.with-line {
       &::before {
         position: absolute;
