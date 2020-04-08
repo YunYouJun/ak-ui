@@ -33,7 +33,7 @@ module.exports = (ctx) => {
         "script",
         {
           async: true,
-          src: "//at.alicdn.com/t/font_1623879_9d03264w9w.js",
+          src: "//at.alicdn.com/t/font_1623879_fmtmrsxopns.js",
         },
       ],
       // font
