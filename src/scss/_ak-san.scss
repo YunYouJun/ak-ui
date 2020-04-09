@@ -1,0 +1,57 @@
+.ak-san {
+  position: relative;
+  width: 11rem;
+  .brain {
+    position: absolute;
+    left: 0.5rem;
+    top: 0;
+    z-index: 0;
+    .ak-icon {
+      color: rgba(white, 0.9);
+      width: 7rem;
+      height: 7rem;
+      filter: drop-shadow(0 0 2px gray);
+    }
+  }
+  .add {
+    position: absolute;
+    left: -1rem;
+    top: 2rem;
+    border-radius: 50%;
+    width: 2rem;
+    height: 2rem;
+    background-color: rgba(black, 0.7);
+    box-shadow: 5px 3px 0 rgba(black, 0.4);
+    cursor: pointer;
+    .ak-icon {
+      color: white;
+      width: 2rem;
+      height: 2rem;
+    }
+
+    @include active-darken;
+    &::after {
+      border-radius: 50%;
+    }
+  }
+  .cur {
+    background-color: rgba(gray, 0.4);
+    text-align: right;
+    font-size: 5rem;
+    text-shadow: 4px 4px 0px gray;
+    padding: 0 1rem 0.8rem 0;
+    margin-bottom: 0.4rem;
+    border-radius: 0.1rem;
+    .value {
+      transform: translateZ(1px);
+    }
+  }
+  .total {
+    background-color: #333;
+    text-align: right;
+    color: white;
+    font-size: 1.6rem;
+    padding: 0.3rem 0.9rem 0.5rem 0;
+    border-radius: 0.2rem;
+  }
+}
