@@ -17,7 +17,7 @@
   background-size: cover;
   background-position: center;
   &.ak-card {
-    .title {
+    > .title {
       color: white;
     }
   }

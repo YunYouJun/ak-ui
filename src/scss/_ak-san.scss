@@ -1,6 +1,7 @@
 .ak-san {
   position: relative;
   width: 11rem;
+
   .brain {
     position: absolute;
     left: 0.5rem;
@@ -23,6 +24,7 @@
     background-color: rgba(black, 0.7);
     box-shadow: 5px 3px 0 rgba(black, 0.4);
     cursor: pointer;
+    z-index: 1;
     .ak-icon {
       color: white;
       width: 2rem;
@@ -53,5 +55,58 @@
     font-size: 1.6rem;
     padding: 0.3rem 0.9rem 0.5rem 0;
     border-radius: 0.2rem;
+  }
+}
+
+.ak-san-container {
+  display: flex;
+  position: relative;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 1.5rem 2rem 1.2rem 2rem;
+
+  @include active-darken;
+
+  &::before {
+    position: absolute;
+    content: "";
+    left: 15rem;
+    bottom: -2px;
+    width: 18rem;
+    height: 5px;
+    background-color: map-get($ak-colors, "accent");
+  }
+
+  .info {
+    margin-left: 1rem;
+    .title {
+      color: black;
+      font-size: 4rem;
+      font-weight: 900;
+      font-family: $font-serif;
+    }
+
+    .cur {
+      display: inline-block;
+      color: white;
+      background-color: #444;
+      border-radius: 5px;
+      padding: 0.3rem 0.4rem;
+      font-size: large;
+      margin: 1rem 0 0.4rem 0;
+    }
+    .status {
+      font-family: $font-sans-serif;
+      font-size: 1.3rem;
+    }
+
+    .ak-icon {
+      position: absolute;
+      color: rgba(gray, 0.3);
+      width: 11.5rem;
+      height: 11.5rem;
+      top: 0;
+      left: 19rem;
+      filter: drop-shadow(1rem 0 1px rgba(gray, 0.3));
+    }
   }
 }
