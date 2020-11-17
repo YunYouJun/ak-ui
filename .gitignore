@@ -2,6 +2,8 @@
 .DS_Store
 .vscode
 ref
+yarn.lock
+package-lock.json
 
 # Build
 dist
