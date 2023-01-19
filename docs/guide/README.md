@@ -20,7 +20,7 @@ NPM 尚未发布 Release，你可以尝试 `https://cdn.jsdelivr.net/gh/YunYouJu
 
 ```bash
 # 安装
-yarn add -D @yunyoujun/ak-ui
+pnpm add -D @yunyoujun/ak-ui
 # or:
 # npm install @yunyoujun/ak-ui --save-dev
 ```
