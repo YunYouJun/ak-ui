@@ -25,6 +25,8 @@ You can find dist in <https://cdn.jsdelivr.net/gh/YunYouJun/ak-ui@gh-pages/css/a
 ### NPM or YARN
 
 ```sh
+pnpm add @yunyoujun/ak-ui
+# or
 npm install @yunyoujun/ak-ui
 # or
 yarn add @yunyoujun/ak-ui
@@ -52,6 +54,8 @@ I want to implement a demo type container to display demo easily.
 But I cannot get rendered markdown about code from vuepress-plugin-container.
 
 > https://github.com/vuepress/vuepress-community/issues/20
+
+Migrate to vitepress.
 
 ## Ref
 
