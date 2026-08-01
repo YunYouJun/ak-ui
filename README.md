@@ -1,68 +1,62 @@
 # ak-ui
 
-![Docs](https://github.com/YunYouJun/ak-ui/workflows/Docs/badge.svg)
-[![jsdelivr cdn](https://data.jsdelivr.com/v1/package/npm/@yunyoujun/ak-ui/badge)](https://www.jsdelivr.com/package/npm/@yunyoujun/ak-ui)
-
-UI components for [arknights](https://ak.hypergryph.com/). Deving...
-
+[![Docs](https://github.com/YunYouJun/ak-ui/actions/workflows/docs.yml/badge.svg)](https://github.com/YunYouJun/ak-ui/actions/workflows/docs.yml)
 [![npm](https://img.shields.io/npm/v/@yunyoujun/ak-ui.svg?style=flat-square)](https://www.npmjs.com/package/@yunyoujun/ak-ui)
-![npm](https://img.shields.io/npm/dt/@yunyoujun/ak-ui.svg?style=flat-square)
-![npm bundle size (minified + gzip)](https://img.shields.io/bundlephobia/minzip/@yunyoujun/ak-ui.svg?style=flat-square)
-![npm](https://img.shields.io/npm/l/@yunyoujun/ak-ui.svg?style=flat-square)
+[![license](https://img.shields.io/npm/l/@yunyoujun/ak-ui.svg?style=flat-square)](./LICENSE)
 
-## How to use
+Framework-agnostic Arknights-inspired CSS interface modules.
 
-尚未正式发布，敬请期待。
+- Documentation: <https://ak-ui.yunyoujun.cn>
+- Source: SCSS modules and runtime CSS variables
+- Runtime dependency: none
 
-You can find dist in <https://cdn.jsdelivr.net/gh/YunYouJun/ak-ui@gh-pages/css/ak-ui.min.css>.
+## Install
 
-### CDN
+```bash
+pnpm add @yunyoujun/ak-ui
+```
+
+Import the compiled stylesheet:
+
+```ts
+import '@yunyoujun/ak-ui/style.css'
+```
+
+Or use the Sass entry:
+
+```scss
+@use '@yunyoujun/ak-ui/scss';
+```
+
+CDN usage:
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@yunyoujun/ak-ui" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@yunyoujun/ak-ui/dist/ak-ui.min.css">
 ```
 
-### NPM or YARN
+## Development
 
-```sh
-pnpm add @yunyoujun/ak-ui
-# or
-npm install @yunyoujun/ak-ui
-# or
-yarn add @yunyoujun/ak-ui
+```bash
+pnpm install
+pnpm dev
 ```
 
-## Components
+Useful commands:
 
-- [ ] ak-button
-  - [ ] block
-  - [ ] glow
-- [ ] ak-card
-  - [ ] 3d
-- [ ] ak-badge
-- [ ] ak-progress
-- [ ] ak-divider
-- [ ] ak-message
-  - [ ] left
-  - [ ] right
-- [ ] ak-checkbox
-- [ ] ak-carousel
+```bash
+pnpm build               # build dist CSS
+pnpm docs:build          # build the VitePress site
+pnpm lint                # check SCSS
+pnpm test:visual         # quick visual check for the current OS
+pnpm test:visual:update:linux # update lossless WebP baselines in the CI-matched Linux container
+pnpm test                # run all verification with Linux visual regression
+```
 
-## Todo
+The files in `examples/` are the single source for documentation previews, displayed source code, and Playwright browser tests.
+Only the desktop and mobile homepage baselines are versioned. Component captures are generated under `test-results/` and uploaded as a 14-day GitHub Actions artifact instead of entering Git history. The homepage baselines use the pinned Playwright Noble container so local updates match the Ubuntu 24.04 CI renderer.
 
-I want to implement a demo type container to display demo easily.
-But I cannot get rendered markdown about code from vuepress-plugin-container.
+## License
 
-> https://github.com/vuepress/vuepress-community/issues/20
+[MIT](./LICENSE)
 
-Migrate to vitepress.
-
-## Ref
-
-- [Bootstrap](https://getbootstrap.com/): <https://github.com/twbs/bootstrap>
-- [Material Design](https://material.io/develop/web/): <https://github.com/material-components/material-components-web>
-- [Milligram](https://milligram.io/): <https://github.com/milligram/milligram>
-- [Pure.css](https://purecss.io/): <https://github.com/pure-css/pure/>
-- [arknights-ui](https://ak.2heng.xin/): <https://github.com/mashirozx/arknights-ui>
-
-If you want to achieve parallax effect, please see [parallax](https://github.com/wagerfield/parallax).
+This is an unofficial fan project. Arknights and related assets belong to their respective owners.

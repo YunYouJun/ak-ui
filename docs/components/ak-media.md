@@ -2,15 +2,7 @@
 
 ## album 相册
 
-::: demo
-
-<div class="ak-media--album">
-  <img src="/img/character/chen.jpg">
-</div>
+::: demo media/album
 :::
 
-```html
-<div class="ak-media--album">
-  <img src="/img/character/chen.jpg" />
-</div>
-```
+使用 `--ak-media-album-bgcolor` 和 `--ak-media-album-height` 调整背板。

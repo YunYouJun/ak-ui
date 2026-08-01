@@ -1,10 +1,10 @@
-@use "sass:color";
+@use "sass:map";
 
 $blue: #2bf;
 $yellow: #ffd802;
 
 $colors: () !default;
-$colors: map-merge(
+$colors: map.merge(
   (
     // "blue": #00b3fd,
       "blue": $blue,
@@ -24,8 +24,8 @@ $color-secondary: #cfc2d1;
 $color-advanced: #f1c644;
 
 $ak-colors: () !default;
-$ak-colors: map-merge($colors, $ak-colors);
-$ak-colors: map-merge(
+$ak-colors: map.merge($colors, $ak-colors);
+$ak-colors: map.merge(
   (
     "white": white,
     "black": black,
