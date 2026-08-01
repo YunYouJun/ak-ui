@@ -1,3 +1,5 @@
+@use "variables" as *;
+
 :root {
   @each $color, $value in $ak-colors {
     --ak-color-#{$color}: #{$value};

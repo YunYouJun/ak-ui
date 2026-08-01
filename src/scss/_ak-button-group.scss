@@ -1,3 +1,6 @@
+@use "sass:map";
+@use "variables" as *;
+
 .ak-button-group {
   width: 300px;
   display: flex;
@@ -96,7 +99,7 @@
       }
     }
     .subtitle {
-      color: map-get($ak-colors, "accent");
+      color: map.get($ak-colors, "accent");
       position: absolute;
       top: 56px;
       left: 10px;

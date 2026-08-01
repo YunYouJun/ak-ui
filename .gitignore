@@ -18,10 +18,14 @@ yarn-error.log*
 
 # Dependency directories
 node_modules/
+.pnpm-store/
 
 # dotenv environment variables file
 .env
 .env.test
 
-# vuepress build output
-.vuepress/dist
+# Documentation and browser test output
+docs/.vitepress/cache
+docs/.vitepress/dist
+playwright-report
+test-results

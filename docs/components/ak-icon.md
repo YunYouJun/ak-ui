@@ -1,19 +1,8 @@
 # ak-icon 图标
 
-当前使用 [Iconfont](https://www.iconfont.cn/) 平台上提供的图标。
+当前示例使用 Iconfont SVG symbol。`ak-icon` 负责统一尺寸与颜色继承，`ak-icon--stuff` 提供材料图标的边框效果。
 
-## ak-icon--stuff 材料
+使用 `--icon-border-color` 覆盖边框颜色。
 
-- `--icon-border-color`: 图标边颜色
-
-<div class="ak-icon--stuff">
-<svg class="ak-icon" aria-hidden="true" style="color: #d8dd5a;">
-  <use xlink:href="#icon-money-cny-box-fill"></use>
-</svg>
-</div>
-
-<div class="ak-icon--stuff">
-<svg class="ak-icon" aria-hidden="true" style="color: #d8dd5a;">
-  <use xlink:href="#icon-vip-diamond-fill"></use>
-</svg>
-</div>
+::: demo icon/stuff
+:::

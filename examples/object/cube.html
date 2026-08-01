@@ -1,0 +1,19 @@
+<div class="perspective" id="tactical-map" aria-label="战术地图"></div>
+
+<script>
+  const map = document.querySelector('#tactical-map')
+  const cube = color => `
+    <div class="ak-cube" style="--cube-size: 52px; --cube-border-width: 4px; ${color ? `--cube-color: ${color}` : ''}">
+      <div class="ak-face front">
+        <svg class="ak-icon" aria-hidden="true"><use href="#icon-warning"></use></svg>
+        <div class="ak-face__lines">
+          <i class="ak-face__line--tl"></i><i class="ak-face__line--tr"></i>
+          <i class="ak-face__line--bl"></i><i class="ak-face__line--br"></i>
+        </div>
+      </div>
+      <div class="ak-face back"></div><div class="ak-face right"></div>
+      <div class="ak-face left"></div><div class="ak-face top"></div><div class="ak-face bottom"></div>
+    </div>`
+
+  map.innerHTML = Array.from({ length: 30 }, (_, index) => cube(index > 19 ? 'rgba(246, 84, 14, 0.65)' : '')).join('')
+</script>

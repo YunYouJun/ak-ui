@@ -21,7 +21,7 @@
       top: 5px;
       left: -10px;
       width: 100%;
-      height: var(--ak-media-album-heiht, 98%);
+      height: var(--ak-media-album-height, var(--ak-media-album-heiht, 98%));
       border: 0.4rem solid white;
       background-color: var(--ak-media-album-bgcolor, #333);
       box-shadow: 0 5px 10px rgba($color: #000000, $alpha: 0.5);

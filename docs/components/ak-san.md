@@ -1,7 +1,4 @@
 # ak-san 理智
 
-:::demo-dust
-<demo-san></demo-san>
+::: demo san/basic
 :::
-
-<<< @/docs/.vuepress/components/demo/san.vue

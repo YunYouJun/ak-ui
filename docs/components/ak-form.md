@@ -2,8 +2,5 @@
 
 ## Input Number
 
-:::demo
-<demo-input-number></demo-input-number>
+::: demo form/input-number
 :::
-
-<<< @/docs/.vuepress/components/demo/input-number.vue

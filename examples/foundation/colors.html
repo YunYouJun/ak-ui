@@ -1,0 +1,32 @@
+<div class="ak-color-grid">
+  <div class="ak-color-swatch bg-low"><strong>LOW</strong><code>#9c9c9c</code></div>
+  <div class="ak-color-swatch bg-basic"><strong>BASIC</strong><code>#d8dd5a</code></div>
+  <div class="ak-color-swatch bg-primary"><strong>PRIMARY</strong><code>#4aabea</code></div>
+  <div class="ak-color-swatch bg-secondary"><strong>SECONDARY</strong><code>#cfc2d1</code></div>
+  <div class="ak-color-swatch bg-advanced"><strong>ADVANCED</strong><code>#f1c644</code></div>
+</div>
+
+<style>
+  .ak-color-grid {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(100px, 1fr));
+    width: min(720px, 100%);
+  }
+
+  .ak-color-swatch {
+    display: flex;
+    min-height: 150px;
+    padding: 16px;
+    color: #111315;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .ak-color-swatch strong { letter-spacing: 0.12em; }
+  .ak-color-swatch code { color: inherit; }
+
+  @media (max-width: 620px) {
+    .ak-color-grid { grid-template-columns: 1fr; }
+    .ak-color-swatch { min-height: 72px; }
+  }
+</style>

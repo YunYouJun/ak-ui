@@ -1,3 +1,5 @@
+@use "mixins" as *;
+
 .ak-pagination {
   display: inline-flex;
   height: 5rem;

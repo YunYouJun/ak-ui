@@ -1,7 +1,6 @@
 # ak-counter 计数器
 
-::: demo-color
-<demo-counter></demo-counter>
-:::
+用于同时展示资源图标、当前数值和补充操作。
 
-<<< @/docs/.vuepress/components/demo/counter.vue
+::: demo counter/basic
+:::

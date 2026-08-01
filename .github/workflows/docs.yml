@@ -1,26 +1,57 @@
-name: Docs
+name: CI
+
 on:
   push:
     branches:
       - master
+  pull_request:
+    branches:
+      - master
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
-  deploy:
-    runs-on: ubuntu-latest
+  verify:
+    runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Enable Corepack
+        run: corepack enable
 
       - name: Setup Node
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v6
         with:
-          node-version: "10.x"
+          node-version: 22
+          cache: pnpm
 
-      - run: yarn install
-      - run: yarn build
-      - run: yarn docs:build
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
 
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
+      - name: Install Chromium
+        run: pnpm exec playwright install --with-deps chromium
+
+      - name: Lint styles
+        run: pnpm lint
+
+      - name: Build documentation
+        run: pnpm docs:build
+
+      - name: Run visual regression tests
+        run: pnpm test:visual
+
+      - name: Upload component captures
+        if: always()
+        uses: actions/upload-artifact@v7
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: docs/.vuepress/dist/
-          force_orphan: true
+          name: component-captures
+          path: test-results/**/component-captures/*.webp
+          if-no-files-found: warn
+          retention-days: 14
