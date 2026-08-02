@@ -63,16 +63,16 @@ jobs:
       - name: Pack verified package
         shell: bash
         run: |
-          mkdir -p .release
+          mkdir -p release
           tarball="$(npm pack --silent)"
-          mv "$tarball" ".release/$tarball"
-          test -f ".release/$tarball"
+          mv "$tarball" "release/$tarball"
+          test -f "release/$tarball"
 
       - name: Upload verified package
         uses: actions/upload-artifact@v7
         with:
           name: npm-package
-          path: .release/*.tgz
+          path: release/*.tgz
           if-no-files-found: error
           retention-days: 7
 
@@ -118,7 +118,7 @@ jobs:
         uses: actions/download-artifact@v8
         with:
           name: npm-package
-          path: .release
+          path: release
 
       - name: Publish with npm Trusted Publishing
-        run: npm publish .release/*.tgz --tag "${{ steps.release.outputs.dist-tag }}" --access public
+        run: npm publish release/*.tgz --tag "${{ steps.release.outputs.dist-tag }}" --access public
