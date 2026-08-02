@@ -1,0 +1,238 @@
+{
+  "$schema": "https://shadcn-vue.com/schema/registry.json",
+  "name": "ak-ui",
+  "homepage": "https://ak-ui.yyj.moe",
+  "items": [
+    {
+      "name": "button",
+      "type": "registry:ui",
+      "title": "AK Button",
+      "description": "Arknights-inspired action button with composable variants and slots.",
+      "author": "YunYouJun",
+      "dependencies": [
+        "@yunyoujun/ak-ui@0.1.0-beta.0"
+      ],
+      "files": [
+        {
+          "path": "registry/ak/ui/button/AkButton.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/ak/ui/button/index.ts",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/ak/ui/button/types.ts",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "action",
+        "form"
+      ],
+      "docs": "The component imports the @yunyoujun/ak-ui CSS Core automatically. Override --ak-* variables in your global stylesheet to customize the theme."
+    },
+    {
+      "name": "card",
+      "type": "registry:ui",
+      "title": "AK Card",
+      "description": "Composable Arknights-inspired card with header, title, description, content, and footer primitives.",
+      "author": "YunYouJun",
+      "dependencies": [
+        "@yunyoujun/ak-ui@0.1.0-beta.0"
+      ],
+      "files": [
+        {
+          "path": "registry/ak/ui/card/AkCard.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/ak/ui/card/AkCardHeader.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/ak/ui/card/AkCardTitle.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/ak/ui/card/AkCardDescription.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/ak/ui/card/AkCardContent.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/ak/ui/card/AkCardFooter.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/ak/ui/card/index.ts",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/ak/ui/card/types.ts",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "layout",
+        "data-display"
+      ],
+      "docs": "Compose AkCardHeader, AkCardTitle, AkCardDescription, AkCardContent, and AkCardFooter instead of placing all content in one slot."
+    },
+    {
+      "name": "input-number",
+      "type": "registry:ui",
+      "title": "AK Input Number",
+      "description": "Accessible numeric input with increment, decrement, minimum, and maximum actions.",
+      "author": "YunYouJun",
+      "dependencies": [
+        "@yunyoujun/ak-ui@0.1.0-beta.0"
+      ],
+      "files": [
+        {
+          "path": "registry/ak/ui/input-number/AkInputNumber.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/ak/ui/input-number/index.ts",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "form",
+        "input"
+      ],
+      "docs": "Use v-model for the numeric value. The component clamps button and typed input changes to min and max."
+    },
+    {
+      "name": "status",
+      "type": "registry:ui",
+      "title": "AK Status",
+      "description": "Tags and live terminal status indicators for roles, rarity, warnings, and connectivity.",
+      "author": "YunYouJun",
+      "dependencies": [
+        "@yunyoujun/ak-ui@0.1.0-beta.0"
+      ],
+      "files": [
+        {
+          "path": "registry/ak/ui/status/AkTag.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/ak/ui/status/AkStatus.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/ak/ui/status/index.ts",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/ak/ui/status/types.ts",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "data-display",
+        "feedback"
+      ],
+      "docs": "Use AkTag for compact classifications and AkStatus for a signal, code label, and descriptive state."
+    },
+    {
+      "name": "progress",
+      "type": "registry:ui",
+      "title": "AK Progress",
+      "description": "Accessible horizontal progress and octagonal gauge adapters with clamped values.",
+      "author": "YunYouJun",
+      "dependencies": [
+        "@yunyoujun/ak-ui@0.1.0-beta.0"
+      ],
+      "files": [
+        {
+          "path": "registry/ak/ui/progress/AkProgress.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/ak/ui/progress/AkGauge.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/ak/ui/progress/index.ts",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/ak/ui/progress/types.ts",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "data-display",
+        "feedback"
+      ],
+      "docs": "AkProgress and AkGauge keep aria-valuenow synchronized with the clamped visual percentage."
+    },
+    {
+      "name": "notice",
+      "type": "registry:ui",
+      "title": "AK Notice",
+      "description": "Tactical information, warning, danger, and success notices with semantic live roles.",
+      "author": "YunYouJun",
+      "dependencies": [
+        "@yunyoujun/ak-ui@0.1.0-beta.0"
+      ],
+      "files": [
+        {
+          "path": "registry/ak/ui/notice/AkNotice.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/ak/ui/notice/index.ts",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/ak/ui/notice/types.ts",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "feedback",
+        "alert"
+      ],
+      "docs": "Danger notices default to role=alert; other variants default to role=status. The role can be overridden."
+    },
+    {
+      "name": "tabs",
+      "type": "registry:ui",
+      "title": "AK Tabs",
+      "description": "Controlled Vue tabs and segmented mode selection with keyboard navigation.",
+      "author": "YunYouJun",
+      "dependencies": [
+        "@yunyoujun/ak-ui@0.1.0-beta.0"
+      ],
+      "files": [
+        {
+          "path": "registry/ak/ui/tabs/AkTabs.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/ak/ui/tabs/AkSegmented.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/ak/ui/tabs/index.ts",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/ak/ui/tabs/types.ts",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "navigation",
+        "input"
+      ],
+      "docs": "Use v-model for the active item. Arrow keys, Home, and End move focus and selection between tabs."
+    }
+  ]
+}

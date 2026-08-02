@@ -5,6 +5,7 @@ import AkHome from './components/AkHome.vue'
 import DemoPreview from './components/DemoPreview.vue'
 import VisualFixtures from './components/VisualFixtures.vue'
 
+import '../../../src/scss/ak-ui.scss'
 import './style.css'
 
 export default {

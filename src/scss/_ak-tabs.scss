@@ -1,0 +1,143 @@
+@use "variables" as *;
+
+.ak-tabs {
+  --ak-tabs-signal: var(--ak-color-primary, #4aabea);
+  width: min(42rem, 100%);
+  border: 1px solid rgba(243, 244, 239, 0.25);
+  color: #f3f4ef;
+  background: rgba(17, 19, 21, 0.9);
+
+  &__list {
+    display: grid;
+    border-bottom: 1px solid rgba(243, 244, 239, 0.25);
+    grid-auto-columns: minmax(0, 1fr);
+    grid-auto-flow: column;
+  }
+
+  &__tab {
+    position: relative;
+    min-height: 3rem;
+    padding: 0.65rem 1rem;
+    border: 0;
+    color: rgba(243, 244, 239, 0.62);
+    background: transparent;
+    cursor: pointer;
+    font-family: $font-monospace;
+    font-size: 0.6875rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+
+    & + & {
+      border-left: 1px solid rgba(243, 244, 239, 0.18);
+    }
+
+    &[aria-selected="true"] {
+      color: #111315;
+      background: #f3f4ef;
+
+      &::after {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        height: 0.25rem;
+        content: "";
+        background: var(--ak-tabs-signal);
+      }
+    }
+
+    &:focus-visible {
+      z-index: 1;
+      outline: 3px solid var(--ak-tabs-signal);
+      outline-offset: -3px;
+    }
+  }
+
+  &__panel {
+    min-height: 7rem;
+    padding: 1.5rem;
+
+    &[hidden] {
+      display: none;
+    }
+  }
+
+  &__eyebrow {
+    display: block;
+    margin-bottom: 0.7rem;
+    color: var(--ak-tabs-signal);
+    font-family: $font-monospace;
+    font-size: 0.625rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+  }
+
+  &__title {
+    margin: 0;
+    font-family: $font-sans-serif;
+    font-size: 1.35rem;
+    line-height: 1.2;
+  }
+
+  &__description {
+    max-width: 34rem;
+    margin: 0.7rem 0 0;
+    color: rgba(243, 244, 239, 0.65);
+    font-family: $font-sans-serif;
+    font-size: 0.8rem;
+    line-height: 1.65;
+  }
+}
+
+.ak-segmented {
+  --ak-segmented-signal: var(--ak-color-advanced, #f1c644);
+  display: inline-flex;
+  padding: 0.25rem;
+  background: rgba(17, 19, 21, 0.9);
+
+  &__item {
+    min-width: 5.5rem;
+    min-height: 2.25rem;
+    padding: 0.45rem 0.8rem;
+    border: 0;
+    color: rgba(243, 244, 239, 0.62);
+    background: transparent;
+    cursor: pointer;
+    font-family: $font-monospace;
+    font-size: 0.625rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+
+    &[aria-pressed="true"] {
+      color: #111315;
+      background: var(--ak-segmented-signal);
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--ak-segmented-signal);
+      outline-offset: -2px;
+    }
+  }
+}
+
+@media (max-width: 32rem) {
+  .ak-tabs__list {
+    grid-auto-flow: row;
+  }
+
+  .ak-tabs__tab + .ak-tabs__tab {
+    border-top: 1px solid rgba(243, 244, 239, 0.18);
+    border-left: 0;
+  }
+
+  .ak-segmented {
+    display: flex;
+    width: 100%;
+  }
+
+  .ak-segmented__item {
+    min-width: 0;
+    flex: 1;
+  }
+}

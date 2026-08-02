@@ -12,8 +12,11 @@
     background-color: rgba(white, 0.8);
   }
   span {
+    display: inline-flex;
     width: 35%;
-    text-align: center;
+    align-items: center;
+    justify-content: center;
+    gap: 0.375rem;
     color: rgba(white, 0.8);
     font-size: 1rem;
     font-family: $font-sans-serif;
@@ -21,6 +24,7 @@
     .ak-icon {
       width: 1rem;
       height: 1rem;
+      flex: 0 0 auto;
     }
   }
   &::after {

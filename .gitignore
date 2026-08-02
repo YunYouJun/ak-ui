@@ -27,5 +27,6 @@ node_modules/
 # Documentation and browser test output
 docs/.vitepress/cache
 docs/.vitepress/dist
+docs/public/r
 playwright-report
 test-results

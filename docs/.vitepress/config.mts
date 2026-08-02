@@ -39,6 +39,29 @@ function demoContainer(md: any) {
   })
 }
 
+const gettingStartedSidebar = [
+  {
+    text: '接入方式',
+    items: [
+      { text: 'CSS Core', link: '/guide/' },
+      { text: 'Vue Registry', link: '/registry/' },
+    ],
+  },
+  {
+    text: '开发约定',
+    items: [
+      { text: '接口与命名', link: '/guide/style' },
+      { text: '色彩与字体', link: '/components/' },
+    ],
+  },
+  {
+    text: '项目记录',
+    items: [
+      { text: '复活记录', link: '/guide/revival' },
+    ],
+  },
+]
+
 export default defineConfig({
   title: 'ak-ui',
   titleTemplate: ':title · ak-ui',
@@ -47,7 +70,7 @@ export default defineConfig({
   appearance: 'dark',
   lastUpdated: true,
   sitemap: {
-    hostname: 'https://ak-ui.yunyoujun.cn',
+    hostname: 'https://ak-ui.yyj.moe',
   },
   head: [
     ['link', { rel: 'icon', href: '/ak.png' }],
@@ -76,20 +99,19 @@ export default defineConfig({
     logo: '/ak.svg',
     siteTitle: 'AK / UI',
     nav: [
-      { text: '概览', link: '/' },
-      { text: '指南', link: '/guide/' },
+      {
+        text: '开始使用',
+        items: [
+          { text: 'CSS Core', link: '/guide/' },
+          { text: 'Vue Registry', link: '/registry/' },
+          { text: '接口与命名', link: '/guide/style' },
+          { text: '复活记录', link: '/guide/revival' },
+        ],
+      },
       { text: '组件', link: '/components/' },
     ],
     sidebar: {
-      '/guide/': [
-        {
-          text: '接入',
-          items: [
-            { text: '使用指南', link: '/guide/' },
-            { text: '风格指南', link: '/guide/style' },
-          ],
-        },
-      ],
+      '/guide/': gettingStartedSidebar,
       '/components/': [
         {
           text: '基础规范',
@@ -112,13 +134,18 @@ export default defineConfig({
             { text: '关卡', link: '/components/ak-level' },
             { text: '加载', link: '/components/ak-loading' },
             { text: '媒体', link: '/components/ak-media' },
+            { text: '战术通知', link: '/components/ak-notice' },
             { text: '物体', link: '/components/ak-object' },
             { text: '面板', link: '/components/ak-panel' },
             { text: '分页', link: '/components/ak-pagination' },
+            { text: '进度与仪表', link: '/components/ak-progress' },
             { text: '理智', link: '/components/ak-san' },
+            { text: '状态标记', link: '/components/ak-status' },
+            { text: '终端导航', link: '/components/ak-tabs' },
           ],
         },
       ],
+      '/registry/': gettingStartedSidebar,
     },
     search: {
       provider: 'local',

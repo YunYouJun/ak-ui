@@ -1,0 +1,125 @@
+@use "variables" as *;
+
+.ak-progress-stack {
+  display: grid;
+  width: min(32rem, 100%);
+  gap: 1rem;
+}
+
+.ak-progress {
+  --ak-progress-signal: var(--ak-color-primary, #4aabea);
+  --ak-progress-value: 0%;
+  display: grid;
+  padding: 0.75rem 0.9rem 0.9rem;
+  border: 1px solid rgba(243, 244, 239, 0.24);
+  color: #f3f4ef;
+  background: rgba(17, 19, 21, 0.86);
+  gap: 0.55rem;
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: $font-monospace;
+    font-size: 0.625rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    line-height: 1;
+    text-transform: uppercase;
+  }
+
+  &__value {
+    color: var(--ak-progress-signal);
+    font-size: 0.75rem;
+  }
+
+  &__track {
+    position: relative;
+    height: 0.75rem;
+    overflow: hidden;
+    background: rgba(243, 244, 239, 0.13);
+
+    &::after {
+      position: absolute;
+      inset: 0;
+      content: "";
+      background: repeating-linear-gradient(90deg, transparent 0 1.4rem, rgba(17, 19, 21, 0.55) 1.4rem 1.5rem);
+    }
+  }
+
+  &__fill {
+    display: block;
+    width: var(--ak-progress-value);
+    height: 100%;
+    background: var(--ak-progress-signal);
+    box-shadow: 0 0 1rem color-mix(in srgb, var(--ak-progress-signal) 62%, transparent);
+    transition: width 240ms ease-out;
+  }
+
+  &--warning {
+    --ak-progress-signal: var(--ak-color-advanced, #f1c644);
+  }
+
+  &--danger {
+    --ak-progress-signal: #e33b3b;
+  }
+}
+
+.ak-gauge {
+  --ak-gauge-signal: var(--ak-color-primary, #4aabea);
+  --ak-gauge-value: 0%;
+  position: relative;
+  display: inline-grid;
+  width: 8.5rem;
+  aspect-ratio: 1;
+  place-items: center;
+  color: #f3f4ef;
+  background: conic-gradient(var(--ak-gauge-signal) var(--ak-gauge-value), rgba(243, 244, 239, 0.15) 0);
+  clip-path: polygon(16% 0, 84% 0, 100% 16%, 100% 84%, 84% 100%, 16% 100%, 0 84%, 0 16%);
+
+  &::before {
+    position: absolute;
+    content: "";
+    background: #171a1d;
+    clip-path: inherit;
+    inset: 0.65rem;
+  }
+
+  &__content {
+    z-index: 1;
+    display: grid;
+    place-items: center;
+  }
+
+  &__label {
+    color: var(--ak-gauge-signal);
+    font-family: $font-monospace;
+    font-size: 0.5625rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+  }
+
+  &__value {
+    margin-top: 0.25rem;
+    font-family: $font-monospace;
+    font-size: 2.25rem;
+    font-weight: 800;
+    line-height: 1;
+  }
+
+  &__unit {
+    color: rgba(243, 244, 239, 0.55);
+    font-family: $font-monospace;
+    font-size: 0.5625rem;
+  }
+
+  &--warning {
+    --ak-gauge-signal: var(--ak-color-advanced, #f1c644);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ak-progress__fill {
+    transition: none;
+  }
+}

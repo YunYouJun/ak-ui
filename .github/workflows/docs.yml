@@ -44,6 +44,9 @@ jobs:
       - name: Build documentation
         run: pnpm docs:build
 
+      - name: Verify Vue registry installation
+        run: pnpm registry:verify
+
       - name: Run visual regression tests
         run: pnpm test:visual
 

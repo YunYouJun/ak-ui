@@ -3,6 +3,7 @@
     &-number {
       position: relative;
       display: inline-block;
+      width: min(390px, 100%);
       height: 40px;
       padding: 0;
 
@@ -14,9 +15,16 @@
         color: #333;
         outline: none;
         padding: 0 120px;
-        width: 150px;
+        box-sizing: border-box;
+        width: 100%;
         height: 100%;
         border: none;
+
+        &::-webkit-inner-spin-button,
+        &::-webkit-outer-spin-button {
+          margin: 0;
+          appearance: none;
+        }
       }
 
       &__max,
@@ -42,10 +50,21 @@
       &__increase,
       &__decrease {
         background-color: #333;
+
         .ak-icon {
           width: 1.5rem;
           height: 1.5rem;
+          fill: currentcolor;
         }
+      }
+
+      button:disabled {
+        cursor: not-allowed;
+        opacity: 0.45;
+      }
+
+      &[data-disabled] {
+        opacity: 0.65;
       }
 
       &__max {
