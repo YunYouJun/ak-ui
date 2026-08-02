@@ -113,27 +113,3 @@ function onInput(event: Event) {
     >
   </div>
 </template>
-
-<style>
-.ak-input-number[data-slot="ak-input-number"] {
-  width: min(390px, 100%);
-}
-
-.ak-input-number[data-slot="ak-input-number"] .ak-input-number__inner {
-  box-sizing: border-box;
-  width: 100%;
-}
-
-.ak-input-number[data-slot="ak-input-number"] .ak-icon {
-  fill: currentcolor;
-}
-
-.ak-input-number[data-slot="ak-input-number"] button:disabled {
-  cursor: not-allowed;
-  opacity: 0.45;
-}
-
-.ak-input-number[data-slot="ak-input-number"][data-disabled] {
-  opacity: 0.65;
-}
-</style>

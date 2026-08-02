@@ -1,0 +1,101 @@
+@use "variables" as *;
+
+.ak-popover,
+.ak-tooltip {
+  box-sizing: border-box;
+  border-radius: 0;
+  color: #f3f4ef;
+  background: #171a1d;
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.4);
+  font-family: $font-sans-serif;
+}
+
+.ak-popover {
+  --ak-popover-info: var(--ak-color-primary, #{$blue});
+  --ak-popover-signal: var(--ak-color-advanced, #{$yellow});
+
+  width: min(calc(100% - 2rem), 22rem);
+  padding: 1rem 1.1rem;
+  border: 1px solid #626a70;
+  border-top: 4px solid var(--ak-popover-signal);
+  clip-path: polygon(0 0, calc(100% - 0.9rem) 0, 100% 0.9rem, 100% 100%, 0 100%);
+
+  & &__eyebrow {
+    display: block;
+    margin-bottom: 0.55rem;
+    color: var(--ak-popover-info);
+    font-family: $font-monospace;
+    font-size: 0.64rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  & &__title {
+    display: block;
+    margin-bottom: 0.35rem;
+    color: #fff;
+    font-size: 1rem;
+    line-height: 1.35;
+  }
+
+  & &__content {
+    margin: 0;
+    color: #bdc4c9;
+    font-size: 0.82rem;
+    line-height: 1.6;
+  }
+
+  &:popover-open {
+    animation: ak-popover-enter 140ms ease-out;
+  }
+}
+
+.ak-tooltip {
+  --ak-tooltip-signal: var(--ak-color-primary, #{$blue});
+
+  max-width: min(calc(100% - 2rem), 18rem);
+  padding: 0.55rem 0.7rem;
+  border: 1px solid var(--ak-tooltip-signal);
+  color: #f3f4ef;
+  font-family: $font-monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.02em;
+  line-height: 1.45;
+
+  &:popover-open {
+    animation: ak-popover-enter 100ms ease-out;
+  }
+}
+
+@supports (position-area: block-end) {
+  .ak-popover,
+  .ak-tooltip {
+    inset: auto;
+    margin: 0.5rem 0;
+    position-area: block-end span-inline-end;
+  }
+
+  .ak-tooltip {
+    position-area: block-start span-inline-end;
+  }
+}
+
+@keyframes ak-popover-enter {
+  from {
+    opacity: 0;
+    transform: translateY(-0.35rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ak-popover:popover-open,
+  .ak-tooltip:popover-open {
+    animation: none;
+  }
+}
