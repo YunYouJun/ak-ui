@@ -36,6 +36,16 @@ const operationModes = [
 
 Vue Registry 把轻量 Adapter 源码复制到你的项目中；组件视觉仍由框架无关的 ak-ui CSS Core 提供。
 
+## 样式复用模型
+
+| 模块 | 负责内容 | 复用接口 |
+| --- | --- | --- |
+| CSS Core | 色彩、字体、间距、状态与动效 | `.ak-*` 类名、`--ak-*` variables |
+| Vue Adapter | 语义结构、属性、插槽、事件与键盘交互 | 输出对应的 Core 类名与状态类 |
+| 文档主题 | 示例编排和页面布局 | 不进入组件实现 |
+
+Vue 文件不再复制组件 CSS。调整 `src/scss` 后，原生 HTML 与 Vue 组件会获得同一份视觉结果；Registry 校验也会阻止 Adapter 重新引入 `<style>`。
+
 ## 安装组件
 
 项目需要先完成 [shadcn-vue 初始化](https://shadcn-vue.com/docs/installation)：

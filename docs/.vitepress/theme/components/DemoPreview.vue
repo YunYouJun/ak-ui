@@ -7,12 +7,14 @@ const props = withDefaults(defineProps<{
   height?: number
   id?: string
   showCode?: boolean
+  sourceOpen?: boolean
   surface?: ExampleSurface
   title?: string
 }>(), {
   height: 240,
   id: 'demo',
   showCode: true,
+  sourceOpen: true,
   surface: 'plain',
   title: 'Example',
 })
@@ -102,7 +104,7 @@ async function copySource() {
       ></div>
     </div>
 
-    <details v-if="showCode && slots.code" class="ak-demo-preview__source" open>
+    <details v-if="showCode && slots.code" class="ak-demo-preview__source" :open="sourceOpen">
       <summary>
         <span>SOURCE / HTML</span>
         <button type="button" @click.prevent="copySource">

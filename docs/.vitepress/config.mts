@@ -32,7 +32,7 @@ function demoContainer(md: any) {
       const highlighted = md.render(`\`\`\`html\n${source}\n\`\`\``, env)
 
       return [
-        `<DemoPreview id="${example.id}" title="${example.title}" surface="${example.surface}" :height="${example.height}" encoded="${encoded}">`,
+        `<DemoPreview id="${example.id}" title="${example.title}" surface="${example.surface}" :height="${example.height}" :source-open="${example.sourceOpen !== false}" encoded="${encoded}">`,
         `<template #code>${highlighted}</template>`,
       ].join('\n')
     },
@@ -129,6 +129,7 @@ export default defineConfig({
             { text: '卡片', link: '/components/ak-card' },
             { text: '计数器', link: '/components/ak-counter' },
             { text: '分割线', link: '/components/ak-divider' },
+            { text: '对话框', link: '/components/ak-dialog' },
             { text: '效果', link: '/components/ak-fx' },
             { text: '表单', link: '/components/ak-form' },
             { text: '关卡', link: '/components/ak-level' },
@@ -136,6 +137,7 @@ export default defineConfig({
             { text: '媒体', link: '/components/ak-media' },
             { text: '战术通知', link: '/components/ak-notice' },
             { text: '物体', link: '/components/ak-object' },
+            { text: '浮层与提示', link: '/components/ak-popover' },
             { text: '面板', link: '/components/ak-panel' },
             { text: '分页', link: '/components/ak-pagination' },
             { text: '进度与仪表', link: '/components/ak-progress' },

@@ -92,7 +92,9 @@ GitHub Actions 只负责 lint、构建、Registry 安装验证和 Playwright；C
 
 ### 6. 继续补充视觉语汇
 
-重启后的第一批新增组件聚焦于状态表达和终端反馈：Status/Tag、Progress/Gauge、Notice/Alert、Tabs/Segmented。它们既提供框架无关 HTML，也提供 Vue Adapter，并统一遵循可访问语义和 reduced-motion。
+重启后的第一批新增组件聚焦于状态表达和终端反馈：Status/Tag、Progress/Gauge、Notice/Alert、Tabs/Segmented。0.2.0 随后补齐 Text Input、Textarea、Checkbox、Radio、Switch、Select、Dialog、Popover 与 Tooltip；新模块优先复用浏览器原生语义、状态和顶层能力。
+
+Vue Registry 保留少量交互 Adapter，但不再复制组件样式，也不扩展为独立 npm 运行时。HTML 与 Vue 都消费同一份 CSS Core。
 
 ### 7. npm Trusted Publishing
 
@@ -110,7 +112,7 @@ tag 必须与 `package.json` 版本完全一致，而且只能指向 `master` �
 
 ## 下一阶段
 
-接下来会优先组合更具明日方舟辨识度的业务组件，例如 Operation Card、Stage Node 与 Operator Card；同时补齐现有组件的 focus、disabled、键盘交互和 CSS variables 契约，再准备新的 npm 预览版本。
+0.2.0 发布后会优先组合更具明日方舟辨识度的业务组件，例如 Operation Card、Stage Node 与 Operator Card；同时继续补齐现有组件的 focus、disabled、键盘交互和 CSS variables 契约。
 
 如果你也在维护一个休眠多年的个人项目，这次重启带来的最大经验是：先恢复反馈循环和发布路径，再扩充功能。能够持续验证的小项目，比一次性完成的“大重写”更容易真正活下来。
 

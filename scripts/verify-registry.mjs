@@ -11,10 +11,33 @@ const registry = JSON.parse(await readFile(resolve(projectRoot, 'registry.json')
 const packageManifest = JSON.parse(await readFile(resolve(projectRoot, 'package.json'), 'utf8'))
 const expectedPackageDependency = `${packageManifest.name}@${packageManifest.version}`
 const itemNames = registry.items.map(item => item.name)
-const expectedFiles = registry.items
+const expectedVueFiles = registry.items
   .flatMap(item => item.files)
   .filter(file => file.path.endsWith('.vue'))
+const expectedFiles = expectedVueFiles
   .map(file => basename(file.path))
+
+for (const item of registry.items) {
+  const vueSources = await Promise.all(item.files
+    .filter(file => file.path.endsWith('.vue'))
+    .map(async file => ({
+      path: file.path,
+      source: await readFile(resolve(projectRoot, file.path), 'utf8'),
+    })))
+
+  assert.ok(
+    vueSources.some(file => file.source.includes("import '@yunyoujun/ak-ui'")),
+    `${item.name} must import the shared CSS Core`,
+  )
+
+  for (const file of vueSources) {
+    assert.doesNotMatch(
+      file.source,
+      /<style(?:\s|>)/i,
+      `${file.path} must reuse CSS Core instead of declaring adapter styles`,
+    )
+  }
+}
 
 for (const itemName of itemNames) {
   const item = JSON.parse(await readFile(resolve(registryDir, `${itemName}.json`), 'utf8'))
@@ -29,7 +52,10 @@ for (const itemName of itemNames) {
 const fixtureRoot = await mkdtemp(join(tmpdir(), 'ak-ui-registry-'))
 
 try {
+  const fixtureRegistryDir = resolve(fixtureRoot, 'registry')
+
   await mkdir(resolve(fixtureRoot, 'src/assets'), { recursive: true })
+  await mkdir(fixtureRegistryDir, { recursive: true })
   await writeFile(resolve(fixtureRoot, 'package.json'), `${JSON.stringify({
     name: 'ak-ui-registry-fixture',
     private: true,
@@ -74,11 +100,22 @@ try {
   }, null, 2)}\n`)
   await writeFile(resolve(fixtureRoot, 'src/assets/main.css'), '')
 
+  for (const itemName of itemNames) {
+    const item = JSON.parse(await readFile(resolve(registryDir, `${itemName}.json`), 'utf8'))
+    item.dependencies = item.dependencies.map(dependency => (
+      dependency === expectedPackageDependency ? `file:${projectRoot}` : dependency
+    ))
+    await writeFile(
+      resolve(fixtureRegistryDir, `${itemName}.json`),
+      `${JSON.stringify(item, null, 2)}\n`,
+    )
+  }
+
   const install = spawnSync('pnpm', [
     'exec',
     'shadcn-vue',
     'add',
-    ...itemNames.map(itemName => resolve(registryDir, `${itemName}.json`)),
+    ...itemNames.map(itemName => resolve(fixtureRegistryDir, `${itemName}.json`)),
     '--cwd',
     fixtureRoot,
     '--yes',

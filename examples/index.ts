@@ -5,11 +5,12 @@ export interface ExampleDefinition {
   title: string
   surface: ExampleSurface
   height: number
+  sourceOpen?: boolean
 }
 
 export const examples: ExampleDefinition[] = [
-  { id: 'foundation/colors', title: 'Color tokens', surface: 'plain', height: 330 },
-  { id: 'foundation/typography', title: 'Typography', surface: 'plain', height: 250 },
+  { id: 'foundation/colors', title: 'Color tokens', surface: 'plain', height: 240, sourceOpen: false },
+  { id: 'foundation/typography', title: 'Typography', surface: 'plain', height: 250, sourceOpen: false },
   { id: 'button/base', title: 'Base button', surface: 'dark', height: 180 },
   { id: 'button/block', title: 'Block button', surface: 'dark', height: 170 },
   { id: 'button/icon', title: 'Icon button', surface: 'dark', height: 180 },
@@ -24,6 +25,9 @@ export const examples: ExampleDefinition[] = [
   { id: 'card/place', title: 'Operator card', surface: 'color', height: 210 },
   { id: 'counter/basic', title: 'Resource counters', surface: 'color', height: 170 },
   { id: 'divider/basic', title: 'Divider', surface: 'dust', height: 170 },
+  { id: 'form/text', title: 'Text input and textarea', surface: 'plain', height: 340 },
+  { id: 'form/choice', title: 'Choice controls', surface: 'plain', height: 260 },
+  { id: 'form/select', title: 'Select', surface: 'plain', height: 190 },
   { id: 'form/input-number', title: 'Input number', surface: 'plain', height: 170 },
   { id: 'fx/glow', title: 'Glow effect', surface: 'dark', height: 180 },
   { id: 'fx/outline', title: 'Outline effect', surface: 'plain', height: 180 },
@@ -34,6 +38,8 @@ export const examples: ExampleDefinition[] = [
   { id: 'media/album', title: 'Album', surface: 'plain', height: 330 },
   { id: 'notice/basic', title: 'Tactical notices', surface: 'plain', height: 380 },
   { id: 'object/cube', title: 'Tactical cubes', surface: 'dark', height: 440 },
+  { id: 'overlay/dialog', title: 'Native dialog', surface: 'dark', height: 220 },
+  { id: 'overlay/popover', title: 'Popover and tooltip', surface: 'dark', height: 250 },
   { id: 'pagination/basic', title: 'Episode pagination', surface: 'dust', height: 220 },
   { id: 'panel/status', title: 'Status panel', surface: 'dust', height: 650 },
   { id: 'progress/basic', title: 'Operation progress', surface: 'dark', height: 340 },

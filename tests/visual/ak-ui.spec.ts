@@ -99,6 +99,62 @@ test('centers divider content vertically', async ({ page }) => {
   expect(alignment.contentDelta).toBeLessThanOrEqual(1)
 })
 
+test('keeps foundation color and type specimens compact and legible', async ({ page }) => {
+  await page.goto('/components/')
+  await waitForFonts(page)
+
+  const colors = page.locator('[data-demo-id="foundation/colors"]')
+  const typography = page.locator('[data-demo-id="foundation/typography"]')
+
+  await expect(colors.locator('.ak-color-swatch')).toHaveCount(5)
+  await expect(colors.locator('.ak-color-swatch code').first()).toHaveCSS('color', 'rgb(17, 19, 21)')
+  await expect(colors.locator('.ak-demo-preview__source')).not.toHaveAttribute('open', '')
+  await expect(typography.locator('.ak-demo-preview__source')).not.toHaveAttribute('open', '')
+
+  const rhythm = await typography.evaluate((demo) => {
+    const serifTitle = demo.querySelector<HTMLElement>('.ak-font-serif.ak-text--title')!
+    const serifDescription = demo.querySelector<HTMLElement>('.ak-font-serif:not(.ak-text--title)')!
+    const sansTitle = demo.querySelector<HTMLElement>('.ak-font-sans-serif.ak-text--title')!
+    const sansDescription = demo.querySelector<HTMLElement>('.ak-font-sans-serif:not(.ak-text--title)')!
+
+    return {
+      serifDescriptionGap: Math.round(serifDescription.getBoundingClientRect().top - serifTitle.getBoundingClientRect().bottom),
+      sampleGap: Math.round(sansTitle.getBoundingClientRect().top - serifDescription.getBoundingClientRect().bottom),
+      sansDescriptionGap: Math.round(sansDescription.getBoundingClientRect().top - sansTitle.getBoundingClientRect().bottom),
+    }
+  })
+
+  expect(rhythm).toEqual({
+    serifDescriptionGap: 6,
+    sampleGap: 24,
+    sansDescriptionGap: 6,
+  })
+
+  const referenceItems = page.locator('.ak-item-palette figure')
+  await expect(referenceItems).toHaveCount(5)
+
+  const referenceRows = await referenceItems.evaluateAll(items => items.map(item => Math.round(item.getBoundingClientRect().top)))
+  expect(new Set(referenceRows).size).toBe(1)
+
+  await page.setViewportSize({ width: 390, height: 844 })
+
+  const mobileLayout = await page.evaluate(() => {
+    const colorCanvas = document.querySelector<HTMLElement>('[data-demo-id="foundation/colors"] .ak-demo-preview__canvas')!
+    const paletteItems = Array.from(document.querySelectorAll<HTMLElement>('.ak-item-palette figure'))
+    const lastItem = paletteItems.at(-1)!.getBoundingClientRect()
+    const palette = document.querySelector<HTMLElement>('.ak-item-palette')!.getBoundingClientRect()
+
+    return {
+      colorCanvasHeight: colorCanvas.clientHeight,
+      colorCanvasScrollHeight: colorCanvas.scrollHeight,
+      lastItemCenterDelta: Math.round(Math.abs(lastItem.left + lastItem.width / 2 - (palette.left + palette.width / 2))),
+    }
+  })
+
+  expect(mobileLayout.colorCanvasScrollHeight).toBeLessThanOrEqual(mobileLayout.colorCanvasHeight)
+  expect(mobileLayout.lastItemCenterDelta).toBeLessThanOrEqual(1)
+})
+
 test('shows source alongside component previews', async ({ page }) => {
   await page.goto('/components/ak-button.html')
 
@@ -143,14 +199,82 @@ test('supports keyboard and pointer interaction in terminal navigation', async (
   await expect(autoMode).toHaveAttribute('aria-pressed', 'true')
 })
 
+test('supports native form fields and choice controls', async ({ page }) => {
+  await page.goto('/components/ak-form.html')
+
+  const textDemo = page.locator('[data-demo-id="form/text"]')
+  const choiceDemo = page.locator('[data-demo-id="form/choice"]')
+  const selectDemo = page.locator('[data-demo-id="form/select"]')
+  const callsign = textDemo.getByRole('textbox', { name: '干员代号' })
+  const notes = textDemo.getByRole('textbox', { name: '行动备注' })
+
+  await callsign.fill('Amiya')
+  await notes.fill('Proceed to the command room.')
+  await expect(callsign).toHaveValue('Amiya')
+  await expect(notes).toHaveValue('Proceed to the command room.')
+  await callsign.focus()
+  await expect(callsign).toHaveCSS('border-color', 'rgb(0, 152, 220)')
+
+  const support = choiceDemo.getByRole('checkbox', { name: '携带支援单位' })
+  const betaSquad = choiceDemo.getByRole('radio', { name: 'Beta 编队' })
+  const auto = choiceDemo.getByRole('switch', { name: '自动部署' })
+  const operation = selectDemo.getByRole('combobox', { name: '选择行动' })
+
+  await support.check()
+  await betaSquad.check()
+  await auto.check()
+  await operation.selectOption('4-10')
+  await expect(support).toBeChecked()
+  await expect(betaSquad).toBeChecked()
+  await expect(auto).toBeChecked()
+  await expect(operation).toHaveValue('4-10')
+})
+
+test('uses the native dialog lifecycle', async ({ page }) => {
+  await page.goto('/components/ak-dialog.html')
+
+  const dialog = page.getByRole('dialog', { name: '行动简报' })
+  await page.getByRole('button', { name: '打开行动简报' }).click()
+  await expect(dialog).toBeVisible()
+  await expect(dialog).toHaveAttribute('open', '')
+
+  await page.keyboard.press('Escape')
+  await expect(dialog).not.toBeVisible()
+})
+
+test('uses native popover state for tactical details and hints', async ({ page }) => {
+  await page.goto('/components/ak-popover.html')
+
+  const popover = page.locator('#deployment-popover')
+  const tooltip = page.getByRole('tooltip')
+  const tooltipTrigger = page.getByRole('button', { name: '查看部署费用说明' })
+
+  await page.getByRole('button', { name: '查看部署情报' }).click()
+  await expect(popover).toBeVisible()
+  await page.keyboard.press('Escape')
+  await expect(popover).not.toBeVisible()
+
+  await tooltipTrigger.hover()
+  await expect(tooltip).toBeVisible()
+  await page.mouse.move(0, 0)
+  await expect(tooltip).not.toBeVisible()
+  await tooltipTrigger.focus()
+  await expect(tooltip).toBeVisible()
+})
+
 test('renders interactive Vue registry adapters', async ({ page }, testInfo: TestInfo) => {
   await page.goto('/registry/')
 
   const demo = page.locator('[data-registry-demo]')
   const launchButton = demo.getByRole('button', { name: '开始行动' })
   const input = demo.getByRole('spinbutton', { name: '部署单位' })
+  const cardHeader = demo.locator('[data-slot="ak-card-header"]')
+  const cardTitle = demo.locator('[data-slot="ak-card-title"]')
 
   await expect(demo.locator('iframe')).toHaveCount(0)
+  await expect(cardHeader).toHaveCSS('display', 'grid')
+  await expect(cardTitle).toHaveCSS('font-size', '18px')
+  await expect(input).toHaveCSS('box-sizing', 'border-box')
   await launchButton.click()
   await expect(demo.getByRole('button', { name: '行动已接管' })).toBeVisible()
   await demo.getByRole('button', { name: '增加' }).click()

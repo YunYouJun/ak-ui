@@ -1,0 +1,28 @@
+<button class="ak-button ak-button--action" type="button" data-dialog-trigger>
+  <span class="ak-button__label">打开行动简报</span>
+</button>
+
+<dialog class="ak-dialog" id="operation-briefing" aria-labelledby="operation-briefing-title">
+  <header class="ak-dialog__header">
+    <span class="ak-dialog__eyebrow">Rhodes Island / Operation</span>
+    <h2 class="ak-dialog__title" id="operation-briefing-title">行动简报</h2>
+  </header>
+  <div class="ak-dialog__body">
+    <p>目标区域已完成侦察。请确认编队状态，并在信号建立后开始部署。</p>
+  </div>
+  <form class="ak-dialog__footer" method="dialog">
+    <button class="ak-button" value="cancel">关闭</button>
+    <button class="ak-button ak-button--action" value="confirm">确认</button>
+  </form>
+</dialog>
+
+<script>
+const trigger = document.querySelector('[data-dialog-trigger]')
+const dialog = document.querySelector('#operation-briefing')
+
+trigger.addEventListener('click', () => dialog.showModal())
+dialog.addEventListener('click', (event) => {
+  if (event.target === dialog)
+    dialog.close('cancel')
+})
+</script>

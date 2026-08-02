@@ -34,8 +34,25 @@
 
 ## 道具色彩参考
 
-![异铁碎片](/img/game/foreign-iron-fragments.webp)
-![基础作战记录](/img/game/basic-combat-record.webp)
-![初级作战记录](/img/game/primary-combat-record.webp)
-![中级作战记录](/img/game/intermediate-combat-record.webp)
-![高级作战记录](/img/game/advanced-combat-record.webp)
+<div class="ak-item-palette" role="list" aria-label="道具稀有度色彩参考">
+  <figure role="listitem">
+    <img src="/img/game/foreign-iron-fragments.webp" alt="异铁碎片">
+    <figcaption>LOW / 低阶</figcaption>
+  </figure>
+  <figure role="listitem">
+    <img src="/img/game/basic-combat-record.webp" alt="基础作战记录">
+    <figcaption>BASIC / 基础</figcaption>
+  </figure>
+  <figure role="listitem">
+    <img src="/img/game/primary-combat-record.webp" alt="初级作战记录">
+    <figcaption>PRIMARY / 初级</figcaption>
+  </figure>
+  <figure role="listitem">
+    <img src="/img/game/intermediate-combat-record.webp" alt="中级作战记录">
+    <figcaption>SECONDARY / 中级</figcaption>
+  </figure>
+  <figure role="listitem">
+    <img src="/img/game/advanced-combat-record.webp" alt="高级作战记录">
+    <figcaption>ADVANCED / 高级</figcaption>
+  </figure>
+</div>

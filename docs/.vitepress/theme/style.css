@@ -313,6 +313,66 @@ body {
 .ak-demo-preview__canvas #tactical-map { width: min(620px, 100%); line-height: 0; }
 .ak-demo-preview__canvas #tactical-map .ak-cube { margin: 4px; transform: rotateX(-12deg) rotateY(20deg); }
 
+.ak-demo-preview[data-demo-id='foundation/typography'] .ak-demo-preview__canvas > div {
+  width: min(520px, 100%);
+}
+
+.ak-demo-preview[data-demo-id='foundation/typography'] .ak-text--title {
+  font-size: clamp(2.35rem, 5vw, 2.75rem);
+}
+
+.ak-demo-preview[data-demo-id='foundation/typography'] .ak-font-serif.ak-text--title {
+  letter-spacing: 0.015em;
+}
+
+.ak-demo-preview[data-demo-id='foundation/typography'] .ak-font-sans-serif.ak-text--title {
+  letter-spacing: -0.055em;
+}
+
+.ak-demo-preview[data-demo-id='foundation/typography'] p {
+  margin: 6px 0 24px;
+  color: #4c5459;
+  font-size: 0.8125rem;
+  line-height: 1.65;
+}
+
+.ak-demo-preview[data-demo-id='foundation/typography'] p:last-child { margin-bottom: 0; }
+
+.ak-item-palette {
+  display: grid;
+  margin: 24px 0 16px;
+  padding: 20px;
+  border: 1px solid var(--vp-c-divider);
+  background: color-mix(in srgb, var(--vp-c-bg-elv) 62%, transparent);
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.vp-doc .ak-item-palette figure {
+  display: grid;
+  min-width: 0;
+  margin: 0;
+  place-items: center;
+  gap: 12px;
+}
+
+.vp-doc .ak-item-palette img {
+  width: min(112px, 100%);
+  margin: 0;
+  filter: drop-shadow(0 8px 12px rgba(0, 0, 0, 0.18));
+}
+
+.vp-doc .ak-item-palette figcaption {
+  overflow: hidden;
+  max-width: 100%;
+  color: var(--vp-c-text-2);
+  font: 700 9px/1.4 var(--vp-font-family-mono);
+  letter-spacing: 0.06em;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .ak-registry-lab {
   display: grid;
   padding: 28px;
@@ -381,6 +441,8 @@ body {
   .ak-demo-preview__header { grid-template-columns: auto 1fr; }
   .ak-demo-preview__title { display: none; }
   .ak-visual-fixtures { padding: 16px; }
+  .ak-item-palette { padding: 16px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .vp-doc .ak-item-palette figure:last-child { grid-column: 1 / -1; }
 }
 
 @media (prefers-reduced-motion: reduce) {

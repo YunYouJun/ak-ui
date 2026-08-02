@@ -1,0 +1,60 @@
+<button
+  class="ak-button ak-button--action"
+  type="button"
+  popovertarget="deployment-popover"
+  style="anchor-name: --deployment-anchor"
+>
+  <span class="ak-button__label">查看部署情报</span>
+</button>
+
+<aside
+  class="ak-popover"
+  id="deployment-popover"
+  popover
+  style="position-anchor: --deployment-anchor"
+>
+  <span class="ak-popover__eyebrow">Deployment / Intel</span>
+  <strong class="ak-popover__title">高台单位优先</strong>
+  <p class="ak-popover__content">入口左侧可覆盖两条路径，建议预留 18 点部署费用。</p>
+</aside>
+
+<button
+  class="ak-button"
+  type="button"
+  aria-describedby="deployment-cost-tooltip"
+  aria-label="查看部署费用说明"
+  data-tooltip-trigger
+  style="anchor-name: --tooltip-anchor"
+>
+  <span class="ak-button__label">部署费用</span>
+</button>
+
+<span
+  class="ak-tooltip"
+  id="deployment-cost-tooltip"
+  popover="manual"
+  role="tooltip"
+  style="position-anchor: --tooltip-anchor"
+>
+  单位入场时消耗的战术资源
+</span>
+
+<script>
+const tooltipTrigger = document.querySelector('[data-tooltip-trigger]')
+const tooltip = document.querySelector('#deployment-cost-tooltip')
+
+function showTooltip() {
+  if (!tooltip.matches(':popover-open'))
+    tooltip.showPopover()
+}
+
+function hideTooltip() {
+  if (tooltip.matches(':popover-open'))
+    tooltip.hidePopover()
+}
+
+tooltipTrigger.addEventListener('pointerenter', showTooltip)
+tooltipTrigger.addEventListener('pointerleave', hideTooltip)
+tooltipTrigger.addEventListener('focus', showTooltip)
+tooltipTrigger.addEventListener('blur', hideTooltip)
+</script>
