@@ -8,6 +8,8 @@ import { spawnSync } from 'node:child_process'
 const projectRoot = resolve(dirname(fileURLToPath(import.meta.url)), '..')
 const registryDir = resolve(projectRoot, 'docs/public/r')
 const registry = JSON.parse(await readFile(resolve(projectRoot, 'registry.json'), 'utf8'))
+const packageManifest = JSON.parse(await readFile(resolve(projectRoot, 'package.json'), 'utf8'))
+const expectedPackageDependency = `${packageManifest.name}@${packageManifest.version}`
 const itemNames = registry.items.map(item => item.name)
 const expectedFiles = registry.items
   .flatMap(item => item.files)
@@ -20,7 +22,7 @@ for (const itemName of itemNames) {
   assert.equal(item.$schema, 'https://shadcn-vue.com/schema/registry-item.json')
   assert.equal(item.name, itemName)
   assert.equal(item.type, 'registry:ui')
-  assert.ok(item.dependencies.includes('@yunyoujun/ak-ui'))
+  assert.ok(item.dependencies.includes(expectedPackageDependency))
   assert.ok(item.files.every(file => file.content && file.type === 'registry:ui'))
 }
 
