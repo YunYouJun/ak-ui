@@ -1,0 +1,73 @@
+<section class="ak-tabs" data-ak-tabs>
+  <div class="ak-tabs__list" role="tablist" aria-label="作战终端">
+    <button class="ak-tabs__tab" id="ak-tab-overview" role="tab" aria-selected="true" aria-controls="ak-panel-overview">行动概览</button>
+    <button class="ak-tabs__tab" id="ak-tab-squad" role="tab" aria-selected="false" aria-controls="ak-panel-squad" tabindex="-1">编队</button>
+    <button class="ak-tabs__tab" id="ak-tab-reward" role="tab" aria-selected="false" aria-controls="ak-panel-reward" tabindex="-1">报酬</button>
+  </div>
+  <div class="ak-tabs__panel" id="ak-panel-overview" role="tabpanel" aria-labelledby="ak-tab-overview">
+    <span class="ak-tabs__eyebrow">Operation / 4-10</span>
+    <h3 class="ak-tabs__title">灯火将熄</h3>
+    <p class="ak-tabs__description">确认敌方情报、推荐等级与理智消耗后开始行动。</p>
+  </div>
+  <div class="ak-tabs__panel" id="ak-panel-squad" role="tabpanel" aria-labelledby="ak-tab-squad" hidden>
+    <span class="ak-tabs__eyebrow">Squad / E2</span>
+    <h3 class="ak-tabs__title">当前编队 12 / 12</h3>
+    <p class="ak-tabs__description">先锋与医疗干员已经就绪，可以继续调整支援单位。</p>
+  </div>
+  <div class="ak-tabs__panel" id="ak-panel-reward" role="tabpanel" aria-labelledby="ak-tab-reward" hidden>
+    <span class="ak-tabs__eyebrow">Reward / Preview</span>
+    <h3 class="ak-tabs__title">常规掉落与首次掉落</h3>
+    <p class="ak-tabs__description">完成行动后可能获得作战记录、龙门币与培养材料。</p>
+  </div>
+</section>
+
+<div class="ak-segmented" data-ak-segmented aria-label="代理模式">
+  <button class="ak-segmented__item" type="button" aria-pressed="true">手动</button>
+  <button class="ak-segmented__item" type="button" aria-pressed="false">代理</button>
+  <button class="ak-segmented__item" type="button" aria-pressed="false">连战</button>
+</div>
+
+<script>
+document.querySelectorAll('[data-ak-tabs]').forEach((root) => {
+  if (root.dataset.ready)
+    return
+
+  root.dataset.ready = 'true'
+  const tabs = Array.from(root.querySelectorAll('[role="tab"]'))
+
+  const activate = (tab) => {
+    tabs.forEach((item) => {
+      const selected = item === tab
+      item.setAttribute('aria-selected', String(selected))
+      item.tabIndex = selected ? 0 : -1
+      root.querySelector(`#${item.getAttribute('aria-controls')}`).hidden = !selected
+    })
+  }
+
+  tabs.forEach((tab, index) => {
+    tab.addEventListener('click', () => activate(tab))
+    tab.addEventListener('keydown', (event) => {
+      const keyOffset = { ArrowLeft: -1, ArrowRight: 1 }[event.key]
+      if (!keyOffset && event.key !== 'Home' && event.key !== 'End')
+        return
+
+      event.preventDefault()
+      const nextIndex = event.key === 'Home'
+        ? 0
+        : event.key === 'End'
+          ? tabs.length - 1
+          : (index + keyOffset + tabs.length) % tabs.length
+      activate(tabs[nextIndex])
+      tabs[nextIndex].focus()
+    })
+  })
+})
+
+document.querySelectorAll('[data-ak-segmented]').forEach((root) => {
+  root.querySelectorAll('button').forEach((button) => {
+    button.addEventListener('click', () => {
+      root.querySelectorAll('button').forEach(item => item.setAttribute('aria-pressed', String(item === button)))
+    })
+  })
+})
+</script>

@@ -1,0 +1,128 @@
+@use "variables" as *;
+
+.ak-tag-group,
+.ak-status-group {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.ak-tag {
+  --ak-tag-signal: var(--ak-color-primary, #4aabea);
+  --ak-tag-text: #f3f4ef;
+  --ak-tag-surface: rgba(17, 19, 21, 0.88);
+  position: relative;
+  display: inline-flex;
+  box-sizing: border-box;
+  min-height: 1.875rem;
+  padding: 0.4rem 0.9rem 0.4rem 1.1rem;
+  border: 1px solid color-mix(in srgb, var(--ak-tag-signal) 55%, transparent);
+  align-items: center;
+  color: var(--ak-tag-text);
+  background: var(--ak-tag-surface);
+  clip-path: polygon(0 0, calc(100% - 0.55rem) 0, 100% 0.55rem, 100% 100%, 0 100%);
+  font-family: $font-monospace;
+  font-size: 0.6875rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  text-transform: uppercase;
+
+  &::before {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 0.3rem;
+    content: "";
+    background: var(--ak-tag-signal);
+  }
+
+  &--advanced {
+    --ak-tag-signal: var(--ak-color-advanced, #f1c644);
+  }
+
+  &--danger {
+    --ak-tag-signal: #e33b3b;
+  }
+
+  &--neutral {
+    --ak-tag-signal: var(--ak-color-low, #9c9c9c);
+  }
+}
+
+.ak-status {
+  --ak-status-signal: var(--ak-color-primary, #4aabea);
+  --ak-status-text: #f3f4ef;
+  display: inline-grid;
+  min-height: 2.75rem;
+  padding: 0.6rem 0.85rem;
+  align-items: center;
+  color: var(--ak-status-text);
+  background: rgba(17, 19, 21, 0.82);
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto;
+  column-gap: 0.7rem;
+
+  &__signal {
+    width: 0.55rem;
+    height: 0.55rem;
+    background: var(--ak-status-signal);
+    box-shadow: 0 0 0.75rem color-mix(in srgb, var(--ak-status-signal) 80%, transparent);
+    grid-row: 1 / 3;
+    animation: ak-status-pulse 1.8s ease-in-out infinite;
+  }
+
+  &__label {
+    color: var(--ak-status-signal);
+    font-family: $font-monospace;
+    font-size: 0.625rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    line-height: 1.1;
+    text-transform: uppercase;
+  }
+
+  &__detail {
+    margin-top: 0.2rem;
+    color: color-mix(in srgb, var(--ak-status-text) 72%, transparent);
+    font-family: $font-sans-serif;
+    font-size: 0.75rem;
+    line-height: 1.2;
+  }
+
+  &--warning {
+    --ak-status-signal: var(--ak-color-advanced, #f1c644);
+  }
+
+  &--critical {
+    --ak-status-signal: #e33b3b;
+  }
+
+  &--offline {
+    --ak-status-signal: var(--ak-color-low, #9c9c9c);
+
+    .ak-status__signal {
+      box-shadow: none;
+      animation: none;
+    }
+  }
+}
+
+@keyframes ak-status-pulse {
+  0%,
+  100% {
+    opacity: 0.48;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ak-status__signal {
+    animation: none;
+  }
+}

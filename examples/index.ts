@@ -32,10 +32,14 @@ export const examples: ExampleDefinition[] = [
   { id: 'level/basic', title: 'Operation level', surface: 'dust', height: 180 },
   { id: 'loading/basic', title: 'Loading states', surface: 'dark', height: 230 },
   { id: 'media/album', title: 'Album', surface: 'plain', height: 330 },
+  { id: 'notice/basic', title: 'Tactical notices', surface: 'plain', height: 380 },
   { id: 'object/cube', title: 'Tactical cubes', surface: 'dark', height: 440 },
   { id: 'pagination/basic', title: 'Episode pagination', surface: 'dust', height: 220 },
   { id: 'panel/status', title: 'Status panel', surface: 'dust', height: 650 },
+  { id: 'progress/basic', title: 'Operation progress', surface: 'dark', height: 340 },
   { id: 'san/basic', title: 'Sanity status', surface: 'dust', height: 320 },
+  { id: 'status/basic', title: 'Tags and terminal status', surface: 'dark', height: 260 },
+  { id: 'tabs/basic', title: 'Terminal navigation', surface: 'dark', height: 420 },
 ]
 
 export const exampleById = new Map(examples.map(example => [example.id, example]))

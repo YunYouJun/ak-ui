@@ -6,14 +6,14 @@
 
 Framework-agnostic Arknights-inspired CSS interface modules.
 
-- Documentation: <https://ak-ui.yunyoujun.cn>
+- Documentation: <https://ak-ui.yyj.moe>
 - Source: SCSS modules and runtime CSS variables
 - Runtime dependency: none
 
 ## Install
 
 ```bash
-pnpm add @yunyoujun/ak-ui
+pnpm add @yunyoujun/ak-ui@next
 ```
 
 Import the compiled stylesheet:
@@ -31,8 +31,26 @@ Or use the Sass entry:
 CDN usage:
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@yunyoujun/ak-ui/dist/ak-ui.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@yunyoujun/ak-ui@next/dist/ak-ui.min.css">
 ```
+
+## Vue Registry
+
+Vue users can copy editable adapters into their project with the shadcn-vue CLI:
+
+```bash
+pnpm dlx shadcn-vue@latest add https://ak-ui.yyj.moe/r/button.json
+pnpm dlx shadcn-vue@latest add https://ak-ui.yyj.moe/r/card.json
+pnpm dlx shadcn-vue@latest add https://ak-ui.yyj.moe/r/input-number.json
+pnpm dlx shadcn-vue@latest add https://ak-ui.yyj.moe/r/status.json
+pnpm dlx shadcn-vue@latest add https://ak-ui.yyj.moe/r/progress.json
+pnpm dlx shadcn-vue@latest add https://ak-ui.yyj.moe/r/notice.json
+pnpm dlx shadcn-vue@latest add https://ak-ui.yyj.moe/r/tabs.json
+```
+
+The copied Vue source imports the framework-agnostic CSS package, so there is no separate ak-ui runtime. See the [Vue Registry guide](https://ak-ui.yyj.moe/registry/) for usage and live examples.
+
+The architecture migration and implementation history are documented in the [project revival log](https://ak-ui.yyj.moe/guide/revival).
 
 ## Development
 
