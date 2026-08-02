@@ -1,5 +1,12 @@
 # Changelog
 
+## Unreleased
+
+### Changed
+
+- Added tag-driven npm Trusted Publishing with OIDC and automatic provenance.
+- Made Registry installation verification resolve unreleased package versions from the local workspace.
+
 ## 0.1.0-beta.0 — 2026-08-02
 
 ### Added

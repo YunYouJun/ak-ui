@@ -39,6 +39,11 @@ try {
       '@yunyoujun/ak-ui': `file:${projectRoot}`,
       vue: '^3.5.40',
     },
+    pnpm: {
+      overrides: {
+        '@yunyoujun/ak-ui': `file:${projectRoot}`,
+      },
+    },
   }, null, 2)}\n`)
   await writeFile(resolve(fixtureRoot, 'components.json'), `${JSON.stringify({
     $schema: 'https://shadcn-vue.com/schema.json',
