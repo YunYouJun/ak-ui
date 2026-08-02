@@ -2,10 +2,22 @@
 
 ## Unreleased
 
+## 0.2.0 — 2026-08-03
+
+### Added
+
+- Added native Text Input, Textarea, Checkbox, Radio, Switch, and Select Core modules.
+- Added a native `<dialog>` module with top-layer, backdrop, and reduced-motion styling.
+- Added Popover API-based Popover and Tooltip modules with CSS Anchor Positioning enhancement and a centered fallback.
+- Added browser interaction coverage for form state, dialog lifecycle, and popover visibility.
+
 ### Changed
 
 - Added tag-driven npm Trusted Publishing with OIDC and automatic provenance.
 - Made Registry installation verification resolve unreleased package versions from the local workspace.
+- Refined the Core color and typography specimens, spacing rhythm, and mobile palette layout.
+- Made Vue Registry adapters reuse CSS Core styles instead of shipping duplicate component styles.
+- Documented CSS Core as the product surface and Vue Registry as an optional interaction adapter layer.
 
 ## 0.1.0-beta.0 — 2026-08-02
 

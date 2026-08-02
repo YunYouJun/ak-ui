@@ -13,7 +13,7 @@ Framework-agnostic Arknights-inspired CSS interface modules.
 ## Install
 
 ```bash
-pnpm add @yunyoujun/ak-ui@next
+pnpm add @yunyoujun/ak-ui
 ```
 
 Import the compiled stylesheet:
@@ -31,8 +31,10 @@ Or use the Sass entry:
 CDN usage:
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@yunyoujun/ak-ui@next/dist/ak-ui.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@yunyoujun/ak-ui@0.2.0/dist/ak-ui.min.css">
 ```
+
+The CSS Core includes native form controls, `<dialog>`, and Popover API surfaces alongside the original AK-themed display, navigation, and feedback modules. Browse the complete HTML source examples in the [component documentation](https://ak-ui.yyj.moe/components/).
 
 ## Vue Registry
 
