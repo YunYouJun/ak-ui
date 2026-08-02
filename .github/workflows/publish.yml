@@ -121,4 +121,4 @@ jobs:
           path: release
 
       - name: Publish with npm Trusted Publishing
-        run: npm publish release/*.tgz --tag "${{ steps.release.outputs.dist-tag }}" --access public
+        run: npm publish ./release/*.tgz --tag "${{ steps.release.outputs.dist-tag }}" --access public
