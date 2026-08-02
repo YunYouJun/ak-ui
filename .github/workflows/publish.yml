@@ -61,9 +61,12 @@ jobs:
         run: pnpm test:visual
 
       - name: Pack verified package
+        shell: bash
         run: |
           mkdir -p .release
-          npm pack --pack-destination .release
+          tarball="$(npm pack --silent)"
+          mv "$tarball" ".release/$tarball"
+          test -f ".release/$tarball"
 
       - name: Upload verified package
         uses: actions/upload-artifact@v7
