@@ -51,6 +51,8 @@ examples/*.html ──────────→ DemoPreview + displayed source
       └───────────────────→ Playwright visual captures
 
 GitHub ──→ CI checks ──→ Cloudflare Pages Git deployment
+
+Git tag ──→ verified package ──→ npm OIDC publish + provenance
 ```
 
 核心约束保持简单：
@@ -91,6 +93,12 @@ GitHub Actions 只负责 lint、构建、Registry 安装验证和 Playwright；C
 ### 6. 继续补充视觉语汇
 
 重启后的第一批新增组件聚焦于状态表达和终端反馈：Status/Tag、Progress/Gauge、Notice/Alert、Tabs/Segmented。它们既提供框架无关 HTML，也提供 Vue Adapter，并统一遵循可访问语义和 reduced-motion。
+
+### 7. npm Trusted Publishing
+
+npm 发布由 `v*` Git tag 触发。GitHub Actions 会先在不具备发布权限的 job 中完成 lint、文档构建、Registry 安装和视觉测试，再把经过验证的 tarball 交给独立发布 job。发布 job 使用 OIDC 短期凭据，不保存长期 npm token，并由 npm 自动生成 provenance。
+
+tag 必须与 `package.json` 版本完全一致，而且只能指向 `master` 历史中的提交。预发布版本进入 `next`，稳定版本进入 `latest`。
 
 ## 这次刻意没有做什么
 
