@@ -14,7 +14,10 @@ const itemNames = registry.items.map(item => item.name)
 const expectedVueFiles = registry.items
   .flatMap(item => item.files)
   .filter(file => file.path.endsWith('.vue'))
-const expectedFiles = expectedVueFiles
+const expectedHookFiles = registry.items
+  .filter(item => item.type === 'registry:hook')
+  .flatMap(item => item.files)
+const expectedFiles = [...expectedVueFiles, ...expectedHookFiles]
   .map(file => basename(file.path))
 
 for (const item of registry.items) {
@@ -25,10 +28,12 @@ for (const item of registry.items) {
       source: await readFile(resolve(projectRoot, file.path), 'utf8'),
     })))
 
-  assert.ok(
-    vueSources.some(file => file.source.includes("import '@yunyoujun/ak-ui'")),
-    `${item.name} must import the shared CSS Core`,
-  )
+  if (item.type === 'registry:ui') {
+    assert.ok(
+      vueSources.some(file => file.source.includes("import '@yunyoujun/ak-ui'")),
+      `${item.name} must import the shared CSS Core`,
+    )
+  }
 
   for (const file of vueSources) {
     assert.doesNotMatch(
@@ -44,9 +49,9 @@ for (const itemName of itemNames) {
 
   assert.equal(item.$schema, 'https://shadcn-vue.com/schema/registry-item.json')
   assert.equal(item.name, itemName)
-  assert.equal(item.type, 'registry:ui')
+  assert.equal(item.type, registry.items.find(entry => entry.name === itemName).type)
   assert.ok(item.dependencies.includes(expectedPackageDependency))
-  assert.ok(item.files.every(file => file.content && file.type === 'registry:ui'))
+  assert.ok(item.files.every(file => file.content && file.type === item.type))
 }
 
 const fixtureRoot = await mkdtemp(join(tmpdir(), 'ak-ui-registry-'))
@@ -127,13 +132,13 @@ try {
 
   assert.equal(install.status, 0, [install.stdout, install.stderr].filter(Boolean).join('\n'))
 
-  const installedFiles = await listFiles(resolve(fixtureRoot, 'src/components/ui'))
+  const installedFiles = await listFiles(resolve(fixtureRoot, 'src'))
   const installedNames = new Set(installedFiles.map(file => file.split('/').at(-1)))
 
   for (const expectedFile of expectedFiles)
     assert.ok(installedNames.has(expectedFile), `Missing installed registry file: ${expectedFile}`)
 
-  console.log(`Verified ${itemNames.length} registry items and ${expectedFiles.length} installed Vue files.`)
+  console.log(`Verified ${itemNames.length} registry items and ${expectedFiles.length} installed adapter files.`)
 }
 finally {
   await rm(fixtureRoot, { recursive: true, force: true })

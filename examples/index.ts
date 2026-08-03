@@ -35,6 +35,7 @@ export const examples: ExampleDefinition[] = [
   { id: 'icon/stuff', title: 'Material icon', surface: 'plain', height: 210 },
   { id: 'level/basic', title: 'Operation level', surface: 'dust', height: 180 },
   { id: 'loading/basic', title: 'Loading states', surface: 'dark', height: 230 },
+  { id: 'loading/terminal', title: 'Terminal loading screen', surface: 'dark', height: 720, sourceOpen: false },
   { id: 'media/album', title: 'Album', surface: 'plain', height: 330 },
   { id: 'notice/basic', title: 'Tactical notices', surface: 'plain', height: 380 },
   { id: 'object/cube', title: 'Tactical cubes', surface: 'dark', height: 440 },
@@ -44,6 +45,7 @@ export const examples: ExampleDefinition[] = [
   { id: 'panel/status', title: 'Status panel', surface: 'dust', height: 650 },
   { id: 'progress/basic', title: 'Operation progress', surface: 'dark', height: 340 },
   { id: 'san/basic', title: 'Sanity status', surface: 'dust', height: 320 },
+  { id: 'showcase/main', title: 'Rhodes Island terminal', surface: 'dark', height: 900, sourceOpen: false },
   { id: 'status/basic', title: 'Tags and terminal status', surface: 'dark', height: 260 },
   { id: 'tabs/basic', title: 'Terminal navigation', surface: 'dark', height: 420 },
 ]

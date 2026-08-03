@@ -86,6 +86,10 @@ pnpm dlx shadcn-vue@latest add https://ak-ui.yyj.moe/r/notice.json
 pnpm dlx shadcn-vue@latest add https://ak-ui.yyj.moe/r/tabs.json
 ```
 
+```bash [Dashboard Depth]
+pnpm dlx shadcn-vue@latest add https://ak-ui.yyj.moe/r/dashboard-depth.json
+```
+
 :::
 
 ## Vue 实际渲染
@@ -163,3 +167,36 @@ const count = ref(3)
 ```
 
 组件内部会导入 `@yunyoujun/ak-ui` CSS Core。需要调整视觉时，优先覆盖 `--ak-*` CSS variables；需要调整结构或交互时，直接修改复制到项目中的 Vue 文件。
+
+## 景深复用
+
+景深算法属于 Core 的框架无关能力。原生 HTML 可以直接创建控制器，并在页面销毁时清理：
+
+```ts
+import { createDashboardDepth } from '@yunyoujun/ak-ui/depth'
+
+const dashboard = document.querySelector('[data-dashboard]')
+const depth = createDashboardDepth(dashboard)
+
+// SPA 页面离开时调用
+depth.destroy()
+```
+
+Vue 项目可以按需安装 Registry composable。它只负责 Vue 生命周期，实际计算仍调用同一个 `createDashboardDepth()`：
+
+```vue
+<script setup lang="ts">
+import { useTemplateRef } from 'vue'
+import { useDashboardDepth } from '@/composables/useDashboardDepth'
+
+const dashboard = useTemplateRef<HTMLElement>('dashboard')
+useDashboardDepth(dashboard)
+</script>
+
+<template>
+  <section ref="dashboard" class="ak-dashboard" data-dashboard>
+    <div class="ak-dashboard__layer" data-depth="0.08">...</div>
+    <div class="ak-dashboard__layer" data-depth="0.2">...</div>
+  </section>
+</template>
+```

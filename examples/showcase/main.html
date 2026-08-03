@@ -1,0 +1,239 @@
+<section
+  class="ak-dashboard"
+  aria-label="罗德岛主终端"
+  data-dashboard
+  style="--ak-dashboard-image: url('/img/bg/operator-terminal-v2.png')"
+>
+  <div class="ak-dashboard__rotate" role="status">
+    <img src="/img/smartphone-line.svg" alt="" aria-hidden="true">
+    <strong>为了更好的体验，请使用横屏浏览</strong>
+  </div>
+
+  <div class="ak-dashboard__scene">
+    <div class="ak-dashboard__layer ak-dashboard__background-layer" data-depth="0.02">
+      <img class="ak-dashboard__background" src="/img/bg/operator-terminal-v2.png" alt="">
+    </div>
+
+    <nav class="ak-dashboard__social ak-dashboard__layer" data-depth="0.08" aria-label="项目链接">
+      <a href="https://github.com/YunYouJun/ak-ui" target="_blank" rel="noreferrer">GitHub</a>
+      <a href="/registry/">Registry</a>
+      <a href="/guide/">Docs</a>
+    </nav>
+
+    <button
+      class="ak-dashboard__profile ak-dashboard__layer"
+      type="button"
+      aria-label="打开博士档案"
+      data-depth="0.14"
+      popovertarget="doctor-profile"
+      style="anchor-name: --doctor-profile-anchor"
+    >
+      <img class="ak-dashboard__profile-mark" src="/img/mrfz-logo.png" alt="">
+      <span class="ak-dashboard__level-ring">
+        <strong>78</strong>
+        <small>LV</small>
+      </span>
+      <span class="ak-dashboard__profile-copy">
+        <strong>YunYouJun</strong>
+        <small>ID: 9304721220</small>
+      </span>
+    </button>
+
+    <aside class="ak-dashboard__left-layer ak-dashboard__layer" data-depth="0.2" aria-label="助理与情报">
+      <div class="ak-dashboard__left-menu ak-dashboard__plane ak-dashboard__plane--left">
+        <div class="ak-dashboard__voice">
+          <span class="ak-dashboard__eyebrow">VOICE / CH'EN</span>
+          <p>博士？终端已经同步。别在行动开始前睡着了。</p>
+        </div>
+
+        <div class="ak-dashboard__left-actions">
+          <button class="ak-dashboard__news" type="button" aria-label="查看活动公告">
+            <img src="/img/bg/dark.jpg" alt="">
+            <span class="ak-dashboard__news-label">BREAKING NEWS</span>
+            <span class="ak-dashboard__news-copy">
+              <strong>次呼吸</strong>
+              <small>新章开启</small>
+            </span>
+          </button>
+
+          <div class="ak-dashboard__utility-grid">
+            <button class="ak-dashboard__utility ak-dashboard__utility--dark" type="button">
+              <svg class="ak-icon" aria-hidden="true"><use href="#icon-profile-line"></use></svg>
+              <strong>好友</strong>
+            </button>
+            <button class="ak-dashboard__utility" type="button">
+              <svg class="ak-icon" aria-hidden="true"><use href="#icon-file-list-3-line"></use></svg>
+              <strong>情报</strong>
+            </button>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <main class="ak-dashboard__right-layer ak-dashboard__layer" data-depth="0.2">
+      <div class="ak-dashboard__right-menu ak-dashboard__plane ak-dashboard__plane--right">
+        <header class="ak-dashboard__resource-panel">
+          <div class="ak-dashboard__system-line">
+            <span class="ak-dashboard__line"></span>
+            <svg class="ak-icon" aria-hidden="true"><use href="#icon-battery-charge-line"></use></svg>
+            <time data-terminal-time>2026/08/03 11:50</time>
+            <span class="ak-dashboard__line ak-dashboard__line--grow"></span>
+          </div>
+          <button
+            class="ak-dashboard__resource-trigger"
+            type="button"
+            aria-label="查看资源详情"
+            popovertarget="resource-overview"
+            style="anchor-name: --resource-overview-anchor"
+          >
+            <span class="ak-counter-group ak-counter-group--terminal">
+              <span class="ak-counter ak-counter--terminal">
+                <span class="ak-counter__prefix"><svg class="ak-icon" aria-hidden="true" style="color: #05a7dc"><use href="#icon-money-cny-box-fill"></use></svg></span>
+                <strong class="ak-counter__content">1000</strong>
+              </span>
+              <span class="ak-counter ak-counter--terminal">
+                <span class="ak-counter__prefix"><svg class="ak-icon" aria-hidden="true" style="color: #f6540e"><use href="#icon-sword-line"></use></svg></span>
+                <strong class="ak-counter__content">1000</strong>
+                <span class="ak-counter__suffix"><svg class="ak-icon" aria-hidden="true"><use href="#icon-add-circle-fill"></use></svg></span>
+              </span>
+              <span class="ak-counter ak-counter--terminal">
+                <span class="ak-counter__prefix"><svg class="ak-icon" aria-hidden="true" style="color: #ffd802"><use href="#icon-vip-diamond-fill"></use></svg></span>
+                <strong class="ak-counter__content">1000</strong>
+                <span class="ak-counter__suffix"><svg class="ak-icon" aria-hidden="true"><use href="#icon-add-circle-fill"></use></svg></span>
+              </span>
+            </span>
+          </button>
+        </header>
+
+        <section class="ak-san-container ak-san-container--terminal" aria-label="当前行动：急转直下，理智 132 / 135">
+          <svg class="ak-san-container__watermark ak-icon" aria-hidden="true"><use href="#icon-sword-line"></use></svg>
+          <div class="ak-san-container__content">
+            <div class="ak-san">
+              <span class="ak-san__figure" aria-hidden="true">
+                <svg class="ak-icon"><use href="#icon-Brain"></use></svg>
+              </span>
+              <button class="ak-san__add" type="button" aria-label="查看理智详情" popovertarget="resource-overview">
+                <svg class="ak-icon" aria-hidden="true"><use href="#icon-add-line"></use></svg>
+              </button>
+              <strong class="ak-san__current">132</strong>
+              <span class="ak-san__total">理智/135</span>
+            </div>
+            <button class="ak-command ak-command--operation" type="button" aria-label="作战" aria-pressed="true" data-command-detail="终端已定位至当前主线 S4-1">
+              <strong class="ak-command__label">作战</strong>
+              <span class="ak-command__current">当前</span>
+              <span class="ak-command__meta">S4-1 急转直下</span>
+            </button>
+          </div>
+        </section>
+
+        <nav class="ak-dashboard__command-deck" aria-label="主菜单">
+          <div class="ak-dashboard__command-row ak-dashboard__command-row--primary">
+            <button class="ak-command ak-command--paper" type="button" aria-label="编队" aria-pressed="false" data-command-detail="当前启用 Alpha 编队">
+              <svg class="ak-command__watermark ak-icon" aria-hidden="true"><use href="#icon-rook"></use></svg>
+              <strong class="ak-command__label">编队</strong>
+            </button>
+            <button class="ak-command ak-command--muted" type="button" aria-label="干员" aria-pressed="false" data-command-detail="干员档案已同步，共 182 名">
+              <svg class="ak-command__watermark ak-icon" aria-hidden="true"><use href="#icon-profile-line"></use></svg>
+              <strong class="ak-command__label">干员</strong>
+              <span class="ak-command__meta">角色管理</span>
+            </button>
+            <span class="ak-dashboard__command-blank" aria-hidden="true"></span>
+          </div>
+
+          <div class="ak-dashboard__command-row ak-dashboard__command-row--recruit">
+            <button class="ak-command ak-command--cyan" type="button" aria-label="采购中心" aria-pressed="false" data-command-detail="采购中心已更新今日库存">
+              <svg class="ak-command__watermark ak-icon" aria-hidden="true"><use href="#icon-shopping-cart-2-line"></use></svg>
+              <strong class="ak-command__label">采购中心</strong>
+            </button>
+            <div class="ak-command-group ak-command-group--recruitment">
+              <span class="ak-command-group__label">招募</span>
+              <button class="ak-command ak-command--cyan ak-command--split" type="button" aria-label="公开招募" aria-pressed="false" data-command-detail="公开招募有 2 个空闲席位">
+                <svg class="ak-command__watermark ak-icon" aria-hidden="true"><use href="#icon-profile-line"></use></svg>
+                <strong class="ak-command__label">公开招募</strong>
+              </button>
+              <button class="ak-command ak-command--cyan ak-command--split" type="button" aria-label="干员寻访" aria-pressed="false" data-command-detail="标准寻访许可可用">
+                <svg class="ak-command__watermark ak-icon" aria-hidden="true"><use href="#icon-vip-diamond-fill"></use></svg>
+                <strong class="ak-command__label">干员寻访</strong>
+              </button>
+            </div>
+          </div>
+
+          <div class="ak-dashboard__command-row ak-dashboard__command-row--system">
+            <button class="ak-command ak-command--paper" type="button" aria-label="任务" aria-pressed="false" data-command-detail="今日有 3 项任务可以领取" data-mission-trigger>
+              <svg class="ak-command__watermark ak-icon" aria-hidden="true"><use href="#icon-task-fill"></use></svg>
+              <strong class="ak-command__label">任务</strong>
+            </button>
+            <button class="ak-command ak-command--muted" type="button" aria-label="基建" aria-pressed="false" data-command-detail="基建生产线效率为 94%">
+              <svg class="ak-command__watermark ak-icon" aria-hidden="true"><use href="#icon-bank-line"></use></svg>
+              <strong class="ak-command__label">基建</strong>
+              <span class="ak-command__badge">BETA</span>
+            </button>
+            <button class="ak-command ak-command--dark ak-command--vertical" type="button" aria-label="仓库" aria-pressed="false" data-command-detail="仓库材料清单已同步">
+              <svg class="ak-command__watermark ak-icon" aria-hidden="true"><use href="#icon-database-line"></use></svg>
+              <strong class="ak-command__label">仓库</strong>
+            </button>
+          </div>
+        </nav>
+      </div>
+    </main>
+  </div>
+
+  <aside class="ak-popover" id="doctor-profile" popover style="position-anchor: --doctor-profile-anchor">
+    <span class="ak-popover__eyebrow">Doctor / Profile</span>
+    <strong class="ak-popover__title">YunYouJun · Lv.78</strong>
+    <p class="ak-popover__content">罗德岛战略指挥权限已确认。最后登录：08:42。</p>
+  </aside>
+
+  <aside class="ak-popover" id="resource-overview" popover style="position-anchor: --resource-overview-anchor">
+    <span class="ak-popover__eyebrow">Resource / Overview</span>
+    <strong class="ak-popover__title">资源同步完成</strong>
+    <p class="ak-popover__content">龙门币 1000 · 合成玉 1000 · 至纯源石 1000</p>
+  </aside>
+
+  <dialog class="ak-dialog" id="daily-missions" aria-labelledby="daily-missions-title">
+    <header class="ak-dialog__header">
+      <span class="ak-dialog__eyebrow">Mission / Daily</span>
+      <h2 class="ak-dialog__title" id="daily-missions-title">今日任务</h2>
+    </header>
+    <div class="ak-dialog__body">
+      <div class="ak-progress-stack">
+        <div class="ak-progress" role="progressbar" aria-label="完成三次作战" aria-valuemin="0" aria-valuemax="3" aria-valuenow="3" style="--ak-progress-value: 100%">
+          <div class="ak-progress__header"><span>完成三次作战</span><span class="ak-progress__value">3 / 3</span></div>
+          <div class="ak-progress__track"><span class="ak-progress__fill"></span></div>
+        </div>
+        <div class="ak-progress ak-progress--warning" role="progressbar" aria-label="部署二十名干员" aria-valuemin="0" aria-valuemax="20" aria-valuenow="16" style="--ak-progress-value: 80%">
+          <div class="ak-progress__header"><span>部署二十名干员</span><span class="ak-progress__value">16 / 20</span></div>
+          <div class="ak-progress__track"><span class="ak-progress__fill"></span></div>
+        </div>
+      </div>
+    </div>
+    <form class="ak-dialog__footer" method="dialog">
+      <button class="ak-button" value="cancel">稍后处理</button>
+      <button class="ak-button ak-button--action" value="confirm">领取完成项</button>
+    </form>
+  </dialog>
+</section>
+
+<script>
+const dashboard = document.querySelector('[data-dashboard]')
+const commandButtons = dashboard.querySelectorAll('.ak-dashboard__right-menu .ak-command')
+const missionDialog = dashboard.querySelector('#daily-missions')
+const missionTrigger = dashboard.querySelector('[data-mission-trigger]')
+const terminalTime = dashboard.querySelector('[data-terminal-time]')
+commandButtons.forEach((button) => {
+  button.addEventListener('click', () => {
+    commandButtons.forEach(item => item.setAttribute('aria-pressed', String(item === button)))
+  })
+})
+
+missionTrigger.addEventListener('click', () => missionDialog.showModal())
+
+function updateTerminalTime() {
+  const now = new Date()
+  const pad = value => String(value).padStart(2, '0')
+  terminalTime.textContent = `${now.getFullYear()}/${pad(now.getMonth() + 1)}/${pad(now.getDate())} ${pad(now.getHours())}:${pad(now.getMinutes())}`
+}
+
+updateTerminalTime()
+window.setInterval(updateTerminalTime, 30000)
+</script>

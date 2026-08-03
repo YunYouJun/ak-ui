@@ -2,6 +2,20 @@
 
 ## Unreleased
 
+## 0.2.1 — 2026-08-03
+
+### Added
+
+- Added reusable terminal dashboard, command, counter, sanity, and Loading Core variants.
+- Added a complete main-terminal showcase, standalone Loading demo, and generated original terminal artwork.
+- Added framework-neutral dashboard depth control with an optional Vue lifecycle adapter.
+
+### Changed
+
+- Reworked the documentation homepage and showcase around the shared CSS Core implementation.
+- Separated the main-terminal and Loading examples so both reuse one canonical source without duplicating styles.
+- Migrated project configuration to pnpm 11 and refreshed visual regression baselines.
+
 ## 0.2.0 — 2026-08-03
 
 ### Added

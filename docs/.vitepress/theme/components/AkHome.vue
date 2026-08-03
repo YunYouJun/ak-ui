@@ -28,8 +28,8 @@ const modules = [
         <p class="ak-hero__lead">把泰拉终端的切角、警示、层级与反馈，变成可以直接写进 HTML 的样式。</p>
 
         <div class="ak-hero__actions">
-          <a class="ak-action ak-action--primary" href="/guide/">接入样式 <span>→</span></a>
-          <a class="ak-action" href="/components/">浏览模块 <span>↗</span></a>
+          <a class="ak-action ak-action--primary" href="/showcase/">进入主终端 <span>→</span></a>
+          <a class="ak-action" href="/guide/">接入样式 <span>↗</span></a>
         </div>
 
         <dl class="ak-hero__stats">
@@ -49,7 +49,7 @@ const modules = [
           :encoded="encodedButtonExample"
           :height="260"
           :show-code="false"
-          surface="dark"
+          surface="color"
           title="Operation controls"
         />
         <div class="ak-terminal__coordinates">
@@ -57,6 +57,15 @@ const modules = [
           <span>121°28′48″E</span>
           <span>SYS / READY</span>
         </div>
+      </div>
+    </section>
+
+    <section class="ak-fidelity-note" aria-labelledby="fidelity-note-title">
+      <p class="ak-section-code">FIDELITY SCOPE / 00</p>
+      <h2 id="fidelity-note-title">还原的是风格与交互，<br>不是游戏素材包。</h2>
+      <div>
+        <p>ak-ui 主要复现终端式的色彩、字体、间距、组件层级与 CSS 3D 动效。示例只使用仓库自有或开放授权素材，不引用游戏拆包资源，因此角色、场景和原作画面不会完全一致。</p>
+        <a href="/showcase/">查看还原范围与完整 Demo →</a>
       </div>
     </section>
 
@@ -327,6 +336,50 @@ const modules = [
 .ak-terminal__status::before { display: inline-block; width: 6px; height: 6px; margin-right: 7px; content: ''; background: currentColor; box-shadow: 0 0 12px currentColor; }
 .ak-terminal__coordinates { border-top: 1px solid #363b3f; }
 
+.ak-fidelity-note {
+  display: grid;
+  max-width: 1240px;
+  margin: 40px auto 0;
+  padding: 54px 48px;
+  color: var(--home-paper);
+  background: var(--home-panel);
+  box-shadow: 18px 20px 0 rgba(0, 0, 0, 0.18);
+  grid-template-columns: 1fr 1fr;
+  gap: 90px;
+  clip-path: polygon(0 0, calc(100% - 28px) 0, 100% 28px, 100% 100%, 0 100%);
+}
+
+.ak-fidelity-note .ak-section-code {
+  grid-column: 1 / -1;
+}
+
+.ak-fidelity-note h2 {
+  margin: 0;
+  font-size: clamp(30px, 3.4vw, 50px);
+  letter-spacing: -0.045em;
+  line-height: 1.16;
+}
+
+.ak-fidelity-note div {
+  padding-top: 4px;
+}
+
+.ak-fidelity-note div p {
+  margin: 0;
+  color: #bdc2c6;
+  font-size: 16px;
+  line-height: 1.85;
+}
+
+.ak-fidelity-note a {
+  display: inline-block;
+  margin-top: 24px;
+  color: var(--home-yellow);
+  font: 700 11px/1 ui-monospace, monospace;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+}
+
 .ak-manifesto {
   display: grid;
   max-width: 1240px;
@@ -400,10 +453,12 @@ const modules = [
   .ak-hero__terminal { max-width: 720px; }
   .ak-home__ruler { top: 610px; }
   .ak-manifesto { grid-template-columns: 1fr; gap: 10px; }
+  .ak-fidelity-note { grid-template-columns: 1fr; gap: 20px; }
 }
 
 @media (max-width: 720px) {
   .ak-hero,
+  .ak-fidelity-note,
   .ak-manifesto,
   .ak-module-index { padding-right: 20px; padding-left: 20px; }
   .ak-hero { padding-top: 72px; padding-bottom: 92px; }

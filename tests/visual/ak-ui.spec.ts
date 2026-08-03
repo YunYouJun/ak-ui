@@ -6,7 +6,17 @@ import type { Page, TestInfo } from '@playwright/test'
 import { examples } from '../../examples/index'
 
 async function waitForFonts(page: Page) {
-  await page.evaluate(() => document.fonts?.ready)
+  await page.evaluate(async () => {
+    if (!document.fonts)
+      return
+
+    await Promise.all([
+      document.fonts.load('700 16px Syncopate', 'AKUI'),
+      document.fonts.load('900 16px "Noto Sans SC"', '界面模块'),
+      document.fonts.load('900 16px "Noto Serif SC"', '作战'),
+    ])
+    await document.fonts.ready
+  })
 }
 
 async function waitForHomepageDemo(page: Page) {
@@ -17,16 +27,16 @@ async function waitForHomepageDemo(page: Page) {
 
 test('renders the visual homepage', async ({ page }) => {
   await page.goto('/')
-  await waitForFonts(page)
   await waitForHomepageDemo(page)
+  await waitForFonts(page)
   await expect(page).toHaveScreenshot('home-desktop.webp', { fullPage: true })
 })
 
 test('renders the mobile homepage', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 })
   await page.goto('/')
-  await waitForFonts(page)
   await waitForHomepageDemo(page)
+  await waitForFonts(page)
   await expect(page).toHaveScreenshot('home-mobile.webp', { fullPage: true })
 })
 
@@ -260,6 +270,75 @@ test('uses native popover state for tactical details and hints', async ({ page }
   await expect(tooltip).not.toBeVisible()
   await tooltipTrigger.focus()
   await expect(tooltip).toBeVisible()
+})
+
+test('operates the complete Rhodes Island terminal dashboard', async ({ page }) => {
+  await page.goto('/showcase/')
+
+  const demo = page.locator('[data-demo-id="showcase/main"]')
+  const dashboard = demo.locator('.ak-dashboard')
+  const commands = demo.locator('.ak-dashboard__right-menu .ak-command')
+
+  await expect(dashboard).toBeVisible()
+  await expect(demo.locator('[data-loading-screen]')).toHaveCount(0)
+  await expect(demo.locator('.ak-dashboard__layer')).toHaveCount(5)
+  await expect(commands).toHaveCount(9)
+  await expect(demo.locator('.ak-counter')).toHaveCount(3)
+  await expect(demo.locator('.ak-san-container--terminal')).toContainText('132')
+  await expect(demo.locator('.ak-san-container--terminal')).toContainText('理智/135')
+  await expect(demo.locator('.ak-san-container--terminal')).toContainText('急转直下')
+  await expect(demo.locator('.ak-dashboard__news')).toContainText('新章开启')
+
+  const commandInset = await commands.first().evaluate((command) => {
+    const label = command.querySelector<HTMLElement>('.ak-command__label')!
+
+    return Math.round(label.getBoundingClientRect().left - command.getBoundingClientRect().left)
+  })
+  expect(commandInset).toBeGreaterThanOrEqual(10)
+
+  await demo.getByRole('button', { name: '任务' }).click()
+  await expect(page.getByRole('dialog', { name: '今日任务' })).toBeVisible()
+  await page.keyboard.press('Escape')
+  await expect(page.getByRole('dialog', { name: '今日任务' })).not.toBeVisible()
+
+  await demo.getByRole('button', { name: '查看资源详情' }).click()
+  await expect(page.locator('#resource-overview')).toBeVisible()
+  await page.keyboard.press('Escape')
+
+  const motionBefore = await demo.locator('.ak-dashboard__right-layer').evaluate(layer => getComputedStyle(layer).getPropertyValue('--ak-layer-x'))
+  await dashboard.scrollIntoViewIfNeeded()
+  const dashboardBounds = await dashboard.boundingBox()
+  expect(dashboardBounds).not.toBeNull()
+  await page.mouse.move(
+    dashboardBounds!.x + dashboardBounds!.width * 0.9,
+    dashboardBounds!.y + dashboardBounds!.height * 0.5,
+  )
+  await expect.poll(() => demo.locator('.ak-dashboard__right-layer').evaluate(layer => getComputedStyle(layer).getPropertyValue('--ak-layer-x'))).not.toBe(motionBefore)
+})
+
+test('renders the reusable terminal loading state separately', async ({ page }) => {
+  await page.goto('/showcase/loading.html')
+
+  const loading = page.locator('[data-loading-screen]')
+  const track = loading.locator('.ak-loading-track')
+  const runner = loading.locator('.ak-loading-track__runner')
+
+  await expect(loading).toBeVisible()
+  await expect(loading).toHaveAttribute('data-state', 'loading')
+  await expect(loading.locator('.ak-loading-screen__backdrop')).toHaveAttribute('src', '/img/bg/loading-terminal-v2.png')
+  await expect(track).toBeVisible()
+  await expect(runner).toHaveCSS('animation-name', 'ak-loading-track-move')
+})
+
+test('asks portrait screens to rotate the terminal', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 })
+  await page.goto('/showcase/')
+
+  const dashboard = page.locator('[data-demo-id="showcase/main"] .ak-dashboard')
+
+  await expect(dashboard.locator('.ak-dashboard__rotate')).toBeVisible()
+  await expect(dashboard.locator('.ak-dashboard__rotate')).toContainText('请使用横屏浏览')
+  await expect(dashboard.locator('.ak-dashboard__scene')).not.toBeVisible()
 })
 
 test('renders interactive Vue registry adapters', async ({ page }, testInfo: TestInfo) => {
