@@ -109,6 +109,7 @@ export default defineConfig({
         ],
       },
       { text: '组件', link: '/components/' },
+      { text: '完整演示', link: '/showcase/' },
     ],
     sidebar: {
       '/guide/': gettingStartedSidebar,
@@ -129,6 +130,7 @@ export default defineConfig({
             { text: '卡片', link: '/components/ak-card' },
             { text: '计数器', link: '/components/ak-counter' },
             { text: '分割线', link: '/components/ak-divider' },
+            { text: '主界面演示', link: '/showcase/' },
             { text: '对话框', link: '/components/ak-dialog' },
             { text: '效果', link: '/components/ak-fx' },
             { text: '表单', link: '/components/ak-form' },

@@ -114,3 +114,312 @@
     }
   }
 }
+
+.ak-san-container--compact {
+  display: grid;
+  box-sizing: border-box;
+  width: min(22rem, 100%);
+  min-height: 6.5rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid rgba(17, 19, 21, 0.24);
+  border-left: 0.35rem solid var(--ak-color-advanced, #{$yellow});
+  color: #111315;
+  background: rgba(243, 244, 239, 0.94);
+  box-shadow: 0 1rem 2.5rem rgba(0, 0, 0, 0.3);
+  clip-path: polygon(0 0, calc(100% - 0.75rem) 0, 100% 0.75rem, 100% 100%, 0 100%);
+  grid-template-columns: 5.6rem minmax(0, 1fr);
+  gap: 1rem;
+
+  &::before {
+    right: 0;
+    bottom: 0;
+    left: auto;
+    width: 42%;
+    height: 0.25rem;
+    background: var(--ak-color-advanced, #{$yellow});
+  }
+
+  .ak-san {
+    position: relative;
+    display: grid;
+    width: auto;
+    padding: 0.2rem 0.8rem 0.2rem 0;
+    align-content: center;
+    border-right: 1px solid rgba(17, 19, 21, 0.18);
+    justify-items: end;
+  }
+
+  .ak-san__add {
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    left: -0.3rem;
+    display: grid;
+    width: 1.65rem;
+    height: 1.65rem;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    place-items: center;
+    color: #f3f4ef;
+    background: #111315;
+    box-shadow: 0.25rem 0.2rem 0 rgba(17, 19, 21, 0.22);
+    cursor: pointer;
+    transform: translateY(-50%);
+
+    .ak-icon {
+      width: 1rem;
+      height: 1rem;
+    }
+
+    &:focus-visible {
+      outline: 3px solid var(--ak-color-primary, #{$blue});
+      outline-offset: 2px;
+    }
+  }
+
+  .ak-san__current {
+    font-family: $font-monospace;
+    font-size: 2.25rem;
+    font-weight: 900;
+    letter-spacing: normal;
+    line-height: 0.95;
+  }
+
+  .ak-san__total {
+    margin-top: 0.35rem;
+    color: rgba(17, 19, 21, 0.58);
+    font-family: $font-monospace;
+    font-size: 0.68rem;
+    font-weight: 800;
+  }
+
+  .ak-san-container__info {
+    display: grid;
+    min-width: 0;
+    align-content: center;
+  }
+
+  .ak-san-container__eyebrow {
+    color: #596167;
+    font-family: $font-monospace;
+    font-size: 0.54rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .ak-san-container__title {
+    margin-top: 0.3rem;
+    overflow: hidden;
+    font-family: $font-sans-serif;
+    font-size: 1.15rem;
+    font-weight: 900;
+    line-height: 1.1;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .ak-san-container__meta {
+    display: flex;
+    margin-top: 0.55rem;
+    align-items: center;
+    gap: 0.55rem;
+  }
+
+  .ak-level {
+    width: 5.2rem;
+    min-width: 5rem;
+    font-size: 0.68rem;
+  }
+
+  .ak-level .ak-level__content {
+    padding: 0.15rem 0 0.2rem;
+    font-size: 1rem;
+  }
+
+  .ak-level .ak-level__prefix-icon .ak-icon {
+    top: 0.15rem;
+    left: -0.65rem;
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  .ak-san-container__status {
+    color: rgba(17, 19, 21, 0.62);
+    font-family: $font-monospace;
+    font-size: 0.58rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+  }
+}
+
+/* stylelint-disable no-descending-specificity -- terminal and compact are mutually exclusive modifiers */
+.ak-san-container--terminal {
+  display: block;
+  box-sizing: border-box;
+  min-width: 0;
+  min-height: 0;
+  padding: 0;
+  overflow: visible;
+  color: #17191b;
+  background: rgba(253, 253, 251, 0.9);
+  box-shadow: var(--ak-dashboard-shadow, 0 1rem 2rem rgba(0, 0, 0, 0.32));
+  container-type: size;
+  isolation: isolate;
+
+  &::after {
+    position: absolute;
+    z-index: 3;
+    bottom: -1.7cqh;
+    left: 28.75%;
+    width: 38.75%;
+    height: 3.35cqh;
+    content: "";
+    background: var(--ak-dashboard-accent, #ff5e19);
+    pointer-events: none;
+  }
+
+  &::before {
+    display: none;
+  }
+
+  .ak-san-container__content {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    width: 100%;
+    height: 100%;
+    grid-template-columns: 27.5% minmax(0, 1fr);
+  }
+
+  .ak-san-container__watermark {
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    left: 48%;
+    width: 17.5%;
+    height: 86%;
+    color: #3c3c3c;
+    opacity: 0.12;
+    pointer-events: none;
+    transform: rotate(-4deg);
+  }
+
+  .ak-san {
+    position: relative;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    min-width: 0;
+    padding: 0;
+    overflow: hidden;
+    background: transparent;
+  }
+
+  .ak-san__figure {
+    position: absolute;
+    z-index: 0;
+    top: 12%;
+    right: auto;
+    left: 4.55%;
+    width: 88.64%;
+    height: 48%;
+    color: rgba(255, 255, 255, 0.54);
+    background: rgba(214, 216, 214, 0.76);
+    pointer-events: none;
+  }
+
+  .ak-san__figure .ak-icon {
+    width: 100%;
+    height: 100%;
+    filter: drop-shadow(1.2cqw 0.7cqw 0 rgba(73, 77, 80, 0.17));
+    transform: rotate(-8deg) scale(1.08);
+  }
+
+  .ak-san__add {
+    position: absolute;
+    z-index: 2;
+    top: 41%;
+    left: 15.5%;
+    display: grid;
+    width: 18cqh;
+    height: 18cqh;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    place-items: center;
+    color: white;
+    background: rgba(23, 25, 27, 0.94);
+    box-shadow: 3cqh 1.8cqh 0 rgba(23, 25, 27, 0.3);
+    cursor: pointer;
+    transform: translate(-50%, -50%);
+  }
+
+  .ak-san__add .ak-icon {
+    width: 72%;
+    height: 72%;
+  }
+
+  .ak-san__current {
+    position: absolute;
+    z-index: 1;
+    top: 8.5%;
+    right: 10.3%;
+    width: 82%;
+    font-family: $font-sans-serif;
+    font-size: 45cqh;
+    font-weight: 700;
+    letter-spacing: normal;
+    line-height: 1.15;
+    text-align: right;
+    text-shadow: 2.8cqh 2.8cqh 0 rgba(93, 97, 99, 0.58);
+    transform: scaleX(0.9);
+    transform-origin: right center;
+  }
+
+  .ak-san__total {
+    position: absolute;
+    z-index: 1;
+    box-sizing: border-box;
+    right: 10.4%;
+    bottom: 12.2%;
+    width: 73.6%;
+    padding: 1.7cqh 5.5%;
+    color: white;
+    background: rgba(44, 47, 49, 0.96);
+    font-family: $font-sans-serif;
+    font-size: 13.9cqh;
+    font-weight: 500;
+    letter-spacing: 0;
+    line-height: 1.15;
+    text-align: right;
+  }
+
+  .ak-san-container__content > .ak-command {
+    height: 100%;
+  }
+}
+/* stylelint-enable no-descending-specificity */
+
+@media (max-width: 32rem) {
+  .ak-san-container--compact {
+    width: min(18rem, 92%);
+    min-height: 5.7rem;
+    padding: 0.65rem 0.8rem;
+    grid-template-columns: 4.7rem minmax(0, 1fr);
+    gap: 0.75rem;
+
+    .ak-san {
+      padding-right: 0.6rem;
+    }
+
+    .ak-san__current {
+      font-size: 1.85rem;
+    }
+
+    .ak-san-container__title {
+      font-size: 1rem;
+    }
+  }
+}

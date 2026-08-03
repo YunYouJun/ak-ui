@@ -10,7 +10,7 @@
       "description": "Arknights-inspired action button with composable variants and slots.",
       "author": "YunYouJun",
       "dependencies": [
-        "@yunyoujun/ak-ui@0.2.0"
+        "@yunyoujun/ak-ui@0.2.1"
       ],
       "files": [
         {
@@ -39,7 +39,7 @@
       "description": "Composable Arknights-inspired card with header, title, description, content, and footer primitives.",
       "author": "YunYouJun",
       "dependencies": [
-        "@yunyoujun/ak-ui@0.2.0"
+        "@yunyoujun/ak-ui@0.2.1"
       ],
       "files": [
         {
@@ -88,7 +88,7 @@
       "description": "Accessible numeric input with increment, decrement, minimum, and maximum actions.",
       "author": "YunYouJun",
       "dependencies": [
-        "@yunyoujun/ak-ui@0.2.0"
+        "@yunyoujun/ak-ui@0.2.1"
       ],
       "files": [
         {
@@ -113,7 +113,7 @@
       "description": "Tags and live terminal status indicators for roles, rarity, warnings, and connectivity.",
       "author": "YunYouJun",
       "dependencies": [
-        "@yunyoujun/ak-ui@0.2.0"
+        "@yunyoujun/ak-ui@0.2.1"
       ],
       "files": [
         {
@@ -146,7 +146,7 @@
       "description": "Accessible horizontal progress and octagonal gauge adapters with clamped values.",
       "author": "YunYouJun",
       "dependencies": [
-        "@yunyoujun/ak-ui@0.2.0"
+        "@yunyoujun/ak-ui@0.2.1"
       ],
       "files": [
         {
@@ -179,7 +179,7 @@
       "description": "Tactical information, warning, danger, and success notices with semantic live roles.",
       "author": "YunYouJun",
       "dependencies": [
-        "@yunyoujun/ak-ui@0.2.0"
+        "@yunyoujun/ak-ui@0.2.1"
       ],
       "files": [
         {
@@ -208,7 +208,7 @@
       "description": "Controlled Vue tabs and segmented mode selection with keyboard navigation.",
       "author": "YunYouJun",
       "dependencies": [
-        "@yunyoujun/ak-ui@0.2.0"
+        "@yunyoujun/ak-ui@0.2.1"
       ],
       "files": [
         {
@@ -233,6 +233,27 @@
         "input"
       ],
       "docs": "Use v-model for the active item. Arrow keys, Home, and End move focus and selection between tabs."
+    },
+    {
+      "name": "dashboard-depth",
+      "type": "registry:hook",
+      "title": "Dashboard Depth",
+      "description": "Vue lifecycle adapter for the framework-agnostic ak-ui dashboard depth controller.",
+      "author": "YunYouJun",
+      "dependencies": [
+        "@yunyoujun/ak-ui@0.2.1"
+      ],
+      "files": [
+        {
+          "path": "registry/ak/composables/useDashboardDepth.ts",
+          "type": "registry:hook"
+        }
+      ],
+      "categories": [
+        "composable",
+        "motion"
+      ],
+      "docs": "Pass a template ref or getter for an element containing data-depth layers. The composable delegates motion to @yunyoujun/ak-ui/depth and only manages Vue lifecycle cleanup."
     }
   ]
 }

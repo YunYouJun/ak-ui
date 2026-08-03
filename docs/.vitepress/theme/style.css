@@ -306,9 +306,7 @@ body {
 }
 .ak-demo-preview.is-dark .ak-demo-preview__canvas { background-image: linear-gradient(rgba(8, 10, 12, 0.42), rgba(8, 10, 12, 0.42)), url('/img/bg/dark.jpg'); }
 .ak-demo-preview.is-dust .ak-demo-preview__canvas { background-image: linear-gradient(rgba(17, 19, 21, 0.15), rgba(17, 19, 21, 0.15)), url('/img/bg/dust.jpg'); }
-.ak-demo-preview.is-color .ak-demo-preview__canvas { background-image: linear-gradient(rgba(7, 11, 14, 0.18), rgba(7, 11, 14, 0.18)), url('/img/bg/chen.jpg'); }
-.ak-demo-preview__canvas :where(button, input) { font: inherit; }
-.ak-demo-preview__canvas button { padding: 0; border: 0; }
+.ak-demo-preview.is-color .ak-demo-preview__canvas { background-image: linear-gradient(rgba(7, 11, 14, 0.24), rgba(7, 11, 14, 0.24)), url('/img/bg/operator-terminal-v2.png'); }
 .ak-demo-preview__canvas img { max-width: 100%; }
 .ak-demo-preview__canvas #tactical-map { width: min(620px, 100%); line-height: 0; }
 .ak-demo-preview__canvas #tactical-map .ak-cube { margin: 4px; transform: rotateX(-12deg) rotateY(20deg); }
