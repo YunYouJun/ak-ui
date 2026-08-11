@@ -5,7 +5,7 @@ import { fileURLToPath } from 'node:url'
 import markdownItContainer from 'markdown-it-container'
 import { defineConfig } from 'vitepress'
 
-import { exampleById } from '../../examples/index'
+import { exampleById } from '../../examples/index.ts'
 
 const projectRoot = fileURLToPath(new URL('../..', import.meta.url))
 
