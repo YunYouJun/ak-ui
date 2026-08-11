@@ -23,19 +23,19 @@ const modules = [
 
     <section class="ak-hero">
       <div class="ak-hero__brief">
-        <p class="ak-kicker"><span>RI-UI / 001</span> FRAMEWORK-AGNOSTIC CSS</p>
+        <p class="ak-kicker"><span>AK-UI / 001</span> AI-READY DESIGN FOUNDATION</p>
         <h1><span>AK</span><i>/</i>UI</h1>
-        <p class="ak-hero__lead">把泰拉终端的切角、警示、层级与反馈，变成可以直接写进 HTML 的样式。</p>
+        <p class="ak-hero__lead">把受《明日方舟》启发的几何、层级与反馈，变成可融合品牌、可由 AI 编排的样式基础。</p>
 
         <div class="ak-hero__actions">
-          <a class="ak-action ak-action--primary" href="/showcase/">进入主终端 <span>→</span></a>
-          <a class="ak-action" href="/guide/">接入样式 <span>↗</span></a>
+          <a class="ak-action ak-action--primary" href="/guide/ai-skill">使用 AI Skill <span>→</span></a>
+          <a class="ak-action" href="/guide/design-language">浏览设计规范 <span>↗</span></a>
         </div>
 
         <dl class="ak-hero__stats">
           <div><dt>RUNTIME</dt><dd>0</dd><small>framework</small></div>
-          <div><dt>FORMAT</dt><dd>CSS</dd><small>+ scss source</small></div>
-          <div><dt>MODULES</dt><dd>20+</dd><small>interface styles</small></div>
+          <div><dt>FORMAT</dt><dd>CSS</dd><small>tokens + core</small></div>
+          <div><dt>ENTRY</dt><dd>AI</dd><small>skill + manual</small></div>
         </dl>
       </div>
 
@@ -61,23 +61,23 @@ const modules = [
     </section>
 
     <section class="ak-fidelity-note" aria-labelledby="fidelity-note-title">
-      <p class="ak-section-code">FIDELITY SCOPE / 00</p>
-      <h2 id="fidelity-note-title">还原的是风格与交互，<br>不是游戏素材包。</h2>
+      <p class="ak-section-code">DESIGN SCOPE / 00</p>
+      <h2 id="fidelity-note-title">约束的是设计语言，<br>不是像素级还原。</h2>
       <div>
-        <p>ak-ui 主要复现终端式的色彩、字体、间距、组件层级与 CSS 3D 动效。示例只使用仓库自有或开放授权素材，不引用游戏拆包资源，因此角色、场景和原作画面不会完全一致。</p>
-        <a href="/showcase/">查看还原范围与完整 Demo →</a>
+        <p>ak-ui 抽象信息层级、工业几何、功能色彩、组件状态与动效节奏，帮助用户构建具有相似气质但品牌、内容和结构独立的产品界面。</p>
+        <a href="/guide/design-language">查看 ak-ui 设计契约 →</a>
       </div>
     </section>
 
     <section class="ak-manifesto">
       <header>
         <p class="ak-section-code">DESIGN RECORD / 01</p>
-        <h2>原生是 interface，<br>框架只是 adapter。</h2>
+        <h2>Token 是 contract，<br>框架只是 adapter。</h2>
       </header>
       <div class="ak-manifesto__body">
-        <p>每个模块由语义化 HTML、稳定类名和 CSS variables 组成。无需安装运行时，也不限制 Vue、React 或原生页面。</p>
+        <p>每个模块由语义化 HTML、稳定类名和 CSS variables 组成。AI Skill 会优先复用项目已有 primitives，并保留品牌和无障碍行为。</p>
         <div class="ak-manifesto__rule">
-          <span>HTML</span><i></i><span>SCSS</span><i></i><span>ANYWHERE</span>
+          <span>TOKENS</span><i></i><span>PRIMITIVES</span><i></i><span>ANY STACK</span>
         </div>
       </div>
     </section>
@@ -100,8 +100,8 @@ const modules = [
 
     <section class="ak-home__footer">
       <div>
-        <span>UNOFFICIAL INTERFACE STUDY</span>
-        <strong>RHODES ISLAND / AK-UI</strong>
+        <span>UNOFFICIAL DESIGN LANGUAGE STUDY</span>
+        <strong>AK-UI / DESIGN FOUNDATION</strong>
       </div>
       <a href="https://github.com/YunYouJun/ak-ui">SOURCE ON GITHUB ↗</a>
     </section>
@@ -307,6 +307,16 @@ const modules = [
   --vp-c-divider: #3b4146;
   --vp-c-text-2: #b5bbc0;
   --vp-c-text-3: #838a90;
+}
+
+.ak-hero__terminal :deep(.ak-demo-preview.is-color .ak-demo-preview__canvas) {
+  background-color: #1a2227;
+  background-image:
+    linear-gradient(112deg, rgba(5, 9, 11, 0.82) 0 29%, transparent 29% 68%, rgba(5, 9, 11, 0.7) 68%),
+    repeating-linear-gradient(0deg, rgba(34, 187, 255, 0.08) 0 1px, transparent 1px 24px),
+    repeating-linear-gradient(90deg, rgba(255, 216, 2, 0.06) 0 1px, transparent 1px 24px),
+    linear-gradient(135deg, #3b4a52, #101518);
+  background-size: cover, 24px 24px, 24px 24px, cover;
 }
 
 .ak-hero__terminal::before {

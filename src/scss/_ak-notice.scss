@@ -7,7 +7,7 @@
 }
 
 .ak-notice {
-  --ak-notice-signal: var(--ak-color-primary, #4aabea);
+  --ak-notice-signal: var(--ak-signal-info, var(--ak-color-primary, #4aabea));
   position: relative;
   display: grid;
   box-sizing: border-box;
@@ -65,15 +65,15 @@
   }
 
   &--warning {
-    --ak-notice-signal: var(--ak-color-advanced, #f1c644);
+    --ak-notice-signal: var(--ak-signal-action, var(--ak-color-advanced, #f1c644));
   }
 
   &--danger {
-    --ak-notice-signal: #e33b3b;
+    --ak-notice-signal: var(--ak-signal-danger, #e33b3b);
   }
 
   &--success {
-    --ak-notice-signal: #46c47c;
+    --ak-notice-signal: var(--ak-signal-success, #46c47c);
   }
 }
 

@@ -1,7 +1,7 @@
 @use "variables" as *;
 
 .ak-tabs {
-  --ak-tabs-signal: var(--ak-color-primary, #4aabea);
+  --ak-tabs-signal: var(--ak-signal-info, var(--ak-color-primary, #4aabea));
   width: min(42rem, 100%);
   border: 1px solid rgba(243, 244, 239, 0.25);
   color: #f3f4ef;
@@ -91,7 +91,7 @@
 }
 
 .ak-segmented {
-  --ak-segmented-signal: var(--ak-color-advanced, #f1c644);
+  --ak-segmented-signal: var(--ak-signal-action, var(--ak-color-advanced, #f1c644));
   display: inline-flex;
   padding: 0.25rem;
   background: rgba(17, 19, 21, 0.9);

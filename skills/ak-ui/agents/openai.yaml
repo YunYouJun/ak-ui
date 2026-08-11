@@ -1,0 +1,4 @@
+interface:
+  display_name: "ak-ui"
+  short_description: "Build brand-adaptive interfaces with ak-ui"
+  default_prompt: "Use $ak-ui to integrate the ak-ui design language into this project."

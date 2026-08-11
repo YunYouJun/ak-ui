@@ -1,24 +1,18 @@
 @use "variables" as *;
 
-:root {
-  @each $color, $value in $ak-colors {
-    --ak-color-#{$color}: #{$value};
-  }
-}
-
 .ak-font-serif {
-  font-family: $font-serif;
+  font-family: var(--ak-font-serif, #{$font-serif});
 }
 
 .ak-font-sans-serif {
-  font-family: $font-sans-serif;
+  font-family: var(--ak-font-sans, #{$font-sans-serif});
 }
 
 .ak-text {
   &--title {
     font-weight: 900;
-    font-size: 3rem;
+    font-size: var(--ak-type-title-size, 3rem);
     line-height: 1.08;
-    letter-spacing: -0.04em;
+    letter-spacing: var(--ak-type-tight, -0.04em);
   }
 }

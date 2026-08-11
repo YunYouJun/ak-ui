@@ -7,7 +7,7 @@
 }
 
 .ak-progress {
-  --ak-progress-signal: var(--ak-color-primary, #4aabea);
+  --ak-progress-signal: var(--ak-signal-info, var(--ak-color-primary, #4aabea));
   --ak-progress-value: 0%;
   display: grid;
   padding: 0.75rem 0.9rem 0.9rem;
@@ -57,16 +57,16 @@
   }
 
   &--warning {
-    --ak-progress-signal: var(--ak-color-advanced, #f1c644);
+    --ak-progress-signal: var(--ak-signal-action, var(--ak-color-advanced, #f1c644));
   }
 
   &--danger {
-    --ak-progress-signal: #e33b3b;
+    --ak-progress-signal: var(--ak-signal-danger, #e33b3b);
   }
 }
 
 .ak-gauge {
-  --ak-gauge-signal: var(--ak-color-primary, #4aabea);
+  --ak-gauge-signal: var(--ak-signal-info, var(--ak-color-primary, #4aabea));
   --ak-gauge-value: 0%;
   position: relative;
   display: inline-grid;
@@ -114,7 +114,7 @@
   }
 
   &--warning {
-    --ak-gauge-signal: var(--ak-color-advanced, #f1c644);
+    --ak-gauge-signal: var(--ak-signal-action, var(--ak-color-advanced, #f1c644));
   }
 }
 

@@ -2,14 +2,14 @@
 
 .ak-dashboard {
   --ak-dashboard-image: linear-gradient(135deg, #4c565d, #111315);
-  --ak-dashboard-paper: rgba(253, 253, 251, 0.9);
-  --ak-dashboard-muted: rgba(235, 236, 235, 0.9);
+  --ak-dashboard-paper: var(--ak-surface-panel, rgba(253, 253, 251, 0.9));
+  --ak-dashboard-muted: var(--ak-surface-muted, rgba(235, 236, 235, 0.9));
   --ak-dashboard-dark: rgba(66, 66, 66, 0.9);
   --ak-dashboard-cyan: rgba(5, 167, 220, 0.9);
   --ak-dashboard-accent: #ff5e19;
-  --ak-dashboard-signal: var(--ak-color-advanced, #{$yellow});
-  --ak-dashboard-info: var(--ak-color-primary, #{$blue});
-  --ak-dashboard-perspective: 30em;
+  --ak-dashboard-signal: var(--ak-signal-action, var(--ak-color-advanced, #{$yellow}));
+  --ak-dashboard-info: var(--ak-signal-info, var(--ak-color-primary, #{$blue}));
+  --ak-dashboard-perspective: var(--ak-depth-perspective, 30em);
   --ak-dashboard-tilt: 10deg;
   --ak-dashboard-shadow: 0 1.2cqw 2.4cqw rgba(0, 0, 0, 0.35);
   --ak-dashboard-menu-width: 54.375cqw;

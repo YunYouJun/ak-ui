@@ -1,8 +1,8 @@
 @use "variables" as *;
 
 .ak-dialog {
-  --ak-dialog-info: var(--ak-color-primary, #{$blue});
-  --ak-dialog-signal: var(--ak-color-advanced, #{$yellow});
+  --ak-dialog-info: var(--ak-signal-info, var(--ak-color-primary, #{$blue}));
+  --ak-dialog-signal: var(--ak-signal-action, var(--ak-color-advanced, #{$yellow}));
 
   box-sizing: border-box;
   width: min(calc(100% - 2rem), 38rem);
