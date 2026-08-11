@@ -1,0 +1,68 @@
+@use "variables" as *;
+
+:root {
+  @each $color, $value in $ak-colors {
+    --ak-color-#{$color}: #{$value};
+  }
+
+  // Semantic surfaces and content
+  --ak-surface-canvas: #111315;
+  --ak-surface-panel: rgba(253, 253, 251, 0.9);
+  --ak-surface-muted: rgba(235, 236, 235, 0.9);
+  --ak-surface-raised: rgba(66, 66, 66, 0.92);
+  --ak-surface-inverse: #17191b;
+  --ak-text-primary: #f8f8f5;
+  --ak-text-secondary: rgba(248, 248, 245, 0.68);
+  --ak-text-inverse: #1b1d1f;
+
+  // Functional signals
+  --ak-signal-info: var(--ak-color-primary);
+  --ak-signal-action: var(--ak-color-advanced);
+  --ak-signal-accent: var(--ak-color-accent);
+  --ak-signal-success: #46c47c;
+  --ak-signal-danger: #e33b3b;
+  --ak-signal-disabled: var(--ak-color-low);
+
+  // Typography
+  --ak-font-sans: #{$font-sans-serif};
+  --ak-font-serif: #{$font-serif};
+  --ak-font-mono: #{$font-monospace};
+  --ak-font-command: var(--ak-font-serif);
+  --ak-type-display-size: clamp(2.25rem, 5vw, 4.5rem);
+  --ak-type-title-size: 3rem;
+  --ak-type-label-size: 0.75rem;
+  --ak-type-data-size: 1rem;
+  --ak-type-tight: -0.04em;
+  --ak-type-wide: 0.12em;
+
+  // Spacing and density
+  --ak-space-1: 0.25rem;
+  --ak-space-2: 0.5rem;
+  --ak-space-3: 0.75rem;
+  --ak-space-4: 1rem;
+  --ak-space-5: 1.5rem;
+  --ak-space-6: 2rem;
+  --ak-density-control-height: 2.75rem;
+  --ak-density-panel-padding: var(--ak-space-5);
+
+  // Geometry and depth
+  --ak-line-hairline: 1px;
+  --ak-line-strong: 4px;
+  --ak-cut-sm: 0.375rem;
+  --ak-cut-md: 0.75rem;
+  --ak-cut-lg: 1.5rem;
+  --ak-radius-subtle: 2px;
+  --ak-shadow-panel: 0 1rem 2rem rgba(0, 0, 0, 0.32);
+  --ak-shadow-signal: 0 0 1rem color-mix(in srgb, var(--ak-signal-info) 62%, transparent);
+  --ak-depth-perspective: 30em;
+
+  // Motion and focus
+  --ak-motion-fast: 120ms;
+  --ak-motion-base: 200ms;
+  --ak-motion-slow: 420ms;
+  --ak-ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  --ak-ease-emphasized: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --ak-focus-color: var(--ak-signal-action);
+  --ak-focus-width: 3px;
+  --ak-focus-offset: 3px;
+}

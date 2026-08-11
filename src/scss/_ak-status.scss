@@ -9,7 +9,7 @@
 }
 
 .ak-tag {
-  --ak-tag-signal: var(--ak-color-primary, #4aabea);
+  --ak-tag-signal: var(--ak-signal-info, var(--ak-color-primary, #4aabea));
   --ak-tag-text: #f3f4ef;
   --ak-tag-surface: rgba(17, 19, 21, 0.88);
   position: relative;
@@ -40,20 +40,20 @@
   }
 
   &--advanced {
-    --ak-tag-signal: var(--ak-color-advanced, #f1c644);
+    --ak-tag-signal: var(--ak-signal-action, var(--ak-color-advanced, #f1c644));
   }
 
   &--danger {
-    --ak-tag-signal: #e33b3b;
+    --ak-tag-signal: var(--ak-signal-danger, #e33b3b);
   }
 
   &--neutral {
-    --ak-tag-signal: var(--ak-color-low, #9c9c9c);
+    --ak-tag-signal: var(--ak-signal-disabled, var(--ak-color-low, #9c9c9c));
   }
 }
 
 .ak-status {
-  --ak-status-signal: var(--ak-color-primary, #4aabea);
+  --ak-status-signal: var(--ak-signal-info, var(--ak-color-primary, #4aabea));
   --ak-status-text: #f3f4ef;
   display: inline-grid;
   min-height: 2.75rem;
@@ -93,15 +93,15 @@
   }
 
   &--warning {
-    --ak-status-signal: var(--ak-color-advanced, #f1c644);
+    --ak-status-signal: var(--ak-signal-action, var(--ak-color-advanced, #f1c644));
   }
 
   &--critical {
-    --ak-status-signal: #e33b3b;
+    --ak-status-signal: var(--ak-signal-danger, #e33b3b);
   }
 
   &--offline {
-    --ak-status-signal: var(--ak-color-low, #9c9c9c);
+    --ak-status-signal: var(--ak-signal-disabled, var(--ak-color-low, #9c9c9c));
 
     .ak-status__signal {
       box-shadow: none;

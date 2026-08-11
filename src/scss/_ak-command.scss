@@ -8,9 +8,9 @@
 }
 
 .ak-command {
-  --ak-command-signal: var(--ak-color-primary, #{$blue});
-  --ak-command-surface: rgba(66, 66, 66, 0.92);
-  --ak-command-text: #f8f8f5;
+  --ak-command-signal: var(--ak-signal-info, var(--ak-color-primary, #{$blue}));
+  --ak-command-surface: var(--ak-surface-raised, rgba(66, 66, 66, 0.92));
+  --ak-command-text: var(--ak-text-primary, #f8f8f5);
   --ak-command-muted: rgba(248, 248, 245, 0.58);
 
   position: relative;

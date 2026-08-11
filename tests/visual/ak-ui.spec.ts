@@ -12,7 +12,11 @@ async function waitForFonts(page: Page) {
 
     await Promise.all([
       document.fonts.load('700 16px Syncopate', 'AKUI'),
+      document.fonts.load('400 16px "Noto Sans SC"', '设计语言与样式基础'),
+      document.fonts.load('500 16px "Noto Sans SC"', '设计语言与样式基础'),
+      document.fonts.load('700 16px "Noto Sans SC"', '设计语言与样式基础'),
       document.fonts.load('900 16px "Noto Sans SC"', '界面模块'),
+      document.fonts.load('700 16px "Noto Serif SC"', '设计语言'),
       document.fonts.load('900 16px "Noto Serif SC"', '作战'),
     ])
     await document.fonts.ready
@@ -29,7 +33,7 @@ test('renders the visual homepage', async ({ page }) => {
   await page.goto('/')
   await waitForHomepageDemo(page)
   await waitForFonts(page)
-  await expect(page).toHaveScreenshot('home-desktop.webp', { fullPage: true })
+  await expect(page.locator('.ak-home')).toHaveScreenshot('home-desktop.webp')
 })
 
 test('renders the mobile homepage', async ({ page }) => {
@@ -37,7 +41,7 @@ test('renders the mobile homepage', async ({ page }) => {
   await page.goto('/')
   await waitForHomepageDemo(page)
   await waitForFonts(page)
-  await expect(page).toHaveScreenshot('home-mobile.webp', { fullPage: true })
+  await expect(page.locator('.ak-home')).toHaveScreenshot('home-mobile.webp')
 })
 
 test('keeps the light theme coordinated and legible', async ({ page }) => {
@@ -69,16 +73,21 @@ test('keeps the light theme coordinated and legible', async ({ page }) => {
     await expect(control).toHaveCSS('color', 'rgb(211, 211, 211)')
 })
 
-test('groups CSS and Vue onboarding into one navigation system', async ({ page }) => {
+test('groups AI, CSS, and Vue onboarding into one navigation system', async ({ page }) => {
   await page.goto('/guide/')
 
   await expect(page.locator('.VPNavBarTitle a')).toHaveAttribute('href', '/')
   await expect(page.locator('.VPNavBarMenuLink').filter({ hasText: '概览' })).toHaveCount(0)
   await expect(page.locator('.VPNavBarMenuGroup').filter({ hasText: '开始使用' })).toHaveCount(1)
+  await expect(page.locator('.VPSidebar').getByRole('link', { name: /AI Skill/ })).toBeVisible()
   await expect(page.locator('.VPSidebar').getByRole('link', { name: 'CSS Core' })).toBeVisible()
   await expect(page.locator('.VPSidebar').getByRole('link', { name: 'Vue Registry' })).toBeVisible()
-  await expect(page.locator('.ak-entry-card')).toHaveCount(2)
+  await expect(page.locator('.ak-entry-card')).toHaveCount(3)
 
+  await page.locator('.ak-entry-card--ai').click()
+  await expect(page).toHaveURL(/\/guide\/ai-skill(?:\.html)?$/)
+
+  await page.goto('/guide/')
   await page.locator('.ak-entry-card--vue').click()
   await expect(page).toHaveURL(/\/registry\/$/)
   await expect(page.locator('.VPSidebar').getByRole('link', { name: 'CSS Core' })).toBeVisible()
@@ -107,6 +116,51 @@ test('centers divider content vertically', async ({ page }) => {
 
   expect(alignment.surfaceDelta).toBeLessThanOrEqual(1)
   expect(alignment.contentDelta).toBeLessThanOrEqual(1)
+})
+
+test('aligns sanity card decorations with its background', async ({ page }) => {
+  await page.goto('/components/ak-san.html')
+
+  const card = page.locator('[data-demo-id="san/basic"] .ak-san-container')
+  await expect(card).toBeVisible()
+
+  const desktopGeometry = await card.evaluate((element) => {
+    const cardBounds = element.getBoundingClientRect()
+    const border = getComputedStyle(element, '::before')
+    const iconBounds = element.querySelector<SVGElement>(':scope > .info .ak-icon')!.getBoundingClientRect()
+
+    return {
+      borderRight: Math.round(Number.parseFloat(border.right)),
+      cardWidth: Math.round(cardBounds.width),
+      iconRightInset: Math.round(cardBounds.right - iconBounds.right),
+    }
+  })
+
+  expect(desktopGeometry).toEqual({
+    borderRight: 0,
+    cardWidth: 528,
+    iconRightInset: 40,
+  })
+
+  await page.setViewportSize({ width: 390, height: 844 })
+
+  const mobileGeometry = await card.evaluate((element) => {
+    const cardBounds = element.getBoundingClientRect()
+    const border = getComputedStyle(element, '::before')
+    const iconBounds = element.querySelector<SVGElement>(':scope > .info .ak-icon')!.getBoundingClientRect()
+
+    return {
+      borderRight: Math.round(Number.parseFloat(border.right)),
+      cardRightOverflow: Math.max(0, Math.round(cardBounds.right - document.documentElement.clientWidth)),
+      iconRightInset: Math.round(cardBounds.right - iconBounds.right),
+    }
+  })
+
+  expect(mobileGeometry).toEqual({
+    borderRight: 0,
+    cardRightOverflow: 0,
+    iconRightInset: 40,
+  })
 })
 
 test('keeps foundation color and type specimens compact and legible', async ({ page }) => {
@@ -177,6 +231,16 @@ test('shows source alongside component previews', async ({ page }) => {
   await expect(source).toHaveAttribute('open', '')
   await expect(source.locator('pre')).toBeVisible()
   await expect(source.locator('pre')).toContainText('class="ak-button')
+})
+
+test('gives buttons visual feedback on hover', async ({ page }) => {
+  await page.goto('/components/ak-button.html')
+
+  const button = page.locator('[data-demo-id="button/base"] .ak-button').first()
+
+  await button.hover()
+  await expect(button).toHaveCSS('filter', 'brightness(1.08)')
+  await expect(button).toHaveCSS('transform', 'matrix(1, 0, 0, 1, 0, -2)')
 })
 
 test('executes scripts from directly rendered HTML examples', async ({ page }) => {

@@ -134,7 +134,7 @@ body {
   margin: 30px 0 24px;
   border-top: 1px solid var(--vp-c-divider);
   border-left: 1px solid var(--vp-c-divider);
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .vp-doc .ak-entry-card {
@@ -184,6 +184,7 @@ body {
   outline-offset: -3px;
 }
 
+.ak-entry-card--ai { --ak-entry-signal: var(--ak-doc-yellow); }
 .ak-entry-card--core { --ak-entry-signal: var(--ak-doc-highlight); }
 .ak-entry-card--vue { --ak-entry-signal: var(--ak-doc-blue); }
 
@@ -196,6 +197,7 @@ body {
 }
 
 .ak-entry-card__channel { color: var(--ak-doc-blue); font-size: 9px; font-weight: 800; }
+.ak-entry-card--ai .ak-entry-card__channel,
 .ak-entry-card--core .ak-entry-card__channel { color: var(--ak-doc-yellow); }
 .vp-doc .ak-entry-card strong { margin-top: 34px; font-size: 24px; line-height: 1.2; }
 .vp-doc .ak-entry-card p { margin: 12px 0 24px; color: var(--vp-c-text-2); font-size: 14px; line-height: 1.7; }

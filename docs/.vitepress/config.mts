@@ -43,6 +43,7 @@ const gettingStartedSidebar = [
   {
     text: '接入方式',
     items: [
+      { text: 'AI Skill（推荐）', link: '/guide/ai-skill' },
       { text: 'CSS Core', link: '/guide/' },
       { text: 'Vue Registry', link: '/registry/' },
     ],
@@ -50,8 +51,12 @@ const gettingStartedSidebar = [
   {
     text: '开发约定',
     items: [
+      { text: 'ak-ui 设计语言', link: '/guide/design-language' },
+      { text: '设计 Token', link: '/guide/tokens' },
+      { text: 'Headless 适配', link: '/guide/headless' },
+      { text: 'Reka UI 示例', link: '/guide/reka-ui' },
       { text: '接口与命名', link: '/guide/style' },
-      { text: '色彩与字体', link: '/components/' },
+      { text: '质量检查清单', link: '/guide/quality' },
     ],
   },
   {
@@ -65,7 +70,7 @@ const gettingStartedSidebar = [
 export default defineConfig({
   title: 'ak-ui',
   titleTemplate: ':title · ak-ui',
-  description: 'A framework-agnostic Arknights-inspired CSS interface library.',
+  description: 'An Arknights-inspired design language, token foundation, and framework-agnostic CSS primitive library.',
   lang: 'zh-CN',
   appearance: 'dark',
   lastUpdated: true,
@@ -102,8 +107,11 @@ export default defineConfig({
       {
         text: '开始使用',
         items: [
+          { text: 'AI Skill（推荐）', link: '/guide/ai-skill' },
           { text: 'CSS Core', link: '/guide/' },
           { text: 'Vue Registry', link: '/registry/' },
+          { text: '设计语言', link: '/guide/design-language' },
+          { text: 'Headless 适配', link: '/guide/headless' },
           { text: '接口与命名', link: '/guide/style' },
           { text: '复活记录', link: '/guide/revival' },
         ],
@@ -196,7 +204,7 @@ export default defineConfig({
     lightModeSwitchTitle: '切换至明亮界面',
     darkModeSwitchTitle: '切换至暗色界面',
     footer: {
-      message: 'Unofficial Arknights-inspired interface study.',
+      message: 'Unofficial ak-ui design language study.',
       copyright: 'MIT Licensed · YunYouJun',
     },
   },

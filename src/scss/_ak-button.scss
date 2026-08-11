@@ -23,6 +23,11 @@
 
   @include active-darken;
 
+  &:hover:not(:disabled) {
+    filter: brightness(1.08);
+    transform: translateY(-2px);
+  }
+
   &__icon {
     display: inline-flex;
     width: 3rem;
