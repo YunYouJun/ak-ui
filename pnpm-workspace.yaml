@@ -2,3 +2,6 @@ allowBuilds:
   '@parcel/watcher': true
   esbuild: true
   vue-demi: true
+
+overrides:
+  tar: 7.5.22
