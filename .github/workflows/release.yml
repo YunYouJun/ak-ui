@@ -1,0 +1,156 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    permissions:
+      actions: read
+      contents: read
+    outputs:
+      dist-tag: ${{ steps.release.outputs.dist-tag }}
+    steps:
+      - name: Checkout complete release history
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Confirm CI passed for release commit
+        shell: bash
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          ci_run_id="$(gh api --method GET \
+            "repos/${GITHUB_REPOSITORY}/actions/workflows/docs.yml/runs" \
+            -f head_sha="$GITHUB_SHA" \
+            -f event=push \
+            -f status=success \
+            -f per_page=1 \
+            --jq '.workflow_runs[0].id // empty')"
+          if [[ -z "$ci_run_id" ]]; then
+            echo "CI has not passed for release commit $GITHUB_SHA" >&2
+            exit 1
+          fi
+          echo "Using successful CI run $ci_run_id for $GITHUB_SHA"
+
+      - name: Validate release tag and resolve metadata
+        id: release
+        shell: bash
+        run: |
+          version="$(node -p "require('./package.json').version")"
+          if [[ "$GITHUB_REF_NAME" != "v$version" ]]; then
+            echo "Tag $GITHUB_REF_NAME does not match package version $version" >&2
+            exit 1
+          fi
+          git fetch origin master:refs/remotes/origin/master --no-tags
+          git merge-base --is-ancestor "$GITHUB_SHA" origin/master
+          if [[ "$version" == *-* ]]; then
+            dist_tag="next"
+          else
+            dist_tag="latest"
+          fi
+          echo "dist-tag=$dist_tag" >> "$GITHUB_OUTPUT"
+
+      - name: Setup Node
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 24
+          package-manager-cache: false
+
+      - name: Enable Corepack
+        run: corepack enable
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile --ignore-scripts
+
+      - name: Build package
+        run: pnpm build
+
+      - name: Verify design token contract
+        run: pnpm tokens:verify
+
+      - name: Pack verified package
+        shell: bash
+        run: |
+          mkdir -p release
+          tarball="$(npm pack --silent)"
+          mv "$tarball" "release/$tarball"
+          test -f "release/$tarball"
+
+      - name: Upload verified package
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: npm-package
+          path: release/*.tgz
+          if-no-files-found: error
+          retention-days: 7
+
+  publish:
+    needs: verify
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - name: Setup Node for trusted publishing
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 24
+          registry-url: 'https://registry.npmjs.org'
+          package-manager-cache: false
+
+      - name: Install OIDC-capable npm
+        run: npm install --global npm@11.16.0
+
+      - name: Download verified package
+        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
+        with:
+          name: npm-package
+          path: release
+
+      - name: Publish with npm Trusted Publishing
+        run: npm publish ./release/*.tgz --tag "${{ needs.verify.outputs.dist-tag }}" --access public
+
+  github-release:
+    needs: publish
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout complete release history
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Setup Node
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 24
+          package-manager-cache: false
+
+      - name: Enable Corepack
+        run: corepack enable
+
+      - name: Install locked release tooling
+        run: pnpm install --frozen-lockfile --ignore-scripts
+
+      - name: Create or update GitHub release notes
+        run: pnpm release:github
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

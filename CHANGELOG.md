@@ -2,6 +2,11 @@
 
 ## Unreleased
 
+### Added
+
+- Added automatic GitHub Release notes with `changelogithub` after a verified npm publish, plus a local dry-run preview command.
+- Required a successful same-commit CI run before release while avoiding duplicate documentation, Registry, and browser checks during tag publishing.
+
 ## 0.2.1 — 2026-08-03
 
 ### Added

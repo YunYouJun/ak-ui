@@ -53,6 +53,8 @@ examples/*.html ──────────→ DemoPreview + displayed source
 GitHub ──→ CI checks ──→ Cloudflare Pages Git deployment
 
 Git tag ──→ verified package ──→ npm OIDC publish + provenance
+                                      │
+                                      └──→ changelogithub GitHub Release
 ```
 
 核心约束保持简单：
@@ -98,9 +100,15 @@ Vue Registry 保留少量交互 Adapter，但不再复制组件样式，也不�
 
 ### 7. npm Trusted Publishing
 
-npm 发布由 `v*` Git tag 触发。GitHub Actions 会先在不具备发布权限的 job 中完成 lint、文档构建、Registry 安装和视觉测试，再把经过验证的 tarball 交给独立发布 job。发布 job 使用 OIDC 短期凭据，不保存长期 npm token，并由 npm 自动生成 provenance。
+npm 发布由 `v*` Git tag 触发。Release 工作流会先确认 tag 指向的同一 commit 已通过常规 CI，再在不具备发布权限的 job 中完成 tag、构建物与 Token 契约校验，并把打包产物交给独立发布 job。发布 job 使用 OIDC 短期凭据，不保存长期 npm token，并由 npm 自动生成 provenance。
 
-tag 必须与 `package.json` 版本完全一致，而且只能指向 `master` 历史中的提交。预发布版本进入 `next`，稳定版本进入 `latest`。
+tag 必须与 `package.json` 版本完全一致，而且只能指向 `master` 历史中的提交。预发布版本进入 `next`，稳定版本进入 `latest`。tag 本身是正式发布信号，只在维护者完成人工确认后创建；工作流不会自行打 tag，也不会绕过发布前审批。
+
+### 8. 自动 GitHub Release
+
+npm Trusted Publishing 成功后，独立的 `github-release` job 才会运行 `changelogithub`，根据完整 Git 历史和 Conventional Commits 自动创建或更新当前 tag 的 GitHub Release，按类型与 scope 组织变更并列出贡献者。该 job 只获得创建 Release 所需的 `contents: write`，其余校验和 npm 发布 job 保持只读或仅持有 OIDC 权限。
+
+Release 会先确认当前 tag 指向的同一 commit 已通过 `docs.yml` 的 push CI，再只执行发布专属的 tag 校验、CSS 构建、Token 契约验证与 tarball 打包；文档、Registry 和 Playwright 视觉回归不再重复运行。发布工具固定在 lockfile 中，CI 安装时禁用依赖生命周期脚本；checkout 也不会持久化写入凭据。维护者可以在打 tag 前运行 `pnpm release:notes` 预览生成结果。这个自动化只管理 GitHub Release notes，不会重写仓库中用于人工整理历史版本的 `CHANGELOG.md`。
 
 ## 这次刻意没有做什么
 

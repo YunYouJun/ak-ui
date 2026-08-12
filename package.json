@@ -24,6 +24,8 @@
     "test:visual:linux": "sh scripts/run-visual-linux.sh test",
     "test:visual:update:linux": "sh scripts/run-visual-linux.sh update",
     "test": "pnpm audit:deps && pnpm lint && pnpm docs:build && pnpm tokens:verify && pnpm registry:verify && pnpm test:visual:linux",
+    "release:github": "changelogithub",
+    "release:notes": "changelogithub --dry",
     "prepare": "husky",
     "prepublishOnly": "pnpm build"
   },
@@ -82,6 +84,7 @@
   "devDependencies": {
     "@playwright/test": "1.62.1",
     "autoprefixer": "^10.5.4",
+    "changelogithub": "15.0.4",
     "clean-css": "^5.3.3",
     "husky": "^9.1.7",
     "lint-staged": "^17.3.0",
