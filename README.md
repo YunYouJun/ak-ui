@@ -1,6 +1,8 @@
+
+
 # ak-ui
 
-[English](./README.md) | [简体中文](./README.zh-CN.md)
+[简体中文](./README.zh-CN.md)
 
 [![Docs](https://github.com/YunYouJun/ak-ui/actions/workflows/docs.yml/badge.svg)](https://github.com/YunYouJun/ak-ui/actions/workflows/docs.yml)
 [![npm](https://img.shields.io/npm/v/@yunyoujun/ak-ui.svg?style=flat-square)](https://www.npmjs.com/package/@yunyoujun/ak-ui)
