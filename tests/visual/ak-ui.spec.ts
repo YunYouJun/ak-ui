@@ -7,20 +7,25 @@ import { examples } from '../../examples/index'
 
 async function waitForFonts(page: Page) {
   await page.evaluate(async () => {
-    if (!document.fonts)
+    if (document.fonts)
+      await document.fonts.ready
+  })
+
+  let previousHeight = -1
+  let stableSamples = 0
+
+  for (let sample = 0; sample < 20; sample++) {
+    const height = await page.evaluate(() => document.documentElement.scrollHeight)
+    stableSamples = height === previousHeight ? stableSamples + 1 : 0
+
+    if (stableSamples >= 3)
       return
 
-    await Promise.all([
-      document.fonts.load('700 16px Syncopate', 'AKUI'),
-      document.fonts.load('400 16px "Noto Sans SC"', '设计语言与样式基础'),
-      document.fonts.load('500 16px "Noto Sans SC"', '设计语言与样式基础'),
-      document.fonts.load('700 16px "Noto Sans SC"', '设计语言与样式基础'),
-      document.fonts.load('900 16px "Noto Sans SC"', '界面模块'),
-      document.fonts.load('700 16px "Noto Serif SC"', '设计语言'),
-      document.fonts.load('900 16px "Noto Serif SC"', '作战'),
-    ])
-    await document.fonts.ready
-  })
+    previousHeight = height
+    await page.waitForTimeout(100)
+  }
+
+  throw new Error('Page layout did not stabilize after documentation fonts loaded')
 }
 
 async function waitForHomepageDemo(page: Page) {
@@ -33,6 +38,11 @@ test('renders the visual homepage', async ({ page }) => {
   await page.goto('/')
   await waitForHomepageDemo(page)
   await waitForFonts(page)
+
+  await expect(page.getByRole('link', { name: /^浏览组件/ })).toHaveAttribute('href', '/components/')
+  await expect(page.getByRole('link', { name: '查看完整演示 →', exact: true })).toHaveAttribute('href', '/showcase/')
+  await expect(page.locator('[data-demo-id="home/button-base"]')).toHaveAttribute('inert', '')
+
   await expect(page.locator('.ak-home')).toHaveScreenshot('home-desktop.webp')
 })
 
