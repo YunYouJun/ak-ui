@@ -29,7 +29,7 @@ const modules = [
 
         <div class="ak-hero__actions">
           <a class="ak-action ak-action--primary" href="/guide/ai-skill">使用 AI Skill <span>→</span></a>
-          <a class="ak-action" href="/guide/design-language">浏览设计规范 <span>↗</span></a>
+          <a class="ak-action" href="/components/">浏览组件 <span>↗</span></a>
         </div>
 
         <dl class="ak-hero__stats">
@@ -49,14 +49,18 @@ const modules = [
           :encoded="encodedButtonExample"
           :height="260"
           :show-code="false"
+          aria-hidden="true"
+          inert
           surface="color"
           title="Operation controls"
         />
         <div class="ak-terminal__coordinates">
           <span>31°13′12″N</span>
           <span>121°28′48″E</span>
-          <span>SYS / READY</span>
         </div>
+        <a class="ak-terminal__link" href="/showcase/">
+          <span>查看完整演示 →</span>
+        </a>
       </div>
     </section>
 
@@ -300,6 +304,18 @@ const modules = [
   box-shadow: 24px 28px 0 rgba(0, 0, 0, 0.28);
   clip-path: polygon(0 0, calc(100% - 36px) 0, 100% 36px, 100% 100%, 22px 100%, 0 calc(100% - 22px));
   animation: terminal-enter 700ms cubic-bezier(0.2, 0.75, 0.2, 1) both;
+  transition: border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+}
+
+.ak-hero__terminal:hover {
+  border-color: var(--home-blue);
+  box-shadow: 24px 28px 0 rgba(0, 0, 0, 0.28), 0 0 28px rgba(34, 187, 255, 0.16);
+  transform: translateY(-3px);
+}
+
+.ak-hero__terminal:focus-within {
+  outline: 2px solid var(--home-yellow);
+  outline-offset: 4px;
 }
 
 .ak-hero__terminal :deep(.ak-demo-preview) {
@@ -344,7 +360,34 @@ const modules = [
 
 .ak-terminal__status { color: var(--home-blue); }
 .ak-terminal__status::before { display: inline-block; width: 6px; height: 6px; margin-right: 7px; content: ''; background: currentColor; box-shadow: 0 0 12px currentColor; }
-.ak-terminal__coordinates { border-top: 1px solid #363b3f; }
+.ak-terminal__coordinates {
+  display: grid;
+  border-top: 1px solid #363b3f;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.ak-terminal__coordinates span:nth-child(2) { text-align: center; }
+
+.ak-terminal__link {
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  color: var(--home-paper);
+  text-decoration: none;
+}
+
+.ak-terminal__link span {
+  position: absolute;
+  right: 22px;
+  bottom: 14px;
+  color: var(--home-blue);
+  font: 700 9px/1 ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.ak-terminal__link:hover span { color: var(--home-yellow); }
 
 .ak-fidelity-note {
   display: grid;
@@ -487,6 +530,7 @@ const modules = [
 
 @media (prefers-reduced-motion: reduce) {
   .ak-hero__terminal { animation: none; }
+  .ak-hero__terminal:hover { transform: none; }
   .ak-action,
   .ak-module-card { transition: none; }
 }
