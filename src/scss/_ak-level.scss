@@ -33,17 +33,64 @@
     position: absolute;
     color: var(--level-prefix-icon-color, $blue);
     left: -1rem;
-    top: 0.2rem;
+    bottom: 0;
     width: 2rem;
     height: 2rem;
     filter: drop-shadow(0 0 5px rgba(black, 0.3));
   }
+  & &__prefix-icon--hexagon,
+  .prefix-icon--hexagon {
+    position: absolute;
+    bottom: 0;
+    left: -0.875rem;
+    width: 1.75rem;
+    height: 2rem;
+    filter: drop-shadow(0 1px 2px rgba(black, 0.35));
+
+    &::before,
+    &::after {
+      position: absolute;
+      content: "";
+      clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+    }
+
+    &::before {
+      inset: 0;
+      z-index: 0;
+      background-color: white;
+    }
+
+    &::after {
+      inset: 1px;
+      z-index: 1;
+      background-color: rgba(black, 0.82);
+      filter: blur(10px);
+    }
+
+    .ak-icon {
+      inset: 3px;
+      z-index: 2;
+      display: block;
+      width: calc(100% - 6px);
+      height: calc(100% - 6px);
+      color: transparent;
+      background-color: var(--level-prefix-icon-color, $blue);
+      background-image: linear-gradient(135deg, rgba(white, 0.4), transparent 48%, rgba(black, 0.2));
+      clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+      filter: none;
+      fill: transparent;
+    }
+  }
   & &__suffix-icon,
   .suffix-icon {
     position: absolute;
-    top: -0.7rem;
+    bottom: calc(-0.7rem + 2px);
     right: -1.7rem;
     width: 3.4rem;
     height: 3.4rem;
+
+    img {
+      margin: 0;
+    }
   }
 }
