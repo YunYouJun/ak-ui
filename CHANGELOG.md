@@ -1,11 +1,26 @@
 # Changelog
 
-## Unreleased
+## 1.0.0-rc.1 — 2026-09-06
 
 ### Added
 
+- Added English core documentation, safe locale switching, localized 404 recovery and built-site link verification.
+
+- Added an optional A2UI v0.9.1 documentation experiment using the official web core, a seven-component custom catalog, and a local agent simulation with data binding and action round trips.
+- Added protocol and responsive browser checks for the experiment, plus actual npm tarball consumption checks in CI and release verification.
+- Documented the proposed 1.x stability contract and release checklist; A2UI remains experimental and outside the CSS package.
+- Added Chromium, Firefox and WebKit coverage, stable CSS/export/Registry API baselines, consumer-project type checking and a 0.2.x migration guide.
 - Added automatic GitHub Release notes with `changelogithub` after a verified npm publish, plus a local dry-run preview command.
 - Required a successful same-commit CI run before release while avoiding duplicate documentation, Registry, and browser checks during tag publishing.
+
+### Fixed
+
+- Fixed the homepage dark-theme selector and pinned RC installation instructions to the intended package version.
+
+- Updated vulnerable development dependencies, including a scoped Stylus override to remove the obsolete decoder dependency chain.
+- Normalized nonfinite numeric inputs, inverted ranges and decimal steps; kept progress ARIA values finite.
+- Recovered tab selection after dynamic item removal and made tab panels keyboard reachable.
+- Cancelled queued depth animation on pointer leave and cleaned up live reduced-motion subscriptions on destroy.
 
 ## 0.2.1 — 2026-08-03
 

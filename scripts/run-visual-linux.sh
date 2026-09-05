@@ -19,6 +19,8 @@ case "${1:-test}" in
     ;;
 esac
 
+if [ "$#" -gt 0 ]; then shift; fi
+
 docker run --rm --init --ipc=host \
   --mount "type=bind,source=${repository_root},target=/work" \
   --mount type=volume,target=/work/node_modules \
@@ -37,8 +39,8 @@ docker run --rm --init --ipc=host \
     corepack enable
     pnpm install --frozen-lockfile
     set +e
-    pnpm "$PACKAGE_SCRIPT"
+    pnpm "$PACKAGE_SCRIPT" "$@"
     test_status=$?
     chown -R "$LOCAL_UID:$LOCAL_GID" tests/visual/ak-ui.spec.ts-snapshots test-results
     exit "$test_status"
-  '
+  ' -- "$@"

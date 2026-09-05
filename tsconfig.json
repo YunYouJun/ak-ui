@@ -1,0 +1,32 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "lib": [
+      "ES2022",
+      "DOM",
+      "DOM.Iterable"
+    ],
+    "strict": true,
+    "allowJs": true,
+    "checkJs": false,
+    "skipLibCheck": true,
+    "noEmit": true,
+    "resolveJsonModule": true
+  },
+  "include": [
+    "registry/**/*.ts",
+    "registry/**/*.vue",
+    "docs/.vitepress/theme/components/a2ui/**/*.ts",
+    "docs/.vitepress/theme/components/a2ui/**/*.vue",
+    "examples/a2ui/**/*.mjs",
+    "src/js/**/*.d.ts",
+    "tests/fixtures/**/*.vue",
+    "docs/.vitepress/en.ts",
+    "docs/.vitepress/theme/Layout.vue",
+    "docs/.vitepress/theme/components/AkHome.vue",
+    "docs/.vitepress/theme/components/AkNotFound.vue",
+    "docs/.vitepress/env.d.ts"
+  ]
+}

@@ -5,3 +5,7 @@ allowBuilds:
 
 overrides:
   tar: 7.5.22
+  # postcss-styl still requests Stylus 0.57, whose obsolete css/source-map-resolve
+  # chain uses vulnerable decode-uri-component. Preserve the CJS parser API by
+  # upgrading Stylus instead of overriding the decoder with an ESM-only version.
+  'postcss-styl>stylus': 0.64.0

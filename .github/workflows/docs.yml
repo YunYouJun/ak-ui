@@ -39,17 +39,32 @@ jobs:
       - name: Audit dependencies
         run: pnpm audit:deps
 
-      - name: Install Chromium
-        run: pnpm exec playwright install --with-deps chromium
+      - name: Install browser engines
+        run: pnpm exec playwright install --with-deps chromium firefox webkit
 
       - name: Lint styles
         run: pnpm lint
 
+      - name: Check Vue registry and A2UI types
+        run: pnpm typecheck
+
       - name: Build documentation
         run: pnpm docs:build
 
+      - name: Verify documentation links and assets
+        run: pnpm docs:verify
+
       - name: Verify design token contract
         run: pnpm tokens:verify
+
+      - name: Verify stable API and runtime lifecycle
+        run: pnpm api:verify && pnpm runtime:verify
+
+      - name: Verify packed package consumption
+        run: pnpm package:verify
+
+      - name: Verify experimental A2UI session
+        run: pnpm a2ui:verify
 
       - name: Verify Vue registry installation
         run: pnpm registry:verify

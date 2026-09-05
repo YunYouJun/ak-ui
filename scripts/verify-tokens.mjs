@@ -15,21 +15,8 @@ assert.equal(tokensCss.match(/}/g)?.length, 1, 'tokens.css must only contain the
 assert.doesNotMatch(tokensCss, /(?:^|})\s*(?:html|body|button|input|\.|#|\[)/m)
 assert.ok(coreCss.startsWith(tokensCss.trim()), 'CSS Core must include the same token block')
 
-const requiredTokens = [
-  '--ak-surface-canvas',
-  '--ak-surface-panel',
-  '--ak-text-primary',
-  '--ak-signal-info',
-  '--ak-signal-action',
-  '--ak-font-command',
-  '--ak-space-1',
-  '--ak-density-control-height',
-  '--ak-line-strong',
-  '--ak-cut-md',
-  '--ak-shadow-panel',
-  '--ak-motion-base',
-  '--ak-focus-color',
-]
+// Additions are compatible; removing a baseline name requires a major-version review.
+const requiredTokens = JSON.parse(await readFile(resolve(projectRoot, 'tests/public-tokens.json'), 'utf8'))
 
 for (const token of requiredTokens) {
   assert.ok(tokensCss.includes(`${token}:`), `Missing public token: ${token}`)

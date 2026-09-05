@@ -82,6 +82,12 @@ jobs:
       - name: Verify design token contract
         run: pnpm tokens:verify
 
+      - name: Verify stable API and runtime lifecycle
+        run: pnpm api:verify && pnpm runtime:verify
+
+      - name: Verify packed package consumption
+        run: pnpm package:verify
+
       - name: Pack verified package
         shell: bash
         run: |

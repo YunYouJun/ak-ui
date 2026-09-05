@@ -97,6 +97,13 @@ try {
   }, null, 2)}\n`)
   await writeFile(resolve(fixtureRoot, 'tsconfig.json'), `${JSON.stringify({
     compilerOptions: {
+      target: 'ES2022',
+      module: 'ESNext',
+      moduleResolution: 'Bundler',
+      lib: ['ES2022', 'DOM', 'DOM.Iterable'],
+      strict: true,
+      skipLibCheck: true,
+      noEmit: true,
       baseUrl: '.',
       paths: {
         '@/*': ['./src/*'],
@@ -138,7 +145,13 @@ try {
   for (const expectedFile of expectedFiles)
     assert.ok(installedNames.has(expectedFile), `Missing installed registry file: ${expectedFile}`)
 
-  console.log(`Verified ${itemNames.length} registry items and ${expectedFiles.length} installed adapter files.`)
+  const typecheck = spawnSync('pnpm', ['exec', 'vue-tsc', '--project', resolve(fixtureRoot, 'tsconfig.json')], {
+    cwd: projectRoot,
+    encoding: 'utf8',
+  })
+  assert.equal(typecheck.status, 0, [typecheck.stdout, typecheck.stderr].filter(Boolean).join('\n'))
+
+  console.log(`Verified ${itemNames.length} registry items and ${expectedFiles.length} installed adapter files, including consumer-project type checking.`)
 }
 finally {
   await rm(fixtureRoot, { recursive: true, force: true })

@@ -14,7 +14,7 @@ export default defineConfig({
   reporter: process.env.CI ? 'github' : [['list'], ['html', { open: 'never' }]],
   snapshotPathTemplate: '{testDir}/{testFilePath}-snapshots/{arg}{ext}',
   use: {
-    baseURL: 'http://127.0.0.1:5173',
+    baseURL: 'http://127.0.0.1:4179',
     colorScheme: 'dark',
     locale: 'zh-CN',
     screenshot: 'only-on-failure',
@@ -26,10 +26,13 @@ export default defineConfig({
       name: 'chromium',
       use: { ...devices['Desktop Chrome'] },
     },
+    { name: 'firefox', use: { ...devices['Desktop Firefox'] } },
+    { name: 'webkit', use: { ...devices['Desktop Safari'] } },
   ],
   webServer: {
-    command: 'pnpm exec vitepress dev docs --host 127.0.0.1',
-    url: 'http://127.0.0.1:5173',
-    reuseExistingServer: !process.env.CI,
+    command: 'pnpm exec vitepress dev docs --host 127.0.0.1 --port 4179 --strictPort',
+    url: 'http://127.0.0.1:4179',
+    // Never reuse an unrelated application listening on a common development port.
+    reuseExistingServer: false,
   },
 })
