@@ -21,10 +21,13 @@ const props = withDefaults(defineProps<{
   variant: 'default',
 })
 
-const normalizedValue = computed(() => Math.min(props.max, Math.max(props.min, props.value)))
+const lower = computed(() => Number.isFinite(props.min) ? props.min : 0)
+const upper = computed(() => Math.max(lower.value, Number.isFinite(props.max) ? props.max : 100))
+const normalizedValue = computed(() => Math.min(upper.value, Math.max(lower.value,
+  Number.isFinite(props.value) ? props.value : lower.value)))
 const percentage = computed(() => {
-  const range = props.max - props.min
-  return range > 0 ? ((normalizedValue.value - props.min) / range) * 100 : 0
+  const range = upper.value - lower.value
+  return range > 0 ? ((normalizedValue.value - lower.value) / range) * 100 : 0
 })
 const progressStyle = computed(() => ({
   '--ak-progress-value': `${percentage.value}%`,
@@ -37,8 +40,8 @@ const progressStyle = computed(() => ({
     data-slot="ak-progress"
     role="progressbar"
     :aria-label="label"
-    :aria-valuemax="max"
-    :aria-valuemin="min"
+    :aria-valuemax="upper"
+    :aria-valuemin="lower"
     :aria-valuenow="normalizedValue"
     :class="variant !== 'default' && `ak-progress--${variant}`"
     :data-variant="variant"

@@ -25,24 +25,34 @@ export function createDashboardDepth(root, options = {}) {
   const layers = Array.from(root.querySelectorAll(config.layerSelector))
   const reduceMotion = view.matchMedia('(prefers-reduced-motion: reduce)')
   let motionFrame = 0
+  let destroyed = false
 
   function render(clientX, clientY) {
+    if (destroyed)
+      return
     const rect = root.getBoundingClientRect()
 
     if (!rect.width || !rect.height)
       return
 
+    if (config.respectReducedMotion && reduceMotion.matches) {
+      clientX = rect.left + rect.width / 2
+      clientY = rect.top + rect.height / 2
+    }
+
     const x = ((clientX - rect.left) / rect.width - 0.5) * 2
     const y = ((clientY - rect.top) / rect.height - 0.5) * 2
 
     for (const layer of layers) {
-      const depth = Number(layer.dataset.depth || 0)
+      const rawDepth = Number(layer.dataset.depth || 0)
+      const depth = Number.isFinite(rawDepth) ? rawDepth : 0
       layer.style.setProperty('--ak-layer-x', `${(-x * config.maxX * depth).toFixed(2)}px`)
       layer.style.setProperty('--ak-layer-y', `${(-y * config.maxY * depth).toFixed(2)}px`)
     }
   }
 
   function reset() {
+    view.cancelAnimationFrame(motionFrame)
     const rect = root.getBoundingClientRect()
     render(rect.left + rect.width / 2, rect.top + rect.height / 2)
   }
@@ -57,16 +67,25 @@ export function createDashboardDepth(root, options = {}) {
 
   root.addEventListener('pointermove', onPointerMove)
   root.addEventListener('pointerleave', reset)
+  function onMotionPreferenceChange() {
+    if (config.respectReducedMotion && reduceMotion.matches)
+      reset()
+  }
+  reduceMotion.addEventListener('change', onMotionPreferenceChange)
   reset()
 
   return {
     render,
     reset,
     destroy() {
+      if (destroyed)
+        return
       view.cancelAnimationFrame(motionFrame)
       root.removeEventListener('pointermove', onPointerMove)
       root.removeEventListener('pointerleave', reset)
+      reduceMotion.removeEventListener('change', onMotionPreferenceChange)
       reset()
+      destroyed = true
     },
   }
 }

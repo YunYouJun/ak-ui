@@ -11,7 +11,9 @@ const props = defineProps<{
 
 const model = defineModel<string>()
 const instanceId = useId()
-const activeValue = computed(() => model.value ?? props.items[0]?.value ?? '')
+const activeValue = computed(() => props.items.some(item => item.value === model.value)
+  ? model.value
+  : props.items[0]?.value ?? '')
 
 function activate(value: string) {
   model.value = value
@@ -38,6 +40,9 @@ async function onKeydown(index: number, event: KeyboardEvent) {
       ? props.items.length - 1
       : (index + offset + props.items.length) % props.items.length
   const nextItem = props.items[nextIndex]
+
+  if (!nextItem)
+    return
 
   activate(nextItem.value)
   await nextTick()
@@ -71,6 +76,7 @@ async function onKeydown(index: number, event: KeyboardEvent) {
       :key="`${item.value}-panel`"
       class="ak-tabs__panel"
       role="tabpanel"
+      tabindex="0"
       :aria-labelledby="tabId(item.value)"
     >
       <span v-if="item.eyebrow" class="ak-tabs__eyebrow">{{ item.eyebrow }}</span>

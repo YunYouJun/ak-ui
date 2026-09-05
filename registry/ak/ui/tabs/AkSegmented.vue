@@ -10,11 +10,13 @@ const props = defineProps<{
 }>()
 
 const model = defineModel<string>()
-const activeValue = computed(() => model.value ?? props.options[0]?.value ?? '')
+const activeValue = computed(() => props.options.some(option => option.value === model.value)
+  ? model.value
+  : props.options[0]?.value ?? '')
 </script>
 
 <template>
-  <div class="ak-segmented" data-slot="ak-segmented" :aria-label="ariaLabel || 'Options'">
+  <div class="ak-segmented" data-slot="ak-segmented" role="group" :aria-label="ariaLabel || 'Options'">
     <button
       v-for="option in options"
       :key="option.value"

@@ -22,19 +22,21 @@ const props = withDefaults(defineProps<{
 })
 
 const model = defineModel<number>({ default: 0 })
+const lower = computed(() => Number.isFinite(props.min) ? props.min : 0)
+const upper = computed(() => Math.max(lower.value, Number.isFinite(props.max) ? props.max : 99))
 const normalizedValue = computed(() => clamp(model.value))
-const normalizedStep = computed(() => Math.abs(props.step) || 1)
+const normalizedStep = computed(() => Number.isFinite(props.step) ? Math.abs(props.step) || 1 : 1)
 
 function clamp(value: number) {
-  return Math.min(props.max, Math.max(props.min, value))
+  return Math.min(upper.value, Math.max(lower.value, Number.isFinite(value) ? value : lower.value))
 }
 
 function updateValue(value: number) {
   if (!props.disabled)
-    model.value = clamp(value)
+    model.value = clamp(Number(value.toFixed(12)))
 }
 
-watch([model, () => props.min, () => props.max], ([value]) => {
+watch([model, lower, upper], ([value]) => {
   const nextValue = clamp(value)
 
   if (nextValue !== value)
@@ -66,7 +68,7 @@ function onInput(event: Event) {
       type="button"
       class="ak-input-number__increase"
       aria-label="增加"
-      :disabled="disabled || normalizedValue >= max"
+      :disabled="disabled || normalizedValue >= upper"
       @click="updateValue(normalizedValue + normalizedStep)"
     >
       <svg class="ak-icon" viewBox="0 0 24 24" aria-hidden="true">
@@ -77,7 +79,7 @@ function onInput(event: Event) {
       type="button"
       class="ak-input-number__decrease"
       aria-label="减少"
-      :disabled="disabled || normalizedValue <= min"
+      :disabled="disabled || normalizedValue <= lower"
       @click="updateValue(normalizedValue - normalizedStep)"
     >
       <svg class="ak-icon" viewBox="0 0 24 24" aria-hidden="true">
@@ -87,16 +89,16 @@ function onInput(event: Event) {
     <button
       type="button"
       class="ak-input-number__max"
-      :disabled="disabled || normalizedValue >= max"
-      @click="updateValue(max)"
+      :disabled="disabled || normalizedValue >= upper"
+      @click="updateValue(upper)"
     >
       {{ maxLabel }}
     </button>
     <button
       type="button"
       class="ak-input-number__min"
-      :disabled="disabled || normalizedValue <= min"
-      @click="updateValue(min)"
+      :disabled="disabled || normalizedValue <= lower"
+      @click="updateValue(lower)"
     >
       {{ minLabel }}
     </button>
@@ -105,8 +107,8 @@ function onInput(event: Event) {
       type="number"
       :aria-label="label"
       :disabled="disabled"
-      :max="max"
-      :min="min"
+      :max="upper"
+      :min="lower"
       :step="normalizedStep"
       :value="normalizedValue"
       @input="onInput"
