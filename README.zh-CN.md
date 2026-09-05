@@ -15,6 +15,10 @@
 
 ak-ui 不以像素级复刻某个游戏页面为目标，而是把工业几何和战术信息语言抽象为可融合到用户产品与品牌中的设计约束。
 
+运行时生成界面可体验 [A2UI 实验](https://ak-ui.yyj.moe/guide/a2ui)：基于官方协议处理器的本地模拟，不增加 CSS 包的运行时依赖。稳定接口范围与收尾事项见 [1.0 发布检查](https://ak-ui.yyj.moe/guide/stability)。
+
+发布候选：**1.0.0-rc.1**，供正式 1.0 前试用。从 0.2.x 升级请参阅 [迁移指南](https://ak-ui.yyj.moe/guide/migration-v1)，组件接口见 [Vue Registry API](https://ak-ui.yyj.moe/registry/api)。
+
 ## 使用 AI（推荐）
 
 使用开放的 [Skills CLI](https://github.com/vercel-labs/skills) 安装公开 `ak-ui` Skill：
@@ -106,10 +110,12 @@ pnpm dev
 pnpm build               # 构建 dist CSS
 pnpm docs:build          # 构建 VitePress 站点
 pnpm lint                # 检查 SCSS
-pnpm test:visual         # 在当前操作系统上快速执行视觉检查
+pnpm test:visual         # 在当前系统运行 Chromium、Firefox、WebKit 检查
 pnpm test:visual:update:linux # 在与 CI 匹配的 Linux 容器中更新无损 WebP 基准图
 pnpm test                # 运行全部验证，包括 Linux 视觉回归测试
 ```
+
+首次在本机运行浏览器测试前执行 `pnpm exec playwright install chromium firefox webkit`。只有 Chromium 使用首页像素基准；Firefox/WebKit 验证页面、交互与布局。
 
 `examples/` 中的文件是文档预览、展示源码与 Playwright 浏览器测试的唯一数据源。
 仓库只记录桌面端与移动端首页的基准图。组件截图生成在 `test-results/` 中，并作为保留 14 天的 GitHub Actions 构建产物上传，不会写入 Git 历史。首页基准图使用固定版本的 Playwright Noble 容器生成，以确保本地更新结果与 Ubuntu 24.04 CI 渲染环境一致。

@@ -1,16 +1,22 @@
 <script setup lang="ts">
+import { computed } from 'vue'
+import { useData } from 'vitepress'
 import DemoPreview from './DemoPreview.vue'
 import buttonExample from '../../../../examples/button/base.html?raw'
 
 const encodedButtonExample = encodeURIComponent(buttonExample.trim())
 
+const { lang } = useData()
+const en = computed(() => lang.value === 'en')
+const label = (zh: string, english: string) => en.value ? english : zh
+const guideLink = computed(() => en.value ? '/en/guide/' : '/guide/ai-skill')
 const modules = [
-  { code: 'BTN', name: '按钮', description: '行动、确认与快捷操作', href: '/components/ak-button' },
-  { code: 'CRD', name: '卡片', description: '信息容器与选择状态', href: '/components/ak-card' },
-  { code: 'LVL', name: '关卡', description: '作战节点与资源标记', href: '/components/ak-level' },
-  { code: 'SAN', name: '理智', description: '状态数值与反馈组合', href: '/components/ak-san' },
-  { code: 'FX', name: '效果', description: '倾斜、辉光与轮廓', href: '/components/ak-fx' },
-  { code: 'OBJ', name: '物体', description: '三维战术地图元素', href: '/components/ak-object' },
+  { code: 'BTN', name: '按钮', english: 'Buttons', description: '行动、确认与快捷操作', englishDescription: 'Actions, confirmations and shortcuts', href: '/components/ak-button' },
+  { code: 'CRD', name: '卡片', english: 'Cards', description: '信息容器与选择状态', englishDescription: 'Content containers and selection states', href: '/components/ak-card' },
+  { code: 'LVL', name: '关卡', english: 'Levels', description: '作战节点与资源标记', englishDescription: 'Stage nodes and resource markers', href: '/components/ak-level' },
+  { code: 'SAN', name: '理智', english: 'Sanity', description: '状态数值与反馈组合', englishDescription: 'Status values and feedback', href: '/components/ak-san' },
+  { code: 'FX', name: '效果', english: 'Effects', description: '倾斜、辉光与轮廓', englishDescription: 'Skew, glow and outlines', href: '/components/ak-fx' },
+  { code: 'OBJ', name: '物体', english: 'Objects', description: '三维战术地图元素', englishDescription: 'Three-dimensional tactical elements', href: '/components/ak-object' },
 ]
 </script>
 
@@ -25,11 +31,11 @@ const modules = [
       <div class="ak-hero__brief">
         <p class="ak-kicker"><span>AK-UI / 001</span> AI-READY DESIGN FOUNDATION</p>
         <h1><span>AK</span><i>/</i>UI</h1>
-        <p class="ak-hero__lead">把受《明日方舟》启发的几何、层级与反馈，变成可融合品牌、可由 AI 编排的样式基础。</p>
+        <p class="ak-hero__lead">{{ label('把受《明日方舟》启发的几何、层级与反馈，变成可融合品牌、可由 AI 编排的样式基础。', 'Geometry, hierarchy and feedback inspired by Arknights. A CSS foundation for your brand, ready for AI-assisted development.') }}</p>
 
         <div class="ak-hero__actions">
-          <a class="ak-action ak-action--primary" href="/guide/ai-skill">使用 AI Skill <span>→</span></a>
-          <a class="ak-action" href="/components/">浏览组件 <span>↗</span></a>
+          <a class="ak-action ak-action--primary" :href="guideLink">{{ label('使用 AI Skill', 'Get started') }} <span>→</span></a>
+          <a class="ak-action" :href="en ? '/en/components/' : '/components/'">{{ label('浏览组件', 'Browse components') }} <span>↗</span></a>
         </div>
 
         <dl class="ak-hero__stats">
@@ -59,27 +65,27 @@ const modules = [
           <span>121°28′48″E</span>
         </div>
         <a class="ak-terminal__link" href="/showcase/">
-          <span>查看完整演示 →</span>
+          <span>{{ label('查看完整演示 →', 'Explore the full demo →') }}</span>
         </a>
       </div>
     </section>
 
     <section class="ak-fidelity-note" aria-labelledby="fidelity-note-title">
       <p class="ak-section-code">DESIGN SCOPE / 00</p>
-      <h2 id="fidelity-note-title">约束的是设计语言，<br>不是像素级还原。</h2>
+      <h2 id="fidelity-note-title">{{ label('约束的是设计语言，', 'A design language,') }}<br>{{ label('不是像素级还原。', 'with room for your brand.') }}</h2>
       <div>
-        <p>ak-ui 抽象信息层级、工业几何、功能色彩、组件状态与动效节奏，帮助用户构建具有相似气质但品牌、内容和结构独立的产品界面。</p>
-        <a href="/guide/design-language">查看 ak-ui 设计契约 →</a>
+        <p>{{ label('ak-ui 抽象信息层级、工业几何、功能色彩、组件状态与动效节奏，帮助用户构建具有相似气质但品牌、内容和结构独立的产品界面。', 'Build an independent product with industrial geometry, purposeful colors, clear states and measured motion. Keep your own brand, content and structure.') }}</p>
+        <a href="/guide/design-language">{{ label('查看 ak-ui 设计契约 →', 'Read the design contract (中文) →') }}</a>
       </div>
     </section>
 
     <section class="ak-manifesto">
       <header>
         <p class="ak-section-code">DESIGN RECORD / 01</p>
-        <h2>Token 是 contract，<br>框架只是 adapter。</h2>
+        <h2>{{ label('Token 是 contract，', 'Tokens are the contract.') }}<br>{{ label('框架只是 adapter。', 'Frameworks are adapters.') }}</h2>
       </header>
       <div class="ak-manifesto__body">
-        <p>每个模块由语义化 HTML、稳定类名和 CSS variables 组成。AI Skill 会优先复用项目已有 primitives，并保留品牌和无障碍行为。</p>
+        <p>{{ label('每个模块由语义化 HTML、稳定类名和 CSS variables 组成。AI Skill 会优先复用项目已有 primitives，并保留品牌和无障碍行为。', 'Each module combines semantic HTML, stable class names and CSS variables. The AI Skill reuses your existing primitives while preserving brand identity and accessible behavior.') }}</p>
         <div class="ak-manifesto__rule">
           <span>TOKENS</span><i></i><span>PRIMITIVES</span><i></i><span>ANY STACK</span>
         </div>
@@ -89,14 +95,14 @@ const modules = [
     <section class="ak-module-index">
       <header>
         <p class="ak-section-code">TERMINAL INDEX / 02</p>
-        <h2>界面模块</h2>
-        <a href="/components/">打开完整索引 →</a>
+        <h2>{{ label('界面模块', 'Interface modules') }}</h2>
+        <a :href="en ? '/en/components/' : '/components/'">{{ label('打开完整索引 →', 'Open the component index →') }}</a>
       </header>
       <div class="ak-module-grid">
         <a v-for="module in modules" :key="module.code" :href="module.href" class="ak-module-card">
           <span class="ak-module-card__code">{{ module.code }}</span>
-          <strong>{{ module.name }}</strong>
-          <p>{{ module.description }}</p>
+          <strong>{{ label(module.name, module.english + ' (中文)') }}</strong>
+          <p>{{ label(module.description, module.englishDescription) }}</p>
           <span class="ak-module-card__arrow">↗</span>
         </a>
       </div>
@@ -141,7 +147,7 @@ const modules = [
   isolation: isolate;
 }
 
-:global(.dark) .ak-home {
+:global(.dark .ak-home) {
   --home-bg: #111315;
   --home-text: #f3f4ef;
   --home-muted: #aeb4b9;

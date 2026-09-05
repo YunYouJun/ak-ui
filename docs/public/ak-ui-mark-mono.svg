@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title">
+  <title id="title">ak-ui monochrome mark</title>
+  <g fill="currentColor">
+    <path d="M48 48h112v32H80v80H48z" fill-rule="evenodd"/>
+    <path d="M352 48h112v112h-32V80h-80z" fill-rule="evenodd"/>
+    <path d="M48 352h32v80h80v32H48z" fill-rule="evenodd"/>
+    <path d="M432 352h32v112H352v-32h80z" fill-rule="evenodd"/>
+    <path d="m134 253 74-165h93l39 85h-67l-15-33-56 113z"/>
+    <path d="M130 268h71l-67 129H66z"/>
+    <path d="m218 268 68-73h65l27 58h-80l-22 24 45 45v95L218 291z"/>
+    <path d="M316 266h54l50 116h-56l-20-46z"/>
+    <path d="m348 360 52 32-42 32z"/>
+  </g>
+</svg>

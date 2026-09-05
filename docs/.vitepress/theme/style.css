@@ -69,7 +69,7 @@ body {
   letter-spacing: -0.04em;
 }
 
-.VPNavBarTitle .logo { filter: grayscale(1) contrast(1.8); }
+.VPNavBarTitle .logo { filter: none; }
 .VPNavBarMenuLink,
 .VPNavBarMenuGroup .text { font-size: 12px; font-weight: 700; letter-spacing: 0.08em; }
 

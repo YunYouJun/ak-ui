@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title">
+  <title id="title">ak-ui app icon</title>
+  <rect width="512" height="512" rx="64" fill="#151719"/>
+  <g fill="#F4F2EA">
+    <path d="M56 56h104v28H84v76H56z" fill-rule="evenodd"/>
+    <path d="M352 56h104v104h-28V84h-76z" fill-rule="evenodd"/>
+    <path d="M56 352h28v76h76v28H56z" fill-rule="evenodd"/>
+    <path d="M428 352h28v104H352v-28h76z" fill-rule="evenodd"/>
+    <path d="m134 253 74-165h93l39 85h-67l-15-33-56 113z"/>
+    <path d="M130 268h71l-67 129H66z"/>
+    <path d="m218 268 68-73h65l27 58h-80l-22 24 45 45v95L218 291z"/>
+    <path d="M316 266h54l50 116h-56l-20-46z"/>
+  </g>
+  <path fill="#E89016" d="m348 360 52 32-42 32z"/>
+</svg>

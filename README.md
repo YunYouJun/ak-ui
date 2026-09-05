@@ -8,12 +8,16 @@
 
 An unofficial, Arknights-inspired styling foundation for building original interfaces with AI or by hand. ak-ui provides semantic design tokens, framework-agnostic CSS primitives, component guidelines, and an installable Agent Skill.
 
-- Documentation: <https://ak-ui.yyj.moe>
+- Documentation: <https://ak-ui.yyj.moe/en/>
 - Design foundation: tokens, geometry, hierarchy, motion, and interaction states
 - Integration: AI Skill, CSS Core, Vue Registry, or any unstyled headless library
 - Runtime dependency: none
 
 ak-ui does not aim to reproduce a specific game screen pixel for pixel. It turns the underlying industrial geometry and tactical information language into constraints that can adapt to your own product and brand.
+
+Explore runtime-generated interfaces in the [A2UI experiment](https://ak-ui.yyj.moe/en/guide/a2ui), a local simulation using the official protocol processor with no added runtime dependencies in the CSS package. See the [1.0 stability and release checklist](https://ak-ui.yyj.moe/en/guide/stability) for the proposed compatibility contract.
+
+Release candidate: **1.0.0-rc.1**, for evaluation before stable 1.0. See the [0.2.x migration guide](https://ak-ui.yyj.moe/en/guide/stability) and [Vue Registry API (中文)](https://ak-ui.yyj.moe/registry/api).
 
 ## Use with AI (recommended)
 
@@ -80,7 +84,7 @@ pnpm dlx shadcn-vue@latest add https://ak-ui.yyj.moe/r/notice.json
 pnpm dlx shadcn-vue@latest add https://ak-ui.yyj.moe/r/tabs.json
 ```
 
-The copied Vue source imports the framework-agnostic CSS package, so there is no separate ak-ui runtime. See the [Vue Registry guide](https://ak-ui.yyj.moe/registry/) for usage and live examples.
+The copied Vue source imports the framework-agnostic CSS package, so there is no separate ak-ui runtime. See the [Vue Registry guide](https://ak-ui.yyj.moe/en/registry/) for usage and live examples.
 
 ## Design language and headless components
 
@@ -106,10 +110,12 @@ Useful commands:
 pnpm build               # build dist CSS
 pnpm docs:build          # build the VitePress site
 pnpm lint                # check SCSS
-pnpm test:visual         # quick visual check for the current OS
+pnpm test:visual         # Chromium, Firefox and WebKit checks on the current OS
 pnpm test:visual:update:linux # update lossless WebP baselines in the CI-matched Linux container
 pnpm test                # run all verification with Linux visual regression
 ```
+
+Before the first local browser run, use `pnpm exec playwright install chromium firefox webkit`. Only Chromium compares homepage pixels; Firefox/WebKit validate page behavior and layout.
 
 The files in `examples/` are the single source for documentation previews, displayed source code, and Playwright browser tests.
 Only the desktop and mobile homepage baselines are versioned. Component captures are generated under `test-results/` and uploaded as a 14-day GitHub Actions artifact instead of entering Git history. The homepage baselines use the pinned Playwright Noble container so local updates match the Ubuntu 24.04 CI renderer.

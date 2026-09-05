@@ -30,18 +30,20 @@ ak-ui 把受《明日方舟》启发的设计语言拆成语义 Token、无运�
 
 ## 安装
 
+以下命令固定为 **1.0.0-rc.1** 发布候选，供正式 1.0 前试用。候选版使用 npm 的 `next` 标签，稳定版使用 `latest`。
+
 ::: code-group
 
 ```bash [pnpm]
-pnpm add @yunyoujun/ak-ui@next
+pnpm add @yunyoujun/ak-ui@1.0.0-rc.1
 ```
 
 ```bash [npm]
-npm install @yunyoujun/ak-ui@next
+npm install @yunyoujun/ak-ui@1.0.0-rc.1
 ```
 
 ```bash [yarn]
-yarn add @yunyoujun/ak-ui@next
+yarn add @yunyoujun/ak-ui@1.0.0-rc.1
 ```
 
 :::
@@ -61,7 +63,7 @@ import '@yunyoujun/ak-ui/tokens.css'
 也可以直接通过 CDN 引入：
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@yunyoujun/ak-ui@next/dist/ak-ui.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@yunyoujun/ak-ui@1.0.0-rc.1/dist/ak-ui.min.css">
 ```
 
 ## 使用 CSS Core
@@ -76,3 +78,9 @@ import '@yunyoujun/ak-ui/tokens.css'
 ::: warning 非官方项目
 ak-ui 是非官方、兴趣驱动的设计语言研究，与鹰角网络没有关联。项目不以复刻具体游戏页面为目标；游戏名称、图像及相关素材的权利归原权利人所有。
 :::
+
+## 语言与明暗主题
+
+文档首页、导航、404 和核心接入说明支持中文与 [English](/en/guide/)。详细组件与 API 参考目前以中文为准，英文入口会标明中文链接；语言菜单返回对应语言首页，避免跳到尚未翻译的页面。
+
+文档支持明暗主题并保存你的选择，组件演示保留各自的展示底色。CSS 库不会自动翻译业务内容或接管应用主题：请通过组件属性、插槽和消费项目中的源码提供本地化标签，通过设计 Token 适配产品配色。

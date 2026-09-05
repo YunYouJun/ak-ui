@@ -28,13 +28,23 @@ async function waitForFonts(page: Page) {
   throw new Error('Page layout did not stabilize after documentation fonts loaded')
 }
 
+async function useSnapshotFonts(page: Page) {
+  // Pin visual baselines to the Linux image's fallback fonts. A remote stylesheet
+  // can arrive after document.fonts.ready and change line wraps during capture.
+  await page.route('https://fonts.googleapis.com/**', route => route.fulfill({
+    contentType: 'text/css',
+    body: '',
+  }))
+}
+
 async function waitForHomepageDemo(page: Page) {
   const demo = page.locator('[data-demo-id="home/button-base"]')
   await expect(demo.locator('.ak-demo-preview__canvas .ak-button')).toHaveCount(3)
   await demo.scrollIntoViewIfNeeded()
 }
 
-test('renders the visual homepage', async ({ page }) => {
+test('renders the visual homepage', async ({ page, browserName }) => {
+  await useSnapshotFonts(page)
   await page.goto('/')
   await waitForHomepageDemo(page)
   await waitForFonts(page)
@@ -43,15 +53,22 @@ test('renders the visual homepage', async ({ page }) => {
   await expect(page.getByRole('link', { name: '查看完整演示 →', exact: true })).toHaveAttribute('href', '/showcase/')
   await expect(page.locator('[data-demo-id="home/button-base"]')).toHaveAttribute('inert', '')
 
-  await expect(page.locator('.ak-home')).toHaveScreenshot('home-desktop.webp')
+  if (browserName === 'chromium')
+    await expect(page.locator('.ak-home')).toHaveScreenshot('home-desktop.webp')
+  else
+    await expect(page.locator('.ak-home')).toBeVisible()
 })
 
-test('renders the mobile homepage', async ({ page }) => {
+test('renders the mobile homepage', async ({ page, browserName }) => {
   await page.setViewportSize({ width: 390, height: 844 })
+  await useSnapshotFonts(page)
   await page.goto('/')
   await waitForHomepageDemo(page)
   await waitForFonts(page)
-  await expect(page.locator('.ak-home')).toHaveScreenshot('home-mobile.webp')
+  if (browserName === 'chromium')
+    await expect(page.locator('.ak-home')).toHaveScreenshot('home-mobile.webp')
+  else
+    await expect(page.locator('.ak-home')).toBeVisible()
 })
 
 test('keeps the light theme coordinated and legible', async ({ page }) => {
@@ -91,7 +108,7 @@ test('groups AI, CSS, and Vue onboarding into one navigation system', async ({ p
   await expect(page.locator('.VPNavBarMenuGroup').filter({ hasText: '开始使用' })).toHaveCount(1)
   await expect(page.locator('.VPSidebar').getByRole('link', { name: /AI Skill/ })).toBeVisible()
   await expect(page.locator('.VPSidebar').getByRole('link', { name: 'CSS Core' })).toBeVisible()
-  await expect(page.locator('.VPSidebar').getByRole('link', { name: 'Vue Registry' })).toBeVisible()
+  await expect(page.locator('.VPSidebar').getByRole('link', { name: 'Vue Registry', exact: true })).toBeVisible()
   await expect(page.locator('.ak-entry-card')).toHaveCount(3)
 
   await page.locator('.ak-entry-card--ai').click()
@@ -101,7 +118,7 @@ test('groups AI, CSS, and Vue onboarding into one navigation system', async ({ p
   await page.locator('.ak-entry-card--vue').click()
   await expect(page).toHaveURL(/\/registry\/$/)
   await expect(page.locator('.VPSidebar').getByRole('link', { name: 'CSS Core' })).toBeVisible()
-  await expect(page.locator('.VPSidebar').getByRole('link', { name: 'Vue Registry' })).toBeVisible()
+  await expect(page.locator('.VPSidebar').getByRole('link', { name: 'Vue Registry', exact: true })).toBeVisible()
 })
 
 test('centers divider content vertically', async ({ page }) => {
@@ -470,6 +487,9 @@ test('renders extended Vue registry adapters', async ({ page }) => {
 })
 
 test('captures every framework-agnostic HTML example', async ({ page }, testInfo: TestInfo) => {
+  // This is one batch over the whole catalog, not a single interaction.
+  // Linux WebKit can spend over two minutes scrolling and encoding all captures.
+  test.setTimeout(300_000)
   await page.goto('/__visual/')
 
   const capturesDir = testInfo.outputPath('component-captures')

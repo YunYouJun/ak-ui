@@ -36,6 +36,8 @@ const operationModes = [
 
 Vue Registry 把轻量 Adapter 源码复制到你的项目中；组件视觉仍由框架无关的 ak-ui CSS Core 提供。
 
+完整属性、插槽、模型与边界行为见 [Vue Registry API](/registry/api)。从 0.2.x 升级请参阅 [1.0 迁移指南](/guide/migration-v1)。
+
 ## 样式复用模型
 
 | 模块 | 负责内容 | 复用接口 |
@@ -176,6 +178,7 @@ const count = ref(3)
 import { createDashboardDepth } from '@yunyoujun/ak-ui/depth'
 
 const dashboard = document.querySelector('[data-dashboard]')
+if (!dashboard) throw new Error('Dashboard element not found')
 const depth = createDashboardDepth(dashboard)
 
 // SPA 页面离开时调用

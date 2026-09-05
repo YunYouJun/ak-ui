@@ -5,6 +5,8 @@ import { fileURLToPath } from 'node:url'
 import markdownItContainer from 'markdown-it-container'
 import { defineConfig } from 'vitepress'
 
+import { en } from './en.ts'
+
 import { exampleById } from '../../examples/index.ts'
 
 const projectRoot = fileURLToPath(new URL('../..', import.meta.url))
@@ -46,6 +48,8 @@ const gettingStartedSidebar = [
       { text: 'AI Skill（推荐）', link: '/guide/ai-skill' },
       { text: 'CSS Core', link: '/guide/' },
       { text: 'Vue Registry', link: '/registry/' },
+      { text: 'Vue Registry API', link: '/registry/api' },
+      { text: 'A2UI（实验）', link: '/guide/a2ui' },
     ],
   },
   {
@@ -57,6 +61,8 @@ const gettingStartedSidebar = [
       { text: 'Reka UI 示例', link: '/guide/reka-ui' },
       { text: '接口与命名', link: '/guide/style' },
       { text: '质量检查清单', link: '/guide/quality' },
+      { text: '1.0 稳定性与发布检查', link: '/guide/stability' },
+      { text: '升级到 1.0', link: '/guide/migration-v1' },
     ],
   },
   {
@@ -68,23 +74,31 @@ const gettingStartedSidebar = [
 ]
 
 export default defineConfig({
+  vite: {
+    optimizeDeps: {
+      // Prebundle the lazy experiment before parallel browser tests navigate.
+      // Discovering these dependencies on demand can trigger a full-page reload.
+      include: ['@a2ui/web_core/v0_9', 'zod'],
+    },
+  },
   title: 'ak-ui',
   titleTemplate: ':title · ak-ui',
   description: 'An Arknights-inspired design language, token foundation, and framework-agnostic CSS primitive library.',
   lang: 'zh-CN',
+  locales: { root: { label: '简体中文', lang: 'zh-CN', link: '/' }, en },
   appearance: 'dark',
   lastUpdated: true,
   sitemap: {
     hostname: 'https://ak-ui.yyj.moe',
   },
   head: [
-    ['link', { rel: 'icon', href: '/ak.png' }],
+    ['link', { rel: 'icon', href: '/ak-ui-app-icon.svg', type: 'image/svg+xml' }],
     ['link', { rel: 'manifest', href: '/manifest.json' }],
     ['meta', { name: 'theme-color', content: '#111315' }],
     ['meta', { name: 'apple-mobile-web-app-capable', content: 'yes' }],
     ['meta', { name: 'apple-mobile-web-app-status-bar-style', content: 'black-translucent' }],
-    ['link', { rel: 'apple-touch-icon', href: '/ak.png' }],
-    ['link', { rel: 'mask-icon', href: '/ak.svg', color: '#ffd802' }],
+    ['link', { rel: 'apple-touch-icon', href: '/ak-ui-app-icon-512.png' }],
+    ['link', { rel: 'mask-icon', href: '/ak-ui-mark-mono.svg', color: '#e89016' }],
     ['link', { rel: 'preconnect', href: 'https://fonts.googleapis.com' }],
     ['link', { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' }],
     ['link', {
@@ -101,8 +115,15 @@ export default defineConfig({
     config: demoContainer,
   },
   themeConfig: {
-    logo: '/ak.svg',
+    logo: {
+      light: '/ak-ui-mark.svg',
+      dark: '/ak-ui-mark-dark.svg',
+      alt: 'ak-ui',
+    },
     siteTitle: 'AK / UI',
+    // Core English docs are available; untranslated routes return to the locale home.
+    i18nRouting: false,
+    langMenuLabel: '切换语言',
     nav: [
       {
         text: '开始使用',
@@ -162,6 +183,7 @@ export default defineConfig({
     search: {
       provider: 'local',
       options: {
+        locales: { en: { translations: { button: { buttonText: 'Search docs', buttonAriaLabel: 'Search docs' }, modal: { noResultsText: 'No results found', resetButtonTitle: 'Reset search', footer: { selectText: 'Select', navigateText: 'Navigate', closeText: 'Close' } } } } },
         translations: {
           button: {
             buttonText: '搜索终端',
