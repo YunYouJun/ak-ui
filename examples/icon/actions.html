@@ -1,0 +1,30 @@
+<div data-icon-actions style="display: grid; justify-items: center; gap: 24px; width: 100%;">
+  <div role="group" aria-label="目标操作" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 16px;">
+    <button type="button" class="ak-button" aria-pressed="false" data-target-toggle style="gap: 10px;">
+      <svg class="ak-icon ak-icon--stroke" viewBox="0 0 24 24" aria-hidden="true" style="--ak-icon-size: 24px"><circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="2"/><path d="M12 2v3m0 14v3M2 12h3m14 0h3"/></svg>
+      <span>锁定目标</span>
+    </button>
+    <button type="button" class="ak-button" aria-label="重置目标" data-target-reset style="width: 50px;">
+      <svg class="ak-icon ak-icon--stroke" viewBox="0 0 24 24" aria-hidden="true" style="--ak-icon-size: 22px;"><path d="M3 10a9 9 0 1 1 2 8M3 4v6h6"/></svg>
+    </button>
+  </div>
+  <output aria-live="polite" style="display: flex; align-items: center; gap: 8px; font-size: 13px;">
+    <svg class="ak-icon ak-icon--stroke" viewBox="0 0 24 24" aria-hidden="true" style="--ak-icon-size: 16px"><circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="2"/><path d="M12 2v3m0 14v3M2 12h3m14 0h3"/></svg>
+    <span data-target-status>尚未锁定目标</span>
+  </output>
+</div>
+<style>
+  [data-icon-actions] .ak-button:focus-visible { outline: 2px solid #74d9f4; outline-offset: 4px; }
+  [data-icon-actions] .ak-button[aria-pressed="true"] { background: #74d9f4; color: #171d22; }
+</style>
+<script>
+  const root = document.currentScript.parentElement.querySelector('[data-icon-actions]')
+  const toggle = root.querySelector('[data-target-toggle]')
+  function setLocked(locked) {
+    toggle.setAttribute('aria-pressed', String(locked))
+    toggle.querySelector('span').textContent = locked ? '解除锁定' : '锁定目标'
+    root.querySelector('[data-target-status]').textContent = locked ? '目标已锁定' : '尚未锁定目标'
+  }
+  toggle.addEventListener('click', () => setLocked(toggle.getAttribute('aria-pressed') !== 'true'))
+  root.querySelector('[data-target-reset]').addEventListener('click', () => setLocked(false))
+</script>

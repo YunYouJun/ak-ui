@@ -1,5 +1,10 @@
 # Changelog
 
+## Unreleased
+
+- Refined material icon proportions, ring borders and contrast while preserving the legacy border-color variable.
+- Added a stroke icon modifier, configurable icon sizes and self-contained SVG examples with keyboard-operable actions.
+
 ## 1.0.0-rc.1 — 2026-09-06
 
 ### Added
