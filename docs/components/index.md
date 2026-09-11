@@ -36,23 +36,23 @@
 
 <div class="ak-item-palette" role="list" aria-label="道具稀有度色彩参考">
   <figure role="listitem">
-    <img src="/img/game/foreign-iron-fragments.webp" alt="异铁碎片">
+    <img src="https://assets.yunyoujun.cn/ak-ui/assets/img/game/foreign-iron-fragments-5260686ebd99.webp" alt="异铁碎片">
     <figcaption>LOW / 低阶</figcaption>
   </figure>
   <figure role="listitem">
-    <img src="/img/game/basic-combat-record.webp" alt="基础作战记录">
+    <img src="https://assets.yunyoujun.cn/ak-ui/assets/img/game/basic-combat-record-e9fd4e37ef64.webp" alt="基础作战记录">
     <figcaption>BASIC / 基础</figcaption>
   </figure>
   <figure role="listitem">
-    <img src="/img/game/primary-combat-record.webp" alt="初级作战记录">
+    <img src="https://assets.yunyoujun.cn/ak-ui/assets/img/game/primary-combat-record-980d45fd3764.webp" alt="初级作战记录">
     <figcaption>PRIMARY / 初级</figcaption>
   </figure>
   <figure role="listitem">
-    <img src="/img/game/intermediate-combat-record.webp" alt="中级作战记录">
+    <img src="https://assets.yunyoujun.cn/ak-ui/assets/img/game/intermediate-combat-record-cf8323efbbc0.webp" alt="中级作战记录">
     <figcaption>SECONDARY / 中级</figcaption>
   </figure>
   <figure role="listitem">
-    <img src="/img/game/advanced-combat-record.webp" alt="高级作战记录">
+    <img src="https://assets.yunyoujun.cn/ak-ui/assets/img/game/advanced-combat-record-f13fcd128ec0.webp" alt="高级作战记录">
     <figcaption>ADVANCED / 高级</figcaption>
   </figure>
 </div>

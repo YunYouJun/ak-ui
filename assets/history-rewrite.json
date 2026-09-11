@@ -1,0 +1,35 @@
+{
+  "removedPaths": [
+    "docs/public/img/",
+    "docs/.vuepress/public/img/"
+  ],
+  "verifiedCommits": 58,
+  "remoteUpdated": false,
+  "refs": [
+    {
+      "ref": "refs/heads/master",
+      "old": "da9a3faa91d3390bc7cae649377a46c18d96f5cb",
+      "new": "c27ad250570aa360f6319f1b628a605ce510b42a"
+    },
+    {
+      "ref": "refs/tags/v0.1.0-beta.0",
+      "old": "d3965e2bfbb10f0f85d51b84df9e98bfb19eeaf2",
+      "new": "ebaaa317ef0a6e8539acc8cad261c5e37006b32a"
+    },
+    {
+      "ref": "refs/tags/v0.2.0",
+      "old": "e9aa2d5bfdc92285581186cc2057e3edb8577f16",
+      "new": "6c6e847090ac1a1e1d6859bfd110076a99f27ca9"
+    },
+    {
+      "ref": "refs/tags/v0.2.1",
+      "old": "a7aa6017013cb34cb479740310e1031a7eec1e56",
+      "new": "31c6a9ccaf35edcfad85ea4594f35a78f1146841"
+    },
+    {
+      "ref": "refs/tags/v1.0.0-rc.1",
+      "old": "6a3c27d763437c6f30fcb0ea84fb48773d02b126",
+      "new": "377cb667d156c164a0f2a0d4a85b2e4e256a56f9"
+    }
+  ]
+}

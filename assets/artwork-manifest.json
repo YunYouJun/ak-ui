@@ -1,0 +1,759 @@
+{
+  "schemaVersion": 1,
+  "bucket": "yunyoujun-assets-prod-1325586649",
+  "region": "ap-shanghai",
+  "baseURL": "https://assets.yunyoujun.cn/",
+  "assets": [
+    {
+      "path": "img/bg/chen.jpg",
+      "key": "ak-ui/assets/img/bg/chen-fe100a10a5ee.jpg",
+      "sha256": "fe100a10a5ee06b8d0121c4322add32a40a7c1a572cd104f9a998161204d4d80",
+      "bytes": 67037,
+      "url": "https://assets.yunyoujun.cn/ak-ui/assets/img/bg/chen-fe100a10a5ee.jpg",
+      "contentType": "image/jpeg"
+    },
+    {
+      "path": "img/bg/dark.jpg",
+      "key": "ak-ui/assets/img/bg/dark-de16cf71bf32.jpg",
+      "sha256": "de16cf71bf32c250ff9178f438356cb4eada1cbacc06228eabfaefec9358cefb",
+      "bytes": 16393,
+      "url": "https://assets.yunyoujun.cn/ak-ui/assets/img/bg/dark-de16cf71bf32.jpg",
+      "contentType": "image/jpeg"
+    },
+    {
+      "path": "img/bg/dust.jpg",
+      "key": "ak-ui/assets/img/bg/dust-3638e3e544b3.jpg",
+      "sha256": "3638e3e544b3b1e2eb946fb279b5b3fcc61bb790ab577a1746abaf7d33a90223",
+      "bytes": 21928,
+      "url": "https://assets.yunyoujun.cn/ak-ui/assets/img/bg/dust-3638e3e544b3.jpg",
+      "contentType": "image/jpeg"
+    },
+    {
+      "path": "img/bg/loading-terminal-v2.png",
+      "key": "ak-ui/assets/img/bg/loading-terminal-v2-c73b3a3c9cfa.png",
+      "sha256": "c73b3a3c9cfa036ab08488aba5dcab2a1afe38992d89691cebdc6d14652d3a6d",
+      "bytes": 1436135,
+      "url": "https://assets.yunyoujun.cn/ak-ui/assets/img/bg/loading-terminal-v2-c73b3a3c9cfa.png",
+      "contentType": "image/png",
+      "webp": {
+        "path": "img/bg/loading-terminal-v2.webp",
+        "key": "ak-ui/assets/img/bg/loading-terminal-v2-201dae3c90d5.webp",
+        "sha256": "201dae3c90d569a3985ba02bba6a2205fec9d9a4c5cded58d3456c0c5a3fbb8c",
+        "bytes": 57986,
+        "url": "https://assets.yunyoujun.cn/ak-ui/assets/img/bg/loading-terminal-v2-201dae3c90d5.webp",
+        "contentType": "image/webp"
+      }
+    },
+    {
+      "path": "img/bg/operator-terminal-v2.png",
+      "key": "ak-ui/assets/img/bg/operator-terminal-v2-db8bba958340.png",
+      "sha256": "db8bba958340fa37d1a80ed8d9353d93ce0e3ccdb8a8167e53f0e49af41e6f2b",
+      "bytes": 2076236,
+      "url": "https://assets.yunyoujun.cn/ak-ui/assets/img/bg/operator-terminal-v2-db8bba958340.png",
+      "contentType": "image/png",
+      "webp": {
+        "path": "img/bg/operator-terminal-v2.webp",
+        "key": "ak-ui/assets/img/bg/operator-terminal-v2-1da4e00df0ae.webp",
+        "sha256": "1da4e00df0ae039c9cc68db743b092e36d374966a3b6c62e290b5b02498e46fd",
+        "bytes": 246838,
+        "url": "https://assets.yunyoujun.cn/ak-ui/assets/img/bg/operator-terminal-v2-1da4e00df0ae.webp",
+        "contentType": "image/webp"
+      }
+    },
+    {
+      "path": "img/bg/terminal-rooftop-v1.png",
+      "key": "ak-ui/assets/img/bg/terminal-rooftop-v1-85a086cc1bb0.png",
+      "sha256": "85a086cc1bb0bc52691f6bb2a3ae141df120fda8120d59031f8520e8ab13b710",
+      "bytes": 2417971,
+      "url": "https://assets.yunyoujun.cn/ak-ui/assets/img/bg/terminal-rooftop-v1-85a086cc1bb0.png",
+      "contentType": "image/png",
+      "webp": {
+        "path": "img/bg/terminal-rooftop-v1.webp",
+        "key": "ak-ui/assets/img/bg/terminal-rooftop-v1-1c3f4e33db76.webp",
+        "sha256": "1c3f4e33db76b8500da825acd182a51c7921d9599404f7ebfc3582a894b03997",
+        "bytes": 335062,
+        "url": "https://assets.yunyoujun.cn/ak-ui/assets/img/bg/terminal-rooftop-v1-1c3f4e33db76.webp",
+        "contentType": "image/webp"
+      }
+    },
+    {
+      "path": "img/bk.jpg",
+      "key": "ak-ui/assets/img/bk-3ab2ccfc7a61.jpg",
+      "sha256": "3ab2ccfc7a615ed70c0496422b781f321298c013befea8299284ba11c062371d",
+      "bytes": 190575,
+      "url": "https://assets.yunyoujun.cn/ak-ui/assets/img/bk-3ab2ccfc7a61.jpg",
+      "contentType": "image/jpeg"
+    },
+    {
+      "path": "img/character/chen.jpg",
+      "key": "ak-ui/assets/img/character/chen-51f64ce5dc70.jpg",
+      "sha256": "51f64ce5dc70a00697cd7f3e4089c89967c0949c066d61d5a24befe9ced6dab8",
+      "bytes": 69329,
+      "url": "https://assets.yunyoujun.cn/ak-ui/assets/img/character/chen-51f64ce5dc70.jpg",
+      "contentType": "image/jpeg"
+    },
+    {
+      "path": "img/character/xiaoyun-caster-elite-v1.png",
+      "key": "ak-ui/assets/img/character/xiaoyun-caster-elite-v1-20751fa2e269.png",
+      "sha256": "20751fa2e2697f0d9e42105f959d37c0e8b6b89f84ae5238f53c52d9acf223fd",
+      "bytes": 2002853,
+      "url": "https://assets.yunyoujun.cn/ak-ui/assets/img/character/xiaoyun-caster-elite-v1-20751fa2e269.png",
+      "contentType": "image/png",
+      "webp": {
+        "path": "img/character/xiaoyun-caster-elite-v1.webp",
+        "key": "ak-ui/assets/img/character/xiaoyun-caster-elite-v1-a560dca07208.webp",
+        "sha256": "a560dca07208c186b7864b24d56eafd8495bb5b98477541ef3026e9ed45566c6",
+        "bytes": 481734,
+        "url": "https://assets.yunyoujun.cn/ak-ui/assets/img/character/xiaoyun-caster-elite-v1-a560dca07208.webp",
+        "contentType": "image/webp"
+      },
+      "thumbnail": {
+        "path": "img/character/xiaoyun-caster-elite-v1-thumb.webp",
+        "key": "ak-ui/assets/img/character/xiaoyun-caster-elite-v1-thumb-a579d98337b2.webp",
+        "sha256": "a579d98337b21bee2b591dff26823f948c6080a9ad33036409aa4e69acd1b2c1",
+        "bytes": 94908,
+        "url": "https://assets.yunyoujun.cn/ak-ui/assets/img/character/xiaoyun-caster-elite-v1-thumb-a579d98337b2.webp",
+        "contentType": "image/webp"
+      }
+    },
+    {
+      "path": "img/character/xiaoyun-caster-v1.png",
+      "key": "ak-ui/assets/img/character/xiaoyun-caster-v1-25d2619293f5.png",
+      "sha256": "25d2619293f57105c52b985821200c0684b2d9a1465d3f5d6efad6381e90774d",
+      "bytes": 1747490,
+      "url": "https://assets.yunyoujun.cn/ak-ui/assets/img/character/xiaoyun-caster-v1-25d2619293f5.png",
+      "contentType": "image/png",
+      "webp": {
+        "path": "img/character/xiaoyun-caster-v1.webp",
+        "key": "ak-ui/assets/img/character/xiaoyun-caster-v1-681eba26aa38.webp",
+        "sha256": "681eba26aa380344aa4a20247837ad5564c9bedbb865c950dc332c0f76ab8cbd",
+        "bytes": 487892,
+        "url": "https://assets.yunyoujun.cn/ak-ui/assets/img/character/xiaoyun-caster-v1-681eba26aa38.webp",
+        "contentType": "image/webp"
+      },
+      "thumbnail": {
+        "path": "img/character/xiaoyun-caster-v1-thumb.webp",
+        "key": "ak-ui/assets/img/character/xiaoyun-caster-v1-thumb-c9335ab9b3fd.webp",
+        "sha256": "c9335ab9b3fdcd9ee4e00706385453b6177afa8a94ff11d29c9bea9de5ac7a3a",
+        "bytes": 93204,
+        "url": "https://assets.yunyoujun.cn/ak-ui/assets/img/character/xiaoyun-caster-v1-thumb-c9335ab9b3fd.webp",
+        "contentType": "image/webp"
+      }
+    },
+    {
+      "path": "img/character/xiaoyun-caster-v2.png",
+      "key": "ak-ui/assets/img/character/xiaoyun-caster-v2-1a80b64b0840.png",
+      "sha256": "1a80b64b0840f547c3388a51bdfc6c32b9bed3c6d9f8e9ce4e034b3c42ec8f87",
+      "bytes": 1396037,
+      "url": "https://assets.yunyoujun.cn/ak-ui/assets/img/character/xiaoyun-caster-v2-1a80b64b0840.png",
+      "contentType": "image/png",
+      "webp": {
+        "path": "img/character/xiaoyun-caster-v2.webp",
+        "key": "ak-ui/assets/img/character/xiaoyun-caster-v2-753682a7f575.webp",
+        "sha256": "753682a7f5757e6442aef3ff6ddaf4d79fd916122c2415af6b683f480c887fbc",
+        "bytes": 288986,
+        "url": "https://assets.yunyoujun.cn/ak-ui/assets/img/character/xiaoyun-caster-v2-753682a7f575.webp",
+        "contentType": "image/webp"
+      },
+      "thumbnail": {
+        "path": "img/character/xiaoyun-caster-v2-thumb.webp",
+        "key": "ak-ui/assets/img/character/xiaoyun-caster-v2-thumb-26d085737719.webp",
+        "sha256": "26d085737719743b89465268b67a8565c0e26805650490931198144c40ca8e6c",
+        "bytes": 60506,
+        "url": "https://assets.yunyoujun.cn/ak-ui/assets/img/character/xiaoyun-caster-v2-thumb-26d085737719.webp",
+        "contentType": "image/webp"
+      }
+    },
+    {
+      "path": "img/character/xiaoyun-defender-elite-v1.png",
+      "key": "ak-ui/assets/img/character/xiaoyun-defender-elite-v1-26df5be27ee9.png",
+      "sha256": "26df5be27ee980e719f6159a2d5b09a75469520122fe4f5d6d0e14f8b1c362b6",
+      "bytes": 2050214,
+      "url": "https://assets.yunyoujun.cn/ak-ui/assets/img/character/xiaoyun-defender-elite-v1-26df5be27ee9.png",
+      "contentType": "image/png",
+      "webp": {
+        "path": "img/character/xiaoyun-defender-elite-v1.webp",
+        "key": "ak-ui/assets/img/character/xiaoyun-defender-elite-v1-2e93bbb5bd33.webp",
+        "sha256": "2e93bbb5bd3389673828e490bae0edc90dc094b1d1d5fabac0a1c9d81963cc2a",
+        "bytes": 367406,
+        "url": "https://assets.yunyoujun.cn/ak-ui/assets/img/character/xiaoyun-defender-elite-v1-2e93bbb5bd33.webp",
+        "contentType": "image/webp"
+      },
+      "thumbnail": {
+        "path": "img/character/xiaoyun-defender-elite-v1-thumb.webp",
+        "key": "ak-ui/assets/img/character/xiaoyun-defender-elite-v1-thumb-6ad9d976f332.webp",
+        "sha256": "6ad9d976f33279f09af6ab10c0bf5425c0ba80dd5f70dd23e811d1c04b864687",
+        "bytes": 72588,
+        "url": "https://assets.yunyoujun.cn/ak-ui/assets/img/character/xiaoyun-defender-elite-v1-thumb-6ad9d976f332.webp",
+        "contentType": "image/webp"
+      }
+    },
+    {
+      "path": "img/character/xiaoyun-defender-v1.png",
+      "key": "ak-ui/assets/img/character/xiaoyun-defender-v1-6b8ce2a555d5.png",
+      "sha256": "6b8ce2a555d5d8d8467b83585230168cd1e42848c9b2279d2dd1c567c996cdb6",
+      "bytes": 1793505,
+      "url": "https://assets.yunyoujun.cn/ak-ui/assets/img/character/xiaoyun-defender-v1-6b8ce2a555d5.png",
+      "contentType": "image/png",
+      "webp": {
+        "path": "img/character/xiaoyun-defender-v1.webp",
+        "key": "ak-ui/assets/img/character/xiaoyun-defender-v1-98948f27357b.webp",
+        "sha256": "98948f27357b90715b21e501a010eeef5848d59b3ab7156f7891d6570cedd4dc",
+        "bytes": 427222,
+        "url": "https://assets.yunyoujun.cn/ak-ui/assets/img/character/xiaoyun-defender-v1-98948f27357b.webp",
+        "contentType": "image/webp"
+      },
+      "thumbnail": {
+        "path": "img/character/xiaoyun-defender-v1-thumb.webp",
+        "key": "ak-ui/assets/img/character/xiaoyun-defender-v1-thumb-6195f7eb5ac3.webp",
+        "sha256": "6195f7eb5ac305b0afebf3918166ee2a7cdd50c62b2222d3ea8d06007777c323",
+        "bytes": 82316,
+        "url": "https://assets.yunyoujun.cn/ak-ui/assets/img/character/xiaoyun-defender-v1-thumb-6195f7eb5ac3.webp",
+        "contentType": "image/webp"
+      }
+    },
+    {
+      "path": "img/character/xiaoyun-defender-v2.png",
+      "key": "ak-ui/assets/img/character/xiaoyun-defender-v2-1047279e52b7.png",
+      "sha256": "1047279e52b7ffb2de2b7848a15035f0655a1ce973824ca5b6d171eb25a8d66a",
+      "bytes": 1317804,
+      "url": "https://assets.yunyoujun.cn/ak-ui/assets/img/character/xiaoyun-defender-v2-1047279e52b7.png",
+      "contentType": "image/png",
+      "webp": {
+        "path": "img/character/xiaoyun-defender-v2.webp",
+        "key": "ak-ui/assets/img/character/xiaoyun-defender-v2-065561d2f64f.webp",
+        "sha256": "065561d2f64fe0b9beb27c284d31c5d2696ea8c11205c6eb0af7c9b236779517",
+        "bytes": 241994,
+        "url": "https://assets.yunyoujun.cn/ak-ui/assets/img/character/xiaoyun-defender-v2-065561d2f64f.webp",
+        "contentType": "image/webp"
+      },
+      "thumbnail": {
+        "path": "img/character/xiaoyun-defender-v2-thumb.webp",
+        "key": "ak-ui/assets/img/character/xiaoyun-defender-v2-thumb-24db5a2fcd1e.webp",
+        "sha256": "24db5a2fcd1e279a3f8593b8661ebf0c5835782564c5ce2f0f944fb41cd310e0",
+        "bytes": 49476,
+        "url": "https://assets.yunyoujun.cn/ak-ui/assets/img/character/xiaoyun-defender-v2-thumb-24db5a2fcd1e.webp",
+        "contentType": "image/webp"
+      }
+    },
+    {
+      "path": "img/character/xiaoyun-guard-elite-v1.png",
+      "key": "ak-ui/assets/img/character/xiaoyun-guard-elite-v1-0d75904a39ea.png",
+      "sha256": "0d75904a39eade7ad4c74d2b0570ebe853deab693a915b63674e7ef0ebf79819",
+      "bytes": 2233631,
+      "url": "https://assets.yunyoujun.cn/ak-ui/assets/img/character/xiaoyun-guard-elite-v1-0d75904a39ea.png",
+      "contentType": "image/png",
+      "webp": {
+        "path": "img/character/xiaoyun-guard-elite-v1.webp",
+        "key": "ak-ui/assets/img/character/xiaoyun-guard-elite-v1-cfedede03f88.webp",
+        "sha256": "cfedede03f886d83583b0b845126d6f590b72441d10b6632aebb7156c70f4892",
+        "bytes": 507426,
+        "url": "https://assets.yunyoujun.cn/ak-ui/assets/img/character/xiaoyun-guard-elite-v1-cfedede03f88.webp",
+        "contentType": "image/webp"
+      },
+      "thumbnail": {
+        "path": "img/character/xiaoyun-guard-elite-v1-thumb.webp",
+        "key": "ak-ui/assets/img/character/xiaoyun-guard-elite-v1-thumb-189f6f9d74e7.webp",
+        "sha256": "189f6f9d74e79604036b0f34b2d9ff146619f2b8a91148be043786c4aac22d8e",
+        "bytes": 102298,
+        "url": "https://assets.yunyoujun.cn/ak-ui/assets/img/character/xiaoyun-guard-elite-v1-thumb-189f6f9d74e7.webp",
+        "contentType": "image/webp"
+      }
+    },
+    {
+      "path": "img/character/xiaoyun-guard-v1.png",
+      "key": "ak-ui/assets/img/character/xiaoyun-guard-v1-e66c9dd8c5d7.png",
+      "sha256": "e66c9dd8c5d78cbb91e940ca0523fc5616af3ad2297e089df37d8735843e9408",
+      "bytes": 1519424,
+      "url": "https://assets.yunyoujun.cn/ak-ui/assets/img/character/xiaoyun-guard-v1-e66c9dd8c5d7.png",
+      "contentType": "image/png",
+      "webp": {
+        "path": "img/character/xiaoyun-guard-v1.webp",
+        "key": "ak-ui/assets/img/character/xiaoyun-guard-v1-9011f3766f5c.webp",
+        "sha256": "9011f3766f5ce7abd47ea9766579723285d303879c904de2a3c639c91773bdb9",
+        "bytes": 396250,
+        "url": "https://assets.yunyoujun.cn/ak-ui/assets/img/character/xiaoyun-guard-v1-9011f3766f5c.webp",
+        "contentType": "image/webp"
+      },
+      "thumbnail": {
+        "path": "img/character/xiaoyun-guard-v1-thumb.webp",
+        "key": "ak-ui/assets/img/character/xiaoyun-guard-v1-thumb-0a623c40fc7b.webp",
+        "sha256": "0a623c40fc7b6c6165c6583178ee3e80a2c3299ccf7919fd6d1a4b9dfe7d4fc5",
+        "bytes": 77044,
+        "url": "https://assets.yunyoujun.cn/ak-ui/assets/img/character/xiaoyun-guard-v1-thumb-0a623c40fc7b.webp",
+        "contentType": "image/webp"
+      }
+    },
+    {
+      "path": "img/character/xiaoyun-guard-v4.png",
+      "key": "ak-ui/assets/img/character/xiaoyun-guard-v4-c28b2a5e8a14.png",
+      "sha256": "c28b2a5e8a14c78347d66496ac566b66294db9df6c4e70954a7b0e4e3e9c1798",
+      "bytes": 1356724,
+      "url": "https://assets.yunyoujun.cn/ak-ui/assets/img/character/xiaoyun-guard-v4-c28b2a5e8a14.png",
+      "contentType": "image/png",
+      "webp": {
+        "path": "img/character/xiaoyun-guard-v4.webp",
+        "key": "ak-ui/assets/img/character/xiaoyun-guard-v4-9e8a8d50d54b.webp",
+        "sha256": "9e8a8d50d54b58645ef83a9f18ad69899b99066c30d03192f674cd35abe3248f",
+        "bytes": 334312,
+        "url": "https://assets.yunyoujun.cn/ak-ui/assets/img/character/xiaoyun-guard-v4-9e8a8d50d54b.webp",
+        "contentType": "image/webp"
+      },
+      "thumbnail": {
+        "path": "img/character/xiaoyun-guard-v4-thumb.webp",
+        "key": "ak-ui/assets/img/character/xiaoyun-guard-v4-thumb-281ff5cf9740.webp",
+        "sha256": "281ff5cf974014800db5fef29898a725936c2b49f78311874c12efeba0f461ae",
+        "bytes": 70344,
+        "url": "https://assets.yunyoujun.cn/ak-ui/assets/img/character/xiaoyun-guard-v4-thumb-281ff5cf9740.webp",
+        "contentType": "image/webp"
+      }
+    },
+    {
+      "path": "img/character/xiaoyun-medic-elite-v1.png",
+      "key": "ak-ui/assets/img/character/xiaoyun-medic-elite-v1-3b8979b20fc0.png",
+      "sha256": "3b8979b20fc0da6ccf1527ee3e3ecefe0636181d4fbb9e6b90c06ef6fb35afd5",
+      "bytes": 1523365,
+      "url": "https://assets.yunyoujun.cn/ak-ui/assets/img/character/xiaoyun-medic-elite-v1-3b8979b20fc0.png",
+      "contentType": "image/png",
+      "webp": {
+        "path": "img/character/xiaoyun-medic-elite-v1.webp",
+        "key": "ak-ui/assets/img/character/xiaoyun-medic-elite-v1-a383eba57d36.webp",
+        "sha256": "a383eba57d3681f303e3520418dcbec1691fb5cd05296a1ddc200b455419d436",
+        "bytes": 344922,
+        "url": "https://assets.yunyoujun.cn/ak-ui/assets/img/character/xiaoyun-medic-elite-v1-a383eba57d36.webp",
+        "contentType": "image/webp"
+      },
+      "thumbnail": {
+        "path": "img/character/xiaoyun-medic-elite-v1-thumb.webp",
+        "key": "ak-ui/assets/img/character/xiaoyun-medic-elite-v1-thumb-2da72b3db5d8.webp",
+        "sha256": "2da72b3db5d85cecf0ffd76e75521a23b49453860da422e80b5f5e5ec58d6de5",
+        "bytes": 72202,
+        "url": "https://assets.yunyoujun.cn/ak-ui/assets/img/character/xiaoyun-medic-elite-v1-thumb-2da72b3db5d8.webp",
+        "contentType": "image/webp"
+      }
+    },
+    {
+      "path": "img/character/xiaoyun-medic-v1.png",
+      "key": "ak-ui/assets/img/character/xiaoyun-medic-v1-3a809ce5286a.png",
+      "sha256": "3a809ce5286a2df7a8b7c1e76de0209031aeb91f1902a1d764f6ed39106b4fc0",
+      "bytes": 1337058,
+      "url": "https://assets.yunyoujun.cn/ak-ui/assets/img/character/xiaoyun-medic-v1-3a809ce5286a.png",
+      "contentType": "image/png",
+      "webp": {
+        "path": "img/character/xiaoyun-medic-v1.webp",
+        "key": "ak-ui/assets/img/character/xiaoyun-medic-v1-ed66c5bb3afb.webp",
+        "sha256": "ed66c5bb3afbf887564f13997032c97747e5f5a2de5294fb6cdde13fa84dfd96",
+        "bytes": 367268,
+        "url": "https://assets.yunyoujun.cn/ak-ui/assets/img/character/xiaoyun-medic-v1-ed66c5bb3afb.webp",
+        "contentType": "image/webp"
+      },
+      "thumbnail": {
+        "path": "img/character/xiaoyun-medic-v1-thumb.webp",
+        "key": "ak-ui/assets/img/character/xiaoyun-medic-v1-thumb-fe202c7ddbdf.webp",
+        "sha256": "fe202c7ddbdf52abcd1b68a59886c528fe9b741eb2a4ffbccc94d2db10cedf75",
+        "bytes": 71048,
+        "url": "https://assets.yunyoujun.cn/ak-ui/assets/img/character/xiaoyun-medic-v1-thumb-fe202c7ddbdf.webp",
+        "contentType": "image/webp"
+      }
+    },
+    {
+      "path": "img/character/xiaoyun-medic-v2.png",
+      "key": "ak-ui/assets/img/character/xiaoyun-medic-v2-994a03c10114.png",
+      "sha256": "994a03c101145f2a0aa88357941802f99a1cf82d5bce4840c1f6a78b97f68e96",
+      "bytes": 672168,
+      "url": "https://assets.yunyoujun.cn/ak-ui/assets/img/character/xiaoyun-medic-v2-994a03c10114.png",
+      "contentType": "image/png",
+      "webp": {
+        "path": "img/character/xiaoyun-medic-v2.webp",
+        "key": "ak-ui/assets/img/character/xiaoyun-medic-v2-03f064bf8497.webp",
+        "sha256": "03f064bf84977f95448dcde5407675c6bacfc41b1cac108a4a99db22fb9cef52",
+        "bytes": 150784,
+        "url": "https://assets.yunyoujun.cn/ak-ui/assets/img/character/xiaoyun-medic-v2-03f064bf8497.webp",
+        "contentType": "image/webp"
+      },
+      "thumbnail": {
+        "path": "img/character/xiaoyun-medic-v2-thumb.webp",
+        "key": "ak-ui/assets/img/character/xiaoyun-medic-v2-thumb-3544c9e1b495.webp",
+        "sha256": "3544c9e1b495830355cc4ba008c2740c736565104bf254853a863e157d193ec8",
+        "bytes": 31046,
+        "url": "https://assets.yunyoujun.cn/ak-ui/assets/img/character/xiaoyun-medic-v2-thumb-3544c9e1b495.webp",
+        "contentType": "image/webp"
+      }
+    },
+    {
+      "path": "img/character/xiaoyun-sniper-elite-v1.png",
+      "key": "ak-ui/assets/img/character/xiaoyun-sniper-elite-v1-a2691f688ad9.png",
+      "sha256": "a2691f688ad9f6e78bc9abd76419527e208e6fc8cfae783e6835ddfdaae6fcb7",
+      "bytes": 2337269,
+      "url": "https://assets.yunyoujun.cn/ak-ui/assets/img/character/xiaoyun-sniper-elite-v1-a2691f688ad9.png",
+      "contentType": "image/png",
+      "webp": {
+        "path": "img/character/xiaoyun-sniper-elite-v1.webp",
+        "key": "ak-ui/assets/img/character/xiaoyun-sniper-elite-v1-11491025b417.webp",
+        "sha256": "11491025b417caa881e732146408160387ab16b8229cefebefe37405779da04c",
+        "bytes": 487694,
+        "url": "https://assets.yunyoujun.cn/ak-ui/assets/img/character/xiaoyun-sniper-elite-v1-11491025b417.webp",
+        "contentType": "image/webp"
+      },
+      "thumbnail": {
+        "path": "img/character/xiaoyun-sniper-elite-v1-thumb.webp",
+        "key": "ak-ui/assets/img/character/xiaoyun-sniper-elite-v1-thumb-82de49903cc3.webp",
+        "sha256": "82de49903cc3774b88c301763e0f85edd735a26ea8bf602203b177eba99d8308",
+        "bytes": 93408,
+        "url": "https://assets.yunyoujun.cn/ak-ui/assets/img/character/xiaoyun-sniper-elite-v1-thumb-82de49903cc3.webp",
+        "contentType": "image/webp"
+      }
+    },
+    {
+      "path": "img/character/xiaoyun-sniper-v1.png",
+      "key": "ak-ui/assets/img/character/xiaoyun-sniper-v1-e5b64b353852.png",
+      "sha256": "e5b64b3538521f5efb46426936b39be2fb02d0e45de5d9168af033a79357f5fa",
+      "bytes": 1337429,
+      "url": "https://assets.yunyoujun.cn/ak-ui/assets/img/character/xiaoyun-sniper-v1-e5b64b353852.png",
+      "contentType": "image/png",
+      "webp": {
+        "path": "img/character/xiaoyun-sniper-v1.webp",
+        "key": "ak-ui/assets/img/character/xiaoyun-sniper-v1-0fb57fb8e79d.webp",
+        "sha256": "0fb57fb8e79d49dbf1061f1996eae4efe436ffdc0c07885a77611aeae15995af",
+        "bytes": 377560,
+        "url": "https://assets.yunyoujun.cn/ak-ui/assets/img/character/xiaoyun-sniper-v1-0fb57fb8e79d.webp",
+        "contentType": "image/webp"
+      },
+      "thumbnail": {
+        "path": "img/character/xiaoyun-sniper-v1-thumb.webp",
+        "key": "ak-ui/assets/img/character/xiaoyun-sniper-v1-thumb-1fa26b44234a.webp",
+        "sha256": "1fa26b44234a321434e5d24e0a456457dfcb0d2846df5aaa49b95b09743fc3a4",
+        "bytes": 72736,
+        "url": "https://assets.yunyoujun.cn/ak-ui/assets/img/character/xiaoyun-sniper-v1-thumb-1fa26b44234a.webp",
+        "contentType": "image/webp"
+      }
+    },
+    {
+      "path": "img/character/xiaoyun-sniper-v2.png",
+      "key": "ak-ui/assets/img/character/xiaoyun-sniper-v2-17a5d7c608a3.png",
+      "sha256": "17a5d7c608a33aa9a8f8498423b68328fa998196c8c82d5449ba75d823740d8d",
+      "bytes": 1361312,
+      "url": "https://assets.yunyoujun.cn/ak-ui/assets/img/character/xiaoyun-sniper-v2-17a5d7c608a3.png",
+      "contentType": "image/png",
+      "webp": {
+        "path": "img/character/xiaoyun-sniper-v2.webp",
+        "key": "ak-ui/assets/img/character/xiaoyun-sniper-v2-82b51184e64f.webp",
+        "sha256": "82b51184e64fbab2145809aee253e22b699e4b3d5b21df98a51062e2979cee5c",
+        "bytes": 276736,
+        "url": "https://assets.yunyoujun.cn/ak-ui/assets/img/character/xiaoyun-sniper-v2-82b51184e64f.webp",
+        "contentType": "image/webp"
+      },
+      "thumbnail": {
+        "path": "img/character/xiaoyun-sniper-v2-thumb.webp",
+        "key": "ak-ui/assets/img/character/xiaoyun-sniper-v2-thumb-b7d28bf238ae.webp",
+        "sha256": "b7d28bf238aeff06ce2e6ca3b7a1fa505bd758b8d257b4a6f817ada4201ac620",
+        "bytes": 55494,
+        "url": "https://assets.yunyoujun.cn/ak-ui/assets/img/character/xiaoyun-sniper-v2-thumb-b7d28bf238ae.webp",
+        "contentType": "image/webp"
+      }
+    },
+    {
+      "path": "img/character/xiaoyun-specialist-elite-v1.png",
+      "key": "ak-ui/assets/img/character/xiaoyun-specialist-elite-v1-cbc7196df6fb.png",
+      "sha256": "cbc7196df6fbec3a0e3839deab7bedf739bb7a5d77b3f01c3872686093d09a44",
+      "bytes": 2331418,
+      "url": "https://assets.yunyoujun.cn/ak-ui/assets/img/character/xiaoyun-specialist-elite-v1-cbc7196df6fb.png",
+      "contentType": "image/png",
+      "webp": {
+        "path": "img/character/xiaoyun-specialist-elite-v1.webp",
+        "key": "ak-ui/assets/img/character/xiaoyun-specialist-elite-v1-21e9d003b542.webp",
+        "sha256": "21e9d003b54271eb0ab6afaa16c45e0c7d0d36f8227a93d6fcbeb84c53bc9fd6",
+        "bytes": 542380,
+        "url": "https://assets.yunyoujun.cn/ak-ui/assets/img/character/xiaoyun-specialist-elite-v1-21e9d003b542.webp",
+        "contentType": "image/webp"
+      },
+      "thumbnail": {
+        "path": "img/character/xiaoyun-specialist-elite-v1-thumb.webp",
+        "key": "ak-ui/assets/img/character/xiaoyun-specialist-elite-v1-thumb-4353dbeb6e54.webp",
+        "sha256": "4353dbeb6e540e1e89c5fed4135fad60060388b85ae372f5b840721e107613bb",
+        "bytes": 109346,
+        "url": "https://assets.yunyoujun.cn/ak-ui/assets/img/character/xiaoyun-specialist-elite-v1-thumb-4353dbeb6e54.webp",
+        "contentType": "image/webp"
+      }
+    },
+    {
+      "path": "img/character/xiaoyun-specialist-v1.png",
+      "key": "ak-ui/assets/img/character/xiaoyun-specialist-v1-3174675049b6.png",
+      "sha256": "3174675049b657e591bb7b2a09da2d20855653836a31e31f93e06afcc4145342",
+      "bytes": 1384590,
+      "url": "https://assets.yunyoujun.cn/ak-ui/assets/img/character/xiaoyun-specialist-v1-3174675049b6.png",
+      "contentType": "image/png",
+      "webp": {
+        "path": "img/character/xiaoyun-specialist-v1.webp",
+        "key": "ak-ui/assets/img/character/xiaoyun-specialist-v1-3a982ca7ce66.webp",
+        "sha256": "3a982ca7ce6635e5da2002c98f03331348f958b48154ab897d055dee9eb690a1",
+        "bytes": 393196,
+        "url": "https://assets.yunyoujun.cn/ak-ui/assets/img/character/xiaoyun-specialist-v1-3a982ca7ce66.webp",
+        "contentType": "image/webp"
+      },
+      "thumbnail": {
+        "path": "img/character/xiaoyun-specialist-v1-thumb.webp",
+        "key": "ak-ui/assets/img/character/xiaoyun-specialist-v1-thumb-6758ec87d1f4.webp",
+        "sha256": "6758ec87d1f4182eb5cebd6d7749e54a1f64078ff7d58b24973e857bf7f1f414",
+        "bytes": 76118,
+        "url": "https://assets.yunyoujun.cn/ak-ui/assets/img/character/xiaoyun-specialist-v1-thumb-6758ec87d1f4.webp",
+        "contentType": "image/webp"
+      }
+    },
+    {
+      "path": "img/character/xiaoyun-specialist-v2.png",
+      "key": "ak-ui/assets/img/character/xiaoyun-specialist-v2-d246c8672f00.png",
+      "sha256": "d246c8672f0088c86576d60cec601999c19d92b2a904ab33e07e0018b593aa6c",
+      "bytes": 1225922,
+      "url": "https://assets.yunyoujun.cn/ak-ui/assets/img/character/xiaoyun-specialist-v2-d246c8672f00.png",
+      "contentType": "image/png",
+      "webp": {
+        "path": "img/character/xiaoyun-specialist-v2.webp",
+        "key": "ak-ui/assets/img/character/xiaoyun-specialist-v2-c545bff99c1e.webp",
+        "sha256": "c545bff99c1e6bd03e4c598511a17bab99181953f58ce2623c8ccf4fb5b7d9ba",
+        "bytes": 285584,
+        "url": "https://assets.yunyoujun.cn/ak-ui/assets/img/character/xiaoyun-specialist-v2-c545bff99c1e.webp",
+        "contentType": "image/webp"
+      },
+      "thumbnail": {
+        "path": "img/character/xiaoyun-specialist-v2-thumb.webp",
+        "key": "ak-ui/assets/img/character/xiaoyun-specialist-v2-thumb-9ac1a68dbbc2.webp",
+        "sha256": "9ac1a68dbbc2712ad2df0b7537658723f3cc7be6d013ac47e7087e31863d67f9",
+        "bytes": 60420,
+        "url": "https://assets.yunyoujun.cn/ak-ui/assets/img/character/xiaoyun-specialist-v2-thumb-9ac1a68dbbc2.webp",
+        "contentType": "image/webp"
+      }
+    },
+    {
+      "path": "img/character/xiaoyun-supporter-elite-v1.png",
+      "key": "ak-ui/assets/img/character/xiaoyun-supporter-elite-v1-e124135a35ce.png",
+      "sha256": "e124135a35cef0c20659c8b6e8e56bb898067bff121bed92683ca891a8db85b8",
+      "bytes": 1758206,
+      "url": "https://assets.yunyoujun.cn/ak-ui/assets/img/character/xiaoyun-supporter-elite-v1-e124135a35ce.png",
+      "contentType": "image/png",
+      "webp": {
+        "path": "img/character/xiaoyun-supporter-elite-v1.webp",
+        "key": "ak-ui/assets/img/character/xiaoyun-supporter-elite-v1-d0dfb69ee5aa.webp",
+        "sha256": "d0dfb69ee5aa9c2b75c64ad352d29e5c4a8715fdb768c0a4ecc14e346c5fdfa0",
+        "bytes": 432924,
+        "url": "https://assets.yunyoujun.cn/ak-ui/assets/img/character/xiaoyun-supporter-elite-v1-d0dfb69ee5aa.webp",
+        "contentType": "image/webp"
+      },
+      "thumbnail": {
+        "path": "img/character/xiaoyun-supporter-elite-v1-thumb.webp",
+        "key": "ak-ui/assets/img/character/xiaoyun-supporter-elite-v1-thumb-86eeab76c7ee.webp",
+        "sha256": "86eeab76c7ee4668a4d2831e0d42e18ba9c23eeffc81f4d6f6123ec378326d5a",
+        "bytes": 90798,
+        "url": "https://assets.yunyoujun.cn/ak-ui/assets/img/character/xiaoyun-supporter-elite-v1-thumb-86eeab76c7ee.webp",
+        "contentType": "image/webp"
+      }
+    },
+    {
+      "path": "img/character/xiaoyun-supporter-v1.png",
+      "key": "ak-ui/assets/img/character/xiaoyun-supporter-v1-77d602a94396.png",
+      "sha256": "77d602a943967bea7c707a389c68fa660e37e6b1fdc396996d36b5183206d3bd",
+      "bytes": 1547442,
+      "url": "https://assets.yunyoujun.cn/ak-ui/assets/img/character/xiaoyun-supporter-v1-77d602a94396.png",
+      "contentType": "image/png",
+      "webp": {
+        "path": "img/character/xiaoyun-supporter-v1.webp",
+        "key": "ak-ui/assets/img/character/xiaoyun-supporter-v1-3b224e62e4ef.webp",
+        "sha256": "3b224e62e4efddb8c3a25c76df1dab3e21b0d0eec37999cc98e90bf6488fb0b8",
+        "bytes": 421632,
+        "url": "https://assets.yunyoujun.cn/ak-ui/assets/img/character/xiaoyun-supporter-v1-3b224e62e4ef.webp",
+        "contentType": "image/webp"
+      },
+      "thumbnail": {
+        "path": "img/character/xiaoyun-supporter-v1-thumb.webp",
+        "key": "ak-ui/assets/img/character/xiaoyun-supporter-v1-thumb-c63c43ae8f0c.webp",
+        "sha256": "c63c43ae8f0c99b06ce33154f0279caea162959fd64c5b11645e9513cb66ffb0",
+        "bytes": 81288,
+        "url": "https://assets.yunyoujun.cn/ak-ui/assets/img/character/xiaoyun-supporter-v1-thumb-c63c43ae8f0c.webp",
+        "contentType": "image/webp"
+      }
+    },
+    {
+      "path": "img/character/xiaoyun-supporter-v4.png",
+      "key": "ak-ui/assets/img/character/xiaoyun-supporter-v4-1061edde6465.png",
+      "sha256": "1061edde646535d207582b0d04dfc275aa16487f42f9361ab4667074efe97461",
+      "bytes": 1050423,
+      "url": "https://assets.yunyoujun.cn/ak-ui/assets/img/character/xiaoyun-supporter-v4-1061edde6465.png",
+      "contentType": "image/png",
+      "webp": {
+        "path": "img/character/xiaoyun-supporter-v4.webp",
+        "key": "ak-ui/assets/img/character/xiaoyun-supporter-v4-0f55ebc4d1ff.webp",
+        "sha256": "0f55ebc4d1ff72fca92e62362933a2a1676f4d977adc8f780e3812d9ce5fe360",
+        "bytes": 236968,
+        "url": "https://assets.yunyoujun.cn/ak-ui/assets/img/character/xiaoyun-supporter-v4-0f55ebc4d1ff.webp",
+        "contentType": "image/webp"
+      },
+      "thumbnail": {
+        "path": "img/character/xiaoyun-supporter-v4-thumb.webp",
+        "key": "ak-ui/assets/img/character/xiaoyun-supporter-v4-thumb-4f9481c86ea6.webp",
+        "sha256": "4f9481c86ea69ffe6d18d30510d2d0a1a0fb1d10f88d9efdb8dae2776987aa25",
+        "bytes": 51096,
+        "url": "https://assets.yunyoujun.cn/ak-ui/assets/img/character/xiaoyun-supporter-v4-thumb-4f9481c86ea6.webp",
+        "contentType": "image/webp"
+      }
+    },
+    {
+      "path": "img/character/xiaoyun-tactical-v1.png",
+      "key": "ak-ui/assets/img/character/xiaoyun-tactical-v1-deea3d71a9ca.png",
+      "sha256": "deea3d71a9cafc5ca15a82fff0f64ce96d50984de752d19f9cbe5f66587a047a",
+      "bytes": 1150739,
+      "url": "https://assets.yunyoujun.cn/ak-ui/assets/img/character/xiaoyun-tactical-v1-deea3d71a9ca.png",
+      "contentType": "image/png",
+      "webp": {
+        "path": "img/character/xiaoyun-tactical-v1.webp",
+        "key": "ak-ui/assets/img/character/xiaoyun-tactical-v1-85365d8aef8d.webp",
+        "sha256": "85365d8aef8d9c32a4a168c66ffbc2a1d914488c27a8ae079de01586dd542498",
+        "bytes": 346864,
+        "url": "https://assets.yunyoujun.cn/ak-ui/assets/img/character/xiaoyun-tactical-v1-85365d8aef8d.webp",
+        "contentType": "image/webp"
+      },
+      "thumbnail": {
+        "path": "img/character/xiaoyun-tactical-v1-thumb.webp",
+        "key": "ak-ui/assets/img/character/xiaoyun-tactical-v1-thumb-79de87f0f80d.webp",
+        "sha256": "79de87f0f80de682c660ae9ef5ad949d74e2e9afcc1c75a86f866147a24d4c5b",
+        "bytes": 71124,
+        "url": "https://assets.yunyoujun.cn/ak-ui/assets/img/character/xiaoyun-tactical-v1-thumb-79de87f0f80d.webp",
+        "contentType": "image/webp"
+      }
+    },
+    {
+      "path": "img/character/xiaoyun-vanguard-elite-v1.png",
+      "key": "ak-ui/assets/img/character/xiaoyun-vanguard-elite-v1-0232139a0e2a.png",
+      "sha256": "0232139a0e2a8ddbd3bb43746890b72e01ba87e500da587af8db11a0e7f4b37a",
+      "bytes": 2076614,
+      "url": "https://assets.yunyoujun.cn/ak-ui/assets/img/character/xiaoyun-vanguard-elite-v1-0232139a0e2a.png",
+      "contentType": "image/png",
+      "webp": {
+        "path": "img/character/xiaoyun-vanguard-elite-v1.webp",
+        "key": "ak-ui/assets/img/character/xiaoyun-vanguard-elite-v1-36ffc1f713fe.webp",
+        "sha256": "36ffc1f713fec7007b7322b386d07122fe62297ea565c0df845f055a8145b5dc",
+        "bytes": 518208,
+        "url": "https://assets.yunyoujun.cn/ak-ui/assets/img/character/xiaoyun-vanguard-elite-v1-36ffc1f713fe.webp",
+        "contentType": "image/webp"
+      },
+      "thumbnail": {
+        "path": "img/character/xiaoyun-vanguard-elite-v1-thumb.webp",
+        "key": "ak-ui/assets/img/character/xiaoyun-vanguard-elite-v1-thumb-785b802bcb68.webp",
+        "sha256": "785b802bcb68fc58e1d15f730e2357ab5970abf9d982d626a4e6efe3814e55a7",
+        "bytes": 108848,
+        "url": "https://assets.yunyoujun.cn/ak-ui/assets/img/character/xiaoyun-vanguard-elite-v1-thumb-785b802bcb68.webp",
+        "contentType": "image/webp"
+      }
+    },
+    {
+      "path": "img/character/xiaoyun-vanguard-v1.png",
+      "key": "ak-ui/assets/img/character/xiaoyun-vanguard-v1-3afc27b2ab4f.png",
+      "sha256": "3afc27b2ab4f131607a2941d3ada12eb847d4433f756d568ae1339104778fac9",
+      "bytes": 1496897,
+      "url": "https://assets.yunyoujun.cn/ak-ui/assets/img/character/xiaoyun-vanguard-v1-3afc27b2ab4f.png",
+      "contentType": "image/png",
+      "webp": {
+        "path": "img/character/xiaoyun-vanguard-v1.webp",
+        "key": "ak-ui/assets/img/character/xiaoyun-vanguard-v1-a709e3e86976.webp",
+        "sha256": "a709e3e8697669b7590822980a011eade334cc9b0d8e66cb9d7917845d62aa17",
+        "bytes": 434546,
+        "url": "https://assets.yunyoujun.cn/ak-ui/assets/img/character/xiaoyun-vanguard-v1-a709e3e86976.webp",
+        "contentType": "image/webp"
+      },
+      "thumbnail": {
+        "path": "img/character/xiaoyun-vanguard-v1-thumb.webp",
+        "key": "ak-ui/assets/img/character/xiaoyun-vanguard-v1-thumb-592f86464d73.webp",
+        "sha256": "592f86464d73f844fbaefed7c5ec908edbc2bdd841d390c67900fa221a293424",
+        "bytes": 83560,
+        "url": "https://assets.yunyoujun.cn/ak-ui/assets/img/character/xiaoyun-vanguard-v1-thumb-592f86464d73.webp",
+        "contentType": "image/webp"
+      }
+    },
+    {
+      "path": "img/character/xiaoyun-vanguard-v2.png",
+      "key": "ak-ui/assets/img/character/xiaoyun-vanguard-v2-3a239f8aef9a.png",
+      "sha256": "3a239f8aef9a5731472fb6d5d18339f2fd963b14bd9acd9689ae294a86abb417",
+      "bytes": 1251549,
+      "url": "https://assets.yunyoujun.cn/ak-ui/assets/img/character/xiaoyun-vanguard-v2-3a239f8aef9a.png",
+      "contentType": "image/png",
+      "webp": {
+        "path": "img/character/xiaoyun-vanguard-v2.webp",
+        "key": "ak-ui/assets/img/character/xiaoyun-vanguard-v2-a5c188c76f8b.webp",
+        "sha256": "a5c188c76f8baf11caf33af15b8562d57eaedbfead39af8c4104f0fb9bbb0e57",
+        "bytes": 302480,
+        "url": "https://assets.yunyoujun.cn/ak-ui/assets/img/character/xiaoyun-vanguard-v2-a5c188c76f8b.webp",
+        "contentType": "image/webp"
+      },
+      "thumbnail": {
+        "path": "img/character/xiaoyun-vanguard-v2-thumb.webp",
+        "key": "ak-ui/assets/img/character/xiaoyun-vanguard-v2-thumb-3e0ac4f727d8.webp",
+        "sha256": "3e0ac4f727d82c87fbaa5a6a2dab9a2ac86e26f62599bde1f44eff9875c947c1",
+        "bytes": 63288,
+        "url": "https://assets.yunyoujun.cn/ak-ui/assets/img/character/xiaoyun-vanguard-v2-thumb-3e0ac4f727d8.webp",
+        "contentType": "image/webp"
+      }
+    },
+    {
+      "path": "img/game/advanced-combat-record.webp",
+      "key": "ak-ui/assets/img/game/advanced-combat-record-f13fcd128ec0.webp",
+      "sha256": "f13fcd128ec0e398ee772a1b38beb98ee60c398c20e74208d570088862f3206d",
+      "bytes": 28140,
+      "url": "https://assets.yunyoujun.cn/ak-ui/assets/img/game/advanced-combat-record-f13fcd128ec0.webp",
+      "contentType": "image/webp"
+    },
+    {
+      "path": "img/game/basic-combat-record.webp",
+      "key": "ak-ui/assets/img/game/basic-combat-record-e9fd4e37ef64.webp",
+      "sha256": "e9fd4e37ef64f03888857436a8c0c8f4ea62e21806a0ecd918ba909b539af75e",
+      "bytes": 24042,
+      "url": "https://assets.yunyoujun.cn/ak-ui/assets/img/game/basic-combat-record-e9fd4e37ef64.webp",
+      "contentType": "image/webp"
+    },
+    {
+      "path": "img/game/foreign-iron-fragments.webp",
+      "key": "ak-ui/assets/img/game/foreign-iron-fragments-5260686ebd99.webp",
+      "sha256": "5260686ebd99a56b6eb22b81908821b51a790cee51cd5e64be30d5ec14670bcd",
+      "bytes": 18634,
+      "url": "https://assets.yunyoujun.cn/ak-ui/assets/img/game/foreign-iron-fragments-5260686ebd99.webp",
+      "contentType": "image/webp"
+    },
+    {
+      "path": "img/game/intermediate-combat-record.webp",
+      "key": "ak-ui/assets/img/game/intermediate-combat-record-cf8323efbbc0.webp",
+      "sha256": "cf8323efbbc0e3eb1cf413c98be828896e111c2a5ab52b459330e6a5d13e9a88",
+      "bytes": 26084,
+      "url": "https://assets.yunyoujun.cn/ak-ui/assets/img/game/intermediate-combat-record-cf8323efbbc0.webp",
+      "contentType": "image/webp"
+    },
+    {
+      "path": "img/game/primary-combat-record.webp",
+      "key": "ak-ui/assets/img/game/primary-combat-record-980d45fd3764.webp",
+      "sha256": "980d45fd37645616b92cddc947980496a1670825cb3ac7e7815f69fb20550215",
+      "bytes": 24560,
+      "url": "https://assets.yunyoujun.cn/ak-ui/assets/img/game/primary-combat-record-980d45fd3764.webp",
+      "contentType": "image/webp"
+    },
+    {
+      "path": "img/mrfz-logo.png",
+      "key": "ak-ui/assets/img/mrfz-logo-d20a379e42d4.png",
+      "sha256": "d20a379e42d4168310cdd39b146b3b135819501a9535a18797d8f83b8c76d909",
+      "bytes": 4344,
+      "url": "https://assets.yunyoujun.cn/ak-ui/assets/img/mrfz-logo-d20a379e42d4.png",
+      "contentType": "image/png"
+    },
+    {
+      "path": "img/smartphone-line.svg",
+      "key": "ak-ui/assets/img/smartphone-line-3af7b756eb9d.svg",
+      "sha256": "3af7b756eb9d05b907c7e188d87743c713010c89a43a030ab03ce51cd5f12de4",
+      "bytes": 352,
+      "url": "https://assets.yunyoujun.cn/ak-ui/assets/img/smartphone-line-3af7b756eb9d.svg",
+      "contentType": "image/svg+xml"
+    }
+  ],
+  "optimization": {
+    "encoder": "cwebp 1.6.0",
+    "quality": 90,
+    "alphaQuality": 100,
+    "thumbnailQuality": 85,
+    "thumbnailWidth": 640
+  }
+}

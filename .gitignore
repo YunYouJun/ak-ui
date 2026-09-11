@@ -30,3 +30,6 @@ docs/.vitepress/dist
 docs/public/r
 playwright-report
 test-results
+
+# Documentation media is stored in COS; never commit the upload cache.
+/docs/public/img/

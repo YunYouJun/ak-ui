@@ -416,7 +416,7 @@ test('renders the reusable terminal loading state separately', async ({ page }) 
 
   await expect(loading).toBeVisible()
   await expect(loading).toHaveAttribute('data-state', 'loading')
-  await expect(loading.locator('.ak-loading-screen__backdrop')).toHaveAttribute('src', '/img/bg/loading-terminal-v2.png')
+  await expect(loading.locator('.ak-loading-screen__backdrop')).toHaveAttribute('src', 'https://assets.yunyoujun.cn/ak-ui/assets/img/bg/loading-terminal-v2-201dae3c90d5.webp')
   await expect(track).toBeVisible()
   await expect(runner).toHaveCSS('animation-name', 'ak-loading-track-move')
 })
