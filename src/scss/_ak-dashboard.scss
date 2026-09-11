@@ -16,8 +16,8 @@
   --ak-dashboard-menu-height: 71.111cqh;
   --ak-dashboard-menu-top: 15.42cqh;
   --ak-dashboard-menu-right: -5.84cqw;
-  --ak-dashboard-menu-resource-track: 11.94%;
-  --ak-dashboard-menu-operation-track: 29.85%;
+  --ak-dashboard-menu-resource-track: 15%;
+  --ak-dashboard-menu-operation-track: 28%;
   --ak-dashboard-menu-card-inset: 0.556cqw;
   --ak-dashboard-menu-card-trim: 1.389cqw;
 
@@ -58,8 +58,37 @@
   & &__layer {
     position: absolute;
     transform: translate3d(var(--ak-layer-x, 0), var(--ak-layer-y, 0), 0);
-    transition: transform 260ms cubic-bezier(0.16, 1, 0.3, 1);
+    transition: transform 440ms cubic-bezier(0.22, 1, 0.36, 1);
     will-change: transform;
+  }
+
+  & &__atmosphere {
+    position: absolute;
+    z-index: 7;
+    overflow: hidden;
+    pointer-events: none;
+    inset: 0;
+  }
+
+  & &__mote {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    border-radius: 50%;
+    background: rgba(255, 255, 248, 0.7);
+    box-shadow: 0 0 4px rgba(255, 255, 248, 0.3);
+    animation: ak-dashboard-dust 14s linear infinite;
+  }
+
+  @for $i from 1 through 28 {
+    & &__mote:nth-child(#{$i}) {
+      top: #{($i * 31) % 100}%;
+      left: #{($i * 47) % 100}%;
+      width: #{1 + $i % 3}px;
+      height: #{1 + $i % 3}px;
+      animation-duration: #{12 + $i % 9}s;
+      animation-delay: #{$i * -0.7}s;
+    }
   }
 
   & &__background-layer {
@@ -85,6 +114,23 @@
     object-position: center;
     filter: saturate(0.96) contrast(1.04) brightness(0.86);
     transform: translateX(1.2cqw) scale(1.02);
+  }
+
+  & &__character-layer {
+    z-index: 2;
+    pointer-events: none;
+    inset: 0;
+  }
+
+  & &__character {
+    position: absolute;
+    top: 2%;
+    left: 0;
+    width: auto;
+    height: 96%;
+    max-width: none;
+    object-fit: contain;
+    user-select: none;
   }
 
   & &__plane {
@@ -257,11 +303,12 @@
   }
 
   & &__voice {
+    position: relative;
     width: 82%;
     margin-left: 1cqw;
-    padding: 1.2cqw 0.85cqw;
-    border-left: 0.28cqw solid rgba(255, 255, 255, 0.78);
-    background: linear-gradient(90deg, rgba(12, 14, 16, 0.72), rgba(12, 14, 16, 0));
+    padding: 1.75cqw 0.85cqw 0.85cqw;
+    border-left: 0;
+    background: linear-gradient(90deg, rgba(12, 14, 16, 0.76), rgba(12, 14, 16, 0.4));
     text-shadow: 0 0.14cqw 0.25cqw rgba(0, 0, 0, 0.9);
   }
 
@@ -269,14 +316,26 @@
     display: block;
     color: rgba(255, 255, 255, 0.56);
     font-family: $font-monospace;
-    font-size: clamp(0.4rem, 0.48cqw, 0.52rem);
+    font-size: clamp(0.5rem, 0.62cqw, 0.65rem);
     font-weight: 800;
     letter-spacing: 0.12em;
   }
 
+  & &__voice > &__eyebrow {
+    position: absolute;
+    top: -0.25cqw;
+    left: 0;
+    width: 12cqw;
+    padding: 0.2cqw 0.65cqw;
+    color: #151719;
+    background: rgba(247, 248, 245, 0.88);
+    clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+    text-shadow: none;
+  }
+
   & &__voice p {
     margin: 0.22cqw 0 0;
-    font-size: clamp(0.6rem, 0.75cqw, 0.78rem);
+    font-size: clamp(0.7rem, 0.92cqw, 0.95rem);
     line-height: 1.45;
   }
 
@@ -317,8 +376,8 @@
     height: 100%;
     max-width: none;
     object-fit: cover;
-    opacity: 0.72;
-    filter: saturate(0.72) contrast(1.2);
+    opacity: 0.82;
+    filter: saturate(0.88) contrast(1.12);
   }
 
   & &__news-label {
@@ -413,6 +472,8 @@
     min-height: 0;
     padding: 0;
     justify-items: start;
+    grid-template-rows: 2cqw 1fr;
+    gap: 0.45cqw;
     transform: none;
   }
 
@@ -437,6 +498,7 @@
     font-size: clamp(0.72rem, 1.1cqw, 1.1rem);
     font-weight: 700;
     letter-spacing: 0.04em;
+    font-variant-numeric: tabular-nums;
   }
 
   & &__line {
@@ -607,5 +669,29 @@
 @media (prefers-reduced-motion: reduce) {
   .ak-dashboard .ak-dashboard__layer {
     transition: none;
+  }
+}
+
+@keyframes ak-dashboard-dust {
+  0% {
+    opacity: 0;
+    transform: translate3d(8cqw, 9cqh, 0);
+  }
+
+  15%,
+  75% {
+    opacity: 0.55;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate3d(-10cqw, -12cqh, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ak-dashboard .ak-dashboard__mote {
+    animation: none;
+    opacity: 0.16;
   }
 }

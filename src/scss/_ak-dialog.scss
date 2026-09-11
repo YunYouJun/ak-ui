@@ -4,6 +4,9 @@
   --ak-dialog-info: var(--ak-signal-info, var(--ak-color-primary, #{$blue}));
   --ak-dialog-signal: var(--ak-signal-action, var(--ak-color-advanced, #{$yellow}));
 
+  position: fixed;
+  inset: 0;
+  margin: auto;
   box-sizing: border-box;
   width: min(calc(100% - 2rem), 38rem);
   max-height: min(calc(100dvh - 2rem), 44rem);
@@ -23,7 +26,7 @@
   }
 
   &[open] {
-    animation: ak-dialog-enter 160ms ease-out;
+    animation: ak-dialog-enter 300ms cubic-bezier(0.22, 1, 0.36, 1);
   }
 
   & &__header {
@@ -87,5 +90,46 @@
 @media (prefers-reduced-motion: reduce) {
   .ak-dialog[open] {
     animation: none;
+  }
+}
+
+@supports (transition-behavior: allow-discrete) {
+  .ak-dialog {
+    opacity: 0;
+    transform: translateY(0.75rem) scale(0.99);
+    transition: opacity 240ms ease, transform 320ms cubic-bezier(0.22, 1, 0.36, 1), display 320ms allow-discrete, overlay 320ms allow-discrete;
+
+    &[open] {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      animation: none;
+    }
+
+    &::backdrop {
+      opacity: 0;
+      transition: opacity 240ms ease, display 320ms allow-discrete, overlay 320ms allow-discrete;
+    }
+
+    &[open]::backdrop {
+      opacity: 1;
+    }
+  }
+
+  @starting-style {
+    .ak-dialog[open] {
+      opacity: 0;
+      transform: translateY(0.75rem) scale(0.99);
+    }
+
+    .ak-dialog[open]::backdrop {
+      opacity: 0;
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ak-dialog,
+  .ak-dialog::backdrop {
+    transition: none;
   }
 }

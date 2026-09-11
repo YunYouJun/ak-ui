@@ -372,7 +372,7 @@ test('operates the complete Rhodes Island terminal dashboard', async ({ page }) 
 
   await expect(dashboard).toBeVisible()
   await expect(demo.locator('[data-loading-screen]')).toHaveCount(0)
-  await expect(demo.locator('.ak-dashboard__layer')).toHaveCount(5)
+  await expect(demo.locator('.ak-dashboard__layer')).toHaveCount(6)
   await expect(commands).toHaveCount(9)
   await expect(demo.locator('.ak-counter')).toHaveCount(3)
   await expect(demo.locator('.ak-san-container--terminal')).toContainText('132')
@@ -389,6 +389,14 @@ test('operates the complete Rhodes Island terminal dashboard', async ({ page }) 
 
   await demo.getByRole('button', { name: '任务' }).click()
   await expect(page.getByRole('dialog', { name: '今日任务' })).toBeVisible()
+  await expect.poll(async () => {
+    const box = await page.getByRole('dialog', { name: '今日任务' }).boundingBox()
+    const viewport = page.viewportSize()!
+    return box ? Math.max(
+      Math.abs(box.x + box.width / 2 - viewport.width / 2),
+      Math.abs(box.y + box.height / 2 - viewport.height / 2),
+    ) : Infinity
+  }).toBeLessThan(2)
   await page.keyboard.press('Escape')
   await expect(page.getByRole('dialog', { name: '今日任务' })).not.toBeVisible()
 
@@ -405,6 +413,17 @@ test('operates the complete Rhodes Island terminal dashboard', async ({ page }) 
     dashboardBounds!.y + dashboardBounds!.height * 0.5,
   )
   await expect.poll(() => demo.locator('.ak-dashboard__right-layer').evaluate(layer => getComputedStyle(layer).getPropertyValue('--ak-layer-x'))).not.toBe(motionBefore)
+
+  const depths = await demo.locator('.ak-dashboard__background-layer, .ak-dashboard__character-layer, .ak-dashboard__right-layer').evaluateAll(layers => layers.map(layer => Math.abs(Number.parseFloat(getComputedStyle(layer).getPropertyValue('--ak-layer-x')))))
+  expect(depths[0]).toBeGreaterThan(0)
+  expect(depths[1]).toBeGreaterThan(depths[0])
+  expect(depths[2]).toBeGreaterThan(depths[1])
+  await expect.poll(() => demo.locator('.ak-dashboard__character').evaluate((image: HTMLImageElement) => image.naturalWidth)).toBeGreaterThan(0)
+
+  await page.emulateMedia({ reducedMotion: 'reduce' })
+  await expect(demo.locator('.ak-dashboard__character-layer')).toHaveCSS('transform', 'matrix(1, 0, 0, 1, 0, 0)')
+  await expect(demo.locator('.ak-dashboard__mote').first()).toHaveCSS('animation-name', 'none')
+  await expect.poll(() => demo.locator('.ak-dashboard__right-layer').evaluate(layer => Number.parseFloat(getComputedStyle(layer).getPropertyValue('--ak-layer-x')))).toBe(0)
 })
 
 test('renders the reusable terminal loading state separately', async ({ page }) => {

@@ -267,6 +267,8 @@
   overflow: visible;
   color: #17191b;
   background: rgba(253, 253, 251, 0.9);
+  background-image: linear-gradient(rgba(255, 255, 255, 0.84), rgba(255, 255, 255, 0.9)), var(--ak-dashboard-paper-image, none);
+  background-size: cover;
   box-shadow: var(--ak-dashboard-shadow, 0 1rem 2rem rgba(0, 0, 0, 0.32));
   container-type: size;
   isolation: isolate;

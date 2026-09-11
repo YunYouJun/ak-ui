@@ -27,6 +27,11 @@
     "docs/.vitepress/theme/Layout.vue",
     "docs/.vitepress/theme/components/AkHome.vue",
     "docs/.vitepress/theme/components/AkNotFound.vue",
+    "docs/.vitepress/theme/components/AkShowcase.vue",
+    "docs/.vitepress/theme/components/ArtworkPicker.vue",
+    "docs/.vitepress/theme/components/DepthControls.vue",
+    "docs/.vitepress/theme/components/showcaseArtwork.ts",
+    "docs/.vitepress/theme/components/useShowcaseDepth.ts",
     "docs/.vitepress/env.d.ts"
   ]
 }

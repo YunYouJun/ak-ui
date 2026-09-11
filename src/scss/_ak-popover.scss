@@ -2,6 +2,7 @@
 
 .ak-popover,
 .ak-tooltip {
+  margin: auto;
   box-sizing: border-box;
   border-radius: 0;
   color: #f3f4ef;
@@ -47,7 +48,7 @@
   }
 
   &:popover-open {
-    animation: ak-popover-enter 140ms ease-out;
+    animation: ak-popover-enter 240ms cubic-bezier(0.22, 1, 0.36, 1);
   }
 }
 
@@ -74,6 +75,7 @@
     inset: auto;
     margin: 0.5rem 0;
     position-area: block-end span-inline-end;
+    position-try-fallbacks: flip-block, flip-inline, flip-block flip-inline;
   }
 
   .ak-tooltip {
@@ -97,5 +99,32 @@
   .ak-popover:popover-open,
   .ak-tooltip:popover-open {
     animation: none;
+  }
+}
+
+@supports (transition-behavior: allow-discrete) {
+  .ak-popover {
+    opacity: 0;
+    transform: translateY(-0.35rem);
+    transition: opacity 200ms ease, transform 260ms cubic-bezier(0.22, 1, 0.36, 1), display 260ms allow-discrete, overlay 260ms allow-discrete;
+
+    &:popover-open {
+      opacity: 1;
+      transform: translateY(0);
+      animation: none;
+    }
+  }
+
+  @starting-style {
+    .ak-popover:popover-open {
+      opacity: 0;
+      transform: translateY(-0.35rem);
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ak-popover {
+    transition: none;
   }
 }
