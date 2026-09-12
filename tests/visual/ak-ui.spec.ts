@@ -403,15 +403,24 @@ test('operates the complete Rhodes Island terminal dashboard', async ({ page }) 
   await demo.getByRole('button', { name: '查看资源详情' }).click()
   await expect(page.locator('#resource-overview')).toBeVisible()
   await page.keyboard.press('Escape')
+  await expect(page.locator('#resource-overview')).not.toBeVisible()
 
-  const motionBefore = await demo.locator('.ak-dashboard__right-layer').evaluate(layer => getComputedStyle(layer).getPropertyValue('--ak-layer-x'))
-  await dashboard.scrollIntoViewIfNeeded()
+  // Linux WebKit can close the page while Playwright waits for this animated
+  // dashboard to be stable. Scroll directly, then verify the pointer target.
+  await dashboard.evaluate(element => element.scrollIntoView({ block: 'center', behavior: 'instant' }))
   const dashboardBounds = await dashboard.boundingBox()
   expect(dashboardBounds).not.toBeNull()
-  await page.mouse.move(
-    dashboardBounds!.x + dashboardBounds!.width * 0.9,
-    dashboardBounds!.y + dashboardBounds!.height * 0.5,
-  )
+  const targetX = dashboardBounds!.x + dashboardBounds!.width * 0.9
+  const targetY = dashboardBounds!.y + dashboardBounds!.height * 0.5
+  expect(targetX).toBeGreaterThan(0)
+  expect(targetX).toBeLessThan(page.viewportSize()!.width)
+  expect(targetY).toBeGreaterThan(0)
+  expect(targetY).toBeLessThan(page.viewportSize()!.height)
+  await page.mouse.move(0, 0)
+  const rightLayer = demo.locator('.ak-dashboard__right-layer')
+  await expect.poll(() => rightLayer.evaluate(layer => Number.parseFloat(getComputedStyle(layer).getPropertyValue('--ak-layer-x')))).toBe(0)
+  const motionBefore = await rightLayer.evaluate(layer => getComputedStyle(layer).getPropertyValue('--ak-layer-x'))
+  await page.mouse.move(targetX, targetY)
   await expect.poll(() => demo.locator('.ak-dashboard__right-layer').evaluate(layer => getComputedStyle(layer).getPropertyValue('--ak-layer-x'))).not.toBe(motionBefore)
 
   const depths = await demo.locator('.ak-dashboard__background-layer, .ak-dashboard__character-layer, .ak-dashboard__right-layer').evaluateAll(layers => layers.map(layer => Math.abs(Number.parseFloat(getComputedStyle(layer).getPropertyValue('--ak-layer-x')))))
