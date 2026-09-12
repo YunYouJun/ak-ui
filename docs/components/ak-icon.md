@@ -1,7 +1,7 @@
 # ak-icon 图标
 
 ::: info 开发分支预览
-本页展示尚未发布的图标优化。`ak-icon--stroke` 与新增的 `--ak-icon-*` 变量未包含在 npm 的 `1.0.0-rc.1` 中；按下方新 API 接入前，请确认所用版本已包含这些更改。已发布版本仍可使用 `ak-icon`、`ak-icon--stuff` 和 `--icon-border-color`。
+本页图标优化从 **1.0.0** 正式版开始提供，包括 `ak-icon--stroke` 与新增的 `--ak-icon-*` 变量；继续兼容 `ak-icon`、`ak-icon--stuff` 和 `--icon-border-color`。
 :::
 
 图标负责快速传达动作、状态和资源类别。`ak-icon` 统一 SVG 的尺寸、基线和颜色继承；线性图标加上 `ak-icon--stroke`，材料徽章使用 `ak-icon--stuff`。

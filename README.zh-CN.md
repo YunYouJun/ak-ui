@@ -17,7 +17,7 @@ ak-ui 不以像素级复刻某个游戏页面为目标，而是把工业几何�
 
 运行时生成界面可体验 [A2UI 实验](https://ak-ui.yyj.moe/guide/a2ui)：基于官方协议处理器的本地模拟，不增加 CSS 包的运行时依赖。稳定接口范围与收尾事项见 [1.0 发布检查](https://ak-ui.yyj.moe/guide/stability)。
 
-发布候选：**1.0.0-rc.1**，供正式 1.0 前试用。从 0.2.x 升级请参阅 [迁移指南](https://ak-ui.yyj.moe/guide/migration-v1)，组件接口见 [Vue Registry API](https://ak-ui.yyj.moe/registry/api)。
+稳定版：**1.0.0**。从 0.2.x 升级请参阅 [迁移指南](https://ak-ui.yyj.moe/guide/migration-v1)，组件接口见 [Vue Registry API](https://ak-ui.yyj.moe/registry/api)。
 
 ## 使用 AI（推荐）
 
@@ -41,6 +41,8 @@ npx skills add YunYouJun/ak-ui --skill ak-ui
 ```bash
 pnpm add @yunyoujun/ak-ui
 ```
+
+包统一发布到 [npm](https://www.npmjs.com/package/@yunyoujun/ak-ui)。`latest` 对应稳定版；试用发布候选版请使用 `pnpm add @yunyoujun/ak-ui@next`。历史 GitHub Packages 条目已删除，npm 是唯一包发布源。
 
 只需要为自定义或 headless 组件提供设计基础时，引入语义 Token：
 

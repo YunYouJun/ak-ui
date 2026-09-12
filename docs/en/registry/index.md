@@ -3,7 +3,7 @@
 Install editable Vue 3 components with shadcn-vue. The copied source imports the CSS package; it does not add a separate ak-ui runtime.
 
 ```sh
-pnpm add @yunyoujun/ak-ui@1.0.0-rc.1
+pnpm add @yunyoujun/ak-ui@1.0.0
 pnpm dlx shadcn-vue@latest add https://ak-ui.yyj.moe/r/button.json
 ```
 

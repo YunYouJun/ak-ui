@@ -5,17 +5,17 @@ description: 从 ak-ui 0.2.x 升级到 1.0 的兼容性与验证步骤
 
 # 升级到 1.0
 
-本页对应 **1.0.0-rc.1** 发布候选，供正式 1.0 前试用。现有 CSS / Token / Sass / depth 导出路径保持不变，218 个既有 `.ak-*` 类名和 63 个基础 Token 均有兼容性基准检查。
+本页对应 **1.0.0** 正式版。现有 CSS / Token / Sass / depth 导出路径保持不变，218 个既有 `.ak-*` 类名和 63 个基础 Token 均有兼容性基准检查。
 
 ## CSS 与 Token 使用者
 
 固定版本安装，避免随着标签漂移：
 
 ```bash
-pnpm add @yunyoujun/ak-ui@1.0.0-rc.1
+pnpm add @yunyoujun/ak-ui@1.0.0
 ```
 
-继续使用 `style.css`、`tokens.css` 或 `scss` 原有入口，无需批量替换类名。不使用 CDN 的 `@latest` 来试用候选版本；预发布工作流使用 `next` 标签，不覆盖稳定版 latest。
+继续使用 `style.css`、`tokens.css` 或 `scss` 原有入口，无需批量替换类名。正式版发布到 npm 的 `latest` 标签；生产环境建议固定精确版本。
 
 ```ts
 import '@yunyoujun/ak-ui/tokens.css'
@@ -26,7 +26,7 @@ Token-only 仍只有命名空间变量，没有元素重置。内部 Sass partia
 
 ## Vue Registry 使用者
 
-先更新 CSS 包，再逐项比较已经复制到消费项目的 Vue 源码。不要直接覆盖自行修改过的组件。Registry 条目现在指向候选包版本；公开站点需要与该包发布同步，避免站点先指向尚未发布的版本。
+先更新 CSS 包，再逐项比较已经复制到消费项目的 Vue 源码。不要直接覆盖自行修改过的组件。Registry 条目现在指向正式包版本；公开站点需要与该包发布同步，避免站点先指向尚未发布的版本。
 
 1.0 的行为收尾包括：
 

@@ -2,12 +2,12 @@
 
 ak-ui provides Arknights-inspired design tokens, framework-agnostic CSS and editable Vue adapters. Keep your own brand, content and accessible interactions.
 
-The **1.0.0-rc.1** release candidate is for evaluation before stable 1.0. Pin the version for reproducible installation. Stable releases use `latest`; release candidates use `next`.
+**1.0.0** is the stable release. Pin the version for reproducible installation. Stable releases use `latest`; release candidates use `next`.
 
 ## Install CSS
 
 ```sh
-pnpm add @yunyoujun/ak-ui@1.0.0-rc.1
+pnpm add @yunyoujun/ak-ui@1.0.0
 ```
 
 ```ts

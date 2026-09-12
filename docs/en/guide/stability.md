@@ -1,6 +1,6 @@
 # 1.0 compatibility and migration
 
-**1.0.0-rc.1** is a release candidate for evaluation before stable 1.0. It preserves the existing CSS, Token, Sass and depth exports.
+**1.0.0** is the stable release. It preserves the existing CSS, Token, Sass and depth exports.
 
 ## Stable 1.x interfaces
 
@@ -17,10 +17,10 @@ Internal Sass partials, documentation layout, examples, skill wording and the A2
 ## Upgrade from 0.2.x
 
 ```sh
-pnpm add @yunyoujun/ak-ui@1.0.0-rc.1
+pnpm add @yunyoujun/ak-ui@1.0.0
 ```
 
-Keep existing imports and class names. Compare copied Registry source instead of overwriting customized components. This candidate normalizes nonfinite numeric values and inverted ranges, improves decimal stepping and tab fallback, and fixes queued depth motion and reduced-motion cleanup.
+Keep existing imports and class names. Compare copied Registry source instead of overwriting customized components. This release normalizes nonfinite numeric values and inverted ranges, improves decimal stepping and tab fallback, and fixes queued depth motion and reduced-motion cleanup.
 
 Test your application's light/dark surfaces, labels, keyboard navigation, overlays and reduced-motion behavior. To roll back, pin `@yunyoujun/ak-ui@0.2.1` and restore your previous Registry source and lockfile.
 
@@ -28,6 +28,6 @@ Test your application's light/dark surfaces, labels, keyboard navigation, overla
 
 Local checks cover package installation and Sass compilation, SSR-safe depth import, Vue consumer types, API baselines, dependency audit and Chromium/Firefox/Playwright WebKit. WebKit is not a real iOS or Safari application test. The library does not claim full WCAG certification.
 
-RC publication uses npm's `next` tag, leaving stable `latest` unchanged. The release workflow requires successful CI for the same commit. Coordinate public Registry deployment with npm availability, and collect real-project feedback before stable 1.0.
+Stable publication uses npm's `latest` tag; `next` is reserved for prereleases. The release workflow requires successful CI for the same commit. Coordinate public Registry deployment with npm availability, and continue collecting real-project feedback.
 
 See the detailed [release checklist (中文)](/guide/stability) and [migration notes (中文)](/guide/migration-v1).

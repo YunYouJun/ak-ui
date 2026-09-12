@@ -15,9 +15,9 @@ An unofficial, Arknights-inspired styling foundation for building original inter
 
 ak-ui does not aim to reproduce a specific game screen pixel for pixel. It turns the underlying industrial geometry and tactical information language into constraints that can adapt to your own product and brand.
 
-Explore runtime-generated interfaces in the [A2UI experiment](https://ak-ui.yyj.moe/en/guide/a2ui), a local simulation using the official protocol processor with no added runtime dependencies in the CSS package. See the [1.0 stability and release checklist](https://ak-ui.yyj.moe/en/guide/stability) for the proposed compatibility contract.
+Explore runtime-generated interfaces in the [A2UI experiment](https://ak-ui.yyj.moe/en/guide/a2ui), a local simulation using the official protocol processor with no added runtime dependencies in the CSS package. See the [1.0 stability and release checklist](https://ak-ui.yyj.moe/en/guide/stability) for the compatibility contract.
 
-Release candidate: **1.0.0-rc.1**, for evaluation before stable 1.0. See the [0.2.x migration guide](https://ak-ui.yyj.moe/en/guide/stability) and [Vue Registry API (中文)](https://ak-ui.yyj.moe/registry/api).
+Stable release: **1.0.0**. See the [0.2.x migration guide](https://ak-ui.yyj.moe/en/guide/stability) and [Vue Registry API (中文)](https://ak-ui.yyj.moe/registry/api).
 
 ## Use with AI (recommended)
 
@@ -41,6 +41,8 @@ Choose `accent`, `system` (default), or `terminal` to control the style intensit
 ```bash
 pnpm add @yunyoujun/ak-ui
 ```
+
+Packages are published to [npm](https://www.npmjs.com/package/@yunyoujun/ak-ui). `latest` tracks stable releases; use `pnpm add @yunyoujun/ak-ui@next` to evaluate release candidates. The legacy GitHub Packages entry has been removed; npm is the only package registry.
 
 Import only the semantic token foundation when styling your own or headless components:
 

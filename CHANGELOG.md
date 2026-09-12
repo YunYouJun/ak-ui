@@ -1,6 +1,10 @@
 # Changelog
 
-## Unreleased
+## 1.0.0 — 2026-09-12
+
+- Promoted the CSS, Token, Sass, depth and Vue Registry compatibility contract to stable 1.0.
+- Standardized distribution on npm with stable releases on `latest`.
+- Fixed intermittent Linux WebKit dashboard test crashes and retained CI failure diagnostics.
 
 - Refined material icon proportions, ring borders and contrast while preserving the legacy border-color variable.
 - Added a stroke icon modifier, configurable icon sizes and self-contained SVG examples with keyboard-operable actions.

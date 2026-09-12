@@ -30,20 +30,20 @@ ak-ui 把受《明日方舟》启发的设计语言拆成语义 Token、无运�
 
 ## 安装
 
-以下命令固定为 **1.0.0-rc.1** 发布候选，供正式 1.0 前试用。候选版使用 npm 的 `next` 标签，稳定版使用 `latest`。
+以下命令固定为 **1.0.0** 正式版，使用 npm 的 `latest` 标签。`next` 保留给预发布版本。
 
 ::: code-group
 
 ```bash [pnpm]
-pnpm add @yunyoujun/ak-ui@1.0.0-rc.1
+pnpm add @yunyoujun/ak-ui@1.0.0
 ```
 
 ```bash [npm]
-npm install @yunyoujun/ak-ui@1.0.0-rc.1
+npm install @yunyoujun/ak-ui@1.0.0
 ```
 
 ```bash [yarn]
-yarn add @yunyoujun/ak-ui@1.0.0-rc.1
+yarn add @yunyoujun/ak-ui@1.0.0
 ```
 
 :::
@@ -63,7 +63,7 @@ import '@yunyoujun/ak-ui/tokens.css'
 也可以直接通过 CDN 引入：
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@yunyoujun/ak-ui@1.0.0-rc.1/dist/ak-ui.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@yunyoujun/ak-ui@1.0.0/dist/ak-ui.min.css">
 ```
 
 ## 使用 CSS Core
