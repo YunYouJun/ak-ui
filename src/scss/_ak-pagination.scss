@@ -16,6 +16,7 @@
     display: inline-flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     box-shadow: 0 5px 10px rgba(black, 0.6);
     cursor: pointer;
 
@@ -34,19 +35,24 @@
     width: 8rem;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 
     .title {
       font-weight: normal;
+      font-size: 1rem;
+      line-height: 2rem;
       border: none;
-      margin-top: 9px;
+      margin: 0;
     }
   }
 
   .label {
     font-size: 12px;
+    line-height: 1;
   }
 
   .number {
     font-size: 1.9rem;
+    line-height: 1;
   }
 }

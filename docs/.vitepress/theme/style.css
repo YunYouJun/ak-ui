@@ -310,6 +310,8 @@ body {
 .ak-demo-preview.is-dust .ak-demo-preview__canvas { background-image: linear-gradient(rgba(17, 19, 21, 0.15), rgba(17, 19, 21, 0.15)), url('https://assets.yunyoujun.cn/ak-ui/assets/img/bg/dust-3638e3e544b3.jpg'); }
 .ak-demo-preview.is-color .ak-demo-preview__canvas { background-image: linear-gradient(rgba(7, 11, 14, 0.24), rgba(7, 11, 14, 0.24)), url('https://assets.yunyoujun.cn/ak-ui/assets/img/bg/operator-terminal-v2-1da4e00df0ae.webp'); }
 .ak-demo-preview__canvas img { max-width: 100%; }
+/* Keep VitePress prose image spacing out of the album frame. */
+.vp-doc .ak-media--album img { margin: 0; }
 .ak-demo-preview__canvas #tactical-map { width: min(620px, 100%); line-height: 0; }
 .ak-demo-preview__canvas #tactical-map .ak-cube { margin: 4px; transform: rotateX(-12deg) rotateY(20deg); }
 

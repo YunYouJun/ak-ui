@@ -278,6 +278,43 @@ test('executes scripts from directly rendered HTML examples', async ({ page }) =
   await expect(demo.locator('.ak-demo-preview__canvas #tactical-map .ak-cube')).toHaveCount(30)
 })
 
+test('rotates a single cube and keeps face decorations centered', async ({ page }) => {
+  await page.goto('/components/ak-object.html')
+  const preview = page.locator('#cube-preview')
+  const cube = preview.locator('.ak-cube')
+  await expect(cube).toHaveCount(1)
+
+  for (const width of [1440, 390]) {
+    await page.setViewportSize({ width, height: 900 })
+    await preview.getByRole('button', { name: '正面', exact: true }).click()
+    const geometry = await preview.locator('.front').evaluate(face => {
+      const icon = face.querySelector('svg')!.getBoundingClientRect()
+      const rect = face.getBoundingClientRect()
+      const lines = face.querySelector<HTMLElement>('.ak-face__lines')!
+      return {
+        dx: icon.x + icon.width / 2 - rect.x - rect.width / 2,
+        dy: icon.y + icon.height / 2 - rect.y - rect.height / 2,
+        lines: [lines.offsetLeft, lines.offsetTop, lines.offsetWidth, lines.offsetHeight],
+        content: [0, 0, face.clientWidth, face.clientHeight],
+      }
+    })
+    expect(Math.abs(geometry.dx)).toBeLessThan(0.1)
+    expect(Math.abs(geometry.dy)).toBeLessThan(0.1)
+    expect(geometry.lines).toEqual(geometry.content)
+
+    await preview.getByRole('slider', { name: 'X 轴旋转' }).focus()
+    await page.keyboard.press('ArrowRight')
+    await expect(preview.getByRole('slider', { name: 'X 轴旋转' })).toHaveValue('1')
+    await expect(cube).toHaveAttribute('style', /rotateX\(1deg\)/)
+    await preview.getByRole('button', { name: '背面', exact: true }).click()
+    await expect(preview.getByRole('slider', { name: 'Y 轴旋转' })).toHaveValue('180')
+    await preview.getByRole('button', { name: '重置', exact: true }).click()
+    await expect(preview.getByRole('slider', { name: 'X 轴旋转' })).toHaveValue('-20')
+    await expect(preview.getByRole('slider', { name: 'Y 轴旋转' })).toHaveValue('30')
+    await expect(preview.getByRole('slider', { name: 'Z 轴旋转' })).toHaveValue('0')
+  }
+})
+
 test('supports keyboard and pointer interaction in terminal navigation', async ({ page }) => {
   await page.goto('/components/ak-tabs.html')
 
