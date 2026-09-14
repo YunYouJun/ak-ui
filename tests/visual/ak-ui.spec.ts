@@ -441,9 +441,17 @@ test('operates the complete Rhodes Island terminal dashboard', async ({ page }) 
   await expect(page.locator('#resource-overview')).toBeVisible()
   await page.keyboard.press('Escape')
   await expect(page.locator('#resource-overview')).not.toBeVisible()
+})
 
-  // Linux WebKit can close the page while Playwright waits for this animated
-  // dashboard to be stable. Scroll directly, then verify the pointer target.
+test('updates dashboard depth from native pointer input and respects reduced motion', async ({ page }) => {
+  await page.goto('/showcase/')
+  const demo = page.locator('[data-demo-id="showcase/main"]')
+  const dashboard = demo.locator('.ak-dashboard')
+  await expect(dashboard).toBeVisible()
+
+  // Exercise native pointer input in a fresh page, independently of top-layer
+  // dialog/popover transitions. Keep input inside the dashboard rather than
+  // moving to the window edge, where Linux WebKit stalled in CI.
   await dashboard.evaluate(element => element.scrollIntoView({ block: 'center', behavior: 'instant' }))
   const dashboardBounds = await dashboard.boundingBox()
   expect(dashboardBounds).not.toBeNull()
@@ -453,9 +461,12 @@ test('operates the complete Rhodes Island terminal dashboard', async ({ page }) 
   expect(targetX).toBeLessThan(page.viewportSize()!.width)
   expect(targetY).toBeGreaterThan(0)
   expect(targetY).toBeLessThan(page.viewportSize()!.height)
-  await page.mouse.move(0, 0)
+  await page.mouse.move(
+    dashboardBounds!.x + dashboardBounds!.width / 2,
+    dashboardBounds!.y + dashboardBounds!.height / 2,
+  )
   const rightLayer = demo.locator('.ak-dashboard__right-layer')
-  await expect.poll(() => rightLayer.evaluate(layer => Number.parseFloat(getComputedStyle(layer).getPropertyValue('--ak-layer-x')))).toBe(0)
+  await expect.poll(() => rightLayer.evaluate(layer => Math.abs(Number.parseFloat(getComputedStyle(layer).getPropertyValue('--ak-layer-x'))))).toBeLessThan(0.1)
   const motionBefore = await rightLayer.evaluate(layer => getComputedStyle(layer).getPropertyValue('--ak-layer-x'))
   await page.mouse.move(targetX, targetY)
   await expect.poll(() => demo.locator('.ak-dashboard__right-layer').evaluate(layer => getComputedStyle(layer).getPropertyValue('--ak-layer-x'))).not.toBe(motionBefore)

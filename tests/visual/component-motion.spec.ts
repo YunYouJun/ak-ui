@@ -8,6 +8,11 @@ for (const [route, selector, modifier] of [
     await page.goto(route)
     const component = page.locator(selector).first()
     await expect(component).toBeVisible()
+    // Settle intrinsic image dimensions and font metrics before comparing layout.
+    await component.evaluate(async (el) => {
+      await document.fonts.ready
+      await Promise.all(Array.from(el.querySelectorAll('img'), image => image.decode()))
+    })
     await component.evaluate((el, className) => el.classList.add(className), modifier)
     await expect.poll(() => component.evaluate(el => el.getAnimations().length)).toBeGreaterThan(0)
     await component.evaluate(el => Promise.all(el.getAnimations().map(animation => animation.finished)))
