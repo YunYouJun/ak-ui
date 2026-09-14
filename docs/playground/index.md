@@ -34,6 +34,7 @@ description: 集中体验 ak-ui 主终端、立绘与景深、Vue 组件和 A2UI
 
 | 演示 | 可以体验什么 |
 | --- | --- |
+| [景深动画播放器](/showcase/#depth-playground) | 播放、暂停、拖动与循环分层动画，并切回指针控制 |
 | [Vue Registry 交互](/registry/#vue-实际渲染) | 按钮事件、数值输入、进度联动、Tabs 和 Segmented |
 | [A2UI 实验](/guide/a2ui) | 逐条接收消息、修改指挥代号、回传操作并更新界面；本地模拟，不执行真实部署 |
 | [组件示例](/components/) | 按用途浏览组件预览，并复制对应 HTML 源码 |

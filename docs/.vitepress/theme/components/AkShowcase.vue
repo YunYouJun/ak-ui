@@ -8,6 +8,7 @@ import type { ArtworkTone } from './showcaseArtwork'
 import dashboardSource from '../../../../examples/showcase/main.html?raw'
 import loadingSource from '../../../../examples/loading/terminal.html?raw'
 import DepthControls from './DepthControls.vue'
+import DepthPlaybackControls from './DepthPlaybackControls.vue'
 import { defaultDepthSettings, useShowcaseDepth } from './useShowcaseDepth'
 
 const props = withDefaults(defineProps<{
@@ -92,6 +93,18 @@ const depth = useShowcaseDepth(
       :reduced-motion="depth.reducedMotion.value"
       @reset="depth.reset"
       @preview="depth.preview"
+    />
+    <DepthPlaybackControls
+      v-if="kind === 'dashboard' && !standalone"
+      v-model:loop="depth.playback.loop.value"
+      :playing="depth.playback.playing.value"
+      :seconds="depth.playback.seconds.value"
+      :duration="depth.playback.duration"
+      :disabled="depth.reducedMotion.value || !depthSettings.enabled"
+      @play="depth.playback.play"
+      @pause="depth.playback.pause"
+      @stop="depth.playback.stop"
+      @seek="depth.playback.seek"
     />
     <p v-if="kind === 'dashboard' && !standalone" class="ak-showcase-artwork-path">
       当前素材：<a :href="appliedArtwork.src" target="_blank" rel="noopener">{{ appliedArtwork.src }}</a>

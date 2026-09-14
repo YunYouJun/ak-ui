@@ -36,6 +36,7 @@ The terminal demos below currently use Chinese interface labels.
 
 | Demo | What to try |
 | --- | --- |
+| [Depth animation player (中文)](/showcase/#depth-playground) | Play, pause, scrub and loop layered motion, then return to pointer control |
 | [Vue Registry interactions](/en/registry/#live-vue-rendering) | Button events, numeric input, linked progress, Tabs and Segmented |
 | [A2UI experiment](/en/guide/a2ui) | Receive messages incrementally, edit a callsign, return actions and update the interface; a local simulation with no real deployment |
 | [Component examples](/en/components/) | Browse previews by purpose and copy the corresponding HTML source; detailed examples are in Chinese |

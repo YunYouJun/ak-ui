@@ -55,7 +55,9 @@ Tabs activate automatically: Left/Right, Home and End move focus and activate a 
 
 ## Depth controller
 
-Import `createDashboardDepth(root, options?)` from `@yunyoujun/ak-ui/depth`. The root must be a DOM Element with a document/window. Options are `layerSelector` (`[data-depth]`), `maxX` (130), `maxY` (70) and `respectReducedMotion` (true). Numeric options should be finite.
+Import `createDashboardDepth(root, options?)` from `@yunyoujun/ak-ui/depth`. The root must be a DOM Element with a document/window. Options are `layerSelector` (`[data-depth]`), `maxX` (130), `maxY` (70) `respectReducedMotion` (true) and `pointerEnabled` (true). Numeric options should be finite.
+
+With `pointerEnabled: false`, no pointer listeners are registered, allowing an external timeline to drive `render()`. Manual rendering still respects reduced motion.
 
 The controller returns `render(clientX, clientY)`, `reset()` and `destroy()`. Reset cancels pending animation and returns offsets to zero. Destroy resets offsets, removes listeners and animation, and can be called repeatedly; a destroyed controller no longer moves elements. The default respects reduced motion and resets offsets when the preference becomes active. Set it to false to manage this yourself.
 

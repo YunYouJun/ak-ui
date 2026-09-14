@@ -53,7 +53,9 @@ Tabs 使用自动激活：左右方向键、Home、End 移动焦点并激活；T
 
 ## 景深控制
 
-`createDashboardDepth(root, options?)` 从 `@yunyoujun/ak-ui/depth` 导入。root 必须是有 document/window 的 DOM Element。选项：`layerSelector`（`[data-depth]`）、`maxX`（130）、`maxY`（70）、`respectReducedMotion`（true）。数值选项应为有限数值。
+`createDashboardDepth(root, options?)` 从 `@yunyoujun/ak-ui/depth` 导入。root 必须是有 document/window 的 DOM Element。选项：`layerSelector`（`[data-depth]`）、`maxX`（130）、`maxY`（70）、`respectReducedMotion`（true）、`pointerEnabled`（true）。数值选项应为有限数值。
+
+`pointerEnabled: false` 不注册指针监听，适合由外部时间轴调用 `render()`；手动渲染仍尊重减少动态效果偏好。
 
 返回 `render(clientX, clientY)`、`reset()`、`destroy()`。reset 取消待执行动画并归零；destroy 归零、清理事件和动画，可重复调用，销毁后的控制器不再移动元素。默认响应系统“减少动态效果”，偏好实时开启时归零；设置 false 可由消费方自行控制。
 

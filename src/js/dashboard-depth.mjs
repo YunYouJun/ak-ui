@@ -3,6 +3,7 @@ const defaultOptions = {
   maxX: 130,
   maxY: 70,
   respectReducedMotion: true,
+  pointerEnabled: true,
 }
 
 /**
@@ -65,8 +66,10 @@ export function createDashboardDepth(root, options = {}) {
     motionFrame = view.requestAnimationFrame(() => render(event.clientX, event.clientY))
   }
 
-  root.addEventListener('pointermove', onPointerMove)
-  root.addEventListener('pointerleave', reset)
+  if (config.pointerEnabled) {
+    root.addEventListener('pointermove', onPointerMove)
+    root.addEventListener('pointerleave', reset)
+  }
   function onMotionPreferenceChange() {
     if (config.respectReducedMotion && reduceMotion.matches)
       reset()

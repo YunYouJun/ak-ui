@@ -3,6 +3,8 @@ export interface DashboardDepthOptions {
   maxX?: number
   maxY?: number
   respectReducedMotion?: boolean
+  /** Disable pointer listeners when an external timeline drives render(). */
+  pointerEnabled?: boolean
 }
 
 export interface DashboardDepthController {

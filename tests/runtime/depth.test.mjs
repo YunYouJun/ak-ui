@@ -47,3 +47,16 @@ test('live reduced-motion preference resets existing displacement and prevents m
   assert.equal(Number(values.get('--ak-layer-x').replace('px', '')), 0)
   controller.destroy()
 })
+
+test('external playback stays in control when pointer input is disabled', () => {
+  const { root, values, frames } = fixture()
+  const controller = createDashboardDepth(root, { pointerEnabled: false })
+  controller.render(100, 100)
+  root.dispatchEvent(Object.assign(new Event('pointermove'), { clientX: 0, clientY: 0 }))
+  root.dispatchEvent(new Event('pointerleave'))
+  assert.equal(frames.size, 0)
+  assert.equal(values.get('--ak-layer-x'), '-130.00px')
+  controller.reset()
+  assert.equal(Number(values.get('--ak-layer-x').replace('px', '')), 0)
+  controller.destroy()
+})
