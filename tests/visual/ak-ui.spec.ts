@@ -105,7 +105,7 @@ test('groups AI, CSS, and Vue onboarding into one navigation system', async ({ p
 
   await expect(page.locator('.VPNavBarTitle a')).toHaveAttribute('href', '/')
   await expect(page.locator('.VPNavBarMenuLink').filter({ hasText: '概览' })).toHaveCount(0)
-  await expect(page.locator('.VPNavBarMenuGroup').filter({ hasText: '开始使用' })).toHaveCount(1)
+  await expect(page.locator('.VPNavBarMenuGroup').filter({ hasText: '接入方式' })).toHaveCount(1)
   await expect(page.locator('.VPSidebar').getByRole('link', { name: /AI Skill/ })).toBeVisible()
   await expect(page.locator('.VPSidebar').getByRole('link', { name: 'CSS Core' })).toBeVisible()
   await expect(page.locator('.VPSidebar').getByRole('link', { name: 'Vue Registry', exact: true })).toBeVisible()
