@@ -41,3 +41,73 @@ test('language switching from untranslated content uses an existing locale home'
   await expect(page).toHaveURL(/:\d+\/$/)
   await expect(page.locator('.ak-home')).toBeVisible()
 })
+
+for (const [slug, chinese, english] of [
+  ['design-language', 'ak-ui 设计语言', 'ak-ui design language'],
+  ['tokens', 'ak-ui Token 契约', 'ak-ui token contract'],
+  ['headless', 'Headless 适配协议', 'Adapting headless components'],
+  ['reka-ui', 'Reka UI 适配示例', 'Reka UI adapter example'],
+  ['quality', 'ak-ui 质量检查清单', 'ak-ui quality checklist'],
+]) {
+  test(`${slug} switches between corresponding translated pages`, async ({ page }) => {
+    await page.goto(`/guide/${slug}`)
+    await expect(page.locator('h1')).toHaveText(chinese)
+    const translations = page.locator('.VPNavBarTranslations')
+    await translations.locator('button').hover()
+    await translations.getByRole('link', { name: 'English', exact: true }).click()
+    await expect(page).toHaveURL(new RegExp(`/en/guide/${slug}\\.html$`))
+    await expect(page.locator('html')).toHaveAttribute('lang', 'en')
+    await expect(page.locator('h1')).toHaveText(english)
+    await expect(page.locator('.VPNavBarMenuGroup.active')).toContainText('Design & dev')
+    await expect(page.locator('.VPSidebar').getByRole('link', { name: 'A2UI (experimental)', exact: true })).toBeVisible()
+    await translations.locator('button').hover()
+    await translations.getByRole('link', { name: '简体中文', exact: true }).click()
+    await expect(page).toHaveURL(new RegExp(`/guide/${slug}\\.html$`))
+    await expect(page.locator('h1')).toHaveText(chinese)
+  })
+}
+
+test('mobile language menu opens the translated guide without a stale anchor', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 })
+  await page.goto('/guide/design-language#品牌融合')
+  await page.getByRole('button', { name: 'mobile navigation', exact: true }).click()
+  await page.locator('.VPNavScreen').getByRole('button', { name: '简体中文', exact: true }).click()
+  await page.locator('.VPNavScreen').getByRole('link', { name: 'English', exact: true }).click()
+  await expect(page).toHaveURL(/\/en\/guide\/design-language\.html$/)
+  await expect(page.locator('h1')).toHaveText('ak-ui design language')
+  await page.getByRole('button', { name: 'Menu', exact: true }).click()
+  await expect(page.locator('.VPSidebar').getByRole('link', { name: 'Headless adapters', exact: true })).toBeVisible()
+})
+
+
+test('English navigation fits tablet widths and keeps its menus usable', async ({ page }) => {
+  await page.goto('/en/guide/design-language')
+  for (const width of [768, 1024]) {
+    await page.setViewportSize({ width, height: 1000 })
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true)
+    const nav = page.locator('.VPNavBarMenu')
+    const bounds = await nav.boundingBox()
+    expect(bounds!.x + bounds!.width).toBeLessThanOrEqual(width)
+    await nav.getByRole('button', { name: 'Integration', exact: true }).click()
+    await expect(nav.getByRole('link', { name: 'AI Skill (recommended)', exact: true })).toBeVisible()
+    await nav.getByRole('button', { name: 'Integration', exact: true }).click()
+  }
+})
+
+
+for (const [prefix, registryAnchor] of [['', 'vue-实际渲染'], ['en/', 'live-vue-rendering']]) {
+  test(`${prefix || 'zh'} Playground is reachable from desktop and mobile navigation`, async ({ page }) => {
+    await page.goto(`/${prefix}guide/`)
+    await page.locator('.VPNavBarMenu').getByRole('link', { name: 'Playground', exact: true }).click()
+    await expect(page).toHaveURL(new RegExp(`/${prefix}playground/$`))
+    await expect(page.locator('h1')).toHaveText('Playground')
+    await expect(page.locator('main a[href="/showcase/"]')).toBeVisible()
+    await expect(page.locator(`main a[href="/${prefix}registry/#${registryAnchor}"]`)).toBeVisible()
+    await page.setViewportSize({ width: 390, height: 844 })
+    await page.goto(`/${prefix}guide/`)
+    await page.getByRole('button', { name: 'mobile navigation', exact: true }).click()
+    await page.locator('.VPNavScreen').getByRole('link', { name: 'Playground', exact: true }).click()
+    await expect(page.locator('h1')).toHaveText('Playground')
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true)
+  })
+}

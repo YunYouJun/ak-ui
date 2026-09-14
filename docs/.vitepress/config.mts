@@ -1,4 +1,4 @@
-import { readFileSync } from 'node:fs'
+import { existsSync, readFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
@@ -41,37 +41,48 @@ function demoContainer(md: any) {
   })
 }
 
-const gettingStartedSidebar = [
-  {
-    text: '接入方式',
-    items: [
-      { text: 'AI Skill（推荐）', link: '/guide/ai-skill' },
-      { text: 'CSS Core', link: '/guide/' },
-      { text: 'Vue Registry', link: '/registry/' },
-      { text: 'Vue Registry API', link: '/registry/api' },
-      { text: 'A2UI（实验）', link: '/guide/a2ui' },
-    ],
-  },
-  {
-    text: '开发约定',
-    items: [
-      { text: 'ak-ui 设计语言', link: '/guide/design-language' },
-      { text: '设计 Token', link: '/guide/tokens' },
-      { text: 'Headless 适配', link: '/guide/headless' },
-      { text: 'Reka UI 示例', link: '/guide/reka-ui' },
-      { text: '接口与命名', link: '/guide/style' },
-      { text: '质量检查清单', link: '/guide/quality' },
-      { text: '1.0 稳定性与发布检查', link: '/guide/stability' },
-      { text: '升级到 1.0', link: '/guide/migration-v1' },
-    ],
-  },
-  {
-    text: '项目记录',
-    items: [
-      { text: '复活记录', link: '/guide/revival' },
-    ],
-  },
-]
+// Share the same entries between the top navigation and documentation sidebars.
+const integrationGroup = {
+  text: '接入方式',
+  items: [
+    { text: 'AI Skill（推荐）', link: '/guide/ai-skill' },
+    { text: 'CSS Core', link: '/guide/' },
+    { text: 'Vue Registry', link: '/registry/' },
+    { text: 'Vue Registry API', link: '/registry/api' },
+    { text: 'A2UI（实验）', link: '/guide/a2ui' },
+  ],
+}
+
+const designGroup = {
+  text: '设计与开发',
+  items: [
+    { text: 'ak-ui 设计语言', link: '/guide/design-language' },
+    { text: '设计 Token', link: '/guide/tokens' },
+    { text: 'Headless 适配', link: '/guide/headless' },
+    { text: 'Reka UI 示例', link: '/guide/reka-ui' },
+    { text: '接口与命名', link: '/guide/style' },
+    { text: '质量检查清单', link: '/guide/quality' },
+    { text: '1.0 稳定性与发布检查', link: '/guide/stability' },
+    { text: '升级到 1.0', link: '/guide/migration-v1' },
+  ],
+}
+
+const projectGroup = {
+  text: '项目记录',
+  items: [{ text: '复活记录', link: '/guide/revival' }],
+}
+
+const showcaseGroup = {
+  text: '完整演示',
+  items: [
+    { text: '主界面演示', link: '/showcase/' },
+    { text: '全屏终端', link: '/showcase/fullscreen' },
+    { text: '全屏加载演示', link: '/showcase/loading' },
+    { text: '素材说明', link: '/showcase/artwork' },
+  ],
+}
+
+const gettingStartedSidebar = [integrationGroup, designGroup, projectGroup]
 
 export default defineConfig({
   vite: {
@@ -86,6 +97,18 @@ export default defineConfig({
   description: 'An Arknights-inspired design language, token foundation, and framework-agnostic CSS primitive library.',
   lang: 'zh-CN',
   locales: { root: { label: '简体中文', lang: 'zh-CN', link: '/' }, en },
+  transformPageData(pageData) {
+    const relativePage = pageData.relativePath.replace(/^en\//, '')
+    pageData.frontmatter.localeLinks = Object.fromEntries(
+      [['root', ''], ['en', 'en/']].map(([locale, prefix]) => {
+        const counterpart = `${prefix}${relativePage}`
+        const link = existsSync(resolve(projectRoot, 'docs', counterpart))
+          ? `/${counterpart.replace(/(^|\/)index\.md$/, '$1').replace(/\.md$/, '.html')}`
+          : `/${prefix}`
+        return [locale, link]
+      }),
+    )
+  },
   appearance: 'dark',
   lastUpdated: true,
   sitemap: {
@@ -121,24 +144,24 @@ export default defineConfig({
       alt: 'ak-ui',
     },
     siteTitle: 'AK / UI',
-    // Core English docs are available; untranslated routes return to the locale home.
-    i18nRouting: false,
+    // Page data contains only existing counterparts. Translated headings may use
+    // different anchors, so language switching intentionally opens the page top.
+    i18nRouting: (_data, route, targetLocale) =>
+      route.data.frontmatter.localeLinks?.[targetLocale]
+      ?? (targetLocale === 'root' ? '/' : `/${targetLocale}/`),
     langMenuLabel: '切换语言',
     nav: [
       {
-        text: '开始使用',
-        items: [
-          { text: 'AI Skill（推荐）', link: '/guide/ai-skill' },
-          { text: 'CSS Core', link: '/guide/' },
-          { text: 'Vue Registry', link: '/registry/' },
-          { text: '设计语言', link: '/guide/design-language' },
-          { text: 'Headless 适配', link: '/guide/headless' },
-          { text: '接口与命名', link: '/guide/style' },
-          { text: '复活记录', link: '/guide/revival' },
-        ],
+        ...integrationGroup,
+        activeMatch: '^/(guide/(ai-skill|a2ui)(\\.html)?$|guide/$|registry/)',
       },
-      { text: '组件', link: '/components/' },
-      { text: '完整演示', link: '/showcase/' },
+      { text: '组件', link: '/components/', activeMatch: '^/components/' },
+      {
+        text: designGroup.text,
+        activeMatch: '^/guide/(design-language|tokens|headless|reka-ui|style|quality|stability|migration-v1|revival)(\\.html)?$',
+        items: [designGroup, projectGroup],
+      },
+      { text: 'Playground', link: '/playground/', activeMatch: '^/(playground|showcase)/' },
     ],
     sidebar: {
       '/guide/': gettingStartedSidebar,
@@ -146,38 +169,60 @@ export default defineConfig({
         {
           text: '基础规范',
           items: [
-            { text: '色彩与字体', link: '/components/' },
+            { text: '组件索引与规范', link: '/components/' },
             { text: '辅助类', link: '/components/ak-helper' },
             { text: '图标', link: '/components/ak-icon' },
           ],
         },
         {
-          text: '界面模块',
+          text: '操作与导航',
           items: [
             { text: '按钮', link: '/components/ak-button' },
             { text: '按钮组', link: '/components/ak-button-group' },
-            { text: '卡片', link: '/components/ak-card' },
-            { text: '计数器', link: '/components/ak-counter' },
-            { text: '分割线', link: '/components/ak-divider' },
-            { text: '主界面演示', link: '/showcase/' },
-            { text: '对话框', link: '/components/ak-dialog' },
-            { text: '效果', link: '/components/ak-fx' },
             { text: '表单', link: '/components/ak-form' },
-            { text: '关卡', link: '/components/ak-level' },
-            { text: '加载', link: '/components/ak-loading' },
-            { text: '媒体', link: '/components/ak-media' },
-            { text: '战术通知', link: '/components/ak-notice' },
-            { text: '物体', link: '/components/ak-object' },
-            { text: '浮层与提示', link: '/components/ak-popover' },
-            { text: '面板', link: '/components/ak-panel' },
+            { text: '终端导航', link: '/components/ak-tabs' },
             { text: '分页', link: '/components/ak-pagination' },
+          ],
+        },
+        {
+          text: '布局与容器',
+          items: [
+            { text: '卡片', link: '/components/ak-card' },
+            { text: '面板', link: '/components/ak-panel' },
+            { text: '分割线', link: '/components/ak-divider' },
+          ],
+        },
+        {
+          text: '数据与状态',
+          items: [
+            { text: '计数器', link: '/components/ak-counter' },
             { text: '进度与仪表', link: '/components/ak-progress' },
             { text: '理智', link: '/components/ak-san' },
             { text: '状态标记', link: '/components/ak-status' },
-            { text: '终端导航', link: '/components/ak-tabs' },
+            { text: '关卡', link: '/components/ak-level' },
           ],
         },
+        {
+          text: '反馈与浮层',
+          items: [
+            { text: '对话框', link: '/components/ak-dialog' },
+            { text: '浮层与提示', link: '/components/ak-popover' },
+            { text: '战术通知', link: '/components/ak-notice' },
+            { text: '加载', link: '/components/ak-loading' },
+          ],
+        },
+        {
+          text: '视觉与媒体',
+          items: [
+            { text: '图像与视频', link: '/components/ak-media' },
+            { text: '效果', link: '/components/ak-fx' },
+            { text: '物体', link: '/components/ak-object' },
+          ],
+        },
+        showcaseGroup,
       ],
+      '/playground/': [{ text: 'Playground', items: [{ text: '交互演示总览', link: '/playground/' }] }, showcaseGroup],
+      '/showcase/': [showcaseGroup],
       '/registry/': gettingStartedSidebar,
     },
     search: {
@@ -206,7 +251,7 @@ export default defineConfig({
     ],
     editLink: {
       pattern: 'https://github.com/YunYouJun/ak-ui/edit/master/docs/:path',
-      text: '修订此记录',
+      text: '修订作战记录',
     },
     lastUpdated: {
       text: '记录更新于',

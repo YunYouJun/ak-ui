@@ -1,60 +1,88 @@
 # Get started
 
-ak-ui provides Arknights-inspired design tokens, framework-agnostic CSS and editable Vue adapters. Keep your own brand, content and accessible interactions.
+ak-ui separates its Arknights-inspired design language into semantic tokens, CSS Core without a runtime, and Vue adapters you can copy into your project. Start with the [AI Skill](/en/guide/ai-skill) to choose a path for your project, or select a manual integration below.
 
-**1.0.0** is the stable release. Pin the version for reproducible installation. Stable releases use `latest`; release candidates use `next`.
+<div class="ak-entry-grid">
+  <a class="ak-entry-card ak-entry-card--ai" href="/en/guide/ai-skill">
+    <span class="ak-entry-card__channel">AI SKILL / RECOMMENDED</span>
+    <strong>AI-assisted integration</strong>
+    <p>Preserve your brand and interaction foundation while AI selects Core, Registry or a headless adapter.</p>
+    <span class="ak-entry-card__meta">Agent Skills · any stack</span>
+    <span class="ak-entry-card__action">Install the Skill →</span>
+  </a>
+  <a class="ak-entry-card ak-entry-card--core" href="#install">
+    <span class="ak-entry-card__channel">CSS CORE / UNIVERSAL</span>
+    <strong>Use CSS directly</strong>
+    <p>Copy example HTML and use the same stable classes in Vue, React or native pages.</p>
+    <span class="ak-entry-card__meta">0 runtime · CSS / SCSS</span>
+    <span class="ak-entry-card__action">Continue to installation ↓</span>
+  </a>
+  <a class="ak-entry-card ak-entry-card--vue" href="/en/registry/">
+    <span class="ak-entry-card__channel">VUE ADAPTER / SOURCE</span>
+    <strong>Copy Vue components</strong>
+    <p>Install editable source with props, events and v-model through shadcn-vue Registry.</p>
+    <span class="ak-entry-card__meta">Vue 3 · editable source</span>
+    <span class="ak-entry-card__action">Open the Registry →</span>
+  </a>
+</div>
 
-## Install CSS
+<p class="ak-entry-note"><strong>Choosing a path:</strong>Start with the AI Skill. Import <code>tokens.css</code> for the design foundation alone, use full CSS Core for existing modules, or choose Vue Registry for typed interaction wrappers in Vue.</p>
 
-```sh
+For agent-generated interfaces using structured messages, see the [A2UI experiment](/en/guide/a2ui) for protocol adaptation and an interactive demonstration.
+
+## Install
+
+The commands below pin the **1.0.0** stable release. Stable releases use npm's `latest` tag; `next` is reserved for prereleases.
+
+::: code-group
+
+```bash [pnpm]
 pnpm add @yunyoujun/ak-ui@1.0.0
 ```
+
+```bash [npm]
+npm install @yunyoujun/ak-ui@1.0.0
+```
+
+```bash [yarn]
+yarn add @yunyoujun/ak-ui@1.0.0
+```
+
+:::
+
+## Import CSS
 
 ```ts
 import '@yunyoujun/ak-ui/style.css'
 ```
 
-Use semantic HTML with the documented classes:
-
-```html
-<button class="ak-button" type="button">Continue</button>
-```
-
-## Tokens and Sass
-
-Use only the namespaced variables without element resets:
+To style existing headless components using only tokens:
 
 ```ts
 import '@yunyoujun/ak-ui/tokens.css'
 ```
 
-Or consume the public Sass entry with your bundler:
+You can also load CSS directly from a CDN:
 
-```scss
-@use '@yunyoujun/ak-ui/scss';
+```html
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@yunyoujun/ak-ui@1.0.0/dist/ak-ui.min.css">
 ```
 
-The CSS package has no runtime dependencies. Native elements, Vue adapters or your existing headless components provide behavior.
+## Use CSS Core
 
-## AI-assisted development
+Every module uses HTML classes as its interface. Copy the corresponding example and override `--ak-*` CSS variables as needed. For custom components, read [Design tokens](/en/guide/tokens) and [Adapting headless components](/en/guide/headless).
 
-Install the repository's agent skill:
+::: demo button/base
+:::
 
-```sh
-npx skills add YunYouJun/ak-ui
-```
+Browse all modules in the [component index](/en/components/), or install editable adapters with [Vue Registry](/en/registry/) for a Vue project.
 
-Ask your coding agent to preserve the existing brand and accessibility behavior, reuse existing primitives, and choose `accent`, `system` or `terminal` styling intensity. See the detailed [AI Skill guide (中文)](/guide/ai-skill).
-
-## Choose an integration
-
-- [Component index](/en/components/): copy framework-agnostic HTML and style it with CSS.
-- [Vue Registry](/en/registry/): install editable Vue 3 source.
-- [A2UI experiment](/en/guide/a2ui): explore runtime-generated UI through a local simulation.
-- [Compatibility and migration](/en/guide/stability): understand the 1.x contract and upgrade from 0.2.x.
+::: warning Unofficial project
+ak-ui is an unofficial, hobby-driven design language study with no affiliation to Hypergryph. It does not aim to recreate specific game screens. Game names, images and related assets belong to their respective rights holders.
+:::
 
 ## Language and appearance
 
-The homepage, navigation, 404 page and core onboarding are available in English and Chinese. Detailed component/API references currently remain in Chinese and are explicitly labeled. The language menu opens the selected language's homepage so it never invents a missing translation route.
+The homepage, integration guides, design and development guides, and Registry API have corresponding [Chinese](/guide/) and English pages. The language menu opens the corresponding translation when available, or the target language homepage otherwise. Detailed component references and full-screen demos remain in Chinese and are labeled in English navigation.
 
-The documentation supports light and dark themes; its appearance control persists your choice. Component examples retain their intended showcase surfaces. The CSS library does not automatically translate your product's labels or switch its theme: pass translated labels through adapter props and override design tokens in your application.
+The docs support light and dark themes and persist your choice. Component demos retain their intended surfaces. The CSS library does not translate product content or manage application themes: supply localized labels through props, slots and your copied source, and adapt product colors through design tokens.

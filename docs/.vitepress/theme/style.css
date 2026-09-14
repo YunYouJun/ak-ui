@@ -73,6 +73,15 @@ body {
 .VPNavBarMenuLink,
 .VPNavBarMenuGroup .text { font-size: 12px; font-weight: 700; letter-spacing: 0.08em; }
 
+/* Keep the longer English navigation usable before desktop search has room. */
+@media (min-width: 768px) and (max-width: 1279px) {
+  html[lang="en"] .VPNavBarSearchButton .text,
+  html[lang="en"] .VPNavBarSearchButton .keys { display: none; }
+
+  html[lang="en"] .VPNavBarMenuLink,
+  html[lang="en"] .VPNavBarMenuGroup .text { letter-spacing: 0.04em; }
+}
+
 .VPNavBarMenuLink.active,
 .VPNavBarMenuLink:hover { color: var(--ak-doc-yellow); }
 
@@ -136,6 +145,8 @@ body {
   border-left: 1px solid var(--vp-c-divider);
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
+
+.ak-entry-card { --ak-entry-signal: var(--ak-doc-blue); }
 
 .vp-doc .ak-entry-card {
   position: relative;

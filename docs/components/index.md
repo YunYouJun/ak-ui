@@ -1,4 +1,19 @@
-# 设计规范
+# 组件索引
+
+按用途查找可复用的 CSS 模块；色彩与字体规范见本页下方。
+
+| 分组 | 组件 |
+| --- | --- |
+| 基础规范 | [色彩与字体](#color-色彩) · [辅助类](./ak-helper) · [图标](./ak-icon) |
+| 操作与导航 | [按钮](./ak-button) · [按钮组](./ak-button-group) · [表单](./ak-form) · [终端导航](./ak-tabs) · [分页](./ak-pagination) |
+| 布局与容器 | [卡片](./ak-card) · [面板](./ak-panel) · [分割线](./ak-divider) |
+| 数据与状态 | [计数器](./ak-counter) · [进度与仪表](./ak-progress) · [理智](./ak-san) · [状态标记](./ak-status) · [关卡](./ak-level) |
+| 反馈与浮层 | [对话框](./ak-dialog) · [浮层与提示](./ak-popover) · [战术通知](./ak-notice) · [加载](./ak-loading) |
+| 视觉与媒体 | [图像与视频](./ak-media) · [效果](./ak-fx) · [物体](./ak-object) |
+
+想看组件如何组合成完整页面？前往 [主界面演示](/showcase/)、[全屏终端](/showcase/fullscreen) 或 [全屏加载演示](/showcase/loading)。
+
+接入项目请从 [AI Skill](../guide/ai-skill)、[CSS Core](../guide/)、[Vue Registry](../registry/) 或 [A2UI（实验）](../guide/a2ui) 开始。
 
 ## Color 色彩
 

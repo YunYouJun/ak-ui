@@ -75,7 +75,7 @@ const modules = [
       <h2 id="fidelity-note-title">{{ label('约束的是设计语言，', 'A design language,') }}<br>{{ label('不是像素级还原。', 'with room for your brand.') }}</h2>
       <div>
         <p>{{ label('ak-ui 抽象信息层级、工业几何、功能色彩、组件状态与动效节奏，帮助用户构建具有相似气质但品牌、内容和结构独立的产品界面。', 'Build an independent product with industrial geometry, purposeful colors, clear states and measured motion. Keep your own brand, content and structure.') }}</p>
-        <a href="/guide/design-language">{{ label('查看 ak-ui 设计契约 →', 'Read the design contract (中文) →') }}</a>
+        <a :href="en ? '/en/guide/design-language' : '/guide/design-language'">{{ label('查看 ak-ui 设计契约 →', 'Read the design contract →') }}</a>
       </div>
     </section>
 

@@ -17,7 +17,7 @@ ak-ui does not aim to reproduce a specific game screen pixel for pixel. It turns
 
 Explore runtime-generated interfaces in the [A2UI experiment](https://ak-ui.yyj.moe/en/guide/a2ui), a local simulation using the official protocol processor with no added runtime dependencies in the CSS package. See the [1.0 stability and release checklist](https://ak-ui.yyj.moe/en/guide/stability) for the compatibility contract.
 
-Stable release: **1.0.0**. See the [0.2.x migration guide](https://ak-ui.yyj.moe/en/guide/stability) and [Vue Registry API (中文)](https://ak-ui.yyj.moe/registry/api).
+Stable release: **1.0.0**. See the [0.2.x migration guide](https://ak-ui.yyj.moe/en/guide/migration-v1) and [Vue Registry API](https://ak-ui.yyj.moe/en/registry/api).
 
 ## Use with AI (recommended)
 
@@ -34,7 +34,7 @@ Use $ak-ui to integrate the ak-ui design language into this project.
 Preserve the existing brand and accessible component behavior.
 ```
 
-Choose `accent`, `system` (default), or `terminal` to control the style intensity. See the [AI Skill guide](https://ak-ui.yyj.moe/guide/ai-skill) for workflows and examples.
+Choose `accent`, `system` (default), or `terminal` to control the style intensity. See the [AI Skill guide](https://ak-ui.yyj.moe/en/guide/ai-skill) for workflows and examples.
 
 ## Manual integration
 
@@ -70,7 +70,7 @@ CDN usage:
 
 For production, pin an exact version instead of `@latest` to avoid unexpected upgrades.
 
-`tokens.css` only declares namespaced `--ak-*` custom properties. It does not reset global elements. The full CSS Core includes native form controls, `<dialog>`, Popover API surfaces, and the original display, navigation, and feedback modules. Browse the [design token contract](https://ak-ui.yyj.moe/guide/tokens) and complete HTML examples in the [component documentation](https://ak-ui.yyj.moe/components/).
+`tokens.css` only declares namespaced `--ak-*` custom properties. It does not reset global elements. The full CSS Core includes native form controls, `<dialog>`, Popover API surfaces, and the original display, navigation, and feedback modules. Browse the [design token contract](https://ak-ui.yyj.moe/en/guide/tokens) and complete HTML examples in the [component documentation](https://ak-ui.yyj.moe/components/).
 
 ## Vue Registry
 
@@ -92,12 +92,12 @@ The copied Vue source imports the framework-agnostic CSS package, so there is no
 
 ak-ui separates behavior from presentation. Keep native or headless primitives responsible for semantics, keyboard input, state, and focus; map their rendered parts to ak-ui tokens and geometry. The Skill prefers a project's existing headless library and uses Reka UI only as an optional Vue example.
 
-- [ak-ui design language](https://ak-ui.yyj.moe/guide/design-language)
-- [Headless adapter contract](https://ak-ui.yyj.moe/guide/headless)
-- [Reka UI example](https://ak-ui.yyj.moe/guide/reka-ui)
-- [Quality checklist](https://ak-ui.yyj.moe/guide/quality)
+- [ak-ui design language](https://ak-ui.yyj.moe/en/guide/design-language)
+- [Headless adapter contract](https://ak-ui.yyj.moe/en/guide/headless)
+- [Reka UI example](https://ak-ui.yyj.moe/en/guide/reka-ui)
+- [Quality checklist](https://ak-ui.yyj.moe/en/guide/quality)
 
-The architecture migration and implementation history are documented in the [project revival log](https://ak-ui.yyj.moe/guide/revival).
+The architecture migration and implementation history are documented in the [project revival log](https://ak-ui.yyj.moe/en/guide/revival).
 
 ## Development
 
