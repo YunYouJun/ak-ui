@@ -13,3 +13,14 @@
 | `.ak-notice--success` | 操作或任务完成 |
 
 通过 `--ak-notice-signal` 定制信号色。通知正文使用高对比纸面，因此可以放在亮色或图片背景上。
+
+## 滑入动效
+
+添加 `ak-notice--enter` 可在挂载时滑入。用 `--ak-notice-enter-duration` 和 `--ak-notice-enter-delay` 调整时长与错峰；重新挂载元素可重播。减少动态效果偏好下直接显示。
+
+```html
+<aside class="ak-notice ak-notice--enter" role="status" style="--ak-notice-enter-delay: 120ms">
+  <span class="ak-notice__code">RI / INFO</span>
+  <div class="ak-notice__body"><strong class="ak-notice__title">部署完成</strong></div>
+</aside>
+```
