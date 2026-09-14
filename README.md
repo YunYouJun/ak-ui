@@ -122,6 +122,16 @@ Before the first local browser run, use `pnpm exec playwright install chromium f
 The files in `examples/` are the single source for documentation previews, displayed source code, and Playwright browser tests.
 Only the desktop and mobile homepage baselines are versioned. Component captures are generated under `test-results/` and uploaded as a 14-day GitHub Actions artifact instead of entering Git history. The homepage baselines use the pinned Playwright Noble container so local updates match the Ubuntu 24.04 CI renderer.
 
+## Releasing with OIDC
+
+The existing [Release workflow](.github/workflows/release.yml) uses npm Trusted Publishing (OIDC), without a long-lived npm token. It has already published `1.0.0` successfully and generated provenance.
+
+1. Update the package version and matching Registry dependencies, then merge the release commit into `master`.
+2. Wait for CI to pass on that exact commit.
+3. Create and push the matching `v<version>` tag. This triggers package verification, OIDC publication and GitHub Release notes.
+
+Prereleases publish under `next`; stable versions use `latest`. The npm trusted publisher must match this repository and the `release.yml` filename. See [npm's trusted publishing documentation](https://docs.npmjs.com/trusted-publishers/) when changing that identity.
+
 ## License
 
 [MIT](./LICENSE)

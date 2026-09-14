@@ -122,6 +122,16 @@ pnpm test                # 运行全部验证，包括 Linux 视觉回归测试
 `examples/` 中的文件是文档预览、展示源码与 Playwright 浏览器测试的唯一数据源。
 仓库只记录桌面端与移动端首页的基准图。组件截图生成在 `test-results/` 中，并作为保留 14 天的 GitHub Actions 构建产物上传，不会写入 Git 历史。首页基准图使用固定版本的 Playwright Noble 容器生成，以确保本地更新结果与 Ubuntu 24.04 CI 渲染环境一致。
 
+## OIDC 发布流程
+
+仓库已有 [Release 工作流](.github/workflows/release.yml)，通过 npm Trusted Publishing（OIDC）发布，无需长期 npm Token。它已成功发布 `1.0.0`，并生成 provenance 来源证明。
+
+1. 更新包版本和 Registry 中的对应依赖，将发布提交合入 `master`。
+2. 等待同一提交的 CI 全部通过。
+3. 创建并推送对应的 `v<version>` 标签，触发包验证、OIDC 发布和 GitHub Release notes。
+
+预发布版本进入 `next`，稳定版本进入 `latest`。npm 可信发布者配置需匹配本仓库及 `release.yml` 文件名；修改身份配置时参阅 [npm 官方文档](https://docs.npmjs.com/trusted-publishers/)。
+
 ## 许可证
 
 [MIT](./LICENSE)
