@@ -7,7 +7,7 @@ sidebar: false
 
 # 仿罗德岛主终端
 
-[Playground 总览](/playground/) · 完整演示：[主界面](/showcase/) · [全屏终端](/showcase/fullscreen) · [全屏加载](/showcase/loading) · [素材说明](/showcase/artwork)
+[组件与演示总览](/components/) · 完整演示：[主界面](/showcase/) · [全屏终端](/showcase/fullscreen) · [全屏加载](/showcase/loading) · [素材说明](/showcase/artwork)
 
 这是参考 Arknights UI H5、用同一套 ak-ui CSS Core 实现的仿主终端界面：布局以 `1366 × 653` 为设计基准，左右菜单使用真实透视变换，背景、小云立绘、档案、侧栏和指令区按景深响应指针。点击资源、博士档案和任务，可以体验原生 Popover 与 Dialog。菜单采用轻量按压反馈，景深回正使用柔和缓动；弹窗保持视口居中并支持进出场过渡，同时尊重减少动态效果的系统设置。
 

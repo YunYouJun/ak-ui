@@ -5,11 +5,23 @@ import { fileURLToPath } from 'node:url'
 import markdownItContainer from 'markdown-it-container'
 import { defineConfig } from 'vitepress'
 
-import { en } from './en.ts'
+import { createEn } from './en.ts'
 
 import { exampleById } from '../../examples/index.ts'
 
 const projectRoot = fileURLToPath(new URL('../..', import.meta.url))
+const { version: packageVersion } = JSON.parse(
+  readFileSync(resolve(projectRoot, 'package.json'), 'utf8'),
+) as { version: string }
+const en = createEn(packageVersion)
+
+const versionMenu = {
+  text: `v${packageVersion}`,
+  items: [
+    { text: 'npm 包', link: `https://www.npmjs.com/package/@yunyoujun/ak-ui/v/${packageVersion}` },
+    { text: 'GitHub Release Notes', link: `https://github.com/YunYouJun/ak-ui/releases/tag/v${packageVersion}` },
+  ],
+}
 
 function demoContainer(md: any) {
   md.use(markdownItContainer, 'demo', {
@@ -155,13 +167,13 @@ export default defineConfig({
         ...integrationGroup,
         activeMatch: '^/(guide/(ai-skill|a2ui)(\\.html)?$|guide/$|registry/)',
       },
-      { text: '组件', link: '/components/', activeMatch: '^/components/' },
+      { text: '组件与演示', link: '/components/', activeMatch: '^/(components|showcase)/' },
       {
         text: designGroup.text,
         activeMatch: '^/guide/(design-language|tokens|headless|reka-ui|style|quality|stability|migration-v1|revival)(\\.html)?$',
         items: [designGroup, projectGroup],
       },
-      { text: 'Playground', link: '/playground/', activeMatch: '^/(playground|showcase)/' },
+      versionMenu,
     ],
     sidebar: {
       '/guide/': gettingStartedSidebar,
@@ -221,7 +233,6 @@ export default defineConfig({
         },
         showcaseGroup,
       ],
-      '/playground/': [{ text: 'Playground', items: [{ text: '交互演示总览', link: '/playground/' }] }, showcaseGroup],
       '/showcase/': [showcaseGroup],
       '/registry/': gettingStartedSidebar,
     },

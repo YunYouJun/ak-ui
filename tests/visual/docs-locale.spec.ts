@@ -1,5 +1,7 @@
 import { expect, test } from '@playwright/test'
 
+import packageJson from '../../package.json' with { type: 'json' }
+
 for (const locale of ['zh', 'en']) {
   for (const appearance of ['light', 'dark']) {
     test(`${locale} docs and 404 support ${appearance} appearance`, async ({ page }) => {
@@ -94,20 +96,45 @@ test('English navigation fits tablet widths and keeps its menus usable', async (
   }
 })
 
-
-for (const [prefix, registryAnchor] of [['', 'vue-实际渲染'], ['en/', 'live-vue-rendering']]) {
-  test(`${prefix || 'zh'} Playground is reachable from desktop and mobile navigation`, async ({ page }) => {
+for (const [prefix, npmLabel, releaseLabel] of [
+  ['', 'npm 包', 'GitHub Release Notes'],
+  ['en/', 'npm package', 'GitHub release notes'],
+]) {
+  test(`${prefix || 'zh'} navigation exposes package version links`, async ({ page }) => {
+    const npmUrl = `https://www.npmjs.com/package/@yunyoujun/ak-ui/v/${packageJson.version}`
+    const releaseUrl = `https://github.com/YunYouJun/ak-ui/releases/tag/v${packageJson.version}`
     await page.goto(`/${prefix}guide/`)
-    await page.locator('.VPNavBarMenu').getByRole('link', { name: 'Playground', exact: true }).click()
-    await expect(page).toHaveURL(new RegExp(`/${prefix}playground/$`))
-    await expect(page.locator('h1')).toHaveText('Playground')
+    const nav = page.locator('.VPNavBarMenu')
+    await nav.getByRole('button', { name: `v${packageJson.version}`, exact: true }).click()
+    await expect(nav.locator(`a[href="${npmUrl}"]`)).toContainText(npmLabel)
+    await expect(nav.locator(`a[href="${releaseUrl}"]`)).toContainText(releaseLabel)
+
+    await page.setViewportSize({ width: 390, height: 844 })
+    await page.getByRole('button', { name: 'mobile navigation', exact: true }).click()
+    const mobileNav = page.locator('.VPNavScreen')
+    await mobileNav.getByRole('button', { name: `v${packageJson.version}`, exact: true }).click()
+    await expect(mobileNav.locator(`a[href="${npmUrl}"]`)).toContainText(npmLabel)
+    await expect(mobileNav.locator(`a[href="${releaseUrl}"]`)).toContainText(releaseLabel)
+  })
+}
+
+
+for (const [prefix, registryAnchor, navName, heading] of [
+  ['', 'vue-实际渲染', '组件与演示', '组件与 Playground'],
+  ['en/', 'live-vue-rendering', 'Components & demos', 'Components & Playground'],
+]) {
+  test(`${prefix || 'zh'} components and Playground are reachable from desktop and mobile navigation`, async ({ page }) => {
+    await page.goto(`/${prefix}guide/`)
+    await page.locator('.VPNavBarMenu').getByRole('link', { name: navName, exact: true }).click()
+    await expect(page).toHaveURL(new RegExp(`/${prefix}components/$`))
+    await expect(page.locator('h1')).toHaveText(heading)
     await expect(page.locator('main a[href="/showcase/"]')).toBeVisible()
     await expect(page.locator(`main a[href="/${prefix}registry/#${registryAnchor}"]`)).toBeVisible()
     await page.setViewportSize({ width: 390, height: 844 })
     await page.goto(`/${prefix}guide/`)
     await page.getByRole('button', { name: 'mobile navigation', exact: true }).click()
-    await page.locator('.VPNavScreen').getByRole('link', { name: 'Playground', exact: true }).click()
-    await expect(page.locator('h1')).toHaveText('Playground')
+    await page.locator('.VPNavScreen').getByRole('link', { name: navName, exact: true }).click()
+    await expect(page.locator('h1')).toHaveText(heading)
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true)
   })
 }

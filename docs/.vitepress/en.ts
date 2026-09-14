@@ -42,45 +42,52 @@ const showcaseGroup = {
 
 const guideSidebar = [integrationGroup, designGroup, projectGroup]
 
-export const en: LocaleSpecificConfig<DefaultTheme.Config> & { label: string; link: string } = {
-  label: 'English',
-  lang: 'en',
-  link: '/en/',
-  description: 'An Arknights-inspired design language, tokens and framework-agnostic CSS primitives.',
-  themeConfig: {
-    nav: [
-      { ...integrationGroup, activeMatch: '^/en/(guide/(ai-skill|a2ui)(\\.html)?$|guide/$|registry/)' },
-      { text: 'Components', link: '/en/components/', activeMatch: '^/en/components/' },
-      {
-        text: 'Design & dev',
-        activeMatch: '^/en/guide/(design-language|tokens|headless|reka-ui|style|quality|stability|migration-v1|revival)(\\.html)?$',
-        items: [designGroup, projectGroup],
-      },
-      { text: 'Playground', link: '/en/playground/', activeMatch: '^/en/playground/' },
-    ],
-    sidebar: {
-      '/en/playground/': [{ text: 'Playground', items: [{ text: 'Interactive demos', link: '/en/playground/' }] }, showcaseGroup],
-      '/en/guide/': guideSidebar,
-      '/en/registry/': guideSidebar,
-      '/en/components/': [
-        { text: 'Components', items: [{ text: 'Component index', link: '/en/components/' }] },
-        integrationGroup,
-        showcaseGroup,
+export function createEn(packageVersion: string): LocaleSpecificConfig<DefaultTheme.Config> & { label: string; link: string } {
+  return {
+    label: 'English',
+    lang: 'en',
+    link: '/en/',
+    description: 'An Arknights-inspired design language, tokens and framework-agnostic CSS primitives.',
+    themeConfig: {
+      nav: [
+        { ...integrationGroup, activeMatch: '^/en/(guide/(ai-skill|a2ui)(\\.html)?$|guide/$|registry/)' },
+        { text: 'Components & demos', link: '/en/components/', activeMatch: '^/(en/components|showcase)/' },
+        {
+          text: 'Design & dev',
+          activeMatch: '^/en/guide/(design-language|tokens|headless|reka-ui|style|quality|stability|migration-v1|revival)(\\.html)?$',
+          items: [designGroup, projectGroup],
+        },
+        {
+          text: `v${packageVersion}`,
+          items: [
+            { text: 'npm package', link: `https://www.npmjs.com/package/@yunyoujun/ak-ui/v/${packageVersion}` },
+            { text: 'GitHub release notes', link: `https://github.com/YunYouJun/ak-ui/releases/tag/v${packageVersion}` },
+          ],
+        },
       ],
+      sidebar: {
+        '/en/guide/': guideSidebar,
+        '/en/registry/': guideSidebar,
+        '/en/components/': [
+          { text: 'Components', items: [{ text: 'Component index', link: '/en/components/' }] },
+          integrationGroup,
+          showcaseGroup,
+        ],
+      },
+      outline: { level: [2, 3], label: 'On this page' },
+      docFooter: { prev: 'Previous page', next: 'Next page' },
+      editLink: { pattern: 'https://github.com/YunYouJun/ak-ui/edit/master/docs/:path', text: 'Edit this page' },
+      lastUpdated: { text: 'Last updated', formatOptions: { dateStyle: 'medium' } },
+      returnToTopLabel: 'Back to top',
+      sidebarMenuLabel: 'Menu',
+      darkModeSwitchLabel: 'Appearance',
+      lightModeSwitchTitle: 'Switch to light theme',
+      darkModeSwitchTitle: 'Switch to dark theme',
+      langMenuLabel: 'Change language',
+      footer: {
+        message: 'Unofficial ak-ui design language study.',
+        copyright: 'MIT Licensed · YunYouJun',
+      },
     },
-    outline: { level: [2, 3], label: 'On this page' },
-    docFooter: { prev: 'Previous page', next: 'Next page' },
-    editLink: { pattern: 'https://github.com/YunYouJun/ak-ui/edit/master/docs/:path', text: 'Edit this page' },
-    lastUpdated: { text: 'Last updated', formatOptions: { dateStyle: 'medium' } },
-    returnToTopLabel: 'Back to top',
-    sidebarMenuLabel: 'Menu',
-    darkModeSwitchLabel: 'Appearance',
-    lightModeSwitchTitle: 'Switch to light theme',
-    darkModeSwitchTitle: 'Switch to dark theme',
-    langMenuLabel: 'Change language',
-    footer: {
-      message: 'Unofficial ak-ui design language study.',
-      copyright: 'MIT Licensed · YunYouJun',
-    },
-  },
+  }
 }
