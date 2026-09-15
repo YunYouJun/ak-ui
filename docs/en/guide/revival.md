@@ -127,3 +127,8 @@ For a personal project dormant for years, the main lesson was to restore the fee
 ::: warning Unofficial project
 ak-ui is a hobby-driven interface study and is not affiliated with Hypergryph. Game names, images and related assets belong to their respective rights holders.
 :::
+
+
+## Published videos
+
+See [Published videos](./videos) for platform links and version notes.

@@ -203,3 +203,8 @@ useDashboardDepth(dashboard)
   </section>
 </template>
 ```
+
+
+## API 参考
+
+组件属性、事件与插槽参阅 [Vue Registry API](./api)。

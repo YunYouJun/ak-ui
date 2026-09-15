@@ -6,7 +6,6 @@ const integrationGroup = {
     { text: 'AI Skill (recommended)', link: '/en/guide/ai-skill' },
     { text: 'CSS Core', link: '/en/guide/' },
     { text: 'Vue Registry', link: '/en/registry/' },
-    { text: 'Vue Registry API', link: '/en/registry/api' },
     { text: 'A2UI (experimental)', link: '/en/guide/a2ui' },
   ],
 }
@@ -16,18 +15,16 @@ const designGroup = {
   items: [
     { text: 'ak-ui design language', link: '/en/guide/design-language' },
     { text: 'Design tokens', link: '/en/guide/tokens' },
+    { text: 'Official website UI study', link: '/en/guide/official-site-study' },
     { text: 'Headless adapters', link: '/en/guide/headless' },
-    { text: 'Reka UI example', link: '/en/guide/reka-ui' },
-    { text: 'Interfaces & naming', link: '/en/guide/style' },
     { text: 'Quality checklist', link: '/en/guide/quality' },
     { text: '1.0 stability & release checks', link: '/en/guide/stability' },
-    { text: 'Upgrade to 1.0', link: '/en/guide/migration-v1' },
   ],
 }
 
 const projectGroup = {
   text: 'Project history',
-  items: [{ text: 'Reviving ak-ui', link: '/en/guide/revival' }],
+  items: [{ text: 'Reviving ak-ui', link: '/en/guide/revival' }, { text: 'Published videos', link: '/en/guide/videos' }],
 }
 
 const showcaseGroup = {
@@ -54,7 +51,7 @@ export function createEn(packageVersion: string): LocaleSpecificConfig<DefaultTh
         { text: 'Components & demos', link: '/en/components/', activeMatch: '^/(en/components|showcase)/' },
         {
           text: 'Design & dev',
-          activeMatch: '^/en/guide/(design-language|tokens|headless|reka-ui|style|quality|stability|migration-v1|revival)(\\.html)?$',
+          activeMatch: '^/en/guide/(design-language|tokens|official-site-study|headless|reka-ui|style|quality|stability|migration-v1|revival|videos)(\\.html)?$',
           items: [designGroup, projectGroup],
         },
         {

@@ -16,6 +16,17 @@
       vertical-align: bottom;
     }
 
+    // A negative-z child still paints above its stacking context's border.
+    // Redraw only the front rim above the backing sheet; keep layout unchanged.
+    &::after {
+      content: "";
+      position: absolute;
+      inset: -0.5rem;
+      border: 0.5rem solid white;
+      pointer-events: none;
+      z-index: 1;
+    }
+
     &::before {
       content: "";
       position: absolute;
@@ -49,6 +60,78 @@
 
 @media (prefers-reduced-motion: reduce) {
   .ak-media--album.ak-media--enter {
+    animation: none;
+  }
+}
+
+// Opt-in two-sheet structure. The front sheet owns layout; the back sheet
+// stays behind it throughout both independent animation timelines.
+.ak-media--album.ak-media--layered {
+  border: 0;
+  box-shadow: none;
+  transform: none;
+
+  &::before,
+  &::after { content: none; }
+
+  .ak-media__sheet {
+    box-sizing: border-box;
+    display: block;
+    padding: var(--ak-space-2);
+    background: var(--ak-media-sheet-frame, var(--ak-color-white));
+    box-shadow: var(--ak-shadow-panel);
+    transform-origin: 50% 65%;
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  .ak-media__sheet--front {
+    position: relative;
+    z-index: 1;
+    transform: rotate(2deg);
+  }
+
+  .ak-media__sheet--back {
+    position: absolute;
+    inset: 5px 0 -5px -10px;
+    z-index: 0;
+    transform: rotate(-5deg);
+
+    img { height: 100%; object-fit: cover; }
+  }
+}
+
+.ak-media--album.ak-media--layered.ak-media--split-enter {
+  // Split entry takes precedence over the legacy whole-album animation.
+  animation: none;
+
+  .ak-media__sheet--front {
+    animation: ak-media-front-arc var(--ak-media-front-duration, 760ms) var(--ak-media-arc-ease, cubic-bezier(0.22, 1, 0.36, 1)) var(--ak-media-front-delay, 120ms) both;
+  }
+
+  .ak-media__sheet--back {
+    animation: ak-media-back-arc var(--ak-media-back-duration, 900ms) var(--ak-media-arc-ease, cubic-bezier(0.22, 1, 0.36, 1)) var(--ak-media-back-delay, 0ms) both;
+  }
+}
+
+@keyframes ak-media-front-arc {
+  0% { opacity: 0; transform: translate(-40px, 48px) rotate(-24deg) scale(0.94); }
+  65% { opacity: 1; transform: translate(5px, -7px) rotate(5deg) scale(1); }
+  100% { opacity: 1; transform: translate(0, 0) rotate(2deg) scale(1); }
+}
+
+@keyframes ak-media-back-arc {
+  0% { opacity: 0; transform: translate(42px, 34px) rotate(22deg) scale(0.96); }
+  65% { opacity: 1; transform: translate(-6px, -5px) rotate(-8deg) scale(1); }
+  100% { opacity: 1; transform: translate(0, 0) rotate(-5deg) scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ak-media--album.ak-media--layered.ak-media--split-enter .ak-media__sheet {
     animation: none;
   }
 }

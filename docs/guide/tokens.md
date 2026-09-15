@@ -113,3 +113,7 @@ import '@yunyoujun/ak-ui/tokens.css'
 - 不要让组件样式在运行时依赖 SCSS 变量。
 - 不要向 Token-only 入口添加全局重置。
 - 单个功能的定制优先使用局部覆盖，不要修改 `:root`。
+
+## 官网观察与 Token 来源
+
+现有 token 是 ak-ui 的独立设计契约，不等于官网原始值。参阅[官网 UI 研究](./official-site-study)，查看带来源的色值、排版、响应式测量及组件局部变量配方。

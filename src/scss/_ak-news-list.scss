@@ -1,0 +1,87 @@
+.ak-news-list {
+  --ak-news-list-signal: var(--ak-signal-info);
+  --ak-news-list-surface: var(--ak-surface-canvas);
+  --ak-news-list-divider: color-mix(in srgb, var(--ak-text-primary) 30%, transparent);
+  --ak-news-list-row-min-height: 4.5rem;
+  container: ak-news-list / inline-size;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: var(--ak-text-primary);
+  background: var(--ak-news-list-surface);
+  font-family: var(--ak-font-sans);
+
+  &__item {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  & &__link {
+    display: grid;
+    box-sizing: border-box;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--ak-space-2) var(--ak-space-4);
+    align-items: center;
+    min-height: max(44px, var(--ak-density-control-height), var(--ak-news-list-row-min-height));
+    padding: var(--ak-space-4);
+    border-bottom: var(--ak-line-hairline) solid var(--ak-news-list-divider);
+    color: inherit;
+    text-decoration: none;
+    overflow-wrap: anywhere;
+    transition: background-color var(--ak-motion-base) var(--ak-ease-standard);
+
+    &:hover {
+      background: color-mix(in srgb, var(--ak-news-list-signal) 12%, var(--ak-news-list-surface));
+
+      .ak-news-list__title { text-decoration: underline; }
+    }
+
+    &:active {
+      background: color-mix(in srgb, var(--ak-news-list-signal) 22%, var(--ak-news-list-surface));
+    }
+
+    &:focus-visible {
+      outline: var(--ak-focus-width) solid var(--ak-focus-color);
+      outline-offset: calc(-1 * var(--ak-focus-offset));
+    }
+  }
+
+  &__category {
+    color: var(--ak-news-list-signal);
+    font-size: var(--ak-type-data-size);
+    font-weight: 700;
+    line-height: 1.5;
+  }
+
+  &__title {
+    min-width: 0;
+    font-size: var(--ak-type-data-size);
+    font-weight: 700;
+    line-height: 1.6;
+  }
+
+  &__time {
+    color: var(--ak-text-secondary);
+    font-family: var(--ak-font-mono);
+    font-size: max(0.875rem, var(--ak-type-label-size));
+    line-height: 1.5;
+  }
+
+  &__empty {
+    margin: 0;
+    padding: var(--ak-density-panel-padding);
+    color: var(--ak-text-secondary);
+    line-height: 1.6;
+  }
+}
+
+@container ak-news-list (min-width: 34rem) {
+  .ak-news-list .ak-news-list__link {
+    grid-template-columns: minmax(4rem, 0.2fr) minmax(0, 1fr) minmax(7rem, 0.25fr);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ak-news-list .ak-news-list__link { transition: none; }
+}

@@ -1,0 +1,79 @@
+.ak-nav {
+  --ak-nav-signal: var(--ak-signal-info);
+  --ak-nav-surface: var(--ak-surface-canvas);
+  --ak-nav-divider: color-mix(in srgb, var(--ak-text-primary) 30%, transparent);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--ak-space-2);
+  padding: var(--ak-space-2);
+  color: var(--ak-text-primary);
+  background: var(--ak-nav-surface);
+  font-family: var(--ak-font-sans);
+
+  & &__link {
+    display: flex;
+    box-sizing: border-box;
+    flex-direction: column;
+    justify-content: center;
+    gap: var(--ak-space-1);
+    min-width: 44px;
+    min-height: max(44px, var(--ak-density-control-height));
+    max-width: 100%;
+    padding: var(--ak-space-3) var(--ak-space-4);
+    border-bottom: var(--ak-line-strong) solid transparent;
+    color: inherit;
+    text-decoration: none;
+    overflow-wrap: anywhere;
+    transition: color var(--ak-motion-base) var(--ak-ease-standard), background-color var(--ak-motion-base) var(--ak-ease-standard);
+
+    &[aria-current]:not([aria-current="false"]) {
+      border-bottom-color: var(--ak-nav-signal);
+      color: var(--ak-nav-signal);
+    }
+
+    &:hover {
+      color: var(--ak-nav-signal);
+      background: color-mix(in srgb, var(--ak-nav-signal) 12%, var(--ak-nav-surface));
+    }
+
+    &:active {
+      background: color-mix(in srgb, var(--ak-nav-signal) 22%, var(--ak-nav-surface));
+    }
+
+    &:focus-visible {
+      outline: var(--ak-focus-width) solid var(--ak-focus-color);
+      outline-offset: calc(-1 * var(--ak-focus-offset));
+    }
+  }
+
+  &__label {
+    font-size: var(--ak-type-data-size);
+    font-weight: 700;
+    line-height: 1.4;
+  }
+
+  &__description {
+    font-size: max(0.875rem, var(--ak-type-label-size));
+    line-height: 1.5;
+  }
+
+  &--vertical {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 0;
+  }
+
+  &--vertical &__link {
+    border-bottom-width: var(--ak-line-hairline);
+    border-bottom-color: var(--ak-nav-divider);
+    border-inline-start: var(--ak-line-strong) solid transparent;
+
+    &[aria-current]:not([aria-current="false"]) {
+      border-inline-start-color: var(--ak-nav-signal);
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ak-nav .ak-nav__link { transition: none; }
+}

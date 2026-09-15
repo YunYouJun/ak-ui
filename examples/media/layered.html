@@ -1,0 +1,20 @@
+<div data-layered-album-demo style="display: grid; justify-items: center; gap: 48px; padding: 48px 24px; width: 100%; box-sizing: border-box">
+  <div class="ak-media--album ak-media--layered ak-media--split-enter" style="width: min(240px, 60vw)">
+    <div class="ak-media__sheet ak-media__sheet--back" aria-hidden="true">
+      <img src="https://assets.yunyoujun.cn/ak-ui/assets/img/character/chen-51f64ce5dc70.jpg" alt="" style="filter: grayscale(1)">
+    </div>
+    <div class="ak-media__sheet ak-media__sheet--front">
+      <img src="https://assets.yunyoujun.cn/ak-ui/assets/img/character/chen-51f64ce5dc70.jpg" alt="陈的相册照片">
+    </div>
+  </div>
+  <button class="ak-button" type="button" data-album-replay>重播动画</button>
+</div>
+<script>
+const root = document.querySelector('[data-layered-album-demo]')
+const album = root.querySelector('.ak-media--layered')
+root.querySelector('[data-album-replay]').addEventListener('click', () => {
+  album.classList.remove('ak-media--split-enter')
+  void album.offsetWidth
+  album.classList.add('ak-media--split-enter')
+})
+</script>

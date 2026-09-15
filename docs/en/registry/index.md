@@ -203,3 +203,8 @@ useDashboardDepth(dashboard)
   </section>
 </template>
 ```
+
+
+## API reference
+
+See [Vue Registry API](./api) for component props, events and slots.

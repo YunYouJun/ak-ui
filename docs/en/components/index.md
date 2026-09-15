@@ -42,9 +42,9 @@ Use semantic HTML and the stable `.ak-*` classes from CSS Core. Detailed compone
 | Group | Components (中文) |
 | --- | --- |
 | Foundation | [Colors and typography](/components/#color-色彩) · [Helpers](/components/ak-helper) · [Icons](/components/ak-icon) |
-| Actions and navigation | [Buttons](/components/ak-button) · [Button groups](/components/ak-button-group) · [Forms](/components/ak-form) · [Tabs](/components/ak-tabs) · [Pagination](/components/ak-pagination) |
+| Actions and navigation | [Buttons](/components/ak-button) · [Button groups](/components/ak-button-group) · [Forms](/components/ak-form) · [Link navigation](/components/ak-nav) · [Tabs](/components/ak-tabs) · [Pagination](/components/ak-pagination) |
 | Layout and containers | [Cards](/components/ak-card) · [Panels](/components/ak-panel) · [Dividers](/components/ak-divider) |
-| Data and states | [Counters](/components/ak-counter) · [Progress and gauge](/components/ak-progress) · [Sanity](/components/ak-san) · [Status](/components/ak-status) · [Levels](/components/ak-level) |
+| Data and states | [News list](/components/ak-news-list) · [Counters](/components/ak-counter) · [Progress and gauge](/components/ak-progress) · [Sanity](/components/ak-san) · [Status](/components/ak-status) · [Levels](/components/ak-level) |
 | Feedback and overlays | [Dialog](/components/ak-dialog) · [Popover and tooltip](/components/ak-popover) · [Notices](/components/ak-notice) · [Loading](/components/ak-loading) |
 | Visuals and media | [Images and video](/components/ak-media) · [Effects](/components/ak-fx) · [Objects](/components/ak-object) |
 

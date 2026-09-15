@@ -52,3 +52,8 @@ On 2026-09-06, the full `pnpm test` passed: the dependency audit found no known 
 Homepage pixel comparisons use local fallback fonts in the fixed Linux image without relying on Google Fonts availability. Desktop and mobile baselines were updated after three identical captures each. The site retains its network font configuration, and other interaction tests do not intercept fonts. This is a local candidate acceptance record, not a substitute for final-commit remote CI or real consumer feedback.
 
 At that acceptance point, 2,384 local links, assets and anchors across 50 built HTML pages passed verification. New pages on the Cloudflare preview returned 200; missing Chinese/English URLs returned 404 with localized recovery links. English documentation then covered the homepage and core onboarding, while detailed component and API references remained in Chinese.
+
+
+## Upgrading
+
+See [Upgrade to 1.0](./migration-v1) for the migration checklist.

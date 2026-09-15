@@ -1,0 +1,175 @@
+{
+  "schemaVersion": 1,
+  "observedOn": "2026-09-15",
+  "page": "https://ak.hypergryph.com/",
+  "scope": [
+    "index",
+    "information",
+    "world"
+  ],
+  "method": "Rendered page observations and public CSS declarations; mappings are ak-ui recommendations, not official tokens. Selector fragments are tied to the listed stylesheet hashes.",
+  "sources": {
+    "shell": {
+      "url": "https://web.hycdn.cn/arknights/official/_next/static/css/144c734e19afaa20.css",
+      "decodedSha256": "6a7d3fd44ac6446570c970b7df687aad6d8b9122e704acc7bbbeda3a69dcdfe5"
+    },
+    "page": {
+      "url": "https://web.hycdn.cn/arknights/official/_next/static/css/6aed155137c3fe93.css",
+      "decodedSha256": "0869cfbe08f33831b454418d74f2b7bb68dcbafd8926198ed0d8cf2a3014df6d"
+    }
+  },
+  "observations": [
+    {
+      "id": "navigation.active.color",
+      "source": "shell",
+      "selectorFragment": "._57987e85 ._c91e47cc._f3a31881",
+      "property": "color",
+      "authoredValue": "#19d1ff",
+      "suggestedAkRole": "--ak-signal-info"
+    },
+    {
+      "id": "news.category.color",
+      "source": "page",
+      "selectorFragment": "._b34281ac",
+      "property": "color",
+      "authoredValue": "#18d1ff",
+      "suggestedAkRole": "--ak-signal-info"
+    },
+    {
+      "id": "news.content.color",
+      "source": "page",
+      "selectorFragment": "._4e2f6712",
+      "property": "color",
+      "authoredValue": "#d2d2d2",
+      "suggestedAkRole": "--ak-text-secondary"
+    },
+    {
+      "id": "news.row.divider",
+      "source": "page",
+      "selectorFragment": "._b6f1b9e5",
+      "property": "border-bottom",
+      "authoredValue": "1px solid hsla(0,0%,100%,.3)",
+      "suggestedAkRole": "--ak-line-hairline"
+    },
+    {
+      "id": "news.row.height",
+      "source": "page",
+      "selectorFragment": "._b6f1b9e5",
+      "property": "height",
+      "authoredValue": "6rem",
+      "suggestedAkRole": null
+    },
+    {
+      "id": "news.title.tracking",
+      "source": "page",
+      "selectorFragment": "._9c298aed",
+      "property": "letter-spacing",
+      "authoredValue": "2px",
+      "suggestedAkRole": null
+    },
+    {
+      "id": "news.date.tracking",
+      "source": "page",
+      "selectorFragment": "._78dcf6c5",
+      "property": "letter-spacing",
+      "authoredValue": "1px",
+      "suggestedAkRole": null
+    },
+    {
+      "id": "navigation.latin.font",
+      "source": "shell",
+      "selectorFragment": "._57987e85 ._c91e47cc ._70ad2676",
+      "property": "font-family",
+      "authoredValue": "Oswald-Medium",
+      "suggestedAkRole": null
+    },
+    {
+      "id": "navigation.latin.size",
+      "source": "shell",
+      "selectorFragment": "._57987e85 ._c91e47cc ._70ad2676",
+      "property": "font-size",
+      "authoredValue": "1.375rem",
+      "suggestedAkRole": null
+    },
+    {
+      "id": "navigation.chinese.font",
+      "source": "shell",
+      "selectorFragment": "._57987e85 ._c91e47cc ._ae0d96a6",
+      "property": "font-family",
+      "authoredValue": "SourceHanSans-Medium",
+      "suggestedAkRole": "--ak-font-sans"
+    },
+    {
+      "id": "navigation.chinese.size",
+      "source": "shell",
+      "selectorFragment": "._57987e85 ._c91e47cc ._ae0d96a6",
+      "property": "font-size",
+      "authoredValue": ".875rem",
+      "suggestedAkRole": null
+    },
+    {
+      "id": "news.date.font",
+      "source": "page",
+      "selectorFragment": "._78dcf6c5",
+      "property": "font-family",
+      "authoredValue": "Bender-Regular",
+      "suggestedAkRole": "--ak-font-mono"
+    },
+    {
+      "id": "more.background",
+      "source": "page",
+      "selectorFragment": "._b9c239f0",
+      "property": "background-color",
+      "authoredValue": "#585858",
+      "suggestedAkRole": null
+    },
+    {
+      "id": "more.transition",
+      "source": "page",
+      "selectorFragment": "._b9c239f0",
+      "property": "transition",
+      "authoredValue": "background-color .3s,color .3s",
+      "suggestedAkRole": "--ak-motion-base"
+    }
+  ],
+  "viewports": [
+    {
+      "width": 1280,
+      "height": 720,
+      "dpr": 2,
+      "measurements": {
+        "newsRowHeightPx": 64,
+        "newsTitleFontPx": 12,
+        "newsDateFontPx": 10.6667,
+        "navLatinFontPx": 14.6667,
+        "navChineseFontPx": 9.33333,
+        "moreHeightPx": 16
+      }
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "dpr": 1,
+      "measurements": {
+        "rootFontPx": 8.32,
+        "newsRowHeightPx": 59.2734,
+        "newsTitleFontPx": 10.4,
+        "newsDateFontPx": 8.32,
+        "newsTitleLineHeightPx": 16.64
+      },
+      "portraitRules": {
+        "rowHeight": "7.125rem",
+        "rowBorderColor": "#403c3b",
+        "contentFlexDirection": "row-reverse",
+        "titleFontSize": "1.25rem",
+        "titleLineHeight": "1.6"
+      }
+    }
+  ],
+  "limitations": [
+    "A dated observation, not an official design system.",
+    "Font family declarations do not prove glyph-level font use or grant redistribution rights.",
+    "Hover colors and timing were read from CSS; animation playback and keyboard behavior were not fully audited.",
+    "No runtime tokens or component APIs are introduced by this research."
+  ]
+}

@@ -60,7 +60,6 @@ const integrationGroup = {
     { text: 'AI Skill（推荐）', link: '/guide/ai-skill' },
     { text: 'CSS Core', link: '/guide/' },
     { text: 'Vue Registry', link: '/registry/' },
-    { text: 'Vue Registry API', link: '/registry/api' },
     { text: 'A2UI（实验）', link: '/guide/a2ui' },
   ],
 }
@@ -70,18 +69,16 @@ const designGroup = {
   items: [
     { text: 'ak-ui 设计语言', link: '/guide/design-language' },
     { text: '设计 Token', link: '/guide/tokens' },
+    { text: '官网 UI 研究', link: '/guide/official-site-study' },
     { text: 'Headless 适配', link: '/guide/headless' },
-    { text: 'Reka UI 示例', link: '/guide/reka-ui' },
-    { text: '接口与命名', link: '/guide/style' },
     { text: '质量检查清单', link: '/guide/quality' },
     { text: '1.0 稳定性与发布检查', link: '/guide/stability' },
-    { text: '升级到 1.0', link: '/guide/migration-v1' },
   ],
 }
 
 const projectGroup = {
   text: '项目记录',
-  items: [{ text: '复活记录', link: '/guide/revival' }],
+  items: [{ text: '复活记录', link: '/guide/revival' }, { text: '已发布视频', link: '/guide/videos' }],
 }
 
 const showcaseGroup = {
@@ -170,7 +167,7 @@ export default defineConfig({
       { text: '组件与演示', link: '/components/', activeMatch: '^/(components|showcase)/' },
       {
         text: designGroup.text,
-        activeMatch: '^/guide/(design-language|tokens|headless|reka-ui|style|quality|stability|migration-v1|revival)(\\.html)?$',
+        activeMatch: '^/guide/(design-language|tokens|official-site-study|headless|reka-ui|style|quality|stability|migration-v1|revival|videos)(\\.html)?$',
         items: [designGroup, projectGroup],
       },
       versionMenu,
@@ -191,6 +188,7 @@ export default defineConfig({
           items: [
             { text: '按钮', link: '/components/ak-button' },
             { text: '按钮组', link: '/components/ak-button-group' },
+            { text: '链接导航', link: '/components/ak-nav' },
             { text: '表单', link: '/components/ak-form' },
             { text: '终端导航', link: '/components/ak-tabs' },
             { text: '分页', link: '/components/ak-pagination' },
@@ -208,6 +206,7 @@ export default defineConfig({
           text: '数据与状态',
           items: [
             { text: '计数器', link: '/components/ak-counter' },
+            { text: '新闻列表', link: '/components/ak-news-list' },
             { text: '进度与仪表', link: '/components/ak-progress' },
             { text: '理智', link: '/components/ak-san' },
             { text: '状态标记', link: '/components/ak-status' },
