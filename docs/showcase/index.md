@@ -49,8 +49,10 @@ sidebar: false
 | 当前行动 | Sanity / Command / Popover |
 | 主菜单 | Command / Command Group |
 | 每日任务 | Dialog / Progress / Button |
+| 景深滑块 | Slider CSS Core / Vue `AkSlider`，动画进度与参数调节共用 |
 | 景深反馈 | Dashboard Layer / CSS 3D Plane |
 | 启动同步 | Loading Screen / Loading Track |
+| 职业立绘选择 | Card 的 `place` 变体，通过 `aria-pressed` 保持选中效果 |
 
 ## 由完整界面暴露的缺口
 

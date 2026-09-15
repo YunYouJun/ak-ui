@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { AkSlider } from '../../../../registry/ak/ui/slider'
 import type { DepthSettings } from './useShowcaseDepth'
 
 const settings = defineModel<DepthSettings>({ required: true })
@@ -16,8 +17,7 @@ const controls: { key: NumericSetting, label: string, min: number, max: number, 
   { key: 'tilt', label: '菜单倾角', min: 0, max: 18, step: 1, unit: '°' },
 ]
 
-function update(key: NumericSetting, event: Event) {
-  const value = Number((event.target as HTMLInputElement).value)
+function update(key: NumericSetting, value: number) {
   settings.value = { ...settings.value, [key]: value }
 }
 </script>
@@ -38,15 +38,14 @@ function update(key: NumericSetting, event: Event) {
       <div class="depth-controls__grid">
         <label v-for="control in controls" :key="control.key" class="depth-controls__field">
           <span>{{ control.label }} <output>{{ settings[control.key] }}{{ control.unit }}</output></span>
-          <input
-            type="range"
-            :aria-label="control.label"
+          <AkSlider
+            :label="control.label"
             :min="control.min"
             :max="control.max"
             :step="control.step"
-            :value="settings[control.key]"
-            @input="update(control.key, $event)"
-          >
+            :model-value="settings[control.key]"
+            @update:model-value="update(control.key, $event)"
+          />
         </label>
       </div>
       <div class="depth-controls__preview" role="group" aria-label="景深预览方向">
@@ -101,7 +100,6 @@ function update(key: NumericSetting, event: Event) {
 .depth-controls__field { display: grid; gap: 10px; font-size: 13px; }
 .depth-controls__field span { display: flex; justify-content: space-between; gap: 8px; }
 .depth-controls__field output { font-variant-numeric: tabular-nums; }
-.depth-controls__field input { width: 100%; accent-color: #55cfff; cursor: pointer; }
 
 .depth-controls button {
   padding: 6px 12px;

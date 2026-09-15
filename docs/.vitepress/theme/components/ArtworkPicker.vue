@@ -33,8 +33,8 @@ const professions = computed(() => props.artworks.filter(artwork => artwork.id !
       <button
         v-for="artwork in professions"
         :key="artwork.id"
-        class="artwork-picker__card"
-        :style="{ '--artwork-color': artwork.color }"
+        class="ak-card ak-card--place artwork-picker__card"
+        :style="{ '--ak-card-place-color': artwork.color }"
         type="button"
         :aria-pressed="selected === artwork.id"
         @click="selected = artwork.id"
@@ -74,7 +74,8 @@ const professions = computed(() => props.artworks.filter(artwork => artwork.id !
 .artwork-picker__grid {
   display: grid;
   grid-template-columns: repeat(8, minmax(0, 1fr));
-  gap: 8px;
+  gap: 20px 8px;
+  padding-top: 10px;
 }
 
 .artwork-picker__tones {
@@ -124,22 +125,16 @@ const professions = computed(() => props.artworks.filter(artwork => artwork.id !
   display: grid;
   justify-items: center;
   min-width: 0;
+  width: 100%;
+  height: auto;
   padding: 0 0 12px;
-  border: 1px solid var(--vp-c-divider);
-  border-top: 3px solid var(--artwork-color);
-  background: linear-gradient(160deg, color-mix(in srgb, var(--artwork-color) 16%, #1b232c), #131a22);
+  background: linear-gradient(160deg, color-mix(in srgb, var(--ak-card-place-color) 16%, #1b232c), #131a22);
   color: #f4f2ea;
   cursor: pointer;
 }
 
-.artwork-picker__card[aria-pressed="true"] {
-  border-color: var(--artwork-color);
-  box-shadow: inset 0 -3px var(--artwork-color);
-  background: linear-gradient(160deg, color-mix(in srgb, var(--artwork-color) 32%, #1b232c), #1b232c);
-}
-
 .artwork-picker__card:focus-visible {
-  outline: 2px solid var(--artwork-color);
+  outline: 2px solid var(--ak-card-place-color);
   outline-offset: 3px;
 }
 
@@ -164,7 +159,7 @@ const professions = computed(() => props.artworks.filter(artwork => artwork.id !
 
 .artwork-picker__palette {
   margin-top: 8px;
-  color: var(--artwork-color);
+  color: var(--ak-card-place-color);
   font-size: 11px;
 }
 

@@ -46,3 +46,28 @@ test('playground can play, pause, seek, and return control to the pointer', asyn
   await expect(page.locator('h1')).toHaveText('组件与 Playground')
   expect(errors).toEqual([])
 })
+
+test('shared slider supports keyboard bounds, fractional steps and disabled input', async ({ page }) => {
+  await page.goto('/showcase/')
+  const slider = page.getByRole('slider', { name: '景深动画进度' })
+  await slider.focus()
+  await page.keyboard.press('End')
+  await expect(slider).toHaveValue('8')
+  await page.keyboard.press('Home')
+  await expect(slider).toHaveValue('0')
+  await page.keyboard.press('ArrowRight')
+  await expect(slider).toHaveValue('0.01')
+  await expect(slider).toHaveCSS('--ak-slider-fill', '0.125%')
+
+  await page.locator('.depth-controls summary').click()
+  const strength = page.getByRole('slider', { name: '人物层强度' })
+  await strength.fill('0.075')
+  await strength.focus()
+  await page.keyboard.press('ArrowRight')
+  await expect(strength).toHaveValue('0.08')
+  await expect(page.locator('.depth-controls__field').filter({ has: strength }).locator('output')).toHaveText('0.08')
+
+  await page.emulateMedia({ reducedMotion: 'reduce' })
+  await expect(slider).toBeDisabled()
+  await expect(slider).toHaveValue('0')
+})

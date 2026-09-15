@@ -107,6 +107,31 @@
       "docs": "Use v-model for the numeric value. The component clamps button and typed input changes to min and max."
     },
     {
+      "name": "slider",
+      "type": "registry:ui",
+      "title": "AK Slider",
+      "description": "Native range slider with tactical tracks, ticks, keyboard controls and numeric v-model.",
+      "author": "YunYouJun",
+      "dependencies": [
+        "@yunyoujun/ak-ui@1.0.0"
+      ],
+      "files": [
+        {
+          "path": "registry/ak/ui/slider/AkSlider.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/ak/ui/slider/index.ts",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "form",
+        "input"
+      ],
+      "docs": "Use v-model with label, min, max, step and disabled. Reuses the ak-slider CSS Core."
+    },
+    {
       "name": "status",
       "type": "registry:ui",
       "title": "AK Status",
