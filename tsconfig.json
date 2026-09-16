@@ -17,6 +17,7 @@
   },
   "include": [
     "registry/**/*.ts",
+    "docs/.vitepress/theme/components/EffectsPlayground.vue",
     "registry/**/*.vue",
     "docs/.vitepress/theme/components/a2ui/**/*.ts",
     "docs/.vitepress/theme/components/a2ui/**/*.vue",

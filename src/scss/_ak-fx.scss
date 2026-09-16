@@ -47,3 +47,15 @@
     outline-offset: 1.5rem;
   }
 }
+
+.ak-count-up { font-variant-numeric: tabular-nums; }
+
+.ak-count-up__accessible {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}

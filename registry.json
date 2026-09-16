@@ -279,6 +279,33 @@
         "motion"
       ],
       "docs": "Pass a template ref or getter for an element containing data-depth layers. The composable delegates motion to @yunyoujun/ak-ui/depth and only manages Vue lifecycle cleanup."
+    },
+    {
+      "name": "effects",
+      "type": "registry:ui",
+      "title": "AK Effects",
+      "description": "Independent entrance and count-up effects with replay and reduced-motion support.",
+      "dependencies": [
+        "@yunyoujun/ak-ui@1.0.0"
+      ],
+      "files": [
+        {
+          "path": "registry/ak/ui/effects/AkEntrance.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/ak/ui/effects/AkCountUp.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/ak/ui/effects/index.ts",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "motion",
+        "data-display"
+      ]
     }
   ]
 }

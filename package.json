@@ -77,6 +77,11 @@
       "types": "./src/js/dashboard-depth.d.ts",
       "import": "./src/js/dashboard-depth.mjs",
       "default": "./src/js/dashboard-depth.mjs"
+    },
+    "./effects": {
+      "types": "./src/js/effects.d.ts",
+      "import": "./src/js/effects.mjs",
+      "default": "./src/js/effects.mjs"
     }
   },
   "sideEffects": [

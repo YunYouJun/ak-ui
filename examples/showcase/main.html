@@ -10,6 +10,11 @@
   </div>
 
   <div class="ak-dashboard__scene">
+    <div class="ak-dashboard__entrance" aria-hidden="true">
+      <div class="ak-dashboard__entrance-mark"><strong>AK</strong><span>TERMINAL / ONLINE</span></div>
+      <div class="ak-dashboard__entrance-line"></div>
+      <span class="ak-dashboard__entrance-caption">SYSTEM LINK ESTABLISHED</span>
+    </div>
     <div class="ak-dashboard__atmosphere" aria-hidden="true">
       <i class="ak-dashboard__mote"></i>
       <i class="ak-dashboard__mote"></i>
@@ -45,7 +50,7 @@
       <img class="ak-dashboard__background" src="https://assets.yunyoujun.cn/ak-ui/assets/img/bg/terminal-rooftop-v1-1c3f4e33db76.webp" alt="">
     </div>
 
-    <div class="ak-dashboard__layer ak-dashboard__character-layer" data-depth="0.065" aria-hidden="true">
+    <div class="ak-dashboard__layer ak-dashboard__character-layer" data-ak-enter="人物" data-direction="up" data-delay="700" data-depth="0.065" aria-hidden="true">
       <img data-character-artwork class="ak-dashboard__character" src="https://assets.yunyoujun.cn/ak-ui/assets/img/character/xiaoyun-tactical-v1-85365d8aef8d.webp" alt="" draggable="false">
     </div>
 
@@ -53,10 +58,11 @@
       <a href="https://github.com/YunYouJun/ak-ui" target="_blank" rel="noreferrer">GitHub</a>
       <a href="/registry/">Registry</a>
       <a href="/guide/">Docs</a>
+      <button class="ak-dashboard__entrance-replay" type="button" data-entrance-replay>重播入场</button>
     </nav>
 
     <button
-      class="ak-dashboard__profile ak-dashboard__layer"
+      class="ak-dashboard__profile ak-dashboard__layer" data-ak-enter="博士档案" data-direction="left" data-delay="850"
       type="button"
       aria-label="打开博士档案"
       data-depth="0.1"
@@ -65,7 +71,7 @@
     >
       <img class="ak-dashboard__profile-mark" src="https://assets.yunyoujun.cn/ak-ui/assets/img/mrfz-logo-d20a379e42d4.png" alt="">
       <span class="ak-dashboard__level-ring">
-        <strong>78</strong>
+        <strong data-count-up>78</strong>
         <small>LV</small>
       </span>
       <span class="ak-dashboard__profile-copy">
@@ -76,13 +82,13 @@
 
     <aside class="ak-dashboard__left-layer ak-dashboard__layer" data-depth="0.12" aria-label="助理与情报">
       <div class="ak-dashboard__left-menu ak-dashboard__plane ak-dashboard__plane--left">
-        <div class="ak-dashboard__voice">
+        <div class="ak-dashboard__voice" data-ak-enter="语音" data-direction="left" data-delay="1000">
           <span class="ak-dashboard__eyebrow">VOICE / XIAOYUN</span>
           <p>博士，小云已就位。今天也一起做些有趣的东西吧。</p>
         </div>
 
         <div class="ak-dashboard__left-actions">
-          <button class="ak-dashboard__news" type="button" aria-label="查看活动公告">
+          <button class="ak-dashboard__news" data-ak-enter="公告" data-direction="left" data-delay="1100" type="button" aria-label="查看活动公告">
             <img data-character-artwork src="https://assets.yunyoujun.cn/ak-ui/assets/img/character/xiaoyun-tactical-v1-85365d8aef8d.webp" alt="">
             <span class="ak-dashboard__news-label">BREAKING NEWS</span>
             <span class="ak-dashboard__news-copy">
@@ -91,7 +97,7 @@
             </span>
           </button>
 
-          <div class="ak-dashboard__utility-grid">
+          <div class="ak-dashboard__utility-grid" data-ak-enter="快捷入口" data-direction="up" data-delay="1200">
             <button class="ak-dashboard__utility ak-dashboard__utility--dark" type="button">
               <svg class="ak-icon" aria-hidden="true"><use href="#icon-profile-line"></use></svg>
               <strong>好友</strong>
@@ -107,7 +113,7 @@
 
     <main class="ak-dashboard__right-layer ak-dashboard__layer" data-depth="0.12">
       <div class="ak-dashboard__right-menu ak-dashboard__plane ak-dashboard__plane--right">
-        <header class="ak-dashboard__resource-panel">
+        <header class="ak-dashboard__resource-panel" data-ak-enter="资源" data-direction="right" data-delay="950">
           <div class="ak-dashboard__system-line">
             <span class="ak-dashboard__line"></span>
             <svg class="ak-icon" aria-hidden="true"><use href="#icon-battery-charge-line"></use></svg>
@@ -124,23 +130,23 @@
             <span class="ak-counter-group ak-counter-group--terminal">
               <span class="ak-counter ak-counter--terminal">
                 <span class="ak-counter__prefix"><svg class="ak-icon" aria-hidden="true" style="color: #05a7dc"><use href="#icon-money-cny-box-fill"></use></svg></span>
-                <strong class="ak-counter__content">1000</strong>
+                <strong class="ak-counter__content" data-count-up>1000</strong>
               </span>
               <span class="ak-counter ak-counter--terminal">
                 <span class="ak-counter__prefix"><svg class="ak-icon" aria-hidden="true" style="color: #f6540e"><use href="#icon-sword-line"></use></svg></span>
-                <strong class="ak-counter__content">1000</strong>
+                <strong class="ak-counter__content" data-count-up>1000</strong>
                 <span class="ak-counter__suffix"><svg class="ak-icon" aria-hidden="true"><use href="#icon-add-circle-fill"></use></svg></span>
               </span>
               <span class="ak-counter ak-counter--terminal">
                 <span class="ak-counter__prefix"><svg class="ak-icon" aria-hidden="true" style="color: #ffd802"><use href="#icon-vip-diamond-fill"></use></svg></span>
-                <strong class="ak-counter__content">1000</strong>
+                <strong class="ak-counter__content" data-count-up>1000</strong>
                 <span class="ak-counter__suffix"><svg class="ak-icon" aria-hidden="true"><use href="#icon-add-circle-fill"></use></svg></span>
               </span>
             </span>
           </button>
         </header>
 
-        <section class="ak-san-container ak-san-container--terminal" aria-label="当前行动：急转直下，理智 132 / 135">
+        <section class="ak-san-container ak-san-container--terminal" data-ak-enter="当前行动" data-direction="right" data-delay="1100" aria-label="当前行动：急转直下，理智 132 / 135">
           <svg class="ak-san-container__watermark ak-icon" aria-hidden="true"><use href="#icon-sword-line"></use></svg>
           <div class="ak-san-container__content">
             <div class="ak-san">
@@ -150,7 +156,7 @@
               <button class="ak-san__add" type="button" aria-label="查看理智详情" popovertarget="resource-overview">
                 <svg class="ak-icon" aria-hidden="true"><use href="#icon-add-line"></use></svg>
               </button>
-              <strong class="ak-san__current">132</strong>
+              <strong class="ak-san__current" data-count-up>132</strong>
               <span class="ak-san__total">理智/135</span>
             </div>
             <button class="ak-command ak-command--operation" type="button" aria-label="作战" aria-pressed="true" data-command-detail="终端已定位至当前主线 S4-1">
@@ -162,7 +168,7 @@
         </section>
 
         <nav class="ak-dashboard__command-deck" aria-label="主菜单">
-          <div class="ak-dashboard__command-row ak-dashboard__command-row--primary">
+          <div class="ak-dashboard__command-row ak-dashboard__command-row--primary" data-ak-enter="编队与干员" data-direction="right" data-delay="1250">
             <button class="ak-command ak-command--paper" type="button" aria-label="编队" aria-pressed="false" data-command-detail="当前启用 Alpha 编队">
               <svg class="ak-command__watermark ak-icon" aria-hidden="true"><use href="#icon-rook"></use></svg>
               <strong class="ak-command__label">编队</strong>
@@ -175,7 +181,7 @@
             <span class="ak-dashboard__command-blank" aria-hidden="true"></span>
           </div>
 
-          <div class="ak-dashboard__command-row ak-dashboard__command-row--recruit">
+          <div class="ak-dashboard__command-row ak-dashboard__command-row--recruit" data-ak-enter="招募" data-direction="right" data-delay="1400">
             <button class="ak-command ak-command--cyan" type="button" aria-label="采购中心" aria-pressed="false" data-command-detail="采购中心已更新今日库存">
               <svg class="ak-command__watermark ak-icon" aria-hidden="true"><use href="#icon-shopping-cart-2-line"></use></svg>
               <strong class="ak-command__label">采购中心</strong>
@@ -193,7 +199,7 @@
             </div>
           </div>
 
-          <div class="ak-dashboard__command-row ak-dashboard__command-row--system">
+          <div class="ak-dashboard__command-row ak-dashboard__command-row--system" data-ak-enter="任务与基建" data-direction="up" data-delay="1550">
             <button class="ak-command ak-command--paper" type="button" aria-label="任务" aria-pressed="false" data-command-detail="今日有 3 项任务可以领取" data-mission-trigger>
               <svg class="ak-command__watermark ak-icon" aria-hidden="true"><use href="#icon-task-fill"></use></svg>
               <strong class="ak-command__label">任务</strong>

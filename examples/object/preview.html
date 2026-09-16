@@ -14,15 +14,15 @@
   </div>
   <div style="display: grid; gap: 12px">
     <label style="display: flex; align-items: center; gap: 12px">X 轴
-      <input type="range" name="x" aria-label="X 轴旋转" min="-180" max="180" value="-20" style="flex: 1; min-width: 0">
+      <input class="ak-slider" type="range" name="x" aria-label="X 轴旋转" min="-180" max="180" value="-20" style="flex: 1; min-width: 0">
       <output style="width: 5ch; text-align: right">-20°</output>
     </label>
     <label style="display: flex; align-items: center; gap: 12px">Y 轴
-      <input type="range" name="y" aria-label="Y 轴旋转" min="-180" max="180" value="30" style="flex: 1; min-width: 0">
+      <input class="ak-slider" type="range" name="y" aria-label="Y 轴旋转" min="-180" max="180" value="30" style="flex: 1; min-width: 0">
       <output style="width: 5ch; text-align: right">30°</output>
     </label>
     <label style="display: flex; align-items: center; gap: 12px">Z 轴
-      <input type="range" name="z" aria-label="Z 轴旋转" min="-180" max="180" value="0" style="flex: 1; min-width: 0">
+      <input class="ak-slider" type="range" name="z" aria-label="Z 轴旋转" min="-180" max="180" value="0" style="flex: 1; min-width: 0">
       <output style="width: 5ch; text-align: right">0°</output>
     </label>
     <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px" aria-label="预设视角">
@@ -50,9 +50,12 @@
     const [x, y, z] = sliders.map(slider => Number(slider.value))
     cube.style.transform = `rotateX(${x}deg) rotateY(${y}deg) rotateZ(${z}deg)`
     sliders.forEach(slider => {
+      const fill = (Number(slider.value) - Number(slider.min)) / (Number(slider.max) - Number(slider.min)) * 100
+      slider.style.setProperty('--ak-slider-fill', `${fill}%`)
       slider.nextElementSibling.value = `${slider.value}°`
     })
   }
+  update()
   sliders.forEach(slider => slider.addEventListener('input', update))
   preview.querySelectorAll('[data-view]').forEach(button => {
     button.addEventListener('click', () => {

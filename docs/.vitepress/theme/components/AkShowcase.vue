@@ -7,6 +7,8 @@ import { getShowcaseArtwork, showcaseArtwork } from './showcaseArtwork'
 import type { ArtworkTone } from './showcaseArtwork'
 import dashboardSource from '../../../../examples/showcase/main.html?raw'
 import loadingSource from '../../../../examples/loading/terminal.html?raw'
+import EntranceControls from './EntranceControls.vue'
+import { useShowcaseEffects } from './useShowcaseEffects'
 import DepthControls from './DepthControls.vue'
 import DepthPlaybackControls from './DepthPlaybackControls.vue'
 import { defaultDepthSettings, useShowcaseDepth } from './useShowcaseDepth'
@@ -70,6 +72,8 @@ onMounted(() => {
   }, { immediate: true })
 })
 
+const effects = useShowcaseEffects(() => showcaseFrame.value?.querySelector<HTMLElement>('[data-dashboard]'))
+
 const depthSettings = shallowRef({ ...defaultDepthSettings })
 const depth = useShowcaseDepth(
   () => showcaseFrame.value?.querySelector<HTMLElement>('[data-dashboard]'),
@@ -87,6 +91,7 @@ const depth = useShowcaseDepth(
       :artworks="availableArtwork"
       :status="artworkStatus"
     />
+    <EntranceControls v-if="kind === 'dashboard' && !standalone" @replay="effects.replayBlock" />
     <DepthControls
       v-if="kind === 'dashboard' && !standalone"
       v-model="depthSettings"
