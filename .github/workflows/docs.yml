@@ -8,6 +8,11 @@ on:
     branches:
       - master
   workflow_dispatch:
+    inputs:
+      captures:
+        description: Generate component screenshots and an HTML review report
+        type: boolean
+        default: false
 
 permissions:
   contents: read
@@ -72,6 +77,19 @@ jobs:
       - name: Run visual regression tests
         run: pnpm test:visual
 
+      - name: Capture components for review
+        if: ${{ inputs.captures }}
+        run: pnpm test:captures --workers=2
+
+      - name: Upload preview report
+        if: ${{ !cancelled() && inputs.captures }}
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: component-preview-report
+          path: playwright-report/captures/
+          if-no-files-found: warn
+          retention-days: 14
+
       - name: Upload browser failure diagnostics
         if: failure()
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
@@ -82,13 +100,4 @@ jobs:
             test-results/**/error-context.md
             test-results/**/test-failed-*.png
           if-no-files-found: ignore
-          retention-days: 14
-
-      - name: Upload component captures
-        if: failure() || github.event_name == 'pull_request'
-        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
-        with:
-          name: component-captures
-          path: test-results/**/component-captures/*.webp
-          if-no-files-found: warn
           retention-days: 14

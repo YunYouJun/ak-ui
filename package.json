@@ -20,6 +20,8 @@
     "docs:build": "pnpm build && pnpm registry:build && vitepress build docs",
     "docs:preview": "vitepress preview docs --host 0.0.0.0",
     "test:visual": "playwright test",
+    "test:captures": "playwright test --config=playwright.captures.config.ts",
+    "test:captures:report": "playwright show-report playwright-report/captures",
     "test:visual:update": "playwright test --update-snapshots=all",
     "test:visual:linux": "sh scripts/run-visual-linux.sh test",
     "test:visual:update:linux": "sh scripts/run-visual-linux.sh update",

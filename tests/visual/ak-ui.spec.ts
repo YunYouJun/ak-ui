@@ -1,7 +1,5 @@
-import { mkdir } from 'node:fs/promises'
-
 import { expect, test } from '@playwright/test'
-import type { Page, TestInfo } from '@playwright/test'
+import type { Page } from '@playwright/test'
 
 import { examples } from '../../examples/index'
 
@@ -508,7 +506,7 @@ test('asks portrait screens to rotate the terminal', async ({ page }) => {
   await expect(dashboard.locator('.ak-dashboard__scene')).not.toBeVisible()
 })
 
-test('renders interactive Vue registry adapters', async ({ page }, testInfo: TestInfo) => {
+test('renders interactive Vue registry adapters', async ({ page }) => {
   await page.goto('/registry/')
 
   const demo = page.locator('[data-registry-demo]')
@@ -530,16 +528,6 @@ test('renders interactive Vue registry adapters', async ({ page }, testInfo: Tes
   await demo.getByRole('button', { name: '最多' }).click()
   await expect(input).toHaveValue('12')
   await expect(demo.locator('[data-deployment-count]')).toHaveText('12')
-
-  const capturesDir = testInfo.outputPath('component-captures')
-  await mkdir(capturesDir, { recursive: true })
-  const capture = await demo.screenshot({
-    animations: 'disabled',
-    path: `${capturesDir}/vue--registry.webp`,
-    type: 'webp',
-  })
-
-  expect(capture.byteLength).toBeGreaterThan(1_000)
 })
 
 test('renders extended Vue registry adapters', async ({ page }) => {
@@ -562,29 +550,19 @@ test('renders extended Vue registry adapters', async ({ page }) => {
   await expect(autoMode).toHaveAttribute('aria-pressed', 'true')
 })
 
-test('captures every framework-agnostic HTML example', async ({ page }, testInfo: TestInfo) => {
-  // This is one batch over the whole catalog, not a single interaction.
-  // Linux WebKit can spend over two minutes scrolling and encoding all captures.
-  test.setTimeout(300_000)
+test('renders every framework-agnostic HTML example', async ({ page }) => {
+  const pageErrors: string[] = []
+  page.on('pageerror', error => pageErrors.push(error.message))
   await page.goto('/__visual/')
 
-  const capturesDir = testInfo.outputPath('component-captures')
-  await mkdir(capturesDir, { recursive: true })
-
+  await expect(page.locator('[data-visual-id]')).toHaveCount(examples.length)
   for (const example of examples) {
-    const demo = page.locator(`[data-demo-id="${example.id}"]`)
-    await demo.scrollIntoViewIfNeeded()
-    const canvas = demo.locator('.ak-demo-preview__canvas')
-    await expect(canvas).toBeVisible()
-    await waitForFonts(page)
-
-    const captureName = `${example.id.replaceAll('/', '--')}.webp`
-    const capture = await canvas.screenshot({
-      animations: 'disabled',
-      path: `${capturesDir}/${captureName}`,
-      type: 'webp',
+    await test.step(`Render ${example.id}`, async () => {
+      const canvas = page.locator(`[data-demo-id="${example.id}"] .ak-demo-preview__canvas`)
+      await expect(canvas).toBeVisible()
+      // A visible wrapper alone would also pass for an empty example.
+      await expect(canvas.locator(':scope > :not(style):not(script)').first()).toBeVisible()
     })
-
-    expect(capture.byteLength).toBeGreaterThan(1_000)
   }
+  expect(pageErrors).toEqual([])
 })

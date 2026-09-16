@@ -80,7 +80,7 @@ Component examples moved into `examples/*.html`. `DemoPreview` renders those fil
 
 ### 3. Screenshots leave routine Git history
 
-Component screenshots are generated during testing and kept as short-lived CI artifacts. Only desktop and mobile homepage regression baselines remain in the repository. This preserves detection of homepage changes without continuously adding dozens of component images to Git transfers.
+Default tests check that every example renders visible content. Component screenshots are generated on demand with `pnpm test:captures` or the CI workflow with its manual captures option enabled. Open the local HTML review report with `pnpm test:captures:report`; downloaded reports are retained for 14 days and can be opened with `pnpm exec playwright show-report <report-directory>`. Only desktop and mobile homepage regression baselines remain in the repository. This preserves detection of homepage changes without continuously adding dozens of component images to Git transfers.
 
 ### 4. CSS Core + Vue Registry
 
