@@ -20,8 +20,12 @@ for (const width of [1440, 390]) {
     await expect(demo.locator('pre').filter({ hasText: '客户端 → 模拟 Agent' })).toContainText('阿米娅')
     await demo.getByRole('button', { name: '清空界面' }).click()
     await expect(demo.getByRole('progressbar')).toHaveCount(0)
-    for (let step = 0; step < 3; step++)
-      await demo.getByRole('button', { name: `下一条消息（${step}/3）` }).click()
+    for (let step = 0; step < 3; step++) {
+      // Clearing a tall log can leave Linux WebKit adjusting its scroll anchor.
+      // Native keyboard activation avoids a pointer click racing that movement.
+      await demo.getByRole('button', { name: `下一条消息（${step}/3）` }).press('Enter')
+      await expect(demo.getByRole('button', { name: `下一条消息（${step + 1}/3）` })).toBeVisible()
+    }
     await expect(demo.getByLabel('指挥代号')).toHaveValue('博士')
     await expect(demo.getByRole('progressbar')).toHaveAttribute('aria-valuenow', '25')
     await expect(demo.getByRole('alert')).toHaveCount(0)
