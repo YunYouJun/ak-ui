@@ -17,7 +17,9 @@ ak-ui 不以像素级复刻某个游戏页面为目标，而是把工业几何�
 
 运行时生成界面可体验 [A2UI 实验](https://ak-ui.yyj.moe/guide/a2ui)：基于官方协议处理器的本地模拟，不增加 CSS 包的运行时依赖。稳定接口范围与收尾事项见 [1.0 发布检查](https://ak-ui.yyj.moe/guide/stability)。
 
-稳定版：**1.0.0**。从 0.2.x 升级请参阅 [迁移指南](https://ak-ui.yyj.moe/guide/migration-v1)，组件接口见 [Vue Registry API](https://ak-ui.yyj.moe/registry/api)。
+稳定版：**1.1.0**。从 0.2.x 升级请参阅 [迁移指南](https://ak-ui.yyj.moe/guide/migration-v1)，组件接口见 [Vue Registry API](https://ak-ui.yyj.moe/registry/api)。
+
+1.1 新增[官网风格交互组件](https://ak-ui.yyj.moe/components/ak-site)与[六章节示例](https://ak-ui.yyj.moe/showcase/website)，覆盖章节导航、移动菜单、画廊、真实加载与粒子背景。
 
 ## 使用 AI（推荐）
 

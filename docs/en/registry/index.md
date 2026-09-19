@@ -38,6 +38,9 @@ Vue Registry copies lightweight adapter source into your project. Framework-agno
 
 See [Vue Registry API](/en/registry/api) for complete props, slots, models and boundary behavior. When upgrading from 0.2.x, follow the [1.0 migration guide](/en/guide/migration-v1).
 
+
+1.1.0 adds section navigation, mobile menus, archive galleries, loading and particles. See [Site API](/en/components/ak-site). Install: `pnpm dlx shadcn-vue@2.8.2 add https://ak-ui.yyj.moe/r/site.json`.
+
 ## Style reuse model
 
 | Layer | Responsibility | Shared interface |

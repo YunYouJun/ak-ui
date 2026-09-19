@@ -10,7 +10,7 @@
       "description": "Arknights-inspired action button with composable variants and slots.",
       "author": "YunYouJun",
       "dependencies": [
-        "@yunyoujun/ak-ui@1.0.0"
+        "@yunyoujun/ak-ui@1.1.0"
       ],
       "files": [
         {
@@ -39,7 +39,7 @@
       "description": "Composable Arknights-inspired card with header, title, description, content, and footer primitives.",
       "author": "YunYouJun",
       "dependencies": [
-        "@yunyoujun/ak-ui@1.0.0"
+        "@yunyoujun/ak-ui@1.1.0"
       ],
       "files": [
         {
@@ -88,7 +88,7 @@
       "description": "Accessible numeric input with increment, decrement, minimum, and maximum actions.",
       "author": "YunYouJun",
       "dependencies": [
-        "@yunyoujun/ak-ui@1.0.0"
+        "@yunyoujun/ak-ui@1.1.0"
       ],
       "files": [
         {
@@ -113,7 +113,7 @@
       "description": "Native range slider with tactical tracks, ticks, keyboard controls and numeric v-model.",
       "author": "YunYouJun",
       "dependencies": [
-        "@yunyoujun/ak-ui@1.0.0"
+        "@yunyoujun/ak-ui@1.1.0"
       ],
       "files": [
         {
@@ -138,7 +138,7 @@
       "description": "Tags and live terminal status indicators for roles, rarity, warnings, and connectivity.",
       "author": "YunYouJun",
       "dependencies": [
-        "@yunyoujun/ak-ui@1.0.0"
+        "@yunyoujun/ak-ui@1.1.0"
       ],
       "files": [
         {
@@ -171,7 +171,7 @@
       "description": "Accessible horizontal progress and octagonal gauge adapters with clamped values.",
       "author": "YunYouJun",
       "dependencies": [
-        "@yunyoujun/ak-ui@1.0.0"
+        "@yunyoujun/ak-ui@1.1.0"
       ],
       "files": [
         {
@@ -204,7 +204,7 @@
       "description": "Tactical information, warning, danger, and success notices with semantic live roles.",
       "author": "YunYouJun",
       "dependencies": [
-        "@yunyoujun/ak-ui@1.0.0"
+        "@yunyoujun/ak-ui@1.1.0"
       ],
       "files": [
         {
@@ -233,7 +233,7 @@
       "description": "Controlled Vue tabs and segmented mode selection with keyboard navigation.",
       "author": "YunYouJun",
       "dependencies": [
-        "@yunyoujun/ak-ui@1.0.0"
+        "@yunyoujun/ak-ui@1.1.0"
       ],
       "files": [
         {
@@ -266,7 +266,7 @@
       "description": "Vue lifecycle adapter for the framework-agnostic ak-ui dashboard depth controller.",
       "author": "YunYouJun",
       "dependencies": [
-        "@yunyoujun/ak-ui@1.0.0"
+        "@yunyoujun/ak-ui@1.1.0"
       ],
       "files": [
         {
@@ -286,7 +286,7 @@
       "title": "AK Effects",
       "description": "Independent entrance and count-up effects with replay and reduced-motion support.",
       "dependencies": [
-        "@yunyoujun/ak-ui@1.0.0"
+        "@yunyoujun/ak-ui@1.1.0"
       ],
       "files": [
         {
@@ -306,6 +306,51 @@
         "motion",
         "data-display"
       ]
+    },
+    {
+      "name": "site",
+      "type": "registry:ui",
+      "title": "AK Site",
+      "description": "Section navigation, accessible mobile menu, media gallery, real asset loading and particle fields.",
+      "dependencies": [
+        "@yunyoujun/ak-ui@1.1.0"
+      ],
+      "files": [
+        {
+          "path": "registry/ak/ui/site/AkAssetLoader.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/ak/ui/site/AkMediaGallery.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/ak/ui/site/AkMobileMenu.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/ak/ui/site/AkParticleField.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/ak/ui/site/AkSectionNavigator.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/ak/ui/site/index.ts",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/ak/ui/site/types.ts",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "navigation",
+        "media",
+        "motion"
+      ],
+      "docs": "Compose data-ak-section landmarks inside AkSectionNavigator. Native scrolling, modal focus, reduced motion and lifecycle cleanup are built in. See /components/ak-site for contracts."
     }
   ]
 }

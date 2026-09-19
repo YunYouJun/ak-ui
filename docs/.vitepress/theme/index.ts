@@ -2,6 +2,7 @@ import DefaultTheme from 'vitepress/theme'
 import Layout from './Layout.vue'
 import type { Theme } from 'vitepress'
 
+import SiteShowcase from './components/site/SiteShowcase.vue'
 import EffectsPlayground from './components/EffectsPlayground.vue'
 import AkHome from './components/AkHome.vue'
 import AkShowcase from './components/AkShowcase.vue'
@@ -15,6 +16,7 @@ export default {
   extends: DefaultTheme,
   Layout,
   enhanceApp({ app }) {
+    app.component('SiteShowcase', SiteShowcase)
     app.component('EffectsPlayground', EffectsPlayground)
     app.component('AkHome', AkHome)
     app.component('AkShowcase', AkShowcase)

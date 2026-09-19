@@ -50,6 +50,11 @@
 
 .ak-count-up { font-variant-numeric: tabular-nums; }
 
+@media (prefers-reduced-motion: reduce) {
+  .ak-fx--glow,
+  .ak-fx--outline { animation: none; }
+}
+
 .ak-count-up__accessible {
   position: absolute;
   width: 1px;

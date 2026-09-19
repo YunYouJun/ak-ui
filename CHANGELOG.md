@@ -1,5 +1,25 @@
 # Changelog
 
+## [1.1.0](https://github.com/YunYouJun/ak-ui/compare/v1.0.0...v1.1.0) (2026-09-19)
+
+### Features
+
+- Add independent entrance/count-up effects with Vue adapters, content navigation/news primitives and layered photo-arc entrances.
+- Add controllable depth playback, tactical sliders, consolidated demos and bilingual version navigation.
+- Add dependency-free `/site` controllers and Vue Registry adapters for section navigation, modal menus, archive/media galleries, real asset progress and particle fields.
+- Add a responsive six-section website showcase with original SVGs and WebGL/2D/static particle rendering.
+- Expand the AI skill with dated official-site evidence, motion recipes, API contracts and portable examples.
+
+### Fixes
+
+- Correct component previews, album layers and cube controls; stabilize browser checks and make component capture reports optional in CI.
+- Stop legacy glow, outline and loading loops when reduced motion is requested.
+- Handle interrupted navigation, modal focus, inactive media, failed resources, cancellation and offscreen animation cleanup.
+
+### Compatibility
+
+- Preserve the 1.0 CSS classes, tokens and export contracts. Official shaders and complete source-site timelines remain outside the verified extraction scope.
+
 ## 1.0.0 — 2026-09-12
 
 - Promoted the CSS, Token, Sass, depth and Vue Registry compatibility contract to stable 1.0.

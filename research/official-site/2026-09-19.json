@@ -1,0 +1,216 @@
+{
+  "schemaVersion": 1,
+  "observedOn": "2026-09-19",
+  "page": "https://ak.hypergryph.com/#index",
+  "method": "Live browser screenshots and rendered DOM inspection through Codex browser tooling; public CSS fetched and parsed separately. Source declarations are not measurements of complete animation playback.",
+  "scope": {
+    "desktop": [
+      "index",
+      "information",
+      "operator",
+      "world",
+      "media",
+      "more"
+    ],
+    "portrait": [
+      "information",
+      "navigation-closed",
+      "navigation-open"
+    ]
+  },
+  "sources": {
+    "shell": {
+      "url": "https://web.hycdn.cn/arknights/official/_next/static/css/144c734e19afaa20.css",
+      "decodedSha256": "6a7d3fd44ac6446570c970b7df687aad6d8b9122e704acc7bbbeda3a69dcdfe5",
+      "matches20260915": true
+    },
+    "page": {
+      "url": "https://web.hycdn.cn/arknights/official/_next/static/css/6aed155137c3fe93.css",
+      "decodedSha256": "0869cfbe08f33831b454418d74f2b7bb68dcbafd8926198ed0d8cf2a3014df6d",
+      "matches20260915": true
+    }
+  },
+  "observations": [
+    {
+      "source": "shell",
+      "selector": "._57987e85 ._c91e47cc",
+      "media": null,
+      "declarations": {
+        "transition": "color .3s"
+      },
+      "evidence": "public-css-declaration"
+    },
+    {
+      "source": "shell",
+      "selector": "._3c14782f ._c91e47cc",
+      "media": null,
+      "declarations": {
+        "transition": "opacity .2s,transform .2s",
+        "opacity": "0",
+        "transform": "translateX(20%)"
+      },
+      "evidence": "public-css-declaration"
+    },
+    {
+      "source": "shell",
+      "selector": "._3c14782f._f3a31881 ._c91e47cc",
+      "media": null,
+      "declarations": {
+        "opacity": "1",
+        "transform": "translateX(0)"
+      },
+      "evidence": "public-css-declaration"
+    },
+    {
+      "source": "page",
+      "selector": "._2a56b767",
+      "media": null,
+      "declarations": {
+        "transition": "opacity 1s",
+        "opacity": "0"
+      },
+      "evidence": "public-css-declaration"
+    },
+    {
+      "source": "page",
+      "selector": "._2a56b767 ._02a74b8e",
+      "media": null,
+      "declarations": {
+        "transition": "transform 2s",
+        "transform": "scale(1.2)"
+      },
+      "evidence": "public-css-declaration"
+    },
+    {
+      "source": "page",
+      "selector": "._2a56b767 ._120363a9,._2a56b767 ._96034668",
+      "media": null,
+      "declarations": {
+        "transition": "opacity .6s",
+        "opacity": "0"
+      },
+      "evidence": "public-css-declaration"
+    },
+    {
+      "source": "page",
+      "selector": "._2a56b767 ._db42efb9",
+      "media": null,
+      "declarations": {
+        "transition": "transform 1s",
+        "transform": "translateY(11.5rem)"
+      },
+      "evidence": "public-css-declaration"
+    },
+    {
+      "source": "page",
+      "selector": "._2a56b767 ._db42efb9",
+      "media": "(orientation:portrait)",
+      "declarations": {
+        "transform": "translateY(12.25rem)"
+      },
+      "evidence": "public-css-declaration"
+    },
+    {
+      "source": "page",
+      "selector": "._2a56b767._47e76c6c ._02a74b8e",
+      "media": null,
+      "declarations": {
+        "transform": "scale(1)"
+      },
+      "evidence": "public-css-declaration"
+    },
+    {
+      "source": "page",
+      "selector": "._2a56b767._47e76c6c ._96034668",
+      "media": null,
+      "declarations": {
+        "transition-delay": "2s",
+        "opacity": ".78"
+      },
+      "evidence": "public-css-declaration"
+    },
+    {
+      "source": "page",
+      "selector": "._2a56b767._47e76c6c ._120363a9",
+      "media": null,
+      "declarations": {
+        "transition-delay": "2.3s",
+        "opacity": ".25"
+      },
+      "evidence": "public-css-declaration"
+    },
+    {
+      "source": "page",
+      "selector": "._2a56b767._47e76c6c ._db42efb9",
+      "media": null,
+      "declarations": {
+        "transform": "translateY(0)"
+      },
+      "evidence": "public-css-declaration"
+    },
+    {
+      "source": "page",
+      "selector": "._446c7f49 ._f00913a8 ._6c630746 ._b9c239f0",
+      "media": null,
+      "declarations": {
+        "transition": "background-color .3s,color .3s"
+      },
+      "evidence": "public-css-declaration"
+    }
+  ],
+  "viewports": [
+    {
+      "width": 1280,
+      "height": 720,
+      "dpr": 2,
+      "observations": [
+        "Bilingual top navigation and right-side section position.",
+        "Information: list/feature split; Operator: profile and portrait selection; World: ruled directory and dotted focal graphic; Media: labeled visual regions; More: four feature panels.",
+        "Four canvas elements observed in DOM; rendering internals were not inspected."
+      ]
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "dpr": 1,
+      "measurements": {
+        "rootFontPx": 8.32,
+        "newsRowHeightPx": 59.2734375,
+        "newsRowWidthPx": 313.0546875
+      },
+      "menu": {
+        "selector": "._3c14782f ._c91e47cc",
+        "count": 7,
+        "transitionProperties": [
+          "opacity",
+          "transform"
+        ],
+        "durationMs": 200,
+        "computedDelayMs": [
+          0,
+          70,
+          140,
+          210,
+          280,
+          350,
+          420
+        ],
+        "closedOpacity": 0,
+        "closedTranslateXPx": 59.0734,
+        "openOpacity": 1,
+        "openTransform": "matrix(1, 0, 0, 1, 0, 0)",
+        "evidence": "computed-style-before-and-after-menu-open"
+      },
+      "observations": [
+        "Artwork above news, dates on the right.",
+        "Navigation opens as a full-height overlay with bilingual rows."
+      ]
+    }
+  ],
+  "limitations": [
+    "No complete frame-by-frame timeline, route interruption, history, wheel/touch or keyboard/focus audit of the official site.",
+    "Official reduced-motion behavior, audio/video controls, loading lifecycle and canvas/shader internals remain unverified.",
+    "The ak-ui effects/media/depth defaults are independent implementation decisions; they are not official-site timings.",
+    "No official artwork, font binaries or source bundles are redistributed by this record."
+  ]
+}

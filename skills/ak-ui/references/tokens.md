@@ -59,6 +59,8 @@ Use `--ak-line-hairline`, `--ak-line-strong`, `--ak-cut-sm`, `--ak-cut-md`, `--a
 
 Use `--ak-motion-fast`, `--ak-motion-base`, `--ak-motion-slow`, `--ak-ease-standard`, and `--ak-ease-emphasized`. Use `--ak-focus-color`, `--ak-focus-width`, and `--ak-focus-offset` for visible focus.
 
+The CSS motion defaults are `120ms`, `200ms`, and `420ms`, with `cubic-bezier(0.2, 0, 0, 1)` and `cubic-bezier(0.2, 0.8, 0.2, 1)` easing. These are ak-ui design decisions. The JavaScript entrance/count-up controllers have separate numeric defaults and do not automatically read CSS timing tokens; see the skill's `motion.md` reference. Do not label either set as extracted official-site timings.
+
 ## Brand mapping
 
 Override semantic roles inside the narrowest useful scope:

@@ -16,6 +16,7 @@ const designGroup = {
     { text: 'ak-ui design language', link: '/en/guide/design-language' },
     { text: 'Design tokens', link: '/en/guide/tokens' },
     { text: 'Official website UI study', link: '/en/guide/official-site-study' },
+    { text: 'Website coverage & examples', link: '/en/guide/official-site-examples' },
     { text: 'Headless adapters', link: '/en/guide/headless' },
     { text: 'Quality checklist', link: '/en/guide/quality' },
     { text: '1.0 stability & release checks', link: '/en/guide/stability' },
@@ -30,6 +31,7 @@ const projectGroup = {
 const showcaseGroup = {
   text: 'Showcase (中文)',
   items: [
+    { text: 'Website showcase (中文)', link: '/en/showcase/website' },
     { text: 'Main interface (中文)', link: '/showcase/' },
     { text: 'Fullscreen terminal (中文)', link: '/showcase/fullscreen' },
     { text: 'Fullscreen loading (中文)', link: '/showcase/loading' },
@@ -51,7 +53,7 @@ export function createEn(packageVersion: string): LocaleSpecificConfig<DefaultTh
         { text: 'Components & demos', link: '/en/components/', activeMatch: '^/(en/components|showcase)/' },
         {
           text: 'Design & dev',
-          activeMatch: '^/en/guide/(design-language|tokens|official-site-study|headless|reka-ui|style|quality|stability|migration-v1|revival|videos)(\\.html)?$',
+          activeMatch: '^/en/guide/(design-language|tokens|official-site-study|official-site-examples|headless|reka-ui|style|quality|stability|migration-v1|revival|videos)(\\.html)?$',
           items: [designGroup, projectGroup],
         },
         {

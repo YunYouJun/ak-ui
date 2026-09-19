@@ -1,0 +1,123 @@
+<section class="site-briefing" aria-label="产品更新情报示例">
+  <div class="site-briefing__masthead">
+    <span>AK / UI</span>
+    <span>PRODUCT BULLETIN</span>
+  </div>
+  <nav class="ak-nav" aria-label="产品情报导航">
+    <a class="ak-nav__link" href="/guide/official-site-examples">
+      <span class="ak-nav__label">风格示例</span>
+      <span class="ak-nav__description" lang="en">Examples</span>
+    </a>
+    <a class="ak-nav__link" href="/components/">
+      <span class="ak-nav__label">组件目录</span>
+      <span class="ak-nav__description" lang="en">Components</span>
+    </a>
+    <a class="ak-nav__link" href="/guide/tokens">
+      <span class="ak-nav__label">设计规范</span>
+      <span class="ak-nav__description" lang="en">Design tokens</span>
+    </a>
+  </nav>
+  <div class="site-briefing__body">
+    <header class="site-briefing__lead">
+      <p class="site-briefing__eyebrow" lang="en">DESIGN / DEVELOPMENT</p>
+      <h3>让信息<br>清晰抵达。</h3>
+      <p class="site-briefing__description">组件、设计记录与交互规范，按内容层级组织每一次更新。</p>
+      <a class="ak-button site-briefing__more" href="/guide/official-site-study">阅读研究 <span aria-hidden="true">↗</span></a>
+    </header>
+    <div class="site-briefing__updates">
+      <p class="site-briefing__eyebrow">更新记录 / RELEASE NOTES</p>
+      <ul class="ak-news-list" role="list" aria-label="设计系统更新记录">
+        <li class="ak-news-list__item">
+          <a class="ak-news-list__link" href="/components/ak-nav">
+            <span class="ak-news-list__category">组件</span>
+            <span class="ak-news-list__title">双语导航与内容目录</span>
+            <time class="ak-news-list__time" datetime="2026-09-15">2026-09-15</time>
+          </a>
+        </li>
+        <li class="ak-news-list__item">
+          <a class="ak-news-list__link" href="/components/ak-news-list">
+            <span class="ak-news-list__category">规范</span>
+            <span class="ak-news-list__title">让长标题、日期与分类各就其位</span>
+            <time class="ak-news-list__time" datetime="2026-09-15">2026-09-15</time>
+          </a>
+        </li>
+        <li class="ak-news-list__item">
+          <a class="ak-news-list__link" href="/guide/official-site-study">
+            <span class="ak-news-list__category">研究</span>
+            <span class="ak-news-list__title">从官网观察到可复用的设计规则</span>
+            <time class="ak-news-list__time" datetime="2026-09-15">2026-09-15</time>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <p class="site-briefing__footer">独立设计示例 <span lang="en">BUILT WITH AK-UI</span></p>
+</section>
+
+<style>
+  .site-briefing {
+    /* Source-inspired local accent; all global token defaults stay intact. */
+    --ak-signal-info: #19d1ff;
+    container: site-briefing / inline-size;
+    box-sizing: border-box;
+    width: 100%;
+    padding: var(--ak-space-5);
+    color: var(--ak-text-primary);
+    background: var(--ak-surface-canvas);
+    font-family: var(--ak-font-sans);
+  }
+  .site-briefing__masthead,
+  .site-briefing__footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: var(--ak-space-2);
+    margin: 0;
+    padding-block: var(--ak-space-3);
+    border-bottom: var(--ak-line-hairline) solid var(--ak-text-secondary);
+    font: 700 0.875rem / 1.5 var(--ak-font-mono);
+  }
+  .site-briefing .ak-nav { padding-inline: 0; margin-block: var(--ak-space-3); }
+  .site-briefing__body { display: grid; gap: var(--ak-space-6); padding-block: var(--ak-space-5); }
+  .site-briefing__body > * { min-width: 0; }
+  .site-briefing__eyebrow {
+    margin: 0 0 var(--ak-space-4);
+    color: var(--ak-signal-info);
+    font: 700 0.875rem / 1.6 var(--ak-font-mono);
+    letter-spacing: var(--ak-type-wide);
+  }
+  .site-briefing__lead h3 {
+    margin: 0;
+    font: 900 clamp(2rem, 7cqi, 3.5rem) / 1.2 var(--ak-font-sans);
+    letter-spacing: var(--ak-type-tight);
+  }
+  .site-briefing__description { max-width: 32ch; margin-block: var(--ak-space-5); line-height: 1.8; }
+  .site-briefing .site-briefing__more {
+    gap: var(--ak-space-5);
+    width: auto;
+    min-height: max(44px, var(--ak-density-control-height));
+    padding-inline: var(--ak-space-4);
+    color: var(--ak-text-inverse);
+    background: var(--ak-signal-info);
+    box-shadow: none;
+    text-decoration: none;
+    transition: color var(--ak-motion-base), background-color var(--ak-motion-base);
+  }
+  .site-briefing .site-briefing__more:hover {
+    color: var(--ak-text-inverse);
+    background: var(--ak-text-primary);
+    transform: none;
+    filter: none;
+  }
+  .site-briefing .site-briefing__more:focus-visible {
+    outline: var(--ak-focus-width) solid var(--ak-focus-color);
+    outline-offset: var(--ak-focus-offset);
+  }
+  .site-briefing__footer { border-bottom: 0; border-top: var(--ak-line-hairline) solid var(--ak-text-secondary); color: var(--ak-text-secondary); }
+  @container site-briefing (min-width: 30rem) {
+    .site-briefing__body { grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .site-briefing .site-briefing__more { transition: none; }
+  }
+</style>

@@ -5,6 +5,8 @@ description: Traceable website observations, component patterns, and ak-ui token
 
 # Official website UI study
 
+> **2026-09-19 follow-up:** both CSS hashes still match this record. Six desktop sections and the portrait menu were inspected, with additional menu-stagger and hero-layer transition evidence. Extraction remains partial; see [coverage and working examples](./official-site-examples). The original 2026-09-15 observations follow.
+
 Observed **2026-09-15** on the [Arknights website](https://ak.hypergryph.com/), covering Index, Information, and World. Viewports: 1280 × 720 desktop and 390 × 844 portrait. This is an independent study of rendered UI, computed styles, and public CSS, not an official design system.
 
 The repository file `research/official-site/2026-09-15.json` records source URLs, decoded stylesheet SHA-256 hashes, selector fragments, authored units, and viewport measurements. Hashed selectors identify this snapshot only; they are not component APIs.

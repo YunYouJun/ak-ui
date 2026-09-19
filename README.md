@@ -17,7 +17,9 @@ ak-ui does not aim to reproduce a specific game screen pixel for pixel. It turns
 
 Explore runtime-generated interfaces in the [A2UI experiment](https://ak-ui.yyj.moe/en/guide/a2ui), a local simulation using the official protocol processor with no added runtime dependencies in the CSS package. See the [1.0 stability and release checklist](https://ak-ui.yyj.moe/en/guide/stability) for the compatibility contract.
 
-Stable release: **1.0.0**. See the [0.2.x migration guide](https://ak-ui.yyj.moe/en/guide/migration-v1) and [Vue Registry API](https://ak-ui.yyj.moe/en/registry/api).
+Stable release: **1.1.0**. See the [0.2.x migration guide](https://ak-ui.yyj.moe/en/guide/migration-v1) and [Vue Registry API](https://ak-ui.yyj.moe/en/registry/api).
+
+1.1 adds [website interaction controllers](https://ak-ui.yyj.moe/en/components/ak-site) and a [six-section showcase](https://ak-ui.yyj.moe/en/showcase/website), covering navigation, menus, galleries, real loading and particles.
 
 ## Use with AI (recommended)
 

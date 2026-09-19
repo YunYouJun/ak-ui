@@ -44,6 +44,8 @@ Use a label, icon, pattern, or geometry change alongside color. Glows are local 
 
 Use a heavy serif or strongly weighted display face for major Chinese commands when available. Use a neutral sans face for prose and controls, and monospace for identifiers, telemetry, and aligned values.
 
+For official-website-inspired navigation and editorial sections, use a condensed sans display role with smaller supporting labels. The website's Latin navigation and large wordmarks are not evidence for a universal serif heading rule. Keep the command face for command surfaces; the skill's `official-site.md` reference records observed font roles and their limits.
+
 Keep command labels compact, data numerals clear, and metadata letter-spaced. Avoid using uppercase, italics, monospace, or extra tracking on every line.
 
 ### Layer surfaces, not clutter
@@ -53,6 +55,8 @@ Combine paper-like light surfaces and graphite dark surfaces when hierarchy requ
 ### Keep interaction decisive
 
 Hover, press, selection, loading, and focus should change at least two of signal, position, fill, line, or label. Keep transitions quick and mechanical. Preserve a visible keyboard focus indicator that is not hidden by clipping.
+
+Separate short control feedback from staged entrances and ambient motion. Reuse the controllers and lifecycle rules in the skill's `motion.md` reference; their defaults are ak-ui choices, not measured official animation specifications.
 
 ## Composition rules
 

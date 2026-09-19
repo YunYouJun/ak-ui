@@ -512,7 +512,12 @@ body {
 }
 
 /* Content examples size to their text; scene demos keep their authored canvas. */
+.official-site-table { overflow-x: auto; margin-block: 20px; }
+.official-site-table table { min-width: 42rem; margin: 0; }
+.official-site-table:focus-visible { outline: 3px solid var(--ak-focus-color); outline-offset: -3px; }
 .ak-demo-preview[data-demo-id^='news-list/'] .ak-demo-preview__stage,
+.ak-demo-preview[data-demo-id='site/briefing'] .ak-demo-preview__stage,
 .ak-demo-preview[data-demo-id^='nav/'] .ak-demo-preview__stage { height: auto !important; }
 .ak-demo-preview[data-demo-id^='news-list/'] .ak-demo-preview__canvas,
+.ak-demo-preview[data-demo-id='site/briefing'] .ak-demo-preview__canvas,
 .ak-demo-preview[data-demo-id^='nav/'] .ak-demo-preview__canvas { height: auto; min-height: 160px; }

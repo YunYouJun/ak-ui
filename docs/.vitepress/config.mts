@@ -70,6 +70,7 @@ const designGroup = {
     { text: 'ak-ui 设计语言', link: '/guide/design-language' },
     { text: '设计 Token', link: '/guide/tokens' },
     { text: '官网 UI 研究', link: '/guide/official-site-study' },
+    { text: '官网风格覆盖与示例', link: '/guide/official-site-examples' },
     { text: 'Headless 适配', link: '/guide/headless' },
     { text: '质量检查清单', link: '/guide/quality' },
     { text: '1.0 稳定性与发布检查', link: '/guide/stability' },
@@ -84,6 +85,7 @@ const projectGroup = {
 const showcaseGroup = {
   text: '完整演示',
   items: [
+    { text: '官网风格 · 六章节', link: '/showcase/website' },
     { text: '主界面演示', link: '/showcase/' },
     { text: '全屏终端', link: '/showcase/fullscreen' },
     { text: '全屏加载演示', link: '/showcase/loading' },
@@ -167,7 +169,7 @@ export default defineConfig({
       { text: '组件与演示', link: '/components/', activeMatch: '^/(components|showcase)/' },
       {
         text: designGroup.text,
-        activeMatch: '^/guide/(design-language|tokens|official-site-study|headless|reka-ui|style|quality|stability|migration-v1|revival|videos)(\\.html)?$',
+        activeMatch: '^/guide/(design-language|tokens|official-site-study|official-site-examples|headless|reka-ui|style|quality|stability|migration-v1|revival|videos)(\\.html)?$',
         items: [designGroup, projectGroup],
       },
       versionMenu,
@@ -206,6 +208,7 @@ export default defineConfig({
           text: '数据与状态',
           items: [
             { text: '计数器', link: '/components/ak-counter' },
+            { text: '官网风格交互', link: '/components/ak-site' },
             { text: '新闻列表', link: '/components/ak-news-list' },
             { text: '进度与仪表', link: '/components/ak-progress' },
             { text: '理智', link: '/components/ak-san' },

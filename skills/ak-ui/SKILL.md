@@ -10,6 +10,10 @@ Build original interfaces with ak-ui's industrial geometry, tactical information
 ## Read the relevant references
 
 - Always read [references/design-language.md](references/design-language.md) and [references/tokens.md](references/tokens.md) before making visual decisions.
+- For the Arknights official website, its navigation/news layouts, or extraction audits, read [references/official-site.md](references/official-site.md). Distinguish observed source values, ak-ui adaptations, and unimplemented patterns.
+- For entrance, stagger, count-up, media, or parallax effects, read [references/motion.md](references/motion.md).
+- For working component compositions and controller setup, read [references/examples.md](references/examples.md).
+- For full-page navigation, mobile menus, archive/media selectors, real resource progress or particle fields in ak-ui >=1.1.0, read [references/site.md](references/site.md). Use the public `/site` controllers or Registry `site`; do not invent an official shader or assume that CSS alone installs interactions.
 - Read [references/headless-components.md](references/headless-components.md) when adapting native controls or any unstyled/headless library.
 - Also read [references/reka-ui.md](references/reka-ui.md) when the project uses Reka UI or needs a Vue headless primitive.
 - Read [references/quality-checklist.md](references/quality-checklist.md) before declaring the work complete.

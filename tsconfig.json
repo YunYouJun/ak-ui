@@ -33,6 +33,7 @@
     "docs/.vitepress/theme/components/DepthControls.vue",
     "docs/.vitepress/theme/components/showcaseArtwork.ts",
     "docs/.vitepress/theme/components/useShowcaseDepth.ts",
-    "docs/.vitepress/env.d.ts"
+    "docs/.vitepress/env.d.ts",
+    "docs/.vitepress/theme/components/site/**/*.vue"
   ]
 }

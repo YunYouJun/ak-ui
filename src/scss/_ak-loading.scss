@@ -255,7 +255,8 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .ak-loading-track__runner {
-    animation-duration: 10s;
+  .ak-loading-track__runner,
+  .ak-loading::after {
+    animation: none;
   }
 }

@@ -45,6 +45,16 @@ Use $ak-ui to review this page against the ak-ui design contract.
 Report findings without changing code.
 ```
 
+## Website-inspired examples
+
+Website tasks load the skill's dated evidence and coverage matrix. Animation tasks load controller parameters and lifecycle guidance. See [Website coverage and examples](./official-site-examples) for a product bulletin, independent entrance/count-up controls, and the 1.1.0 interactive website showcase, with explicit boundaries around unverified official rendering details.
+
+```text
+Use $ak-ui to build a product updates page with bilingual navigation and news rows.
+Reuse existing components, distinguish source facts from adaptation values,
+and verify narrow layouts and reduced motion.
+```
+
 ## Style intensity
 
 | Mode | Suitable for | Default effect |

@@ -38,6 +38,9 @@ Vue Registry 把轻量 Adapter 源码复制到你的项目中；组件视觉仍�
 
 完整属性、插槽、模型与边界行为见 [Vue Registry API](/registry/api)。从 0.2.x 升级请参阅 [1.0 迁移指南](/guide/migration-v1)。
 
+
+1.1.0 的章节导航、移动菜单、档案画廊、加载与粒子组件见 [Site API](/components/ak-site)。安装：`pnpm dlx shadcn-vue@2.8.2 add https://ak-ui.yyj.moe/r/site.json`。
+
 ## 样式复用模型
 
 | 模块 | 负责内容 | 复用接口 |

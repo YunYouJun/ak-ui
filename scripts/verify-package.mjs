@@ -29,6 +29,11 @@ try {
   await writeFile(join(fixture, 'consume.mjs'), `
     import assert from 'node:assert/strict'
     import { createDashboardDepth } from '@yunyoujun/ak-ui/depth'
+    import * as site from '@yunyoujun/ak-ui/site'
+    import { createEntrance, createCountUp } from '@yunyoujun/ak-ui/effects'
+    assert.equal(typeof createEntrance, 'function')
+    assert.equal(typeof createCountUp, 'function')
+    for (const name of ['createSectionNavigation', 'createMobileMenu', 'createMediaGallery', 'createAssetLoader', 'createParticleField']) assert.equal(typeof site[name], 'function')
     assert.equal(typeof createDashboardDepth, 'function')
     for (const entry of ['', '/style.css', '/style.min.css', '/tokens.css', '/tokens.min.css'])
       assert.ok(import.meta.resolve('@yunyoujun/ak-ui' + entry).endsWith('.css'))
@@ -36,6 +41,6 @@ try {
   run(process.execPath, ['consume.mjs'])
   const sass = compileString('@use "pkg:@yunyoujun/ak-ui/scss";', { importers: [new NodePackageImporter(fixture)] })
   assert.ok(sass.css.includes('.ak-button'))
-  console.log(`Verified packed ${manifest.name}@${manifest.version}: ${paths.size} files, CSS exports, Sass compilation and SSR-safe depth import; no runtime dependencies.`)
+  console.log(`Verified packed ${manifest.name}@${manifest.version}: ${paths.size} files, CSS exports, Sass compilation and SSR-safe depth/effects/site imports; no runtime dependencies.`)
 }
 finally { await rm(fixture, { recursive: true, force: true }) }

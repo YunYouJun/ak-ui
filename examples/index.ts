@@ -54,6 +54,7 @@ export const examples: ExampleDefinition[] = [
   { id: 'progress/basic', title: 'Operation progress', surface: 'dark', height: 340 },
   { id: 'san/basic', title: 'Sanity status', surface: 'dust', height: 320 },
   { id: 'showcase/main', title: 'Rhodes Island terminal', surface: 'dark', height: 900, sourceOpen: false },
+  { id: 'site/briefing', title: 'Website-inspired product bulletin', surface: 'dark', height: 1040, sourceOpen: false },
   { id: 'status/basic', title: 'Tags and terminal status', surface: 'dark', height: 260 },
   { id: 'tabs/basic', title: 'Terminal navigation', surface: 'dark', height: 420 },
 ]

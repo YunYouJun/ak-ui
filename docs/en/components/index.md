@@ -49,3 +49,6 @@ Use semantic HTML and the stable `.ak-*` classes from CSS Core. Detailed compone
 | Visuals and media | [Images and video](/components/ak-media) · [Effects](/components/ak-fx) · [Objects](/components/ak-object) |
 
 Native HTML and headless primitives own keyboard, focus and state behavior. Keep labels, visible focus, reduced-motion support and adequate contrast when customizing the design. See the [design language](/en/guide/design-language), [tokens](/en/guide/tokens) and [headless adapter contract](/en/guide/headless).
+
+
+[Six-section website showcase](/en/showcase/website) · [Site interaction API](./ak-site)

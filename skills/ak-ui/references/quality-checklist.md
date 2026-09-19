@@ -50,3 +50,12 @@ Exercise the states relevant to the component:
 - Prefer a real browser pass over reasoning from source alone.
 - When visual tooling is unavailable, state which checks remain manual.
 - Summarize the chosen integration path, style intensity, brand mapping, verification, and any remaining limitations.
+
+## Official-site extraction and motion
+
+- Identify which facts are dated source observations, which are ak-ui adaptations, and which remain unverified; use the skill's `official-site.md` reference.
+- Report coverage separately for components, design rules, motion, and working examples. A component count or successful build does not establish complete website extraction.
+- Do not present generic count-up, photo arcs, or pointer parallax as a verified reproduction of the website's animation timeline.
+- Confirm JavaScript timing units, trigger, replay, final visibility, and `destroy()` on unmount; `data-ak-enter` alone is not a public auto-initialization API.
+- Test reduced motion before mounting and when the preference changes during playback. Keep static content usable without JavaScript.
+- For menus/carousels/section navigation, separately verify semantics, focus, history, and interruption behavior when these are implemented; styling primitives alone do not supply them.
