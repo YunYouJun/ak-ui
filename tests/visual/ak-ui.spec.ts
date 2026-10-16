@@ -488,6 +488,79 @@ test('operates the complete Rhodes Island terminal dashboard', async ({ page }) 
   await expect(page.locator('#resource-overview')).not.toBeVisible()
 })
 
+test('enters every terminal function screen in its command tone', async ({ page }) => {
+  const errors: string[] = []
+  page.on('pageerror', error => errors.push(error.message))
+  await page.goto('/showcase/')
+
+  const demo = page.locator('[data-demo-id="showcase/main"]')
+  const tones: Record<string, string> = {
+    'screen-operation': 'paper', 'screen-squad': 'paper', 'screen-operators': 'muted', 'screen-store': 'cyan',
+    'screen-recruit': 'cyan', 'screen-headhunt': 'cyan', 'screen-base': 'muted', 'screen-depot': 'dark',
+    'screen-friends': 'dark', 'screen-intel': 'paper',
+  }
+  for (const [id, tone] of Object.entries(tones)) {
+    const trigger = demo.locator(`[data-screen-target="${id}"]`).first()
+    await trigger.evaluate(element => (element as HTMLElement).click())
+    const screen = demo.locator(`#${id}`)
+    await expect(screen).toBeVisible()
+    await expect(screen).toHaveClass(new RegExp(`ak-screen--${tone}`))
+    await expect(screen.locator('.ak-screen__title')).toBeFocused()
+    await expect(demo.locator('.ak-dashboard__scene')).toHaveJSProperty('inert', true)
+    await page.keyboard.press('Escape')
+    await expect(screen).toBeHidden()
+  }
+  expect(errors).toEqual([])
+})
+
+test('shares terminal resources across function screens', async ({ page }) => {
+  await page.goto('/showcase/')
+  const demo = page.locator('[data-demo-id="showcase/main"]')
+  const open = (id: string) => demo.locator(`[data-screen-target="${id}"]`).first().evaluate(element => (element as HTMLElement).click())
+  const back = () => page.keyboard.press('Escape')
+
+  await open('screen-depot')
+  const depotTotal = Number(await demo.locator('#screen-depot [data-depot-total]').textContent())
+  await back()
+
+  await open('screen-operation')
+  await demo.locator('#screen-operation [data-stage="0"]').click()
+  await demo.getByRole('button', { name: '开始行动' }).click()
+  await expect(demo.locator('#screen-operation [data-sanity]')).toHaveText('114')
+  await expect(demo.locator('[data-operation-status]')).toContainText('已存入仓库')
+  await expect(demo.locator('.ak-san__current')).toHaveText('114')
+  await back()
+
+  await open('screen-depot')
+  await expect(demo.locator('#screen-depot [data-depot-total]')).toHaveText(String(depotTotal + 5))
+  await back()
+
+  await open('screen-friends')
+  await demo.locator('[data-visit="Kestrel"]').click()
+  await expect(demo.locator('#screen-friends [data-credit]')).toHaveText('320')
+  await back()
+
+  await open('screen-store')
+  await expect(demo.locator('#screen-store [data-credit]')).toHaveText('320')
+  await demo.locator('#screen-store [data-item="permit"]').click()
+  await expect(demo.locator('#screen-store [data-credit]')).toHaveText('120')
+  await expect(demo.locator('#screen-store [data-item="permit"]')).toBeDisabled()
+  await back()
+
+  await open('screen-recruit')
+  const tags = demo.locator('[data-recruit-tags] .ak-tag')
+  for (const index of [0, 1, 2]) await tags.nth(index).click()
+  await expect(tags.nth(3)).toBeDisabled()
+  await demo.locator('[data-recruit-start]').click()
+  await expect(demo.locator('#screen-recruit [data-permit]')).toHaveText('3')
+  await back()
+
+  await open('screen-headhunt')
+  await demo.locator('[data-pull="10"]').click()
+  await expect(demo.locator('[data-pull-results] .ak-slot')).toHaveCount(10)
+  await expect(demo.locator('[data-pull-summary]')).toContainText(/最高 [56]★/)
+})
+
 test('updates dashboard depth from native pointer input and respects reduced motion', async ({ page }) => {
   await page.goto('/showcase/')
   const demo = page.locator('[data-demo-id="showcase/main"]')

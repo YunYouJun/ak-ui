@@ -88,7 +88,7 @@
         </div>
 
         <div class="ak-dashboard__left-actions">
-          <button class="ak-dashboard__news" data-ak-enter="公告" data-direction="left" data-delay="1100" type="button" aria-label="查看活动公告">
+          <button class="ak-dashboard__news" data-ak-enter="公告" data-direction="left" data-delay="1100" type="button" aria-label="查看活动公告" data-screen-target="screen-intel">
             <img data-character-artwork src="https://assets.yunyoujun.cn/ak-ui/assets/img/character/xiaoyun-tactical-v1-85365d8aef8d.webp" alt="">
             <span class="ak-dashboard__news-label">BREAKING NEWS</span>
             <span class="ak-dashboard__news-copy">
@@ -98,11 +98,11 @@
           </button>
 
           <div class="ak-dashboard__utility-grid" data-ak-enter="快捷入口" data-direction="up" data-delay="1200">
-            <button class="ak-dashboard__utility ak-dashboard__utility--dark" type="button">
+            <button class="ak-dashboard__utility ak-dashboard__utility--dark" type="button" data-screen-target="screen-friends">
               <svg class="ak-icon" aria-hidden="true"><use href="#icon-profile-line"></use></svg>
               <strong>好友</strong>
             </button>
-            <button class="ak-dashboard__utility" type="button">
+            <button class="ak-dashboard__utility" type="button" data-screen-target="screen-intel">
               <svg class="ak-icon" aria-hidden="true"><use href="#icon-file-list-3-line"></use></svg>
               <strong>情报</strong>
             </button>
@@ -159,7 +159,7 @@
               <strong class="ak-san__current" data-count-up>132</strong>
               <span class="ak-san__total">理智/135</span>
             </div>
-            <button class="ak-command ak-command--operation" type="button" aria-label="作战" aria-pressed="true" data-command-detail="终端已定位至当前主线 S4-1">
+            <button class="ak-command ak-command--operation" type="button" aria-label="作战" aria-pressed="true" data-command-detail="终端已定位至当前主线 S4-1" data-screen-target="screen-operation">
               <strong class="ak-command__label">作战</strong>
               <span class="ak-command__current">当前</span>
               <span class="ak-command__meta">S4-1 急转直下</span>
@@ -169,11 +169,11 @@
 
         <nav class="ak-dashboard__command-deck" aria-label="主菜单">
           <div class="ak-dashboard__command-row ak-dashboard__command-row--primary" data-ak-enter="编队与干员" data-direction="right" data-delay="1250">
-            <button class="ak-command ak-command--paper" type="button" aria-label="编队" aria-pressed="false" data-command-detail="当前启用 Alpha 编队">
+            <button class="ak-command ak-command--paper" type="button" aria-label="编队" aria-pressed="false" data-command-detail="当前启用 Alpha 编队" data-screen-target="screen-squad">
               <svg class="ak-command__watermark ak-icon" aria-hidden="true"><use href="#icon-rook"></use></svg>
               <strong class="ak-command__label">编队</strong>
             </button>
-            <button class="ak-command ak-command--muted" type="button" aria-label="干员" aria-pressed="false" data-command-detail="干员档案已同步，共 182 名">
+            <button class="ak-command ak-command--muted" type="button" aria-label="干员" aria-pressed="false" data-command-detail="干员档案已同步，共 182 名" data-screen-target="screen-operators">
               <svg class="ak-command__watermark ak-icon" aria-hidden="true"><use href="#icon-profile-line"></use></svg>
               <strong class="ak-command__label">干员</strong>
               <span class="ak-command__meta">角色管理</span>
@@ -182,17 +182,17 @@
           </div>
 
           <div class="ak-dashboard__command-row ak-dashboard__command-row--recruit" data-ak-enter="招募" data-direction="right" data-delay="1400">
-            <button class="ak-command ak-command--cyan" type="button" aria-label="采购中心" aria-pressed="false" data-command-detail="采购中心已更新今日库存">
+            <button class="ak-command ak-command--cyan" type="button" aria-label="采购中心" aria-pressed="false" data-command-detail="采购中心已更新今日库存" data-screen-target="screen-store">
               <svg class="ak-command__watermark ak-icon" aria-hidden="true"><use href="#icon-shopping-cart-2-line"></use></svg>
               <strong class="ak-command__label">采购中心</strong>
             </button>
             <div class="ak-command-group ak-command-group--recruitment">
               <span class="ak-command-group__label">招募</span>
-              <button class="ak-command ak-command--cyan ak-command--split" type="button" aria-label="公开招募" aria-pressed="false" data-command-detail="公开招募有 2 个空闲席位">
+              <button class="ak-command ak-command--cyan ak-command--split" type="button" aria-label="公开招募" aria-pressed="false" data-command-detail="公开招募有 2 个空闲席位" data-screen-target="screen-recruit">
                 <svg class="ak-command__watermark ak-icon" aria-hidden="true"><use href="#icon-profile-line"></use></svg>
                 <strong class="ak-command__label">公开招募</strong>
               </button>
-              <button class="ak-command ak-command--cyan ak-command--split" type="button" aria-label="干员寻访" aria-pressed="false" data-command-detail="标准寻访许可可用">
+              <button class="ak-command ak-command--cyan ak-command--split" type="button" aria-label="干员寻访" aria-pressed="false" data-command-detail="标准寻访许可可用" data-screen-target="screen-headhunt">
                 <svg class="ak-command__watermark ak-icon" aria-hidden="true"><use href="#icon-vip-diamond-fill"></use></svg>
                 <strong class="ak-command__label">干员寻访</strong>
               </button>
@@ -204,12 +204,12 @@
               <svg class="ak-command__watermark ak-icon" aria-hidden="true"><use href="#icon-task-fill"></use></svg>
               <strong class="ak-command__label">任务</strong>
             </button>
-            <button class="ak-command ak-command--muted" type="button" aria-label="基建" aria-pressed="false" data-command-detail="基建生产线效率为 94%">
+            <button class="ak-command ak-command--muted" type="button" aria-label="基建" aria-pressed="false" data-command-detail="基建生产线效率为 94%" data-screen-target="screen-base">
               <svg class="ak-command__watermark ak-icon" aria-hidden="true"><use href="#icon-bank-line"></use></svg>
               <strong class="ak-command__label">基建</strong>
               <span class="ak-command__badge">BETA</span>
             </button>
-            <button class="ak-command ak-command--dark ak-command--vertical" type="button" aria-label="仓库" aria-pressed="false" data-command-detail="仓库材料清单已同步">
+            <button class="ak-command ak-command--dark ak-command--vertical" type="button" aria-label="仓库" aria-pressed="false" data-command-detail="仓库材料清单已同步" data-screen-target="screen-depot">
               <svg class="ak-command__watermark ak-icon" aria-hidden="true"><use href="#icon-database-line"></use></svg>
               <strong class="ak-command__label">仓库</strong>
             </button>
@@ -230,6 +230,243 @@
     <strong class="ak-popover__title">资源同步完成</strong>
     <p class="ak-popover__content">龙门币 1000 · 合成玉 1000 · 至纯源石 1000</p>
   </aside>
+
+
+  <!-- Function screens: each command opens one, in its own tone. -->
+  <section class="ak-screen ak-screen--paper" id="screen-operation" aria-label="作战" hidden>
+    <span class="ak-screen__watermark" aria-hidden="true">Operation</span>
+    <header class="ak-screen__bar">
+      <button class="ak-screen__back" type="button" data-screen-back><span aria-hidden="true">‹</span> 返回</button>
+      <div class="ak-screen__heading">
+        <span class="ak-screen__eyebrow">Operation / Main Theme · Episode 04</span>
+        <h2 class="ak-screen__title" tabindex="-1">作战</h2>
+      </div>
+      <div class="ak-screen__meta"><span><svg class="ak-icon" aria-hidden="true"><use href="#icon-Brain"></use></svg>理智 <b data-sanity>132</b>/135</span></div>
+    </header>
+    <div class="ak-screen__body">
+      <div class="ak-screen__split">
+        <div class="ak-screen__panel">
+          <p class="ak-screen__section-title">第四章 · 急转直下 <small>Select a stage</small></p>
+          <div class="ak-screen__grid" style="--ak-screen-grid-min: 8.5rem; padding: 1rem 1.25rem 1.5rem" role="group" aria-label="选择关卡" data-stage-list></div>
+          <div class="ak-status" data-operation-status>
+            <span class="ak-status__signal" aria-hidden="true"></span>
+            <span class="ak-status__label">Standby</span>
+            <span class="ak-status__detail" aria-live="polite">选择关卡后开始行动</span>
+          </div>
+        </div>
+        <div class="ak-screen__panel" data-stage-detail>
+          <span class="ak-screen__eyebrow" data-stage-eyebrow>OPERATION · S4-1</span>
+          <p class="ak-screen__section-title" style="font-size: 1.6rem"><span data-stage-name>急转直下</span></p>
+          <div class="ak-tag-group" style="gap: 0.4rem"><span class="ak-tag" data-stage-level>推荐 精英1 LV.30</span><span class="ak-tag ak-tag--danger" data-stage-cost>理智 -18</span></div>
+          <p class="ak-screen__section-title">常规掉落 <small>Drops</small></p>
+          <div class="ak-screen__grid" style="--ak-screen-grid-min: 4.5rem" data-stage-drops></div>
+          <label class="ak-choice ak-choice--switch">
+            <input class="ak-choice__input" type="checkbox" role="switch" data-agent>
+            <span class="ak-choice__label">代理指挥</span>
+          </label>
+          <button class="ak-button ak-button--action" type="button" style="width: 100%" data-operation-start>开始行动</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="ak-screen ak-screen--paper" id="screen-squad" aria-label="编队" hidden>
+    <span class="ak-screen__watermark" aria-hidden="true">Squad</span>
+    <header class="ak-screen__bar">
+      <button class="ak-screen__back" type="button" data-screen-back><span aria-hidden="true">‹</span> 返回</button>
+      <div class="ak-screen__heading">
+        <span class="ak-screen__eyebrow">Squad / Formation</span>
+        <h2 class="ak-screen__title" tabindex="-1">编队</h2>
+      </div>
+      <div class="ak-screen__meta"><span data-squad-count>8 / 12</span></div>
+    </header>
+    <div class="ak-screen__body">
+      <div class="ak-segmented" aria-label="选择编队" data-squad-tabs>
+        <button class="ak-segmented__item" type="button" aria-pressed="true" data-squad="0">Alpha</button>
+        <button class="ak-segmented__item" type="button" aria-pressed="false" data-squad="1">Beta</button>
+        <button class="ak-segmented__item" type="button" aria-pressed="false" data-squad="2">Gamma</button>
+        <button class="ak-segmented__item" type="button" aria-pressed="false" data-squad="3">Delta</button>
+      </div>
+      <ol class="ak-screen__grid" style="--ak-screen-grid-min: 9rem; margin: 0; padding: 0; list-style: none" aria-label="编队干员" data-squad-slots></ol>
+    </div>
+  </section>
+
+  <section class="ak-screen ak-screen--muted" id="screen-operators" aria-label="干员" hidden>
+    <span class="ak-screen__watermark" aria-hidden="true">Operator</span>
+    <header class="ak-screen__bar">
+      <button class="ak-screen__back" type="button" data-screen-back><span aria-hidden="true">‹</span> 返回</button>
+      <div class="ak-screen__heading">
+        <span class="ak-screen__eyebrow">Operator / Archive</span>
+        <h2 class="ak-screen__title" tabindex="-1">干员</h2>
+      </div>
+      <div class="ak-screen__meta"><span>档案 <b>182</b></span></div>
+    </header>
+    <div class="ak-screen__body">
+      <div class="ak-segmented" aria-label="按职业筛选" data-role-filter></div>
+      <div class="ak-screen__split">
+        <div class="ak-screen__grid" style="--ak-screen-grid-min: 8rem" role="group" aria-label="干员列表" data-operator-grid></div>
+        <div class="ak-screen__panel" aria-live="polite" data-operator-detail></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="ak-screen ak-screen--cyan" id="screen-store" aria-label="采购中心" hidden>
+    <span class="ak-screen__watermark" aria-hidden="true">Store</span>
+    <header class="ak-screen__bar">
+      <button class="ak-screen__back" type="button" data-screen-back><span aria-hidden="true">‹</span> 返回</button>
+      <div class="ak-screen__heading">
+        <span class="ak-screen__eyebrow">Store / Credit Exchange</span>
+        <h2 class="ak-screen__title" tabindex="-1">采购中心</h2>
+      </div>
+      <div class="ak-screen__meta"><span><svg class="ak-icon" aria-hidden="true"><use href="#icon-money-cny-box-fill"></use></svg>信用 <b data-credit>300</b></span></div>
+    </header>
+    <div class="ak-screen__body">
+      <p class="ak-screen__section-title">信用交易所 <small>Refreshes daily · 04:00</small></p>
+      <div class="ak-screen__grid" style="--ak-screen-grid-min: 7rem" role="group" aria-label="商品" data-store-grid></div>
+      <div class="ak-status" data-store-status>
+        <span class="ak-status__signal" aria-hidden="true"></span>
+        <span class="ak-status__label">Credit</span>
+        <span class="ak-status__detail" aria-live="polite">访问好友基建可获得信用</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="ak-screen ak-screen--cyan" id="screen-recruit" aria-label="公开招募" hidden>
+    <span class="ak-screen__watermark" aria-hidden="true">Recruit</span>
+    <header class="ak-screen__bar">
+      <button class="ak-screen__back" type="button" data-screen-back><span aria-hidden="true">‹</span> 返回</button>
+      <div class="ak-screen__heading">
+        <span class="ak-screen__eyebrow">Recruitment / Public</span>
+        <h2 class="ak-screen__title" tabindex="-1">公开招募</h2>
+      </div>
+      <div class="ak-screen__meta"><span>招聘许可 <b data-permit>4</b></span></div>
+    </header>
+    <div class="ak-screen__body">
+      <div class="ak-screen__split">
+        <div class="ak-screen__panel">
+          <p class="ak-screen__section-title">招募标签 <small>Pick up to 3</small></p>
+          <div class="ak-tag-group" style="gap: 0.45rem" role="group" aria-label="招募标签" data-recruit-tags></div>
+          <p class="ak-screen__section-title">招募时限</p>
+          <div class="ak-segmented" aria-label="招募时限" data-recruit-hours>
+            <button class="ak-segmented__item" type="button" aria-pressed="false" data-hours="1">01:00</button>
+            <button class="ak-segmented__item" type="button" aria-pressed="false" data-hours="4">04:00</button>
+            <button class="ak-segmented__item" type="button" aria-pressed="true" data-hours="9">09:00</button>
+          </div>
+          <button class="ak-button ak-button--action" type="button" style="width: 100%" data-recruit-start>开始招募</button>
+        </div>
+        <ol class="ak-screen__grid" style="--ak-screen-grid-min: 10rem; margin: 0; padding: 0; list-style: none" aria-label="招募位" data-recruit-slots></ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="ak-screen ak-screen--cyan" id="screen-headhunt" aria-label="干员寻访" hidden>
+    <span class="ak-screen__watermark" aria-hidden="true">Headhunt</span>
+    <header class="ak-screen__bar">
+      <button class="ak-screen__back" type="button" data-screen-back><span aria-hidden="true">‹</span> 返回</button>
+      <div class="ak-screen__heading">
+        <span class="ak-screen__eyebrow">Headhunting / Standard</span>
+        <h2 class="ak-screen__title" tabindex="-1">干员寻访</h2>
+      </div>
+      <div class="ak-screen__meta"><span><svg class="ak-icon" aria-hidden="true" style="color: #ffd802"><use href="#icon-vip-diamond-fill"></use></svg><b data-orundum>6600</b></span><span>寻访凭证 <b data-ticket>2</b></span></div>
+    </header>
+    <div class="ak-screen__body">
+      <div class="ak-screen__split">
+        <div class="ak-screen__panel" style="align-content: space-between">
+          <div>
+            <span class="ak-screen__eyebrow">Standard Headhunting</span>
+            <p class="ak-screen__section-title" style="font-size: 1.6rem">云端信标</p>
+            <p style="margin: 0.5rem 0 0; color: rgba(247, 247, 244, 0.7); font-size: 0.8rem; line-height: 1.6">六星 2% · 五星 8% · 四星 50% · 三星 40%。十次寻访内必定获得至少一名五星以上干员。</p>
+          </div>
+          <div class="ak-button-group">
+            <div class="ak-button--with-info">
+              <div class="ak-button__info"><svg class="ak-icon" aria-hidden="true"><use href="#icon-vip-diamond-fill"></use></svg>×600</div>
+              <button class="ak-button ak-button--light" type="button" data-pull="1">寻访一次</button>
+            </div>
+            <div class="ak-button--with-info">
+              <div class="ak-button__info"><svg class="ak-icon" aria-hidden="true"><use href="#icon-vip-diamond-fill"></use></svg>×6000</div>
+              <button class="ak-button ak-button--advanced" type="button" data-pull="10">寻访十次</button>
+            </div>
+          </div>
+        </div>
+        <div class="ak-screen__panel">
+          <p class="ak-screen__section-title">寻访结果 <small aria-live="polite" data-pull-summary>Awaiting</small></p>
+          <div class="ak-screen__grid" style="--ak-screen-grid-min: 6.5rem" data-pull-results></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="ak-screen ak-screen--muted" id="screen-base" aria-label="基建" hidden>
+    <span class="ak-screen__watermark" aria-hidden="true">Base</span>
+    <header class="ak-screen__bar">
+      <button class="ak-screen__back" type="button" data-screen-back><span aria-hidden="true">‹</span> 返回</button>
+      <div class="ak-screen__heading">
+        <span class="ak-screen__eyebrow">Infrastructure / Rhodes Island</span>
+        <h2 class="ak-screen__title" tabindex="-1">基建</h2>
+      </div>
+      <div class="ak-screen__meta"><span><svg class="ak-icon" aria-hidden="true" style="color: #05a7dc"><use href="#icon-money-cny-box-fill"></use></svg>龙门币 <b data-funds>1000</b></span></div>
+    </header>
+    <div class="ak-screen__body">
+      <div class="ak-screen__actions"><button class="ak-button ak-button--light" type="button" data-collect-all>一键收取</button></div>
+      <div class="ak-screen__grid" style="--ak-screen-grid-min: 15rem" data-facilities></div>
+    </div>
+  </section>
+
+  <section class="ak-screen ak-screen--dark" id="screen-depot" aria-label="仓库" hidden>
+    <span class="ak-screen__watermark" aria-hidden="true">Depot</span>
+    <header class="ak-screen__bar">
+      <button class="ak-screen__back" type="button" data-screen-back><span aria-hidden="true">‹</span> 返回</button>
+      <div class="ak-screen__heading">
+        <span class="ak-screen__eyebrow">Depot / Inventory</span>
+        <h2 class="ak-screen__title" tabindex="-1">仓库</h2>
+      </div>
+      <div class="ak-screen__meta"><span>物资 <b data-depot-total>0</b></span></div>
+    </header>
+    <div class="ak-screen__body">
+      <div class="ak-segmented" aria-label="物资分类" data-depot-filter>
+        <button class="ak-segmented__item" type="button" aria-pressed="true" data-category="all">全部</button>
+        <button class="ak-segmented__item" type="button" aria-pressed="false" data-category="material">养成材料</button>
+        <button class="ak-segmented__item" type="button" aria-pressed="false" data-category="record">作战记录</button>
+        <button class="ak-segmented__item" type="button" aria-pressed="false" data-category="other">其他</button>
+      </div>
+      <div class="ak-screen__grid" style="--ak-screen-grid-min: 6rem" aria-label="仓库物资" data-depot-grid></div>
+    </div>
+  </section>
+
+  <section class="ak-screen ak-screen--dark" id="screen-friends" aria-label="好友" hidden>
+    <span class="ak-screen__watermark" aria-hidden="true">Friends</span>
+    <header class="ak-screen__bar">
+      <button class="ak-screen__back" type="button" data-screen-back><span aria-hidden="true">‹</span> 返回</button>
+      <div class="ak-screen__heading">
+        <span class="ak-screen__eyebrow">Friends / Visits</span>
+        <h2 class="ak-screen__title" tabindex="-1">好友</h2>
+      </div>
+      <div class="ak-screen__meta"><span>信用 <b data-credit>300</b></span></div>
+    </header>
+    <div class="ak-screen__body">
+      <ul class="ak-screen__grid" style="--ak-screen-grid-min: 18rem; margin: 0; padding: 0; list-style: none" data-friends></ul>
+    </div>
+  </section>
+
+  <section class="ak-screen ak-screen--paper" id="screen-intel" aria-label="情报" hidden>
+    <span class="ak-screen__watermark" aria-hidden="true">Intel</span>
+    <header class="ak-screen__bar">
+      <button class="ak-screen__back" type="button" data-screen-back><span aria-hidden="true">‹</span> 返回</button>
+      <div class="ak-screen__heading">
+        <span class="ak-screen__eyebrow">Intelligence / Bulletin</span>
+        <h2 class="ak-screen__title" tabindex="-1">情报</h2>
+      </div>
+      <div class="ak-screen__meta"><span data-terminal-date>2026/08/03</span></div>
+    </header>
+    <div class="ak-screen__body">
+      <ul class="ak-news-list" role="list" aria-label="终端情报">
+        <li class="ak-news-list__item"><a class="ak-news-list__link" href="/components/ak-screen"><span class="ak-news-list__category">组件</span><span class="ak-news-list__title">功能页、干员位与物资格：主终端每个入口都能进入对应功能</span><time class="ak-news-list__time" datetime="2026-10-17">2026-10-17</time></a></li>
+        <li class="ak-news-list__item"><a class="ak-news-list__link" href="/guide/tokens"><span class="ak-news-list__category">Token</span><span class="ak-news-list__title">新增稀有度、职业与终端色 Token，功能页继承入口色调</span><time class="ak-news-list__time" datetime="2026-10-17">2026-10-17</time></a></li>
+        <li class="ak-news-list__item"><a class="ak-news-list__link" href="/"><span class="ak-news-list__category">首页</span><span class="ak-news-list__title">首页作战演示：关卡、编队、作战开始与结算完整流程</span><time class="ak-news-list__time" datetime="2026-10-17">2026-10-17</time></a></li>
+        <li class="ak-news-list__item"><a class="ak-news-list__link" href="/components/ak-fx"><span class="ak-news-list__category">动效</span><span class="ak-news-list__title">入场、数字增长与景深动画可在其他页面复用</span><time class="ak-news-list__time" datetime="2026-09-19">2026-09-19</time></a></li>
+      </ul>
+    </div>
+  </section>
 
   <dialog class="ak-dialog" id="daily-missions" aria-labelledby="daily-missions-title">
     <header class="ak-dialog__header">
@@ -277,4 +514,417 @@ function updateTerminalTime() {
 
 updateTerminalTime()
 window.setInterval(updateTerminalTime, 30000)
+
+// ---- Function screens ------------------------------------------------------
+const scene = dashboard.querySelector('.ak-dashboard__scene')
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)')
+let activeScreen = null
+let returnFocus = null
+
+function showScreen(id, trigger) {
+  const screen = dashboard.querySelector(`#${id}`)
+  if (!screen) return
+  if (activeScreen && activeScreen !== screen) activeScreen.hidden = true
+  activeScreen = screen
+  returnFocus = trigger
+  screen.classList.remove('is-leaving')
+  screen.hidden = false
+  scene.inert = true
+  screen.querySelector('.ak-screen__title').focus({ preventScroll: true })
+}
+
+function closeScreen() {
+  const screen = activeScreen
+  if (!screen) return
+  activeScreen = null
+  scene.inert = false
+  const hide = () => { screen.hidden = true; screen.classList.remove('is-leaving') }
+  if (reducedMotion.matches) hide()
+  else {
+    screen.classList.add('is-leaving')
+    window.setTimeout(hide, 220)
+  }
+  returnFocus?.focus({ preventScroll: true })
+}
+
+dashboard.querySelectorAll('[data-screen-target]').forEach((trigger) => {
+  trigger.addEventListener('click', () => showScreen(trigger.dataset.screenTarget, trigger))
+})
+dashboard.addEventListener('click', (event) => {
+  if (event.target.closest('[data-screen-back]')) closeScreen()
+})
+dashboard.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape' && activeScreen && !event.target.closest('dialog, [popover]')) closeScreen()
+})
+
+// Shared terminal state, so one screen's result shows up in another.
+const state = { sanity: 132, credit: 300, funds: 1000, orundum: 6600, ticket: 2, permit: 4 }
+function sync(key) {
+  dashboard.querySelectorAll(`[data-${key}]`).forEach((element) => { element.textContent = state[key] })
+}
+function setStatus(element, label, detail, tone) {
+  element.className = `ak-status${tone ? ` ak-status--${tone}` : ''}`
+  element.querySelector('.ak-status__label').textContent = label
+  element.querySelector('.ak-status__detail').textContent = detail
+}
+function pressOnly(group, button) {
+  group.querySelectorAll('[aria-pressed]').forEach(item => item.setAttribute('aria-pressed', String(item === button)))
+}
+
+const roles = {
+  vanguard: ['先锋', 'VAN'], guard: ['近卫', 'GRD'], defender: ['重装', 'DEF'], sniper: ['狙击', 'SNP'],
+  caster: ['术师', 'CST'], medic: ['医疗', 'MED'], supporter: ['辅助', 'SUP'], specialist: ['特种', 'SPC'],
+}
+const operators = [
+  ['Aster', 'vanguard', 5, 60], ['Kite', 'vanguard', 4, 50], ['Brass', 'guard', 6, 80], ['Rook', 'guard', 4, 55],
+  ['Cinder', 'defender', 5, 70], ['Bulwark', 'defender', 3, 40], ['Dune', 'sniper', 5, 65], ['Wren', 'sniper', 3, 45],
+  ['Ember', 'caster', 6, 90], ['Lumen', 'caster', 4, 50], ['Flint', 'medic', 5, 70], ['Moss', 'medic', 3, 40],
+  ['Echo', 'supporter', 5, 60], ['Lyre', 'supporter', 4, 50], ['Hook', 'specialist', 5, 70], ['Vane', 'specialist', 4, 55],
+].map(([name, role, rarity, level]) => ({ name, role, rarity, level }))
+
+function slot(operator, { tag = 'div', index = 0, reveal = false, pressed } = {}) {
+  const [roleName, code] = roles[operator.role]
+  const pressedAttribute = pressed === undefined ? '' : ` aria-pressed="${pressed}"`
+  const type = tag === 'button' ? ' type="button"' : ''
+  return `<${tag}${type} class="ak-slot ak-slot--${operator.role} ak-slot--rarity-${operator.rarity}${reveal ? ' ak-slot--reveal' : ''}" style="--ak-slot-index: ${index}" data-name="${operator.name}"${pressedAttribute}>
+    <span class="ak-slot__code" aria-hidden="true">${code}</span>
+    <span class="ak-slot__rarity" aria-label="${operator.rarity} 星">${'★'.repeat(operator.rarity)}</span>
+    <strong class="ak-slot__name">${operator.name}</strong>
+    <span class="ak-slot__meta">${roleName} · LV.${operator.level}</span>
+  </${tag}>`
+}
+const emptySlot = '<div class="ak-slot ak-slot--empty"><span aria-hidden="true">+</span><span class="ak-slot__meta">空位</span></div>'
+
+const materials = {
+  alloy: ['合金块', 2, 'material'], cable: ['线缆', 2, 'material'], circuit: ['电路板', 3, 'material'],
+  gel: ['聚合凝胶', 3, 'material'], chip: ['核心芯片', 4, 'material'], crystal: ['结晶组件', 5, 'material'],
+  recordS: ['基础作战记录', 2, 'record'], recordM: ['中级作战记录', 3, 'record'], recordL: ['高级作战记录', 4, 'record'],
+  skill: ['技巧概要', 3, 'other'], permit: ['加急许可', 4, 'other'], furniture: ['家具零件', 1, 'other'],
+}
+const depot = { alloy: 24, cable: 18, circuit: 9, gel: 6, chip: 2, crystal: 1, recordS: 40, recordM: 22, recordL: 8, skill: 15, permit: 3, furniture: 120 }
+function item(key, { count, price, tag = 'div', sold = false } = {}) {
+  const [name, tier] = materials[key]
+  const type = tag === 'button' ? ` type="button"${sold ? ' disabled' : ''}` : ''
+  return `<${tag}${type} class="ak-item ak-item--tier-${tier}${sold ? ' ak-item--sold' : ''}" data-item="${key}">
+    <span class="ak-item__icon" aria-hidden="true"></span>
+    ${count === undefined ? '' : `<span class="ak-item__count">×${count}</span>`}
+    <span class="ak-item__name">${name}</span>
+    ${price === undefined ? '' : `<span class="ak-item__price">${sold ? '已售罄' : `${price} 信用`}</span>`}
+  </${tag}>`
+}
+
+// Operation: stage nodes reuse ak-level, drops reuse ak-item.
+const stages = [
+  { code: 'S4-1', name: '急转直下', level: '精英1 LV.30', cost: 18, drops: ['circuit', 'alloy', 'recordM'] },
+  { code: 'S4-2', name: '断续通讯', level: '精英1 LV.35', cost: 18, drops: ['cable', 'gel'] },
+  { code: 'S4-3', name: '雨幕之下', level: '精英1 LV.40', cost: 21, drops: ['gel', 'chip', 'recordL'] },
+  { code: 'S4-4', name: '信标回收', level: '精英1 LV.45', cost: 21, drops: ['chip', 'crystal'] },
+]
+let stage = stages[0]
+const stageList = dashboard.querySelector('[data-stage-list]')
+const operationStatus = dashboard.querySelector('[data-operation-status]')
+stageList.innerHTML = stages.map((item, index) => `<button type="button" class="ak-level" style="--level-label-text: 'OPERATION'; width: 100%" aria-pressed="${index === 0}" data-stage="${index}">
+  <span class="ak-level__label" style="display: block"></span><span class="ak-level__content" style="display: block">${item.code}</span>
+</button>`).join('')
+function renderStage() {
+  dashboard.querySelector('[data-stage-eyebrow]').textContent = `OPERATION · ${stage.code}`
+  dashboard.querySelector('[data-stage-name]').textContent = stage.name
+  dashboard.querySelector('[data-stage-level]').textContent = `推荐 ${stage.level}`
+  dashboard.querySelector('[data-stage-cost]').textContent = `理智 -${stage.cost}`
+  dashboard.querySelector('[data-stage-drops]').innerHTML = stage.drops.map(key => item(key)).join('')
+  const start = dashboard.querySelector('[data-operation-start]')
+  start.disabled = state.sanity < stage.cost
+  start.textContent = start.disabled ? '理智不足' : '开始行动'
+}
+stageList.addEventListener('click', (event) => {
+  const button = event.target.closest('[data-stage]')
+  if (!button) return
+  pressOnly(stageList, button)
+  stage = stages[Number(button.dataset.stage)]
+  renderStage()
+})
+dashboard.querySelector('[data-operation-start]').addEventListener('click', (event) => {
+  const start = event.currentTarget
+  if (state.sanity < stage.cost) return
+  state.sanity -= stage.cost
+  sync('sanity')
+  dashboard.querySelector('.ak-san__current').textContent = state.sanity
+  start.disabled = true
+  const agent = dashboard.querySelector('[data-agent]').checked
+  setStatus(operationStatus, 'Deploying', `${stage.code} ${agent ? '代理指挥' : '作战'}进行中…`, 'warning')
+  window.setTimeout(() => {
+    stage.drops.forEach((key) => { depot[key] += key.startsWith('record') ? 3 : 1 })
+    renderDepot()
+    const names = stage.drops.map(key => materials[key][0]).join('、')
+    setStatus(operationStatus, 'Complete', `${stage.code} 行动结束 ★★★ · 获得 ${names}，已存入仓库`)
+    renderStage()
+  }, reducedMotion.matches ? 0 : (agent ? 700 : 1400))
+})
+
+// Squad: four formations rendered into twelve slots.
+const squads = [[0, 2, 4, 6, 8, 10, 12, 14], [1, 3, 5, 7, 9, 11], [2, 8, 4, 15, 10], [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]]
+const squadTabs = dashboard.querySelector('[data-squad-tabs]')
+function renderSquad(index) {
+  const members = squads[index]
+  dashboard.querySelector('[data-squad-slots]').innerHTML = Array.from({ length: 12 }, (_, slotIndex) => `<li>${
+    members[slotIndex] === undefined ? emptySlot : slot(operators[members[slotIndex]], { index: slotIndex, reveal: true })
+  }</li>`).join('')
+  dashboard.querySelector('[data-squad-count]').textContent = `${members.length} / 12`
+}
+squadTabs.addEventListener('click', (event) => {
+  const button = event.target.closest('[data-squad]')
+  if (!button) return
+  pressOnly(squadTabs, button)
+  renderSquad(Number(button.dataset.squad))
+})
+
+// Operators: role filter, selectable slots and a detail panel.
+const roleFilter = dashboard.querySelector('[data-role-filter]')
+roleFilter.innerHTML = [['all', '全部'], ...Object.entries(roles).map(([key, [name]]) => [key, name])]
+  .map(([key, name]) => `<button class="ak-segmented__item" type="button" aria-pressed="${key === 'all'}" data-role="${key}">${name}</button>`).join('')
+let roleKey = 'all'
+let selectedOperator = operators[2]
+function renderOperators() {
+  dashboard.querySelector('[data-operator-grid]').innerHTML = operators
+    .filter(operator => roleKey === 'all' || operator.role === roleKey)
+    .map((operator, index) => slot(operator, { tag: 'button', index, reveal: true, pressed: operator === selectedOperator }))
+    .join('')
+  const [roleName] = roles[selectedOperator.role]
+  const trust = 40 + selectedOperator.level % 60
+  dashboard.querySelector('[data-operator-detail]').innerHTML = `
+    <span class="ak-screen__eyebrow">${roleName} · ${'★'.repeat(selectedOperator.rarity)}</span>
+    <p class="ak-screen__section-title" style="font-size: 1.6rem">${selectedOperator.name}</p>
+    <div class="ak-progress-stack">
+      <div class="ak-progress" role="progressbar" aria-label="等级" aria-valuemin="0" aria-valuemax="90" aria-valuenow="${selectedOperator.level}" style="--ak-progress-value: ${selectedOperator.level / 90 * 100}%">
+        <div class="ak-progress__header"><span>等级</span><span class="ak-progress__value">LV.${selectedOperator.level} / 90</span></div>
+        <div class="ak-progress__track"><span class="ak-progress__fill"></span></div>
+      </div>
+      <div class="ak-progress ak-progress--warning" role="progressbar" aria-label="信赖" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${trust}" style="--ak-progress-value: ${trust}%">
+        <div class="ak-progress__header"><span>信赖</span><span class="ak-progress__value">${trust}%</span></div>
+        <div class="ak-progress__track"><span class="ak-progress__fill"></span></div>
+      </div>
+    </div>
+    <div class="ak-tag-group" style="gap: 0.4rem"><span class="ak-tag">${roleName}</span>${selectedOperator.rarity >= 5 ? '<span class="ak-tag ak-tag--advanced">资深干员</span>' : ''}</div>`
+}
+roleFilter.addEventListener('click', (event) => {
+  const button = event.target.closest('[data-role]')
+  if (!button) return
+  pressOnly(roleFilter, button)
+  roleKey = button.dataset.role
+  renderOperators()
+})
+dashboard.querySelector('[data-operator-grid]').addEventListener('click', (event) => {
+  const button = event.target.closest('.ak-slot')
+  if (!button) return
+  selectedOperator = operators.find(operator => operator.name === button.dataset.name)
+  renderOperators()
+  dashboard.querySelector(`[data-operator-grid] [data-name="${selectedOperator.name}"]`).focus()
+})
+
+// Store: spend credits earned from friend visits.
+const stock = [['recordM', 30], ['alloy', 40], ['cable', 40], ['circuit', 80], ['gel', 80], ['skill', 60], ['recordL', 120], ['chip', 160], ['permit', 200], ['furniture', 20]]
+const sold = new Set()
+const storeStatus = dashboard.querySelector('[data-store-status]')
+function renderStore() {
+  dashboard.querySelector('[data-store-grid]').innerHTML = stock
+    .map(([key, price]) => item(key, { tag: 'button', price, sold: sold.has(key) })).join('')
+}
+dashboard.querySelector('[data-store-grid]').addEventListener('click', (event) => {
+  const button = event.target.closest('[data-item]')
+  if (!button || button.disabled) return
+  const [key, price] = stock.find(([name]) => name === button.dataset.item)
+  if (state.credit < price) {
+    setStatus(storeStatus, 'Insufficient', `信用不足：${materials[key][0]} 需要 ${price} 信用，可访问好友获取`, 'critical')
+    return
+  }
+  state.credit -= price
+  sync('credit')
+  sold.add(key)
+  depot[key] += 1
+  renderStore()
+  renderDepot()
+  setStatus(storeStatus, 'Purchased', `已购买 ${materials[key][0]}，剩余 ${state.credit} 信用`)
+})
+
+// Public recruitment: up to three tags, a duration and four slots.
+const recruitTags = ['近战位', '远程位', '新手', '资深干员', '治疗', '输出', '生存', '防护', '群攻', '减速', '支援', '快速复活']
+const tagGroup = dashboard.querySelector('[data-recruit-tags]')
+tagGroup.innerHTML = recruitTags.map(tag => `<button class="ak-tag${tag === '资深干员' ? ' ak-tag--advanced' : ''}" type="button" aria-pressed="false">${tag}</button>`).join('')
+const recruitSlots = [{ state: 'running', hours: 9, tags: ['输出', '群攻'] }, { state: 'idle' }, { state: 'idle' }, { state: 'locked' }]
+let recruitHours = 9
+function renderRecruit() {
+  const pressedTags = tagGroup.querySelectorAll('[aria-pressed="true"]').length
+  tagGroup.querySelectorAll('.ak-tag').forEach((tag) => { tag.disabled = pressedTags >= 3 && tag.getAttribute('aria-pressed') !== 'true' })
+  dashboard.querySelector('[data-recruit-start]').disabled = state.permit < 1 || !recruitSlots.some(slot => slot.state === 'idle')
+  dashboard.querySelector('[data-recruit-slots]').innerHTML = recruitSlots.map((recruit, index) => {
+    if (recruit.state === 'locked') return `<li class="ak-screen__panel" style="opacity: 0.45">席位 0${index + 1}<span class="ak-slot__meta">未解锁</span></li>`
+    if (recruit.state === 'idle') return `<li class="ak-screen__panel">席位 0${index + 1}<span class="ak-slot__meta">空闲 · 选择标签后开始招募</span></li>`
+    if (recruit.state === 'done') return `<li>${slot(recruit.operator, { reveal: true })}<button class="ak-button ak-button--light" type="button" style="width: 100%; height: 2.5rem; margin-top: 0.4rem" data-recruit-hire="${index}">聘用</button></li>`
+    return `<li class="ak-screen__panel">席位 0${index + 1}
+      <span class="ak-screen__eyebrow">${String(recruit.hours).padStart(2, '0')}:00:00</span>
+      <span class="ak-tag-group" style="gap: 0.3rem">${recruit.tags.map(tag => `<span class="ak-tag">${tag}</span>`).join('') || '<span class="ak-tag ak-tag--neutral">无标签</span>'}</span>
+      <button class="ak-button ak-button--action" type="button" style="width: 100%; height: 2.5rem" data-recruit-finish="${index}">立即完成</button>
+    </li>`
+  }).join('')
+  sync('permit')
+}
+tagGroup.addEventListener('click', (event) => {
+  const tag = event.target.closest('.ak-tag')
+  if (!tag || tag.disabled) return
+  tag.setAttribute('aria-pressed', String(tag.getAttribute('aria-pressed') !== 'true'))
+  renderRecruit()
+})
+dashboard.querySelector('[data-recruit-hours]').addEventListener('click', (event) => {
+  const button = event.target.closest('[data-hours]')
+  if (!button) return
+  pressOnly(event.currentTarget, button)
+  recruitHours = Number(button.dataset.hours)
+})
+dashboard.querySelector('[data-recruit-start]').addEventListener('click', () => {
+  const recruit = recruitSlots.find(slot => slot.state === 'idle')
+  if (!recruit || state.permit < 1) return
+  state.permit -= 1
+  Object.assign(recruit, { state: 'running', hours: recruitHours, tags: [...tagGroup.querySelectorAll('[aria-pressed="true"]')].map(tag => tag.textContent) })
+  tagGroup.querySelectorAll('.ak-tag').forEach(tag => tag.setAttribute('aria-pressed', 'false'))
+  renderRecruit()
+})
+dashboard.querySelector('[data-recruit-slots]').addEventListener('click', (event) => {
+  const finish = event.target.closest('[data-recruit-finish]')
+  const hire = event.target.closest('[data-recruit-hire]')
+  if (finish) {
+    const recruit = recruitSlots[Number(finish.dataset.recruitFinish)]
+    const senior = recruit.tags.includes('资深干员')
+    Object.assign(recruit, { state: 'done', operator: operators.find(operator => (senior ? operator.rarity >= 5 : operator.rarity === 4) && (!recruit.tags.includes('治疗') || operator.role === 'medic')) ?? operators[1] })
+  }
+  if (hire) recruitSlots[Number(hire.dataset.recruitHire)].state = 'idle'
+  renderRecruit()
+})
+
+// Headhunting: seeded rolls keep the demo reproducible.
+let seed = 20260817
+function random() {
+  seed = (seed * 1664525 + 1013904223) % 4294967296
+  return seed / 4294967296
+}
+function roll(guaranteed) {
+  const value = random()
+  const rarity = value < 0.02 ? 6 : value < 0.1 || guaranteed ? 5 : value < 0.6 ? 4 : 3
+  const pool = operators.filter(operator => operator.rarity === rarity)
+  return pool[Math.floor(random() * pool.length)]
+}
+function renderPulls() {
+  dashboard.querySelectorAll('[data-pull]').forEach((button) => {
+    const count = Number(button.dataset.pull)
+    button.disabled = state.ticket < count && state.orundum < count * 600
+  })
+  sync('orundum')
+  sync('ticket')
+}
+dashboard.querySelectorAll('[data-pull]').forEach((button) => {
+  button.addEventListener('click', () => {
+    const count = Number(button.dataset.pull)
+    if (state.ticket >= count) state.ticket -= count
+    else if (state.orundum >= count * 600) state.orundum -= count * 600
+    else return
+    const results = Array.from({ length: count }, () => roll(false))
+    if (count === 10 && !results.some(operator => operator.rarity >= 5)) results[9] = roll(true)
+    dashboard.querySelector('[data-pull-results]').innerHTML = results.map((operator, index) => slot(operator, { index, reveal: true })).join('')
+    const best = Math.max(...results.map(operator => operator.rarity))
+    dashboard.querySelector('[data-pull-summary]').textContent = `${count} 次寻访 · 最高 ${best}★`
+    renderPulls()
+  })
+})
+
+// Infrastructure: collect output into terminal funds.
+const facilities = [
+  { name: '制造站', output: '作战记录', value: 82, yield: 3, key: 'recordS' },
+  { name: '贸易站', output: '龙门币', value: 64, yield: 1200, key: 'funds' },
+  { name: '发电站', output: '无人机', value: 76, yield: 0 },
+  { name: '控制中枢', output: '信用', value: 45, yield: 40, key: 'credit' },
+  { name: '宿舍', output: '心情恢复', value: 30, yield: 0 },
+]
+function renderBase() {
+  dashboard.querySelector('[data-facilities]').innerHTML = facilities.map((facility, index) => {
+    const tone = facility.value >= 100 ? 'warning' : facility.value === 0 ? 'offline' : ''
+    const label = facility.value >= 100 ? 'Full' : facility.value === 0 ? 'Idle' : 'Running'
+    return `<div class="ak-screen__panel">
+      <p class="ak-screen__section-title">${facility.name} <small>${facility.output}</small></p>
+      <span class="ak-status${tone ? ` ak-status--${tone}` : ''}"><span class="ak-status__signal" aria-hidden="true"></span><span class="ak-status__label">${label}</span><span class="ak-status__detail">${facility.yield ? `可收取 ${facility.output} +${facility.yield}` : '持续运转中'}</span></span>
+      <div class="ak-progress${facility.value >= 100 ? ' ak-progress--warning' : ''}" role="progressbar" aria-label="${facility.name}进度" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${facility.value}" style="--ak-progress-value: ${facility.value}%">
+        <div class="ak-progress__header"><span>产出进度</span><span class="ak-progress__value">${facility.value}%</span></div>
+        <div class="ak-progress__track"><span class="ak-progress__fill"></span></div>
+      </div>
+      <button class="ak-button ak-button--light" type="button" style="width: 100%; height: 2.5rem" data-collect="${index}"${facility.yield && facility.value ? '' : ' disabled'}>收取</button>
+    </div>`
+  }).join('')
+  sync('funds')
+}
+function collect(facility) {
+  if (!facility.yield || !facility.value) return
+  if (facility.key === 'funds' || facility.key === 'credit') state[facility.key] += facility.yield
+  else depot[facility.key] += facility.yield
+  facility.value = 0
+}
+dashboard.querySelector('[data-facilities]').addEventListener('click', (event) => {
+  const button = event.target.closest('[data-collect]')
+  if (!button) return
+  collect(facilities[Number(button.dataset.collect)])
+  renderBase()
+  renderDepot()
+  sync('credit')
+})
+dashboard.querySelector('[data-collect-all]').addEventListener('click', () => {
+  facilities.forEach(collect)
+  renderBase()
+  renderDepot()
+  sync('credit')
+})
+
+// Depot: everything collected elsewhere lands here.
+let depotCategory = 'all'
+function renderDepot() {
+  dashboard.querySelector('[data-depot-grid]').innerHTML = Object.entries(depot)
+    .filter(([key]) => depotCategory === 'all' || materials[key][2] === depotCategory)
+    .map(([key, count]) => item(key, { count })).join('')
+  dashboard.querySelector('[data-depot-total]').textContent = Object.values(depot).reduce((sum, count) => sum + count, 0)
+}
+dashboard.querySelector('[data-depot-filter]').addEventListener('click', (event) => {
+  const button = event.target.closest('[data-category]')
+  if (!button) return
+  pressOnly(event.currentTarget, button)
+  depotCategory = button.dataset.category
+  renderDepot()
+})
+
+// Friends: each visit earns credit for the store.
+const friends = [['Kestrel', true, '在线 · 基建 Lv.5'], ['Morrow', true, '在线 · 作战中'], ['Sable', false, '2 小时前'], ['Quill', false, '1 天前']]
+const visited = new Set()
+function renderFriends() {
+  dashboard.querySelector('[data-friends]').innerHTML = friends.map(([name, online, detail]) => `<li class="ak-screen__panel" style="grid-template-columns: 1fr auto; align-items: center">
+    <span class="ak-status${online ? '' : ' ak-status--offline'}" style="background: transparent; padding: 0"><span class="ak-status__signal" aria-hidden="true"></span><span class="ak-status__label">${name}</span><span class="ak-status__detail">${detail}</span></span>
+    <button class="ak-button ak-button--light" type="button" style="width: 7rem; height: 2.5rem" data-visit="${name}"${visited.has(name) ? ' disabled' : ''}>${visited.has(name) ? '已访问' : '访问 +20'}</button>
+  </li>`).join('')
+}
+dashboard.querySelector('[data-friends]').addEventListener('click', (event) => {
+  const button = event.target.closest('[data-visit]')
+  if (!button || visited.has(button.dataset.visit)) return
+  visited.add(button.dataset.visit)
+  state.credit += 20
+  sync('credit')
+  renderFriends()
+})
+
+dashboard.querySelectorAll('[data-terminal-date]').forEach((element) => {
+  const now = new Date()
+  element.textContent = `${now.getFullYear()}/${String(now.getMonth() + 1).padStart(2, '0')}/${String(now.getDate()).padStart(2, '0')}`
+})
+renderStage()
+renderSquad(0)
+renderOperators()
+renderStore()
+renderRecruit()
+renderPulls()
+renderBase()
+renderDepot()
+renderFriends()
 </script>

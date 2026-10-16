@@ -113,6 +113,7 @@ The target is exposed once, without per-frame announcements. Connect `destroy()`
 | Entrance / count-up with replay | [Effects](https://ak-ui.yyj.moe/components/ak-fx) | `docs/.vitepress/theme/components/EffectsPlayground.vue` |
 | Independent photo arcs | [Media](https://ak-ui.yyj.moe/components/ak-media) | `examples/media/layered.html` |
 | Pointer depth / regional replay | [Terminal showcase](https://ak-ui.yyj.moe/showcase/) | `examples/showcase/main.html` |
+| Function screens / operator slots / material items | [Screen](https://ak-ui.yyj.moe/components/ak-screen), terminal commands | `examples/screen/basic.html`, `examples/slot/basic.html`, `examples/item/basic.html`, `examples/showcase/main.html` |
 
 Source paths refer to the [ak-ui repository](https://github.com/YunYouJun/ak-ui), not files guaranteed to exist in a skill-only installation. The self-contained snippets above do not require that checkout. Existing showcase imagery is not part of the transferable design contract.
 

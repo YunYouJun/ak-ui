@@ -8,8 +8,12 @@
 - Stage the homepage hero entrance, reveal sections on scroll with `createEntrance`, and add wipe/bracket feedback to the module index.
 - Replace the homepage button preview with an interactive operation demo: stage briefing, squad confirmation, deployment progress and three-star settlement, with a staged boot sequence, a shutter wipe between views, keyboard focus handoff, live announcements and reduced-motion support.
 
+- Every terminal entry now opens its function screen in the command's tone: operation, squad, operators, store, recruitment, headhunting, infrastructure, depot, friends and intel, with resources shared across screens.
+- Add `ak-screen`, `ak-slot` and `ak-item` modules, selectable `button.ak-tag` and `button.ak-level` states, and rarity (`--ak-rarity-*`), role (`--ak-role-*`) and terminal tone (`--ak-terminal-*`) tokens; dashboard surfaces now read the terminal tokens.
+
 ### Fixes
 
+- Give `ak-button--light` dark text so its label stays legible on the light face.
 - Move the homepage ruler tape below the hero statistics so their labels no longer sit on the yellow tape.
 
 ### Tests
