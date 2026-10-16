@@ -19,3 +19,7 @@
 ## Status variants
 
 `ak-status` 提供 `warning`、`critical` 与 `offline` 修饰类。状态点包含低频脉冲，并自动遵循 `prefers-reduced-motion`。
+
+## 可选择的标签
+
+`ak-tag` 也可以写成 `button`，用 `aria-pressed="true"` 表示选中：选中后以信号色填充，`disabled` 时降低不透明度。主终端的公开招募就用它选择最多三个招募标签。

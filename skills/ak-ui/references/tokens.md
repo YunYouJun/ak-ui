@@ -43,6 +43,19 @@ Stable palette names include `white`, `black`, `blue`, `yellow`, `dark-blue`, `l
 | Danger | `--ak-signal-danger` |
 | Disabled | `--ak-signal-disabled` |
 
+### Rarity, role and terminal tone
+
+Extracted from the terminal and its function screens; reused by `ak-slot`, `ak-item`, tags and project components.
+
+| Role | Token | Notes |
+| --- | --- | --- |
+| Rarity | `--ak-rarity-1` … `--ak-rarity-6` | One to six stars, mapped to the `low`, `basic`, `primary`, `secondary`, `advanced`, `accent` palette |
+| Role | `--ak-role-vanguard`, `--ak-role-guard`, `--ak-role-defender`, `--ak-role-sniper`, `--ak-role-caster`, `--ak-role-medic`, `--ak-role-supporter`, `--ak-role-specialist` | Original ak-ui role colours shared with the showcase artwork |
+| Terminal surface | `--ak-terminal-paper`, `--ak-terminal-muted`, `--ak-terminal-dark`, `--ak-terminal-cyan` | Tones shared by commands and the screens they open |
+| Terminal accent | `--ak-terminal-accent` | Selection signal, shutter edge and badges |
+
+Pair rarity and role colours with stars, text or role codes; never rely on colour alone.
+
 ### Typography
 
 Use `--ak-font-sans`, `--ak-font-serif`, and `--ak-font-mono` for families. Use `--ak-font-command` for the dominant command face. Size and tracking roles include `--ak-type-display-size`, `--ak-type-title-size`, `--ak-type-label-size`, `--ak-type-data-size`, `--ak-type-tight`, and `--ak-type-wide`.

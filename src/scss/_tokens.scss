@@ -23,6 +23,31 @@
   --ak-signal-danger: #e33b3b;
   --ak-signal-disabled: var(--ak-color-low);
 
+  // Rarity tiers (one to six stars) reuse the legacy level palette.
+  --ak-rarity-1: var(--ak-color-low);
+  --ak-rarity-2: var(--ak-color-basic);
+  --ak-rarity-3: var(--ak-color-primary);
+  --ak-rarity-4: var(--ak-color-secondary);
+  --ak-rarity-5: var(--ak-color-advanced);
+  --ak-rarity-6: var(--ak-color-accent);
+
+  // Role signals are original ak-ui choices shared with the showcase artwork.
+  --ak-role-vanguard: #f5bd38;
+  --ak-role-guard: #ed5265;
+  --ak-role-defender: #528cff;
+  --ak-role-sniper: #a1b760;
+  --ak-role-caster: #b58aff;
+  --ak-role-medic: #68d5ba;
+  --ak-role-supporter: #ed91bd;
+  --ak-role-specialist: #ff9445;
+
+  // Terminal command surfaces; each opened screen inherits its command's tone.
+  --ak-terminal-paper: var(--ak-surface-panel);
+  --ak-terminal-muted: var(--ak-surface-muted);
+  --ak-terminal-dark: rgba(66, 66, 66, 0.9);
+  --ak-terminal-cyan: rgba(5, 167, 220, 0.9);
+  --ak-terminal-accent: #ff5e19;
+
   // Typography
   --ak-font-sans: #{$font-sans-serif};
   --ak-font-serif: #{$font-serif};

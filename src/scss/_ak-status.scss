@@ -50,6 +50,33 @@
   &--neutral {
     --ak-tag-signal: var(--ak-signal-disabled, var(--ak-color-low, #9c9c9c));
   }
+
+  // Selectable tags, e.g. recruitment filters.
+  @at-root button#{&} {
+    cursor: pointer;
+    transition:
+      color var(--ak-motion-fast, 120ms) ease,
+      background-color var(--ak-motion-fast, 120ms) ease;
+
+    &:hover:not(:disabled) {
+      --ak-tag-surface: rgba(37, 40, 43, 0.92);
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+      opacity: 0.45;
+    }
+
+    &:focus-visible {
+      outline: var(--ak-focus-width, 3px) solid var(--ak-focus-color, #f1c644);
+      outline-offset: 2px;
+    }
+  }
+
+  &[aria-pressed="true"] {
+    --ak-tag-text: #111315;
+    --ak-tag-surface: var(--ak-tag-signal);
+  }
 }
 
 .ak-status {
@@ -124,5 +151,9 @@
 @media (prefers-reduced-motion: reduce) {
   .ak-status__signal {
     animation: none;
+  }
+
+  button.ak-tag {
+    transition: none;
   }
 }

@@ -81,6 +81,30 @@
       fill: transparent;
     }
   }
+  // Selectable stage node.
+  @at-root button#{&} {
+    padding: 0;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    transition:
+      transform var(--ak-motion-fast, 120ms) var(--ak-ease-standard, ease),
+      box-shadow var(--ak-motion-base, 200ms) ease;
+
+    &:hover {
+      transform: translateY(-2px);
+    }
+
+    &:focus-visible {
+      outline: var(--ak-focus-width, 3px) solid var(--ak-focus-color, #f1c644);
+      outline-offset: 4px;
+    }
+  }
+
+  &[aria-pressed="true"] {
+    box-shadow: 0 0 0 2px var(--ak-signal-action, #f1c644), 0 2px 20px rgba(241, 198, 68, 0.45);
+  }
+
   & &__suffix-icon,
   .suffix-icon {
     position: absolute;
@@ -92,5 +116,11 @@
     img {
       margin: 0;
     }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  button.ak-level {
+    transition: none;
   }
 }

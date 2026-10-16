@@ -48,6 +48,19 @@ import '@yunyoujun/ak-ui/tokens.css'
 | 危险 | `--ak-signal-danger` |
 | 禁用 | `--ak-signal-disabled` |
 
+### 稀有度、职业与终端色
+
+这组 Token 从主终端及其功能页中抽取，供干员位、物资格、标签和自定义组件复用。
+
+| 角色 | Token | 说明 |
+| --- | --- | --- |
+| 稀有度 | `--ak-rarity-1` … `--ak-rarity-6` | 一至六星，复用 `low`、`basic`、`primary`、`secondary`、`advanced`、`accent` 色板 |
+| 职业 | `--ak-role-vanguard`、`--ak-role-guard`、`--ak-role-defender`、`--ak-role-sniper`、`--ak-role-caster`、`--ak-role-medic`、`--ak-role-supporter`、`--ak-role-specialist` | 本项目自定义的八职业代表色，与终端立绘配色一致 |
+| 终端表面 | `--ak-terminal-paper`、`--ak-terminal-muted`、`--ak-terminal-dark`、`--ak-terminal-cyan` | 指令与功能页共享的四种色调 |
+| 终端强调 | `--ak-terminal-accent` | 选中信号、快门边缘与徽标 |
+
+稀有度和职业颜色要同时配合星级、文字或职业代号使用，不要只靠颜色传达含义。
+
 ### 排版
 
 字体族使用 `--ak-font-sans`、`--ak-font-serif` 和 `--ak-font-mono`；主要操作标题使用 `--ak-font-command`。字号与字距角色包括 `--ak-type-display-size`、`--ak-type-title-size`、`--ak-type-label-size`、`--ak-type-data-size`、`--ak-type-tight` 和 `--ak-type-wide`。

@@ -1,0 +1,353 @@
+@use "variables" as *;
+
+// A full function page opened from a terminal command. The tone modifiers
+// match the command variants, so a screen keeps the colour of its entry.
+.ak-screen {
+  --ak-screen-surface: #111315;
+  --ak-screen-bar: var(--ak-terminal-dark, rgba(66, 66, 66, 0.9));
+  --ak-screen-bar-text: #f7f7f4;
+  --ak-screen-signal: var(--ak-terminal-accent, #ff5e19);
+  --ak-screen-padding: clamp(1rem, 2.2cqw, 2rem);
+  --ak-screen-gap: clamp(0.5rem, 1.1cqw, 1rem);
+
+  position: absolute;
+  z-index: 20;
+  inset: 0;
+  display: grid;
+  overflow: hidden;
+  color: #f7f7f4;
+  background:
+    linear-gradient(115deg, rgba(255, 255, 255, 0.05) 0 34%, transparent 34%),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.025) 0 1px, transparent 1px 4rem),
+    var(--ak-screen-surface);
+  font-family: $font-sans-serif;
+  grid-template-rows: auto minmax(0, 1fr);
+  isolation: isolate;
+  animation: ak-screen-in 320ms var(--ak-ease-standard, ease) both;
+
+  &[hidden] {
+    display: none;
+  }
+
+  &.is-leaving {
+    pointer-events: none;
+    animation: ak-screen-out 220ms var(--ak-ease-standard, ease) both;
+  }
+
+  // Shutter blade in the screen's signal colour, played once on entry.
+  &::before {
+    position: absolute;
+    z-index: 30;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 52%;
+    content: "";
+    border-right: 0.25rem solid var(--ak-screen-signal);
+    background: linear-gradient(90deg, transparent, var(--ak-screen-bar) 35%);
+    pointer-events: none;
+    transform: skewX(-16deg);
+    animation: ak-screen-shutter 600ms cubic-bezier(0.7, 0, 0.3, 1) both;
+  }
+
+  & &__watermark {
+    position: absolute;
+    z-index: -1;
+    right: -0.04em;
+    bottom: -0.12em;
+    color: rgba(255, 255, 255, 0.05);
+    font-family: $font-sans-serif;
+    font-size: clamp(4rem, 14cqw, 12rem);
+    font-weight: 900;
+    letter-spacing: -0.05em;
+    line-height: 1;
+    pointer-events: none;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  & &__bar {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    min-height: clamp(3rem, 7.5cqh, 4.5rem);
+    color: var(--ak-screen-bar-text);
+    background: var(--ak-screen-bar);
+    box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.35);
+    align-items: stretch;
+    gap: var(--ak-screen-gap);
+
+    &::after {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      height: 0.2rem;
+      content: "";
+      background: var(--ak-screen-signal);
+      transform-origin: left;
+      animation: ak-screen-signal 520ms var(--ak-ease-emphasized, ease-out) 260ms both;
+    }
+  }
+
+  & &__back {
+    display: inline-flex;
+    min-width: 2.75rem;
+    padding: 0 clamp(1.1rem, 2cqw, 1.8rem) 0 clamp(0.8rem, 1.4cqw, 1.2rem);
+    border: 0;
+    color: inherit;
+    background: rgba(0, 0, 0, 0.2);
+    align-items: center;
+    gap: 0.4rem;
+    cursor: pointer;
+    font-family: $font-sans-serif;
+    font-size: clamp(0.8rem, 1.1cqw, 1rem);
+    font-weight: 900;
+    clip-path: polygon(0 0, 100% 0, calc(100% - 0.9rem) 100%, 0 100%);
+    transition: background-color var(--ak-motion-fast, 120ms) ease;
+
+    &:hover {
+      background: rgba(0, 0, 0, 0.34);
+    }
+  }
+
+  & &__heading {
+    display: grid;
+    min-width: 0;
+    padding: 0.35rem 0;
+    align-content: center;
+    gap: 0.2rem;
+  }
+
+  & &__eyebrow {
+    font-family: $font-monospace;
+    font-size: clamp(0.55rem, 0.7cqw, 0.68rem);
+    font-weight: 800;
+    letter-spacing: 0.18em;
+    opacity: 0.7;
+    text-transform: uppercase;
+  }
+
+  & &__title {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    color: inherit;
+    font-family: $font-serif;
+    font-size: clamp(1.25rem, 2.6cqw, 2.25rem);
+    font-weight: 900;
+    letter-spacing: 0.02em;
+    line-height: 1;
+  }
+
+  & &__meta {
+    display: flex;
+    margin-left: auto;
+    padding-right: var(--ak-screen-padding);
+    align-items: center;
+    gap: clamp(0.75rem, 1.6cqw, 1.5rem);
+    font-family: $font-monospace;
+    font-size: clamp(0.75rem, 1.05cqw, 0.95rem);
+    font-weight: 800;
+    white-space: nowrap;
+  }
+
+  & &__meta > * {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+  }
+
+  & &__meta .ak-icon {
+    width: 1.15em;
+    height: 1.15em;
+  }
+
+  & &__body {
+    position: relative;
+    display: grid;
+    min-height: 0;
+    padding: var(--ak-screen-padding);
+    overflow: auto;
+    align-content: start;
+    gap: var(--ak-screen-gap);
+    animation: ak-screen-body-in 520ms var(--ak-ease-emphasized, ease-out) 180ms both;
+  }
+
+  & &__section-title {
+    display: flex;
+    margin: 0;
+    align-items: baseline;
+    gap: 0.6rem;
+    font-size: clamp(0.85rem, 1.25cqw, 1.1rem);
+    font-weight: 900;
+
+    small {
+      color: rgba(247, 247, 244, 0.5);
+      font-family: $font-monospace;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+  }
+
+  & &__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(var(--ak-screen-grid-min, 8rem), 1fr));
+    gap: var(--ak-screen-gap);
+  }
+
+  & &__split {
+    display: grid;
+    min-height: 0;
+    grid-template-columns: minmax(0, 1fr) minmax(15rem, 0.42fr);
+    gap: var(--ak-screen-gap);
+  }
+
+  & &__panel {
+    display: grid;
+    min-width: 0;
+    padding: clamp(0.85rem, 1.6cqw, 1.4rem);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: rgba(10, 12, 14, 0.72);
+    align-content: start;
+    gap: var(--ak-screen-gap);
+  }
+
+  & &__actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-end;
+    gap: var(--ak-screen-gap);
+  }
+
+  :focus-visible {
+    outline: var(--ak-focus-width, 3px) solid var(--ak-focus-color, #f1c644);
+    outline-offset: 2px;
+  }
+
+  // The title receives programmatic focus on open; it is a landmark, not a control.
+  & &__title:focus-visible {
+    outline: none;
+  }
+
+  // Dark body: status rows keep their natural width and form labels stay legible.
+  & &__body .ak-status {
+    justify-self: start;
+  }
+
+  & &__body .ak-choice {
+    color: inherit;
+  }
+
+  &--paper {
+    --ak-screen-bar: var(--ak-terminal-paper, rgba(253, 253, 251, 0.9));
+    --ak-screen-bar-text: #1b1d1f;
+    --ak-screen-signal: var(--ak-terminal-accent, #ff5e19);
+  }
+
+  &--muted {
+    --ak-screen-bar: var(--ak-terminal-muted, rgba(235, 236, 235, 0.9));
+    --ak-screen-bar-text: #242628;
+    --ak-screen-signal: var(--ak-signal-info, #4aabea);
+  }
+
+  &--dark {
+    --ak-screen-bar: var(--ak-terminal-dark, rgba(66, 66, 66, 0.9));
+    --ak-screen-signal: var(--ak-terminal-accent, #ff5e19);
+  }
+
+  &--cyan {
+    --ak-screen-bar: var(--ak-terminal-cyan, rgba(5, 167, 220, 0.9));
+    --ak-screen-bar-text: #fff;
+    --ak-screen-signal: #fdfdfb;
+  }
+
+  &--paper &__back,
+  &--muted &__back {
+    background: rgba(0, 0, 0, 0.06);
+
+    &:hover {
+      background: rgba(0, 0, 0, 0.14);
+    }
+  }
+}
+
+@keyframes ak-screen-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes ak-screen-out {
+  from {
+    opacity: 1;
+    translate: 0 0;
+  }
+
+  to {
+    opacity: 0;
+    translate: 3% 0;
+  }
+}
+
+@keyframes ak-screen-shutter {
+  from {
+    translate: -140% 0;
+  }
+
+  to {
+    translate: 260% 0;
+  }
+}
+
+@keyframes ak-screen-signal {
+  from {
+    transform: scaleX(0);
+  }
+
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes ak-screen-body-in {
+  from {
+    opacity: 0;
+    translate: 2rem 0;
+  }
+
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
+@container (max-width: 48rem) {
+  .ak-screen__split {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ak-screen,
+  .ak-screen.is-leaving,
+  .ak-screen__bar::after,
+  .ak-screen__body {
+    animation: none;
+  }
+
+  .ak-screen::before {
+    display: none;
+  }
+
+  .ak-screen__back {
+    transition: none;
+  }
+}

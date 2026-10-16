@@ -1,0 +1,159 @@
+@use "variables" as *;
+
+// Operator slot: a role signal along the bottom, a rarity stripe on top and a
+// faint role code watermark. Works as static content or as a button.
+.ak-slot {
+  --ak-slot-signal: var(--ak-signal-info, #4aabea);
+  --ak-slot-rarity: var(--ak-rarity-3, #4aabea);
+
+  position: relative;
+  display: grid;
+  box-sizing: border-box;
+  min-width: 0;
+  min-height: clamp(5.5rem, 13cqh, 8rem);
+  padding: 0.6rem 0.65rem 0.7rem;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-bottom: 0.2rem solid var(--ak-slot-signal);
+  border-radius: 0;
+  align-content: end;
+  gap: 0.15rem;
+  color: #f7f7f4;
+  background:
+    linear-gradient(160deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.02) 58%),
+    rgba(10, 12, 14, 0.72);
+  font-family: $font-sans-serif;
+  text-align: left;
+
+  &::before {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 0.15rem;
+    content: "";
+    background: var(--ak-slot-rarity);
+  }
+
+  & &__code {
+    position: absolute;
+    top: 0.3rem;
+    right: 0.45rem;
+    color: rgba(255, 255, 255, 0.1);
+    font-size: clamp(1.25rem, 2.4cqw, 2rem);
+    font-weight: 900;
+    letter-spacing: -0.06em;
+    line-height: 1;
+  }
+
+  & &__rarity {
+    position: absolute;
+    top: 0.5rem;
+    left: 0.6rem;
+    color: var(--ak-slot-rarity);
+    font-size: 0.6rem;
+    letter-spacing: 0.08em;
+    line-height: 1;
+  }
+
+  & &__name {
+    overflow: hidden;
+    font-size: clamp(0.85rem, 1.3cqw, 1.1rem);
+    font-weight: 900;
+    line-height: 1.2;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  & &__meta {
+    color: rgba(247, 247, 244, 0.58);
+    font-size: 0.68rem;
+    line-height: 1.3;
+  }
+
+  &--empty {
+    border: 1px dashed rgba(255, 255, 255, 0.22);
+    color: rgba(247, 247, 244, 0.42);
+    background: rgba(10, 12, 14, 0.4);
+    place-content: center;
+    place-items: center;
+
+    &::before {
+      display: none;
+    }
+  }
+
+  &--reveal {
+    animation: ak-slot-reveal 520ms var(--ak-ease-emphasized, ease-out) both;
+    animation-delay: calc(var(--ak-slot-index, 0) * 80ms);
+  }
+
+  // Interactive slots use the same face as buttons.
+  @at-root button#{&} {
+    cursor: pointer;
+    transition:
+      transform var(--ak-motion-fast, 120ms) var(--ak-ease-standard, ease),
+      box-shadow var(--ak-motion-base, 200ms) ease;
+
+    &:hover {
+      transform: translateY(-2px);
+    }
+
+    &:active {
+      transform: translateY(0) scale(0.98);
+    }
+  }
+
+  &[aria-pressed="true"] {
+    box-shadow: 0 0 0 2px var(--ak-signal-action, #f1c644), 0 0 1.2rem rgba(241, 198, 68, 0.3);
+  }
+
+  &:focus-visible {
+    outline: var(--ak-focus-width, 3px) solid var(--ak-focus-color, #f1c644);
+    outline-offset: 2px;
+  }
+
+  &--vanguard { --ak-slot-signal: var(--ak-role-vanguard, #f5bd38); }
+  &--guard { --ak-slot-signal: var(--ak-role-guard, #ed5265); }
+  &--defender { --ak-slot-signal: var(--ak-role-defender, #528cff); }
+  &--sniper { --ak-slot-signal: var(--ak-role-sniper, #a1b760); }
+  &--caster { --ak-slot-signal: var(--ak-role-caster, #b58aff); }
+  &--medic { --ak-slot-signal: var(--ak-role-medic, #68d5ba); }
+  &--supporter { --ak-slot-signal: var(--ak-role-supporter, #ed91bd); }
+  &--specialist { --ak-slot-signal: var(--ak-role-specialist, #ff9445); }
+
+  @for $tier from 1 through 6 {
+    &--rarity-#{$tier} {
+      --ak-slot-rarity: var(--ak-rarity-#{$tier});
+    }
+  }
+}
+
+@keyframes ak-slot-reveal {
+  0% {
+    opacity: 0;
+    filter: brightness(3);
+    translate: 0 1rem;
+  }
+
+  60% {
+    opacity: 1;
+    filter: brightness(1.6);
+  }
+
+  100% {
+    opacity: 1;
+    filter: none;
+    translate: 0 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ak-slot--reveal {
+    animation: none;
+  }
+
+  button.ak-slot {
+    transition: none;
+  }
+}

@@ -1,0 +1,114 @@
+@use "variables" as *;
+
+// Material tile: the tier colour drives the glyph, glow and bottom edge.
+// An empty icon draws a rotated tier diamond; an SVG child replaces it.
+.ak-item {
+  --ak-item-tier: var(--ak-rarity-1, #9c9c9c);
+
+  position: relative;
+  display: grid;
+  box-sizing: border-box;
+  min-width: 0;
+  padding: 0.55rem 0.45rem 0.45rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-bottom: 0.2rem solid var(--ak-item-tier);
+  border-radius: 0;
+  justify-items: center;
+  gap: 0.3rem;
+  color: #f7f7f4;
+  background: rgba(10, 12, 14, 0.7);
+  font-family: $font-sans-serif;
+
+  & &__icon {
+    display: grid;
+    width: clamp(1.8rem, 3.2cqw, 2.6rem);
+    aspect-ratio: 1;
+    background: radial-gradient(circle at 50% 45%, color-mix(in srgb, var(--ak-item-tier) 38%, transparent), transparent 70%);
+    place-items: center;
+
+    &:empty::before {
+      width: 50%;
+      aspect-ratio: 1;
+      content: "";
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.45), transparent 55%), var(--ak-item-tier);
+      box-shadow: 0 0 0.6rem color-mix(in srgb, var(--ak-item-tier) 60%, transparent);
+      transform: rotate(45deg);
+    }
+
+    > svg {
+      width: 70%;
+      height: 70%;
+      color: var(--ak-item-tier);
+      fill: currentcolor;
+    }
+  }
+
+  & &__count {
+    position: absolute;
+    top: 0.25rem;
+    right: 0.3rem;
+    font-family: $font-monospace;
+    font-size: 0.65rem;
+    font-weight: 800;
+    line-height: 1;
+  }
+
+  & &__name {
+    max-width: 100%;
+    overflow: hidden;
+    color: rgba(247, 247, 244, 0.72);
+    font-size: 0.68rem;
+    line-height: 1.3;
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  & &__price {
+    font-family: $font-monospace;
+    font-size: 0.72rem;
+    font-weight: 800;
+  }
+
+  @for $tier from 1 through 6 {
+    &--tier-#{$tier} {
+      --ak-item-tier: var(--ak-rarity-#{$tier});
+    }
+  }
+
+  &--sold {
+    filter: grayscale(0.7);
+    opacity: 0.45;
+  }
+
+  @at-root button#{&} {
+    cursor: pointer;
+    transition:
+      transform var(--ak-motion-fast, 120ms) var(--ak-ease-standard, ease),
+      filter var(--ak-motion-base, 200ms) ease;
+
+    &:hover:not(:disabled) {
+      filter: brightness(1.15);
+      transform: translateY(-2px);
+    }
+
+    &:active:not(:disabled) {
+      transform: scale(0.97);
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+    }
+  }
+
+  &:focus-visible {
+    outline: var(--ak-focus-width, 3px) solid var(--ak-focus-color, #f1c644);
+    outline-offset: 2px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  button.ak-item {
+    transition: none;
+  }
+}

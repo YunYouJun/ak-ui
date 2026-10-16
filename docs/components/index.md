@@ -41,7 +41,7 @@
 | --- | --- |
 | 基础规范 | [色彩与字体](#color-色彩) · [辅助类](./ak-helper) · [图标](./ak-icon) |
 | 操作与导航 | [按钮](./ak-button) · [按钮组](./ak-button-group) · [表单](./ak-form) · [滑块](./ak-slider) · [链接导航](./ak-nav) · [终端导航](./ak-tabs) · [分页](./ak-pagination) |
-| 布局与容器 | [卡片](./ak-card) · [面板](./ak-panel) · [分割线](./ak-divider) |
+| 布局与容器 | [卡片](./ak-card) · [面板](./ak-panel) · [分割线](./ak-divider) · [功能页、干员位与物资格](./ak-screen) |
 | 数据与状态 | [新闻列表](./ak-news-list) · [计数器](./ak-counter) · [进度与仪表](./ak-progress) · [理智](./ak-san) · [状态标记](./ak-status) · [关卡](./ak-level) |
 | 反馈与浮层 | [对话框](./ak-dialog) · [浮层与提示](./ak-popover) · [战术通知](./ak-notice) · [加载](./ak-loading) |
 | 视觉与媒体 | [图像与视频](./ak-media) · [效果](./ak-fx) · [物体](./ak-object) |

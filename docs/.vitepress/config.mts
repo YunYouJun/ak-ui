@@ -202,6 +202,7 @@ export default defineConfig({
             { text: '卡片', link: '/components/ak-card' },
             { text: '面板', link: '/components/ak-panel' },
             { text: '分割线', link: '/components/ak-divider' },
+            { text: '功能页与干员位', link: '/components/ak-screen' },
           ],
         },
         {
