@@ -26,47 +26,94 @@ async function waitForFonts(page: Page) {
   throw new Error('Page layout did not stabilize after documentation fonts loaded')
 }
 
-async function useSnapshotFonts(page: Page) {
-  // Pin visual baselines to the Linux image's fallback fonts. A remote stylesheet
-  // can arrive after document.fonts.ready and change line wraps during capture.
-  await page.route('https://fonts.googleapis.com/**', route => route.fulfill({
-    contentType: 'text/css',
-    body: '',
-  }))
+async function expectHeroClearOfRuler(page: Page) {
+  const layout = await page.evaluate(() => {
+    const box = (selector: string) => document.querySelector(selector)!.getBoundingClientRect()
+    return {
+      overflow: document.documentElement.scrollWidth - innerWidth,
+      rulerTop: box('.ak-home__ruler').top,
+      statsBottom: box('.ak-hero__stats').bottom,
+      terminalBottom: box('.ak-hero__terminal').bottom,
+    }
+  })
+
+  expect(layout.overflow).toBeLessThanOrEqual(1)
+  // The rotated tape decorates the hero edge; it must never sit under hero text.
+  expect(layout.rulerTop).toBeGreaterThanOrEqual(layout.statsBottom)
+  expect(layout.rulerTop).toBeGreaterThanOrEqual(layout.terminalBottom)
 }
 
-async function waitForHomepageDemo(page: Page) {
-  const demo = page.locator('[data-demo-id="home/button-base"]')
-  await expect(demo.locator('.ak-demo-preview__canvas .ak-button')).toHaveCount(3)
-  await demo.scrollIntoViewIfNeeded()
+for (const [width, height] of [[1440, 900], [390, 844]]) {
+  test(`renders the homepage hero without overlap at ${width}px`, async ({ page }) => {
+    await page.setViewportSize({ width, height })
+    await page.goto('/')
+    await waitForFonts(page)
+
+    await expect(page.getByRole('link', { name: /^浏览组件/ })).toHaveAttribute('href', '/components/')
+    await expect(page.getByRole('link', { name: '查看完整演示 →', exact: true })).toHaveAttribute('href', '/showcase/')
+    await expectHeroClearOfRuler(page)
+
+    // Measure the settled briefing: entrance keyframes scale nodes past the
+    // clipped frame while they play.
+    const demo = page.locator('.op')
+    const overflow = await demo.evaluate(async (el) => {
+      await Promise.all(el.getAnimations({ subtree: true }).map(animation => animation.finished))
+      return el.scrollHeight - el.clientHeight
+    })
+    expect(overflow).toBeLessThanOrEqual(0)
+  })
 }
 
-test('renders the visual homepage', async ({ page, browserName }) => {
-  await useSnapshotFonts(page)
+test('plays the homepage operation flow from briefing to settlement', async ({ page }) => {
+  const errors: string[] = []
+  page.on('pageerror', error => errors.push(error.message))
   await page.goto('/')
-  await waitForHomepageDemo(page)
-  await waitForFonts(page)
 
-  await expect(page.getByRole('link', { name: /^浏览组件/ })).toHaveAttribute('href', '/components/')
-  await expect(page.getByRole('link', { name: '查看完整演示 →', exact: true })).toHaveAttribute('href', '/showcase/')
-  await expect(page.locator('[data-demo-id="home/button-base"]')).toHaveAttribute('inert', '')
+  const demo = page.locator('.op')
+  const sanity = demo.locator('.op__sanity strong')
+  const agent = demo.getByRole('checkbox', { name: /代理指挥/ })
 
-  if (browserName === 'chromium')
-    await expect(page.locator('.ak-home')).toHaveScreenshot('home-desktop.webp')
-  else
-    await expect(page.locator('.ak-home')).toBeVisible()
+  await expect(sanity).toHaveText('118')
+  await expect(demo.getByRole('button', { name: /^RI-04/ })).toHaveAttribute('aria-pressed', 'true')
+  await expect(agent).toBeDisabled()
+
+  await demo.getByRole('button', { name: /^开始行动/ }).click()
+  await expect(demo.getByRole('heading', { name: /第一小队/ })).toBeFocused()
+  await expect(demo.locator('.op-squad__slots li')).toHaveCount(6)
+
+  await demo.getByRole('button', { name: '开始行动', exact: true }).click()
+  await expect(demo.getByRole('progressbar', { name: '部署进度' })).toBeVisible()
+  await expect(sanity).toHaveText('100')
+
+  const result = demo.getByRole('heading', { name: /行动结束/ })
+  await expect(result).toBeFocused()
+  await expect(demo.locator('.op-result__rewards li')).toHaveCount(6)
+  await expect(demo.locator('.op-result__rewards')).toContainText('首次通关')
+
+  await demo.getByRole('button', { name: '返回', exact: true }).click()
+  await expect(demo.getByRole('heading', { name: /RI-04/ })).toBeFocused()
+  await expect(agent).toBeEnabled()
+
+  await demo.getByRole('button', { name: '恢复理智' }).click()
+  await expect(sanity).toHaveText('135')
+  await demo.getByRole('button', { name: /^RI-02/ }).click()
+  await expect(demo.getByRole('heading', { name: /RI-02/ })).toBeVisible()
+  expect(errors).toEqual([])
 })
 
-test('renders the mobile homepage', async ({ page, browserName }) => {
-  await page.setViewportSize({ width: 390, height: 844 })
-  await useSnapshotFonts(page)
+test('settles the homepage hero and operation flow under reduced motion', async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: 'reduce' })
   await page.goto('/')
-  await waitForHomepageDemo(page)
-  await waitForFonts(page)
-  if (browserName === 'chromium')
-    await expect(page.locator('.ak-home')).toHaveScreenshot('home-mobile.webp')
-  else
-    await expect(page.locator('.ak-home')).toBeVisible()
+
+  const running = await page.locator('.ak-hero').evaluate(hero => hero.getAnimations({ subtree: true }).length)
+  expect(running).toBe(0)
+  await expect(page.locator('.ak-kicker')).toHaveCSS('opacity', '1')
+
+  const demo = page.locator('.op')
+  await demo.getByRole('button', { name: /^开始行动/ }).click()
+  await demo.getByRole('button', { name: '开始行动', exact: true }).click()
+  await expect(demo.getByRole('heading', { name: /行动结束/ })).toBeVisible({ timeout: 2000 })
+  await expect(demo.locator('.op-result__rewards li').first()).toContainText('+360')
 })
 
 test('keeps the light theme coordinated and legible', async ({ page }) => {

@@ -6,13 +6,8 @@ export default defineConfig({
   timeout: 120_000,
   expect: {
     timeout: 15_000,
-    toHaveScreenshot: {
-      animations: 'disabled',
-      maxDiffPixelRatio: 0.025,
-    },
   },
   reporter: process.env.CI ? 'github' : [['list'], ['html', { open: 'never' }]],
-  snapshotPathTemplate: '{testDir}/{testFilePath}-snapshots/{arg}{ext}',
   use: {
     baseURL: 'http://127.0.0.1:4179',
     colorScheme: 'dark',

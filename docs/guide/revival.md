@@ -80,7 +80,7 @@ Git tag ──→ verified package ──→ npm OIDC publish + provenance
 
 ### 3. 截图退出日常 Git 历史
 
-默认测试只检查所有示例的渲染，组件截图通过 `pnpm test:captures` 或手动运行 CI 工作流并勾选 `captures` 生成。运行 `pnpm test:captures:report` 可打开人工预览报告；远程报告作为 14 天 CI Artifact 保存，下载解压后用 `pnpm exec playwright show-report <报告目录>` 查看。仓库只保留桌面与移动首页两张视觉回归基准。这样仍能发现首页级视觉变化，又不会让几十张组件截图持续扩大推送流量。
+默认测试只检查所有示例的渲染，组件截图通过 `pnpm test:captures` 或手动运行 CI 工作流并勾选 `captures` 生成。运行 `pnpm test:captures:report` 可打开人工预览报告；远程报告作为 14 天 CI Artifact 保存，下载解压后用 `pnpm exec playwright show-report <报告目录>` 查看。仓库不再保存像素基准：首页改用几何与行为断言（遮挡、溢出、焦点、减少动态效果）检查，设计迭代无需重新生成截图，也不会让截图持续扩大推送流量。
 
 ### 4. CSS Core + Vue Registry
 

@@ -23,7 +23,7 @@ Skill 保持公开安装入口，但提示词与建议随工作流改进，不�
 
 ## 浏览器与无障碍边界
 
-构建目标使用仓库的 Browserslist 配置。自动化测试覆盖 Chromium、Firefox 和 Playwright WebKit，包括桌面/移动布局、原生 Dialog、Popover、焦点和键盘交互。仅 Chromium 做首页像素基准比较。WebKit 引擎验证不能等同于 Safari 应用、真机 iOS 或所有系统版本的验证；不支持 IE。CSS Anchor Positioning 是渐进增强，不支持时使用居中降级。
+构建目标使用仓库的 Browserslist 配置。自动化测试覆盖 Chromium、Firefox 和 Playwright WebKit，包括桌面/移动布局、原生 Dialog、Popover、焦点和键盘交互。首页以几何与行为断言（遮挡、溢出、焦点、减少动态效果）代替像素基准。WebKit 引擎验证不能等同于 Safari 应用、真机 iOS 或所有系统版本的验证；不支持 IE。CSS Anchor Positioning 是渐进增强，不支持时使用居中降级。
 
 CSS 提供视觉状态；原生元素、Registry 或消费项目的 headless primitives 负责语义与行为。1.0 不宣称全库通过 WCAG 认证。消费方需保留标签、焦点可见性、禁用状态、降低动效和可操作目标尺寸。
 

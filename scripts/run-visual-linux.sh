@@ -6,20 +6,8 @@ playwright_image="${PLAYWRIGHT_IMAGE:-mcr.microsoft.com/playwright:v1.62.1-noble
 repository_root=$(CDPATH= cd -- "$(dirname "$0")/.." && pwd)
 mkdir -p "${repository_root}/test-results"
 
-case "${1:-test}" in
-  test)
-    package_script="test:visual"
-    ;;
-  update)
-    package_script="test:visual:update"
-    ;;
-  *)
-    echo "Usage: $0 [test|update]" >&2
-    exit 2
-    ;;
-esac
-
-if [ "$#" -gt 0 ]; then shift; fi
+# Runs the browser suite in the pinned Playwright image that matches CI, for
+# reproducing Linux-only Firefox/WebKit behavior without local browser installs.
 
 docker run --rm --init --ipc=host \
   --mount "type=bind,source=${repository_root},target=/work" \
@@ -30,7 +18,6 @@ docker run --rm --init --ipc=host \
   --mount type=volume,target=/work/playwright-report \
   --mount "type=bind,source=${repository_root}/test-results,target=/work/test-results" \
   --workdir /work \
-  --env "PACKAGE_SCRIPT=${package_script}" \
   --env COREPACK_HOME=/work/.pnpm-store/corepack \
   --env "LOCAL_UID=$(id -u)" \
   --env "LOCAL_GID=$(id -g)" \
@@ -39,8 +26,8 @@ docker run --rm --init --ipc=host \
     corepack enable
     pnpm install --frozen-lockfile
     set +e
-    pnpm "$PACKAGE_SCRIPT" "$@"
+    pnpm test:visual "$@"
     test_status=$?
-    chown -R "$LOCAL_UID:$LOCAL_GID" tests/visual/ak-ui.spec.ts-snapshots test-results
+    chown -R "$LOCAL_UID:$LOCAL_GID" test-results
     exit "$test_status"
   ' -- "$@"

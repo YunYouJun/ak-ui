@@ -115,18 +115,18 @@ pnpm build               # build dist CSS
 pnpm docs:build          # build the VitePress site
 pnpm lint                # check SCSS
 pnpm test:visual         # Chromium, Firefox and WebKit behavior, layout and render checks
+pnpm test:visual:linux   # the same checks inside the CI-matched Linux container
 pnpm test:captures       # on-demand component screenshots in all three browsers
 pnpm test:captures:report # open the human review report
-pnpm test:visual:update:linux # update lossless WebP baselines in the CI-matched Linux container
-pnpm test                # run all verification with Linux visual regression
+pnpm test                # run all verification, including browser checks
 ```
 
-Before the first local browser run, use `pnpm exec playwright install chromium firefox webkit`. Only Chromium compares homepage pixels; Firefox/WebKit validate page behavior and layout.
+Before the first local browser run, use `pnpm exec playwright install chromium firefox webkit`. Browser tests assert behavior and geometry (overlap, overflow, focus, reduced motion) instead of pixel baselines, so design changes do not require regenerating screenshots.
 
 The files in `examples/` are the single source for documentation previews, displayed source code, and Playwright browser tests.
-Only the desktop and mobile homepage baselines are versioned. Default CI checks every example for visible content without capturing the catalog. Run `pnpm test:captures` to generate screenshots and an HTML review report, then `pnpm test:captures:report` to browse images by browser and example. Use `pnpm test:captures --project=firefox --grep="button/fab"` to capture a single example. The report is for manual review, not pixel comparison.
+No screenshot baselines are versioned. Default CI checks every example for visible content without capturing the catalog. Run `pnpm test:captures` to generate screenshots and an HTML review report, then `pnpm test:captures:report` to browse images by browser and example. Use `pnpm test:captures --project=firefox --grep="button/fab"` to capture a single example. The report is for manual review, not pixel comparison.
 
-For a remote report, manually run the **CI** workflow with the **captures** option enabled. This runs the normal checks first, then captures components using the same prepared environment. Download and extract its `component-preview-report` artifact, then run `pnpm exec playwright show-report <extracted-directory>`. Keep the entire report directory, including `data/`. Reports are retained for 14 days and are not published as a public website. The homepage baselines use the pinned Playwright Noble container so local updates match the Ubuntu 24.04 CI renderer.
+For a remote report, manually run the **CI** workflow with the **captures** option enabled. This runs the normal checks first, then captures components using the same prepared environment. Download and extract its `component-preview-report` artifact, then run `pnpm exec playwright show-report <extracted-directory>`. Keep the entire report directory, including `data/`. Reports are retained for 14 days and are not published as a public website.
 
 ## Releasing with OIDC
 

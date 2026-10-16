@@ -23,7 +23,7 @@ The Skill retains its public installation entry, but its prompts and guidance ev
 
 ## Browser and accessibility boundaries
 
-Build targets follow the repository's Browserslist configuration. Automation covers Chromium, Firefox and Playwright WebKit, including desktop/mobile layouts, native Dialog and Popover, focus and keyboard behavior. Only Chromium compares homepage pixel baselines. WebKit engine testing is not equivalent to testing the Safari application, physical iOS devices or every OS version. IE is unsupported. CSS Anchor Positioning is progressive enhancement with a centered fallback.
+Build targets follow the repository's Browserslist configuration. Automation covers Chromium, Firefox and Playwright WebKit, including desktop/mobile layouts, native Dialog and Popover, focus and keyboard behavior. The homepage uses geometry and behavior assertions (overlap, overflow, focus, reduced motion) instead of pixel baselines. WebKit engine testing is not equivalent to testing the Safari application, physical iOS devices or every OS version. IE is unsupported. CSS Anchor Positioning is progressive enhancement with a centered fallback.
 
 CSS provides visual states; native elements, Registry adapters or the consumer's headless primitives provide semantics and behavior. Version 1.0 does not claim whole-library WCAG certification. Consumers must retain labels, visible focus, disabled states, reduced motion and usable target sizes.
 

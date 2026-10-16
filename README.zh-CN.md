@@ -115,14 +115,14 @@ pnpm build               # 构建 dist CSS
 pnpm docs:build          # 构建 VitePress 站点
 pnpm lint                # 检查 SCSS
 pnpm test:visual         # 在当前系统运行 Chromium、Firefox、WebKit 检查
-pnpm test:visual:update:linux # 在与 CI 匹配的 Linux 容器中更新无损 WebP 基准图
-pnpm test                # 运行全部验证，包括 Linux 视觉回归测试
+pnpm test:visual:linux   # 在与 CI 匹配的 Linux 容器中运行同样的检查
+pnpm test                # 运行全部验证，包括浏览器检查
 ```
 
-首次在本机运行浏览器测试前执行 `pnpm exec playwright install chromium firefox webkit`。只有 Chromium 使用首页像素基准；Firefox/WebKit 验证页面、交互与布局。
+首次在本机运行浏览器测试前执行 `pnpm exec playwright install chromium firefox webkit`。浏览器测试断言行为与几何关系（遮挡、溢出、焦点、减少动态效果），不使用像素基准图，因此调整设计时无需重新生成截图。
 
 `examples/` 中的文件是文档预览、展示源码与 Playwright 浏览器测试的唯一数据源。
-仓库只记录桌面端与移动端首页的基准图。组件截图生成在 `test-results/` 中，并作为保留 14 天的 GitHub Actions 构建产物上传，不会写入 Git 历史。首页基准图使用固定版本的 Playwright Noble 容器生成，以确保本地更新结果与 Ubuntu 24.04 CI 渲染环境一致。
+仓库不保存截图基准。组件截图生成在 `test-results/` 中，并作为保留 14 天的 GitHub Actions 构建产物上传，不会写入 Git 历史。
 
 ## OIDC 发布流程
 
