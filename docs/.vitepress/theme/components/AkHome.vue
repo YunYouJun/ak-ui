@@ -1,10 +1,9 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, onMounted, onScopeDispose, ref } from 'vue'
 import { useData } from 'vitepress'
-import DemoPreview from './DemoPreview.vue'
-import buttonExample from '../../../../examples/button/base.html?raw'
-
-const encodedButtonExample = encodeURIComponent(buttonExample.trim())
+import { createEntrance } from '@yunyoujun/ak-ui/effects'
+import type { EntranceController, EntranceOptions } from '@yunyoujun/ak-ui/effects'
+import HomeOperationDemo from './HomeOperationDemo.vue'
 
 const { lang } = useData()
 const en = computed(() => lang.value === 'en')
@@ -18,19 +17,55 @@ const modules = [
   { code: 'FX', name: '效果', english: 'Effects', description: '倾斜、辉光与轮廓', englishDescription: 'Skew, glow and outlines', href: '/components/ak-fx' },
   { code: 'OBJ', name: '物体', english: 'Objects', description: '三维战术地图元素', englishDescription: 'Three-dimensional tactical elements', href: '/components/ak-object' },
 ]
+
+// Sections stay visible without JavaScript. Each one plays a single entrance
+// just before it scrolls into view; reduced motion is handled by the controller.
+const root = ref<HTMLElement>()
+const entrances: EntranceController[] = []
+let observer: IntersectionObserver | undefined
+
+onMounted(() => {
+  if (!root.value || !('IntersectionObserver' in window))
+    return
+  const controllers = new Map<Element, EntranceController>()
+  observer = new IntersectionObserver((entries) => {
+    for (const entry of entries) {
+      if (!entry.isIntersecting)
+        continue
+      observer?.unobserve(entry.target)
+      controllers.get(entry.target)?.play()
+    }
+  }, { rootMargin: '0px 0px 12% 0px' })
+  for (const element of root.value.querySelectorAll<HTMLElement>('[data-reveal]')) {
+    const controller = createEntrance(element, {
+      direction: element.dataset.reveal as EntranceOptions['direction'],
+      delay: Number(element.dataset.delay || 0),
+      distance: 32,
+    })
+    controllers.set(element, controller)
+    entrances.push(controller)
+    observer.observe(element)
+  }
+})
+
+onScopeDispose(() => {
+  observer?.disconnect()
+  entrances.forEach(controller => controller.destroy())
+})
 </script>
 
 <template>
-  <div class="ak-home">
+  <div ref="root" class="ak-home">
     <div class="ak-home__grid" aria-hidden="true"></div>
-    <div class="ak-home__ruler" aria-hidden="true">
-      <span>00</span><span>12</span><span>24</span><span>36</span><span>48</span><span>60</span>
-    </div>
 
     <section class="ak-hero">
+      <div class="ak-home__ruler" aria-hidden="true">
+        <span>00</span><span>12</span><span>24</span><span>36</span><span>48</span><span>60</span>
+      </div>
+
       <div class="ak-hero__brief">
         <p class="ak-kicker"><span>AK-UI / 001</span> AI-READY DESIGN FOUNDATION</p>
-        <h1><span>AK</span><i>/</i>UI</h1>
+        <h1><span class="ak-hero__ak">AK</span><i>/</i><span class="ak-hero__ui">UI</span></h1>
         <p class="ak-hero__lead">{{ label('把受《明日方舟》启发的几何、层级与反馈，变成可融合品牌、可由 AI 编排的样式基础。', 'Geometry, hierarchy and feedback inspired by Arknights. A CSS foundation for your brand, ready for AI-assisted development.') }}</p>
 
         <div class="ak-hero__actions">
@@ -50,27 +85,16 @@ const modules = [
           <span>LIVE INTERFACE</span>
           <span class="ak-terminal__status">ONLINE</span>
         </div>
-        <DemoPreview
-          id="home/button-base"
-          :encoded="encodedButtonExample"
-          :height="260"
-          :show-code="false"
-          aria-hidden="true"
-          inert
-          surface="color"
-          title="Operation controls"
-        />
+        <HomeOperationDemo :en="en" />
         <div class="ak-terminal__coordinates">
           <span>31°13′12″N</span>
           <span>121°28′48″E</span>
+          <a class="ak-terminal__link" href="/showcase/">{{ label('查看完整演示 →', 'Explore the full demo →') }}</a>
         </div>
-        <a class="ak-terminal__link" href="/showcase/">
-          <span>{{ label('查看完整演示 →', 'Explore the full demo →') }}</span>
-        </a>
       </div>
     </section>
 
-    <section class="ak-fidelity-note" aria-labelledby="fidelity-note-title">
+    <section class="ak-fidelity-note" aria-labelledby="fidelity-note-title" data-reveal="up">
       <p class="ak-section-code">DESIGN SCOPE / 00</p>
       <h2 id="fidelity-note-title">{{ label('约束的是设计语言，', 'A design language,') }}<br>{{ label('不是像素级还原。', 'with room for your brand.') }}</h2>
       <div>
@@ -80,11 +104,11 @@ const modules = [
     </section>
 
     <section class="ak-manifesto">
-      <header>
+      <header data-reveal="left">
         <p class="ak-section-code">DESIGN RECORD / 01</p>
         <h2>{{ label('Token 是 contract，', 'Tokens are the contract.') }}<br>{{ label('框架只是 adapter。', 'Frameworks are adapters.') }}</h2>
       </header>
-      <div class="ak-manifesto__body">
+      <div class="ak-manifesto__body" data-reveal="up" data-delay="120">
         <p>{{ label('每个模块由语义化 HTML、稳定类名和 CSS variables 组成。AI Skill 会优先复用项目已有 primitives，并保留品牌和无障碍行为。', 'Each module combines semantic HTML, stable class names and CSS variables. The AI Skill reuses your existing primitives while preserving brand identity and accessible behavior.') }}</p>
         <div class="ak-manifesto__rule">
           <span>TOKENS</span><i></i><span>PRIMITIVES</span><i></i><span>ANY STACK</span>
@@ -93,13 +117,20 @@ const modules = [
     </section>
 
     <section class="ak-module-index">
-      <header>
+      <header data-reveal="left">
         <p class="ak-section-code">TERMINAL INDEX / 02</p>
         <h2>{{ label('界面模块', 'Interface modules') }}</h2>
         <a :href="en ? '/en/components/' : '/components/'">{{ label('打开完整索引 →', 'Open the component index →') }}</a>
       </header>
       <div class="ak-module-grid">
-        <a v-for="module in modules" :key="module.code" :href="module.href" class="ak-module-card">
+        <a
+          v-for="(module, index) in modules"
+          :key="module.code"
+          :href="module.href"
+          class="ak-module-card"
+          data-reveal="up"
+          :data-delay="index * 70"
+        >
           <span class="ak-module-card__code">{{ module.code }}</span>
           <strong>{{ label(module.name, module.english + ' (中文)') }}</strong>
           <p>{{ label(module.description, module.englishDescription) }}</p>
@@ -178,20 +209,21 @@ const modules = [
 .ak-home__ruler {
   position: absolute;
   z-index: -1;
-  top: 520px;
-  left: -7%;
+  bottom: 8px;
+  left: 50%;
   display: flex;
-  width: 116%;
+  width: 116vw;
   height: 54px;
-  padding: 0 8%;
+  padding: 0 8vw;
   color: var(--home-ink);
   background: var(--home-yellow);
   align-items: center;
   justify-content: space-between;
   font: 700 11px/1 ui-monospace, SFMono-Regular, Menlo, monospace;
-  transform: rotate(-3deg);
+  transform: translateX(-50%) rotate(-3deg);
   transform-origin: center;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.24);
+  animation: ak-home-wipe 900ms var(--ak-ease-emphasized) 420ms both;
 }
 
 .ak-home__ruler::before,
@@ -206,11 +238,12 @@ const modules = [
 .ak-home__ruler::after { inset: auto 0 8px; }
 
 .ak-hero {
+  position: relative;
   display: grid;
   min-height: 720px;
   max-width: 1440px;
   margin: 0 auto;
-  padding: 104px 48px 118px;
+  padding: 104px 48px 140px;
   grid-template-columns: minmax(0, 0.92fr) minmax(480px, 1.08fr);
   gap: 72px;
   align-items: center;
@@ -236,6 +269,10 @@ const modules = [
   align-items: center;
 }
 
+.ak-kicker {
+  animation: ak-home-wipe 520ms var(--ak-ease-emphasized) both;
+}
+
 .ak-kicker span {
   padding: 7px 9px;
   color: var(--home-ink);
@@ -255,10 +292,20 @@ const modules = [
   text-transform: uppercase;
 }
 
-.ak-hero h1 span { color: var(--home-accent-text); }
-.ak-hero h1 i { margin: 0 0.06em; color: var(--home-blue); font-style: normal; font-weight: 400; }
+.ak-hero h1 > * { animation: ak-home-rise 640ms var(--ak-ease-emphasized) 80ms both; }
+.ak-hero h1 .ak-hero__ak { color: var(--home-accent-text); }
+.ak-hero h1 i {
+  margin: 0 0.06em;
+  color: var(--home-blue);
+  font-style: normal;
+  font-weight: 400;
+  animation-name: ak-home-slash;
+  animation-delay: 220ms;
+}
+.ak-hero h1 .ak-hero__ui { animation-delay: 300ms; }
 
 .ak-hero__lead {
+  animation: ak-home-rise 640ms var(--ak-ease-emphasized) 380ms both;
   max-width: 550px;
   margin: 40px 0 0;
   color: var(--home-lead);
@@ -268,6 +315,8 @@ const modules = [
 }
 
 .ak-hero__actions { display: flex; margin-top: 34px; gap: 12px; }
+.ak-hero__actions > * { animation: ak-home-rise 560ms var(--ak-ease-emphasized) 460ms both; }
+.ak-hero__actions > * + * { animation-delay: 530ms; }
 
 .ak-action {
   display: inline-flex;
@@ -284,7 +333,10 @@ const modules = [
   transition: color 160ms ease, background 160ms ease, transform 160ms ease;
 }
 
+.ak-action span { transition: translate var(--ak-motion-base) var(--ak-ease-emphasized); }
 .ak-action:hover { color: var(--home-action-hover-text); background: var(--home-action-hover-bg); transform: translateY(-2px); }
+.ak-action:hover span { translate: 4px 0; }
+.ak-action:focus-visible { outline: 2px solid var(--home-blue); outline-offset: 3px; }
 .ak-action--primary { border-color: var(--home-yellow); color: var(--home-ink); background: var(--home-yellow); }
 
 .ak-hero__stats {
@@ -295,7 +347,13 @@ const modules = [
   border-top: 1px solid var(--home-border);
 }
 
-.ak-hero__stats div { padding: 16px 14px 0 0; border-right: 1px solid var(--home-border); }
+.ak-hero__stats div {
+  padding: 16px 14px 0 0;
+  border-right: 1px solid var(--home-border);
+  animation: ak-home-rise 560ms var(--ak-ease-emphasized) 600ms both;
+}
+.ak-hero__stats div:nth-child(2) { animation-delay: 670ms; }
+.ak-hero__stats div:nth-child(3) { animation-delay: 740ms; }
 .ak-hero__stats div + div { padding-left: 18px; }
 .ak-hero__stats dt { color: var(--home-muted); font-size: 9px; }
 .ak-hero__stats dd { margin: 7px 0 2px; color: var(--home-text); font: 900 26px/1 Syncopate, sans-serif; }
@@ -309,36 +367,14 @@ const modules = [
   background: rgba(23, 26, 29, 0.9);
   box-shadow: 24px 28px 0 rgba(0, 0, 0, 0.28);
   clip-path: polygon(0 0, calc(100% - 36px) 0, 100% 36px, 100% 100%, 22px 100%, 0 calc(100% - 22px));
-  animation: terminal-enter 700ms cubic-bezier(0.2, 0.75, 0.2, 1) both;
+  animation: terminal-enter 700ms cubic-bezier(0.2, 0.75, 0.2, 1) 160ms backwards;
   transition: border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
 }
 
-.ak-hero__terminal:hover {
+.ak-hero__terminal:hover,
+.ak-hero__terminal:focus-within {
   border-color: var(--home-blue);
   box-shadow: 24px 28px 0 rgba(0, 0, 0, 0.28), 0 0 28px rgba(34, 187, 255, 0.16);
-  transform: translateY(-3px);
-}
-
-.ak-hero__terminal:focus-within {
-  outline: 2px solid var(--home-yellow);
-  outline-offset: 4px;
-}
-
-.ak-hero__terminal :deep(.ak-demo-preview) {
-  --vp-c-bg-alt: #171a1d;
-  --vp-c-divider: #3b4146;
-  --vp-c-text-2: #b5bbc0;
-  --vp-c-text-3: #838a90;
-}
-
-.ak-hero__terminal :deep(.ak-demo-preview.is-color .ak-demo-preview__canvas) {
-  background-color: #1a2227;
-  background-image:
-    linear-gradient(112deg, rgba(5, 9, 11, 0.82) 0 29%, transparent 29% 68%, rgba(5, 9, 11, 0.7) 68%),
-    repeating-linear-gradient(0deg, rgba(34, 187, 255, 0.08) 0 1px, transparent 1px 24px),
-    repeating-linear-gradient(90deg, rgba(255, 216, 2, 0.06) 0 1px, transparent 1px 24px),
-    linear-gradient(135deg, #3b4a52, #101518);
-  background-size: cover, 24px 24px, 24px 24px, cover;
 }
 
 .ak-hero__terminal::before {
@@ -351,6 +387,19 @@ const modules = [
   content: '';
   border-left: 1px solid #51575c;
   background: repeating-linear-gradient(-45deg, var(--home-yellow) 0 4px, var(--home-ink) 4px 8px);
+}
+
+.ak-hero__terminal::after {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  content: '';
+  /* The band sits in the last 96px of a full-height layer, so the sweep is a
+     compositor-only translate instead of an animated top offset. */
+  background: linear-gradient(to bottom, transparent calc(100% - 96px), rgba(34, 187, 255, 0.14) calc(100% - 18px), rgba(34, 187, 255, 0.5) calc(100% - 2px), transparent);
+  pointer-events: none;
+  opacity: 0;
+  animation: ak-terminal-scan 1100ms var(--ak-ease-standard) 820ms both;
 }
 
 .ak-terminal__caption,
@@ -375,25 +424,15 @@ const modules = [
 .ak-terminal__coordinates span:nth-child(2) { text-align: center; }
 
 .ak-terminal__link {
-  position: absolute;
-  z-index: 2;
-  inset: 0;
-  color: var(--home-paper);
-  text-decoration: none;
-}
-
-.ak-terminal__link span {
-  position: absolute;
-  right: 22px;
-  bottom: 14px;
   color: var(--home-blue);
-  font: 700 9px/1 ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+  font-weight: 700;
+  text-align: right;
+  text-decoration: none;
   white-space: nowrap;
 }
 
-.ak-terminal__link:hover span { color: var(--home-yellow); }
+.ak-terminal__link:hover { color: var(--home-yellow); }
+.ak-terminal__link:focus-visible { outline: 2px solid var(--home-yellow); outline-offset: 3px; }
 
 .ak-fidelity-note {
   display: grid;
@@ -478,15 +517,55 @@ const modules = [
   border-bottom: 1px solid var(--home-border);
   color: var(--home-text);
   text-decoration: none;
-  transition: color 180ms ease, background 180ms ease;
+  isolation: isolate;
+  transition: color 180ms ease;
 }
-.ak-module-card:hover { color: var(--home-ink); background: var(--home-yellow); }
+.ak-module-card::before {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  content: '';
+  background: var(--home-yellow);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 320ms var(--ak-ease-emphasized);
+}
+.ak-module-card::after {
+  position: absolute;
+  inset: 6px;
+  content: '';
+  background:
+    linear-gradient(currentColor, currentColor) top left / 14px 2px,
+    linear-gradient(currentColor, currentColor) top left / 2px 14px,
+    linear-gradient(currentColor, currentColor) top right / 14px 2px,
+    linear-gradient(currentColor, currentColor) top right / 2px 14px,
+    linear-gradient(currentColor, currentColor) bottom left / 14px 2px,
+    linear-gradient(currentColor, currentColor) bottom left / 2px 14px,
+    linear-gradient(currentColor, currentColor) bottom right / 14px 2px,
+    linear-gradient(currentColor, currentColor) bottom right / 2px 14px;
+  background-repeat: no-repeat;
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.94);
+  transition: transform 260ms var(--ak-ease-emphasized), opacity 160ms ease;
+}
+.ak-module-card:hover,
+.ak-module-card:focus-visible { color: var(--home-ink); }
+.ak-module-card:hover::before,
+.ak-module-card:focus-visible::before { transform: scaleX(1); }
+.ak-module-card:hover::after,
+.ak-module-card:focus-visible::after { opacity: 1; transform: scale(1); }
+.ak-module-card:focus-visible { outline: 2px solid var(--home-blue); outline-offset: -2px; }
 .ak-module-card__code { color: var(--home-blue); font: 700 10px/1 ui-monospace, monospace; letter-spacing: 0.14em; }
-.ak-module-card:hover .ak-module-card__code { color: var(--home-orange); }
+.ak-module-card:hover .ak-module-card__code,
+.ak-module-card:focus-visible .ak-module-card__code { color: var(--home-orange); }
 .ak-module-card strong { display: block; margin-top: 46px; font-size: 24px; }
 .ak-module-card p { margin: 8px 36px 0 0; color: var(--home-subtle); font-size: 13px; }
-.ak-module-card:hover p { color: #373a3d; }
-.ak-module-card__arrow { position: absolute; right: 22px; bottom: 20px; font-size: 22px; }
+.ak-module-card:hover p,
+.ak-module-card:focus-visible p { color: #373a3d; }
+.ak-module-card__arrow { position: absolute; right: 22px; bottom: 20px; font-size: 22px; transition: translate 260ms var(--ak-ease-emphasized); }
+.ak-module-card:hover .ak-module-card__arrow,
+.ak-module-card:focus-visible .ak-module-card__arrow { translate: 4px -4px; }
 
 .ak-home__footer {
   display: flex;
@@ -502,6 +581,27 @@ const modules = [
 .ak-home__footer strong { font-family: Syncopate, sans-serif; }
 .ak-home__footer a { color: inherit; font: 700 11px/1 ui-monospace, monospace; letter-spacing: 0.1em; text-decoration: none; }
 
+@keyframes ak-home-wipe {
+  from { clip-path: inset(0 100% 0 0); }
+  to { clip-path: inset(0 0 0 0); }
+}
+
+@keyframes ak-home-rise {
+  from { opacity: 0; translate: 0 28px; }
+  to { opacity: 1; translate: 0 0; }
+}
+
+@keyframes ak-home-slash {
+  from { opacity: 0; transform: scaleY(0) skewX(-18deg); }
+  to { opacity: 1; transform: scaleY(1) skewX(0); }
+}
+
+@keyframes ak-terminal-scan {
+  0% { translate: 0 -100%; opacity: 1; }
+  88% { opacity: 1; }
+  100% { translate: 0 96px; opacity: 0; }
+}
+
 @keyframes terminal-enter {
   from { opacity: 0; transform: translate3d(36px, 18px, 0) skewY(1deg); }
   to { opacity: 1; transform: translate3d(0, 0, 0) skewY(0); }
@@ -510,7 +610,6 @@ const modules = [
 @media (max-width: 980px) {
   .ak-hero { min-height: auto; padding-top: 88px; grid-template-columns: 1fr; gap: 60px; }
   .ak-hero__terminal { max-width: 720px; }
-  .ak-home__ruler { top: 610px; }
   .ak-manifesto { grid-template-columns: 1fr; gap: 10px; }
   .ak-fidelity-note { grid-template-columns: 1fr; gap: 20px; }
 }
@@ -520,7 +619,7 @@ const modules = [
   .ak-fidelity-note,
   .ak-manifesto,
   .ak-module-index { padding-right: 20px; padding-left: 20px; }
-  .ak-hero { padding-top: 72px; padding-bottom: 92px; }
+  .ak-hero { padding-top: 72px; padding-bottom: 132px; }
   .ak-kicker { align-items: flex-start; flex-direction: column; }
   .ak-hero h1 { font-size: clamp(64px, 24vw, 104px); }
   .ak-hero__lead { font-size: 18px; }
@@ -535,9 +634,20 @@ const modules = [
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .ak-hero__terminal { animation: none; }
-  .ak-hero__terminal:hover { transform: none; }
+  .ak-hero__terminal,
+  .ak-hero__terminal::after,
+  .ak-home__ruler,
+  .ak-kicker,
+  .ak-hero h1 > *,
+  .ak-hero h1 i,
+  .ak-hero__lead,
+  .ak-hero__actions > *,
+  .ak-hero__stats div { animation: none; }
   .ak-action,
-  .ak-module-card { transition: none; }
+  .ak-action span,
+  .ak-module-card,
+  .ak-module-card::before,
+  .ak-module-card::after,
+  .ak-module-card__arrow { transition: none; }
 }
 </style>

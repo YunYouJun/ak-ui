@@ -1,5 +1,21 @@
 # Changelog
 
+## Unreleased
+
+### Features
+
+- Give buttons a light-sweep hover, mechanical press and visible keyboard focus; animate the selected tab signal and hovered stripe cards, all honoring reduced motion.
+- Stage the homepage hero entrance, reveal sections on scroll with `createEntrance`, and add wipe/bracket feedback to the module index.
+- Replace the homepage button preview with an interactive operation demo: stage briefing, squad confirmation, deployment progress and three-star settlement, with a staged boot sequence, a shutter wipe between views, keyboard focus handoff, live announcements and reduced-motion support.
+
+### Fixes
+
+- Move the homepage ruler tape below the hero statistics so their labels no longer sit on the yellow tape.
+
+### Tests
+
+- Replace the homepage pixel baselines with geometry and behavior assertions; `pnpm test` now runs browser checks natively and `test:visual:linux` remains for CI-matched runs.
+
 ## [1.1.0](https://github.com/YunYouJun/ak-ui/compare/v1.0.0...v1.1.0) (2026-09-19)
 
 ### Features
