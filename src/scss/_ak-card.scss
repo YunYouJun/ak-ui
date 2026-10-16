@@ -2,7 +2,10 @@
 
 .ak-card {
   background-color: transparent;
-  transition: 0.2s;
+  transition:
+    box-shadow var(--ak-motion-base, 200ms) var(--ak-ease-standard, ease),
+    transform var(--ak-motion-base, 200ms) var(--ak-ease-standard, ease),
+    border-color var(--ak-motion-base, 200ms) var(--ak-ease-standard, ease);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   outline: none;
   display: inline-block;
@@ -64,16 +67,20 @@
     width: 200px;
     height: 200px;
     padding: 0;
+    // One 20px tile holds exactly one 45deg stripe period, so the hazard
+    // pattern can scroll on hover without a visible seam.
     background-image: repeating-linear-gradient(
       -45deg,
       transparent,
-      transparent 5px,
-      rgba(255, 255, 255, 1) 10px,
-      rgba(255, 255, 255, 1) 15px
+      transparent 4.714px,
+      rgba(255, 255, 255, 1) 9.428px,
+      rgba(255, 255, 255, 1) 14.142px
     );
+    background-size: 20px 20px;
 
     &:hover {
       box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+      animation: ak-card-stripe-scroll 900ms linear infinite;
     }
   }
 
@@ -95,5 +102,25 @@
         0 5px 10px rgba(0, 0, 0, 0.1);
       transform: translateY(-10px);
     }
+  }
+}
+
+@keyframes ak-card-stripe-scroll {
+  from {
+    background-position: 0 0;
+  }
+
+  to {
+    background-position: 20px 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ak-card {
+    transition: none;
+  }
+
+  .ak-card--stripe:hover {
+    animation: none;
   }
 }

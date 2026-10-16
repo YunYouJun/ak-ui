@@ -49,6 +49,8 @@ The entrance controller skips playback when reduced motion is active, and cancel
 
 For custom effects, remove displacement, delay and looping; show the final state immediately. Any remaining infinite decorative loop needs a pause mechanism when applicable. Test a preference change during playback, fast replay, target updates, route unmount, and keyboard focus. Do not use screenshot tests with animations disabled as proof of correct timing.
 
+Unreleased: `.ak-button` crosses a light band over its face on hover (`--ak-motion-slow`), presses to `scale(0.98)`, and shows a token-based `:focus-visible` outline; `.ak-tabs` draws the selected signal bar from the left; `.ak-card--stripe` scrolls its hazard stripes while hovered. All three drop the motion under reduced motion and keep the final state.
+
 In 1.1.0, legacy `.ak-fx--glow`, `.ak-fx--outline`, `.ak-loading::after` and `.ak-loading-track__runner` stop looping under reduced motion. Earlier versions need a host fallback. Particle fields freeze in place when reduced motion is requested and pause while offscreen or the document is hidden. Menu stagger is skipped, gallery content remains visible, and section navigation finishes immediately.
 
 For `/site` navigation (650ms), section/gallery entrances (420ms) and mobile-menu stagger (200ms + 70ms per item), read [site.md](site.md). These are independent implementation settings; only the menu duration/stagger borrow the measured official CSS rhythm.
