@@ -9,3 +9,10 @@ overrides:
   # chain uses vulnerable decode-uri-component. Preserve the CJS parser API by
   # upgrading Stylus instead of overriding the decoder with an ESM-only version.
   'postcss-styl>stylus': 0.64.0
+
+auditConfig:
+  ignoreGhsas:
+    # braces <=3.0.3 has no patched release. It is reached only through dev-time
+    # glob tooling (fast-glob, micromatch, chokidar) matching repository-owned
+    # patterns, never untrusted input. Remove once a fixed version ships.
+    - GHSA-vfj7-8cjw-p6xm
